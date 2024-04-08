@@ -20,7 +20,7 @@ prefix = "&"
 # en: Language.
 lang = "en" # fr / en
 
-# fr: Default Nitro Sniper mode.
+# fr: Default Nitro Sniper mode. (True=On, False=Off)
 # fr: Mode du Nitro Sniper par défaut. (True=On, False=Off)
 nitro_sniper = False
 
@@ -29,6 +29,16 @@ nitro_sniper = False
 deltime = 20
 ########################
 
+
+#######################
+#  good               #
+#        person       #
+#######################
+
+# en: Good Person badwords.
+# fr: Mot interdit pour Good Person.
+badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "bitch", "kys", "fdp", "ntm"]
+########################
 
 #######################
 # fr: RPC par défaut  #
