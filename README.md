@@ -46,7 +46,6 @@ Open `config_selfbot.py` with any text editor.
 * Build your own RPC,
 * Voice commands,
 * Nitro Sniper,
-* AI command,
 * Spam and Flood command,
 * Snipe command,
 * And others, check the `Help` command!
