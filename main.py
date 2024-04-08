@@ -7,7 +7,7 @@ try:
     import ctypes
     import config_selfbot
     import fr_en
-    from Commands import *
+    from commands import *
     from colorama import Fore, Style, Back
     import requests
     import discord
@@ -24,7 +24,7 @@ except ImportError:
     import ctypes
     import config_selfbot
     import fr_en
-    from Commands import *
+    from commands import *
     from colorama import Fore, Style, Back
     import requests
     import discord
