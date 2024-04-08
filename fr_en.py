@@ -26,13 +26,13 @@ cog_fail = {
 }
 
 enable = {
-    "fr": "activé",
-    "en": "enabled"
+    "fr": "activé !",
+    "en": "enabled!"
 }
 
 disable = {
-    "fr": "désactivé",
-    "en": "disabled"
+    "fr": "désactivé !",
+    "en": "disabled!"
 }
 
 empty = {

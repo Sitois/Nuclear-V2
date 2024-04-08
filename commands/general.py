@@ -3,7 +3,6 @@ from discord.ext import commands
 import asyncio
 import os
 import sys
-import random
 
 parent_dir = os.path.abspath('./')
 sys.path.append(parent_dir)
