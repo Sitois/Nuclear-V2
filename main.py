@@ -97,15 +97,15 @@ def call_check_repo():
     latest_version = check_latest_version(repo_owner, repo_name)
     if latest_version:
         if not latest_version == current_version:
-            print(Fore.BLUE, "[INFO]", f"{fr_en.error_check_version_one[config_selfbot.lang]} ({latest_version}) {fr_en.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
-            print(f" {fr_en.error_check_version_three[config_selfbot.lang]} {current_version}", Style.RESET_ALL)
+            print(Fore.BLUE + "[INFO]", f"{fr_en.error_check_version_one[config_selfbot.lang]} ({latest_version}) {fr_en.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
+            print(fr_en.error_check_version_three[config_selfbot.lang] + current_version, Style.RESET_ALL)
 
 try:
     call_check_repo()
 except Exception as e:
     print(f"Error while trying to check the last Nuclear version: {e}")
 
-print(Fore.LIGHTYELLOW_EX, "[#]", Fore.YELLOW, fr_en.start_text[config_selfbot.lang], Style.RESET_ALL)
+print(Fore.LIGHTYELLOW_EX + "[#]" + Fore.YELLOW + fr_en.start_text[config_selfbot.lang], Style.RESET_ALL)
 
 
 
@@ -125,24 +125,33 @@ bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_com
 @bot.event
 async def on_ready():
     global today_date
+    print(Fore.YELLOW + " ------------------", Style.RESET_ALL)
+
     # Cogs !!
     try:
         await bot.add_cog(HelpCommands(bot))
-        print(Fore.GREEN, "[+]", Fore.LIGHTGREEN_EX, 'HelpCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'HelpCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED, "[-]", Fore.LIGHTRED_EX, 'HelpCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'HelpCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
     try:
         await bot.add_cog(FunCommands(bot))
-        print(Fore.GREEN, "[+]", Fore.LIGHTGREEN_EX, 'FunCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'FunCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED, "[-]", Fore.LIGHTRED_EX, 'FunCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'FunCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
     try:
         await bot.add_cog(GeneralCommands(bot))
-        print(Fore.GREEN, "[+]", Fore.LIGHTGREEN_EX, 'GeneralCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'GeneralCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED, "[-]", Fore.LIGHTRED_EX, 'GeneralCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
-    print(Fore.RED, "[!]", Fore.LIGHTRED_EX, f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}).", Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'GeneralCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+    try:
+        await bot.add_cog(VoiceCommands(bot))
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'VoiceCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+    except Exception as e:
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'VoiceCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+    
+    print(Fore.RED + "[!]", Fore.LIGHTRED_EX, f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}).", Style.RESET_ALL)
     print(Fore.MAGENTA + " ------------------", Style.RESET_ALL)
+    
     activity = discord.Activity(type=discord.ActivityType.competing,
                                 name=config_selfbot.activity_name,
                                 details=config_selfbot.activity_details,
@@ -150,6 +159,7 @@ async def on_ready():
                                 #timestamps={"start": time.time()}, # ONLY FOR PLAYING ACTIVITY
                                 assets=config_selfbot.assets,
                                 buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+    
     await bot.change_presence(status=discord.Status.idle,
                               activity=activity,
                               afk=True,
@@ -167,10 +177,10 @@ async def on_ready():
 # start the        #
 #      selfbot !!  #
 ####################
-    
+
 try:
     bot.run(config_selfbot.token)
 except discord.LoginFailure:
-    print(Fore.LIGHTRED_EX, "[CRITICAL]", Fore.RED, fr_en.token_error[config_selfbot.lang], Style.RESET_ALL)
+    print(Fore.LIGHTRED_EX + "[CRITICAL] " + Fore.RED + fr_en.token_error[config_selfbot.lang], Style.RESET_ALL)
 except Exception as e:
-    print(Fore.LIGHTRED_EX, "[CRITICAL]", Fore.RED, fr_en.weird_error[config_selfbot.lang], e, Style.RESET_ALL)
+    print(Fore.LIGHTRED_EX + "[CRITICAL] " + Fore.RED + fr_en.weird_error[config_selfbot.lang], e, Style.RESET_ALL)
