@@ -185,8 +185,8 @@ restart_command = {
 }
 
 stop_command = {
-    "fr": "⭕ Le SelfBot a bien été stoppé.",
-    "en": "⭕ Succesfully stopped the SelfBot."
+    "fr": "⭕ Le Selfbot a bien été stoppé.",
+    "en": "⭕ Succesfully stopped the Selfbot."
 }
 
 leave_voice = {
@@ -197,6 +197,26 @@ leave_voice = {
 leave_voice_error = {
     "fr": "Error while leaving the voice channel",
     "en": "Erreur lors de la déconnexion au salon vocal"
+}
+
+leave_voice_error_not_found = {
+    "fr": "❌ Vous devez être connecté à un salon vocal pour utiliser cette commande !",
+    "en": "❌ You must be connected to a voice channel to use this command!"
+}
+
+voice_channel_error = {
+    "fr": "❌ Veuillez indiquer un ID de salon vocal valide !",
+    "en": "❌ Please enter a valid voice channel ID!"
+}
+
+voice_not_dm = {
+    "fr": "❌ Cette commande n'est pas disponible en MP!",
+    "en": "❌ You can't use this command in DMs!"
+}
+
+voice_channel_error_not_found = {
+    "fr": "❌ Le salon vocal avec cet ID n'existe pas.",
+    "en": "❌ Unable to find the voice channel!"
 }
 
 hype_command = {
@@ -220,13 +240,13 @@ spam_cooldown = {
 }
 
 spam_invalid = {
-    "fr": f"❌ Veuillez indiquer un nombre valide !",
-    "en": f"❌ You must enter a valid number!"
+    "fr": "❌ Veuillez indiquer un nombre valide !",
+    "en": "❌ You must enter a valid number!"
 }
 
 only_dm_fun = {
-    "fr": f"❌ Cette commande n'est disponible qu'en MP!",
-    "en": f"❌ You must use this command in DM!"
+    "fr": "❌ Cette commande n'est disponible qu'en MP!",
+    "en": "❌ You must use this command in DM!"
 }
 
 voice_join = {
@@ -247,11 +267,6 @@ voice_join_cam = {
 voice_join_cam_two = {
     "fr": "avec la caméra activée",
     "en": "with camera"
-}
-
-voice_stream_join = {
-    "fr": "avec le stream activé",
-    "en": "with stream"
 }
 
 
