@@ -3,10 +3,10 @@
 
 
 # 🌌 Nuclear-V2
-### A powerful Discord Selfbot written in Python using [discord.py-self](https://github.com/dolfies/discord.py-self)! ###
+### A powerful Discord Selfbot written in Python using [discord.py-self](https://github.com/dolfies/discord.py-self)!
 
 <div align="center">
-  <img src="https://media.discordapp.net/attachments/1135264530188992562/1198281648437993553/CIjvBOJ.png?ex=65be55bf&is=65abe0bf&hm=40a3c63ca07dfac28726eadae220a07412551a69deea021b73c24ae00933782e&=&format=webp&quality=lossless" alt="icon" width="50%" height="50%">
+  <img src="https://imgur.com/a/VSUeVNZ" alt="icon" width="50%" height="50%">
 
   [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Sitois/Nuclear-V2.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/releases)
   [![GitHub downloads](https://img.shields.io/github/downloads/Sitois/Nuclear-V2/total.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/releases)
