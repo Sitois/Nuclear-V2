@@ -81,11 +81,11 @@ Now your token is in your clipboard.
 
 ## 👀 Preview
 <div align="center">
-  <img src="https://media.discordapp.net/attachments/1135264530188992562/1206262903427170334/FtTnNGY.png?ex=65db5edf&is=65c8e9df&hm=29286b2127bab0abf906413138924631942c5abb69d7b56cf506295ef5ed2234&=&format=webp&quality=lossless" alt="preview" width="" height="">
+  <img src="https://i.imgur.com/aMiocj8.png" alt="preview" width="" height="">
 </div>
 <br>
 <div align="center">
-  <img src="https://media.discordapp.net/attachments/1135264530188992562/1206253306360496259/EcJ09br.png?ex=65db55ef&is=65c8e0ef&hm=078cf750eb91ca80100bf59f478fbb3254647fd825a4d622b1a6d2af6b3a9912&=&format=webp&quality=lossless" alt="preview_second" width="" height="">
+  <img src="https://i.imgur.com/FP6kCj6.png" alt="preview_second" width="" height="">
 </div>
 
 
