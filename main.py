@@ -5,6 +5,7 @@ try:
     import datetime
     import platform
     import ctypes
+    import time
     import config_selfbot
     import fr_en
     from commands import *
@@ -22,6 +23,7 @@ except ImportError:
     import datetime
     import platform
     import ctypes
+    import time
     import config_selfbot
     import fr_en
     from commands import *
@@ -34,7 +36,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 nuclear_version = "v2.0"
 
-print(Fore.LIGHTCYAN_EX + f"""$$\   $$\                     $$\                               
+print(Fore.LIGHTCYAN_EX + fr"""$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
 $$$$\ $$ |$$\   $$\  $$$$$$$\ $$ | $$$$$$\   $$$$$$\   $$$$$$\  
 $$ $$\$$ |$$ |  $$ |$$  _____|$$ |$$  __$$\  \____$$\ $$  __$$\ 
@@ -148,6 +150,11 @@ async def on_ready():
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'VoiceCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
         print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'VoiceCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+    try:
+        await bot.add_cog(ConfigCommands(bot))
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'ConfigCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+    except Exception as e:
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ConfigCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
     
     print(Fore.RED + "[!]", Fore.LIGHTRED_EX, f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}).", Style.RESET_ALL)
     print(Fore.MAGENTA + " ------------------", Style.RESET_ALL)
@@ -166,11 +173,27 @@ async def on_ready():
                               idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
 
+def restart_selfbot():
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
+
+@bot.command()
+async def restart(ctx):
+    await ctx.message.edit(fr_en.restart_command[config_selfbot.lang])
+    time.sleep(2)
+    await ctx.message.delete()
+    restart_selfbot()
+
+@bot.command()
+async def stop(ctx):
+    await ctx.message.edit(fr_en.stop_command[config_selfbot.lang])
+    time.sleep(2)
+    await ctx.message.delete()
+    await bot.close()
+    exit()
+
 #############
 #############
-
-
-
 
 
 ####################

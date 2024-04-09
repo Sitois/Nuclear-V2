@@ -143,11 +143,6 @@ help_voice_cam = {
     "en": "Join the voice channel with a fake camera"
 }
 
-help_voice_stream = {
-    "fr": "Rejoins le salon vocal avec un faux stream",
-    "en": "Join the voice channel with a fake stream"
-}
-
 help_voice_leave = {
     "fr": "Quitte le salon vocal",
     "en": "Leave the voice channnel"
@@ -180,8 +175,8 @@ help_fun_gift = {
 ####################
 
 restart_command = {
-    "fr": "✅ Le SelfBot a bien été redémarré (patientez quelques secondes...) !",
-    "en": "✅ Succesfully restarted the SelfBot (wait a couple of seconds...)!"
+    "fr": "✅ Le Selfbot a bien été redémarré (patientez quelques secondes...) !",
+    "en": "✅ Succesfully restarted the Selfbot (wait a couple of seconds...)!"
 }
 
 stop_command = {
@@ -421,7 +416,7 @@ rpc_cod_details = {
 }
 
 rpc_cod_state = {
-    "fr": "En attente de mission...",
+    "fr": "Menu principal",
     "en": "In the main menu"
 }
 
