@@ -112,7 +112,7 @@ Ils ont tous été corrigé !!&&!&!1§!! (si t'en rencontre une: [https://guilde
     </td>
 <table>
 
-Un grand merci à Lenoch ! Jettez un oeuil à son [projet](https://github.com/Lenochxd/Webdeck) !
+Un grand merci à Lenoch pour le README et pour m'avoir appris Python ;-; ! Jettez un oeuil à son [projet](https://github.com/Lenochxd/Webdeck) !
 
 Un grand merci à Shell1010 pour m'avoir aidé durant le développement et pour avoir créer [selfcord.py](https://github.com/OmegaDevStudio/Selfcord) !
 

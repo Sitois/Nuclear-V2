@@ -6,7 +6,7 @@
 ### A powerful Discord Selfbot written in Python using [discord.py-self](https://github.com/dolfies/discord.py-self)!
 
 <div align="center">
-  <img src="https://imgur.com/a/VSUeVNZ" alt="icon" width="50%" height="50%">
+  <img src="https://i.imgur.com/0Hc2Z9y.png" alt="icon" width="50%" height="50%">
 
   [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Sitois/Nuclear-V2.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/releases)
   [![GitHub downloads](https://img.shields.io/github/downloads/Sitois/Nuclear-V2/total.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/releases)
@@ -113,7 +113,7 @@ THERE IS NO ISSUES !!&!11!!!! (if you get one, come on the [guilded](https://gui
     </td>
 <table>
 
-A big thank to Lenoch ! Check her current [project](https://github.com/Lenochxd/WebDeck)!
+A big thank to Lenoch for the README and for learining me Python ;-; ! Check her current [project](https://github.com/Lenochxd/WebDeck)!
 
 And a big thank to Shell1010 for helping me during the developement of the first version!
 
