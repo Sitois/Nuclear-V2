@@ -16,7 +16,8 @@ class ConfigCommands(commands.Cog):
         if self.nitro_sniper and not ctx.author.id == self.bot.user.id:
             if "discord.gift/" in ctx.content:
                 gift_code = ctx.content.split("discord.gift/")[1]
-                await self.bot.fetch_gift(gift_code)
+                gift = await self.bot.fetch_gift(gift_code)
+                gift.redeem(channel=ctx.channel)
                 print(Fore.LIGHTYELLOW_EX + "[~]", Fore.YELLOW, f"Nitro Sniper: discord.gift/{gift_code}", Style.RESET_ALL)
    
     @commands.command()
