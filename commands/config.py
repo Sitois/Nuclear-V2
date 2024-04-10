@@ -18,7 +18,7 @@ class ConfigCommands(commands.Cog):
                 gift_code = ctx.content.split("discord.gift/")[1]
                 gift = await self.bot.fetch_gift(gift_code)
                 await gift.redeem(channel=ctx.channel)
-                print(Fore.LIGHTYELLOW_EX + "[~]", Fore.YELLOW, f"Nitro Sniper: discord.gift/{gift_code}", Style.RESET_ALL)
+                print(Fore.LIGHTYELLOW_EX + "[~]", Fore.YELLOW, f"Nitro Sniper: discord.gift/{gift_code} | Channel: {ctx.channel.name}({ctx.channel.id}) | Server: {ctx.guild.name}({ctx.guild.id})", Style.RESET_ALL)
    
     @commands.command()
     async def nitrosniper(self, ctx):
