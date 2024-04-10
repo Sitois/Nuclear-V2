@@ -34,7 +34,7 @@ except ImportError:
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-nuclear_version = "v1.0"
+nuclear_version = "v1.2"
 
 print(Fore.LIGHTCYAN_EX + fr"""$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
