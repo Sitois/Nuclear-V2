@@ -71,8 +71,8 @@ error_check_version_two = {
 }
 
 error_check_version_three = {
-    "fr": "Vous utilisez actuellement la version",
-    "en": "You are currently using"
+    "fr": "Vous utilisez actuellement la version ",
+    "en": "You are currently using "
 }
 
 ####################
