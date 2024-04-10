@@ -114,8 +114,8 @@ help_config_restart = {
 }
 
 help_config_stop = {
-    "fr": "Stop le SelfBot",
-    "en": "Stop the SelfBot"
+    "fr": "Stop le Selfbot",
+    "en": "Stop the Selfbot"
 }
 
 help_general_bio = {
@@ -166,6 +166,16 @@ help_fun_call = {
 help_fun_gift = {
     "fr": "Envoie un faux lien Nitro",
     "en": "Send a fake Nitro"
+}
+
+help_raid_banall = {
+    "fr": "Bannis tout les membres du serveur.",
+    "en": "Ban all members."
+}
+
+help_raid_kick = {
+    "fr": "Kick tout les membres du serveur.",
+    "en": "Kick all members."
 }
 
 
@@ -239,6 +249,11 @@ spam_invalid = {
     "en": "❌ You must enter a valid number!"
 }
 
+spam_too_much = {
+    "fr": "❌ Veulliez indiquer une valeur en dessous de 100 !",
+    "en": "❌ Please enter a value below 100!"
+}
+
 only_dm_fun = {
     "fr": "❌ Cette commande n'est disponible qu'en MP!",
     "en": "❌ You must use this command in DM!"
@@ -264,8 +279,25 @@ voice_join_cam_two = {
     "en": "with camera"
 }
 
+raid_in_process = {
+    "fr": "☣️ Raid en cours...",
+    "en": "☣️ Raid in progress..."
+}
 
+raid_error_permisssion = {
+    "fr": "‼️ Permission manquantes !",
+    "en": "‼️ Missing permissions!"
+}
 
+raid_kick_all_success = {
+    "fr": "✅ Tout les membres ont été kick du serveur avec succès.",
+    "en": "✅ Succesfully kicked all members."
+}
+
+raid_ban_all_success = {
+    "fr": "✅ Tout les membres ont été banns du serveur avec succès.",
+    "en": "✅ Succesfully banned all members."
+}
 
 ####################
 #  rpc             #
