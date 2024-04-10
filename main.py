@@ -76,7 +76,7 @@ if config_selfbot.prefix == "":
    config_selfbot.prefix = input("Prefix: ")
 
 if config_selfbot.selfbot_name == "":
-   config_selfbot.selfbot_name = input("SelfBot name: ")
+   config_selfbot.selfbot_name = input("Selfbot name: ")
 
 
 def check_latest_version(repo_owner, repo_name):
@@ -107,7 +107,7 @@ try:
 except Exception as e:
     print(f"Error while trying to check the last Nuclear version: {e}")
 
-print(Fore.LIGHTYELLOW_EX + "[#]" + Fore.YELLOW + fr_en.start_text[config_selfbot.lang], Style.RESET_ALL)
+print(Fore.LIGHTYELLOW_EX + "[#] " + Fore.YELLOW + fr_en.start_text[config_selfbot.lang], Style.RESET_ALL)
 
 
 
@@ -155,8 +155,13 @@ async def on_ready():
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'ConfigCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
         print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ConfigCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+    try:
+        await bot.add_cog(RaidCommands(bot))
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'RaidCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+    except Exception as e:
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'RaidCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
     
-    print(Fore.RED + "[!]", Fore.LIGHTRED_EX, f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}).", Style.RESET_ALL)
+    print(Fore.RED + "[!]", Fore.LIGHTRED_EX + f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}).", Style.RESET_ALL)
     print(Fore.MAGENTA + " ------------------", Style.RESET_ALL)
     
     activity = discord.Activity(type=discord.ActivityType.competing,

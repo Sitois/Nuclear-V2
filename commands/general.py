@@ -13,7 +13,6 @@ class GeneralCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.sniped_messages = {}
-        self.is_spamming = False
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
@@ -26,33 +25,6 @@ class GeneralCommands(commands.Cog):
             }
         except Exception:
             return
-
-    @commands.command()
-    async def spam(self, ctx):
-        message_split = ctx.message.content.split()
-        content = ctx.message.content.replace(f"{message_split[0]} {message_split[1]} ", "")
-
-        try:
-            count = int(message_split[1]) - 1
-        except Exception:
-            await ctx.message.edit(f"{fr_en.spam_invalid[config_selfbot.lang]}!")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-            return
-        
-        if not self.is_spamming:
-            self.is_spamming = True
-
-            await ctx.message.edit(content)
-
-            for i in range(count):
-                await ctx.channel.send(content)
-                await asyncio.sleep(0.5)
-            self.is_spamming = False
-        else:
-            await ctx.message.edit(fr_en.spam_cooldown[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
 
     @commands.command()
     async def clear(self, ctx):
@@ -128,70 +100,6 @@ class GeneralCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def flood(self, ctx):
-        flood_spam = """_ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _"""
-        await ctx.message.edit(flood_spam)
-        for i in range(2):
-            await ctx.channel.send(flood_spam)
-            await asyncio.sleep(0.5)
-
-    @commands.command()
     async def bio(self, ctx):
         message_split = ctx.message.content.split()
         new_bio = ctx.message.content.replace(f"{message_split[0]} ", "")
@@ -199,16 +107,3 @@ class GeneralCommands(commands.Cog):
         await ctx.message.edit(f"📖 Bio {fr_en.bio_command[config_selfbot.lang]} \"`{new_bio}`\"")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
-
-    @commands.command()
-    async def lang(self, ctx):
-        if config_selfbot.lang == "fr":
-            config_selfbot.lang = "en"
-            await ctx.message.edit("🟢 Language set to **English**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-        elif config_selfbot.lang == "en":
-            config_selfbot.lang = "fr"
-            await ctx.message.edit("🟢 Langue changé en **Français**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()

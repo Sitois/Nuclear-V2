@@ -59,6 +59,7 @@ class HelpCommands(commands.Cog):
   🎤| __**{fr_en.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
   🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
+  🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
   ⚙️| __**Config:**__ `{config_selfbot.prefix}config`""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
@@ -84,7 +85,20 @@ class HelpCommands(commands.Cog):
 ⚙️| __**Config:**__
  `{config_selfbot.prefix}nitrosniper`: {fr_en.help_general_sniper[config_selfbot.lang]}.
  `{config_selfbot.prefix}restart`: {fr_en.help_config_restart[config_selfbot.lang]}.
- `{config_selfbot.prefix}stop`: {fr_en.help_config_stop[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}stop`: {fr_en.help_config_stop[config_selfbot.lang]}.
+ `{config_selfbot.prefix}lang`""")
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
+
+    @commands.command()
+    async def raid(self, ctx):
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+🏯| __**Raid:**__
+ `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello).
+ `{config_selfbot.prefix}flood`: Flood.
+ `{config_selfbot.prefix}kickall`: {fr_en.help_raid_kick[config_selfbot.lang]}.
+ `{config_selfbot.prefix}banall`: {fr_en.help_raid_banall[config_selfbot.lang]}""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
@@ -97,10 +111,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}snipe`: {fr_en.help_general_snipe[config_selfbot.lang]}.
  `{config_selfbot.prefix}clear`: {fr_en.help_general_clear[config_selfbot.lang]}.
  `{config_selfbot.prefix}hype`: {fr_en.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
- `{config_selfbot.prefix}bio`: {fr_en.help_general_bio[config_selfbot.lang]}.
- `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello)
- `{config_selfbot.prefix}flood`: Flood.
- `{config_selfbot.prefix}lang`""")
+ `{config_selfbot.prefix}bio`: {fr_en.help_general_bio[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
