@@ -17,10 +17,11 @@ class ConfigCommands(commands.Cog):
         if self.nitro_sniper and not ctx.author.id == self.bot.user.id:
             if "discord.gift/" in ctx.content:
                 try:
+                    print(Fore.LIGHTYELLOW_EX + "[~]", Fore.YELLOW, f"Nitro Sniper: discord.gift/{gift_code} | Channel: {ctx.channel.name}({ctx.channel.id}) | Server: {ctx.guild.name}({ctx.guild.id})", Style.RESET_ALL)
                     gift_code = ctx.content.split("discord.gift/")[1]
                     gift = await self.bot.fetch_gift(gift_code)
                     await gift.redeem(channel=ctx.channel)
-                    print(Fore.LIGHTYELLOW_EX + "[~]", Fore.YELLOW, f"Nitro Sniper: discord.gift/{gift_code} | Channel: {ctx.channel.name}({ctx.channel.id}) | Server: {ctx.guild.name}({ctx.guild.id})", Style.RESET_ALL)
+                    print(Fore.LIGHTGREEN_EX + "[+]", Fore.GREEN, f"discord.gift/{gift_code} {fr_en.nitro_sniper_valid[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.HTTPException:
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_claimed[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.NotFound:

@@ -289,6 +289,11 @@ nitro_sniper_claimed = {
     "en": "was already redeemed by someone else!"
 }
 
+nitro_sniper_valid = {
+    "fr": "a bien été réclamé sur le compte !",
+    "en": "has been claimed on the account!"
+}
+
 nitro_sniper_invalid_code = {
     "fr": "est invalide !",
     "en": "is invalid!"
