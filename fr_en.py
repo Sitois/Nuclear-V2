@@ -329,6 +329,11 @@ raid_dm_all_fail = {
     "en": "❌ You must enter a message!"
 }
 
+raid_dm_all_captcha = {
+    "fr": "❌ Amis trop nombreux. Captcha requis !",
+    "en": "❌ Too much friends. Captcha required!"
+}
+
 raid_dm_all_success = {
     "fr": "✅ Message envoyé avec succès à la liste d'amis !",
     "en": "✅ Succesfully sent message to all friends!"

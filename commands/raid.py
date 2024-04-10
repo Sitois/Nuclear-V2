@@ -85,6 +85,12 @@ class RaidCommands(commands.Cog):
                 await asyncio.sleep(random_cooldown(0.5, 2))
             except discord.Forbidden:
                 print(f"[-] @{friend.user.name}({friend.user.id})")
+            except discord.CaptchaRequired:
+                await ctx.message.edit(fr_en.raid_dm_all_captcha[config_selfbot.lang])
+                await asyncio.sleep(config_selfbot.deltime)
+                await ctx.message.delete()
+                return
+
 
         await ctx.message.edit(fr_en.raid_dm_all_success[config_selfbot.lang])
         await asyncio.sleep(config_selfbot.deltime)

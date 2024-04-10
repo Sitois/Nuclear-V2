@@ -26,6 +26,7 @@ class ConfigCommands(commands.Cog):
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_claimed[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.NotFound:
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_invalid_code[config_selfbot.lang]}", Style.RESET_ALL)
+                    
     @commands.command()
     async def nitrosniper(self, ctx):
         if not self.nitro_sniper:
