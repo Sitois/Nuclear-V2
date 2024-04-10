@@ -62,6 +62,28 @@ class RaidCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
+    async def dmall(self, ctx):
+        message_split = ctx.message.content.split()
+        dmall_content = ctx.message.content.replace(f"{message_split[0]} ", "")
+
+        friends = self.bot.friends
+        print(f"Message: {dmall_content}")
+
+        await ctx.message.edit(fr_en.raid_dm_all[config_selfbot.lang])
+
+        for friend in friends:
+            try:
+                await friend.user.send(dmall_content)
+                print(f"[+] @{friend.user.name}({friend.user.id})")
+                await asyncio.sleep(random_cooldown(0.5, 2))
+            except discord.Forbidden:
+                print(f"[-] @{friend.user.name}({friend.user.id})")
+
+        await ctx.message.edit(fr_en.raid_dm_all_success[config_selfbot.lang])
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
+
+    @commands.command()
     async def spam(self, ctx):
         message_split = ctx.message.content.split()
         content = ctx.message.content.replace(f"{message_split[0]} {message_split[1]} ", "")

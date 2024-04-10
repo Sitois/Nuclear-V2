@@ -91,6 +91,7 @@ class HelpCommands(commands.Cog):
 🏯| __**Raid:**__
  `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello).
  `{config_selfbot.prefix}flood`: Flood.
+ `{config_selfbot.prefix}dmall`: {fr_en.help_raid_dmall[config_selfbot.lang]}.
  `{config_selfbot.prefix}kickall`: {fr_en.help_raid_kick[config_selfbot.lang]}.
  `{config_selfbot.prefix}banall`: {fr_en.help_raid_banall[config_selfbot.lang]}""")
         await asyncio.sleep(config_selfbot.deltime)

@@ -168,6 +168,11 @@ help_fun_gift = {
     "en": "Send a fake Nitro"
 }
 
+help_raid_dmall = {
+    "fr": "Envoi un message privé à votre liste d'amis.",
+    "en": "Send a private message to your friend list."
+}
+
 help_raid_banall = {
     "fr": "Bannis tout les membres du serveur.",
     "en": "Ban all members."
@@ -297,6 +302,16 @@ raid_kick_all_success = {
 raid_ban_all_success = {
     "fr": "✅ Tout les membres ont été banns du serveur avec succès.",
     "en": "✅ Succesfully banned all members."
+}
+
+raid_dm_all = {
+    "fr": "☣️ Envoi du message privée à toute la liste d'amis...",
+    "en": "☣️ Sending the message to all friends..."
+}
+
+raid_dm_all_success = {
+    "fr": "✅ Message envoyé avec succès à la liste d'amis !",
+    "en": "✅ Succesfully sent message to all friends!"
 }
 
 ####################
