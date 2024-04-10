@@ -2,11 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 import random
-import sys
-import os
 
-parent_dir = os.path.abspath('./')
-sys.path.append(parent_dir)
 import config_selfbot
 import fr_en
 
@@ -62,8 +58,6 @@ class HelpCommands(commands.Cog):
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
   ⚙️| __**Config:**__ `{config_selfbot.prefix}config`""")
         await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
-
         await ctx.message.delete()
 
     @commands.command()

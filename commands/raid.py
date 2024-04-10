@@ -1,13 +1,9 @@
 import discord
 from discord.ext import commands
 import asyncio
-import os
-import sys
 import random
 import string
 
-parent_dir = os.path.abspath('./')
-sys.path.append(parent_dir)
 import config_selfbot
 import fr_en
 

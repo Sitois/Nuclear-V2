@@ -1,12 +1,9 @@
 import discord
 from discord.ext import commands
 import asyncio
-import os
-import sys
 from colorama import Fore, Style, Back
 
-parent_dir = os.path.abspath('./')
-sys.path.append(parent_dir)
+
 import config_selfbot
 
 class ConfigCommands(commands.Cog):
@@ -32,18 +29,5 @@ class ConfigCommands(commands.Cog):
         elif self.nitro_sniper:
             self.nitro_sniper = False
             await ctx.message.edit("🔴 Nitro Sniper **Off**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-
-    @commands.command()
-    async def lang(self, ctx):
-        if config_selfbot.lang == "fr":
-            config_selfbot.lang = "en"
-            await ctx.message.edit("🟢 Language set to **English**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-        elif config_selfbot.lang == "en":
-            config_selfbot.lang = "fr"
-            await ctx.message.edit("🟢 Langue changée en **Français**.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()

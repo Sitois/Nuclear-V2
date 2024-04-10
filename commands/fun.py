@@ -4,11 +4,8 @@ import asyncio
 import random
 import requests
 import json
-import sys
-import os
 
-parent_dir = os.path.abspath('./')
-sys.path.append(parent_dir)
+
 import config_selfbot
 import fr_en
 
