@@ -174,7 +174,7 @@ help_raid_banall = {
 }
 
 help_raid_kick = {
-    "fr": "Kick tout les membres du serveur.",
+    "fr": "Kick tout les membres du serveur",
     "en": "Kick all members."
 }
 

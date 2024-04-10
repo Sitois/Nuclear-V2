@@ -91,7 +91,7 @@ class RaidCommands(commands.Cog):
 
             for i in range(count):
                 await ctx.channel.send(content)
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(random_cooldown(0.5, 2))
             self.is_spamming = False
         else:
             await ctx.message.edit(fr_en.spam_cooldown[config_selfbot.lang])
