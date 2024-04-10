@@ -65,9 +65,16 @@ class RaidCommands(commands.Cog):
     async def dmall(self, ctx):
         message_split = ctx.message.content.split()
         dmall_content = ctx.message.content.replace(f"{message_split[0]} ", "")
+        try:
+            message_split[1]
+        except Exception:
+            await ctx.message.edit(fr_en.raid_dm_all_fail[config_selfbot.lang])
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+            return
 
         friends = self.bot.friends
-        print(f"Message: {dmall_content}")
+        print(f"Message: {dmall_content},to ({len(friends)} friends)")
 
         await ctx.message.edit(fr_en.raid_dm_all[config_selfbot.lang])
 
@@ -98,6 +105,14 @@ class RaidCommands(commands.Cog):
         
         if count >= 100:
             await ctx.message.edit(fr_en.spam_too_much[config_selfbot.lang])
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+            return
+
+        try:
+            message_split[2]
+        except Exception:
+            await ctx.message.edit(fr_en.raid_dm_all_fail[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return

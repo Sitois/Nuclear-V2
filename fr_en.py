@@ -174,7 +174,7 @@ help_raid_dmall = {
 }
 
 help_raid_banall = {
-    "fr": "Bannis tout les membres du serveur.",
+    "fr": "Bannis tout les membres du serveur",
     "en": "Ban all members."
 }
 
@@ -307,6 +307,11 @@ raid_ban_all_success = {
 raid_dm_all = {
     "fr": "☣️ Envoi du message privée à toute la liste d'amis...",
     "en": "☣️ Sending the message to all friends..."
+}
+
+raid_dm_all_fail = {
+    "fr": "❌ Vous devez renseigner un message !",
+    "en": "❌ You must enter a message!"
 }
 
 raid_dm_all_success = {
