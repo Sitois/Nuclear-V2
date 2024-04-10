@@ -284,6 +284,16 @@ voice_join_cam_two = {
     "en": "with camera"
 }
 
+nitro_sniper_claimed = {
+    "fr": "a déjà été réclamé par quelqu'un d'autre !",
+    "en": "was already redeemed by someone else!"
+}
+
+nitro_sniper_invalid_code = {
+    "fr": "est invalide !",
+    "en": "is invalid!"
+}
+
 raid_in_process = {
     "fr": "☣️ Raid en cours...",
     "en": "☣️ Raid in progress..."
