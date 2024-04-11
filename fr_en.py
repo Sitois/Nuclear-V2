@@ -169,13 +169,13 @@ help_fun_gift = {
 }
 
 help_raid_dmall = {
-    "fr": "Envoi un message privé à votre liste d'amis.",
+    "fr": "Envoi un message privé à votre liste d'amis",
     "en": "Send a private message to your friend list."
 }
 
 help_raid_banall = {
     "fr": "Bannis tout les membres du serveur",
-    "en": "Ban all members."
+    "en": "Ban all members"
 }
 
 help_raid_kick = {
@@ -315,7 +315,7 @@ raid_kick_all_success = {
 }
 
 raid_ban_all_success = {
-    "fr": "✅ Tout les membres ont été banns du serveur avec succès.",
+    "fr": "✅ Tout les membres ont été bannis du serveur avec succès.",
     "en": "✅ Succesfully banned all members."
 }
 
@@ -331,7 +331,7 @@ raid_dm_all_fail = {
 
 raid_dm_all_captcha = {
     "fr": "❌ Amis trop nombreux. Captcha requis !",
-    "en": "❌ Too much friends. Captcha required!"
+    "en": "❌ Too many friends. Captcha required!"
 }
 
 raid_dm_all_success = {
