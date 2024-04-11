@@ -115,9 +115,9 @@ THERE IS NO ISSUES !!&!11!!!! (if you get one, come on the [guilded](https://gui
     </td>
 <table>
 
-A big thank to Lenoch for the README and for learning me Python ;-; ! Check her current [project](https://github.com/Lenochxd/WebDeck)!
+A big thank to [Lenoch](https://github.com/Lenochxd) for the README and for learning me Python ;-; ! Check her current [project](https://github.com/Lenochxd/WebDeck)!
 
-And a big thank to Shell1010 for helping me during the developement of the first version!
+And a big thank to [Shell1010](https://github.com/Shell1010) for helping me during the developement of the first version!
 
 # Support
 - Guilded server: [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
