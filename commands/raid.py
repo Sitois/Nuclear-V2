@@ -28,12 +28,14 @@ class RaidCommands(commands.Cog):
             members = ctx.guild.members
             
             await ctx.message.edit(fr_en.raid_in_process[config_selfbot.lang])
-
+            print(Fore.YELLOW + "=========KICK ALL=========", Style.RESET_ALL)
             for member in members:
                 if ctx.guild.me.top_role > member.top_role:
                     await member.kick(reason=f"ezzed by Nuclear lol. {generate_random_string(6)}")
+                    print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + f"@{member.name}({member.id})", Style.RESET_ALL)
                     await asyncio.sleep(random_cooldown(0.5, 2))
-            
+
+            print(Fore.YELLOW + "========================", Style.RESET_ALL)
             await ctx.message.edit(fr_en.raid_kick_all_success[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
@@ -48,12 +50,14 @@ class RaidCommands(commands.Cog):
             members = ctx.guild.members
 
             await ctx.message.edit(fr_en.raid_in_process[config_selfbot.lang])
-            
+            print(Fore.YELLOW + "=========BAN ALL=========", Style.RESET_ALL)
             for member in members:
                 if ctx.guild.me.top_role > member.top_role:
                     await member.ban(reason=f"ezzed by Nuclear lol. {generate_random_string(6)}")
+                    print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + f"@{member.name}({member.id})", Style.RESET_ALL)
                     await asyncio.sleep(random_cooldown(0.5, 2))
             
+            print(Fore.YELLOW + "========================", Style.RESET_ALL)
             await ctx.message.edit(fr_en.raid_ban_all_success[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
@@ -76,7 +80,7 @@ class RaidCommands(commands.Cog):
 
         friends = self.bot.friends
 
-        print("=========DM ALL=========")
+        print(Fore.YELLOW + "=========DM ALL=========", Style.RESET_ALL)
         print(Fore.BLUE + f"Friends Counter: {len(friends)} | Message:\n{dmall_content}", Style.RESET_ALL)
 
         await ctx.message.edit(fr_en.raid_dm_all[config_selfbot.lang])
@@ -89,12 +93,14 @@ class RaidCommands(commands.Cog):
             except discord.Forbidden:
                 print(Fore.RED + "[-]", Fore.LIGHTRED_EX + "@{friend.user.name}({friend.user.id})", Style.RESET_ALL)
             except discord.CaptchaRequired:
+                print(Fore.RED + "[!]", Fore.LIGHTRED_EX + "Captcha Required!", Style.RESET_ALL)
+                print("========================")
                 await ctx.message.edit(fr_en.raid_dm_all_captcha[config_selfbot.lang])
                 await asyncio.sleep(config_selfbot.deltime)
                 await ctx.message.delete()
                 return
         
-        print("========================")
+        print(Fore.YELLOW + "========================", Style.RESET_ALL)
 
 
         await ctx.message.edit(fr_en.raid_dm_all_success[config_selfbot.lang])
