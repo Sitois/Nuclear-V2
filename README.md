@@ -42,9 +42,11 @@
 Open `config_selfbot.py` with any text editor.
 
 ## 🌟 Features
-* Custom RPC templates,
-* Build your own RPC,
+* Custom RPC templates, [soon]
+* Build your own RPC, [soon]
 * Voice commands,
+* Raid commands,
+* Massive DM (DM All),
 * Nitro Sniper,
 * Spam and Flood command,
 * Snipe command,

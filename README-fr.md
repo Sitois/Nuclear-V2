@@ -42,9 +42,11 @@
 Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un token d'__utilisateur__.
 
 ## 🌟 Fonctionnalités
-* Templates RPC personnalisés,
-* Créez votre propre RPC,
+* Templates RPC personnalisés, [bientôt]
+* Créez votre propre RPC, [bientôt]
 * Commandes vocal,
+* Commandes de raids,
+* MP nombreux (DM All),
 * Nitro Sniper,
 * Flood et Spam,
 * Snipe,
