@@ -3,6 +3,7 @@ from discord.ext import commands
 import asyncio
 import random
 import string
+from colorama import Fore, Style, Back
 
 import config_selfbot
 import fr_en
@@ -74,22 +75,26 @@ class RaidCommands(commands.Cog):
             return
 
         friends = self.bot.friends
-        print(f"Message: {dmall_content},to ({len(friends)} friends)")
+
+        print("=========DM ALL=========")
+        print(Fore.BLUE + f"Friends Counter: {len(friends)} | Message:\n{dmall_content}", Style.RESET_ALL)
 
         await ctx.message.edit(fr_en.raid_dm_all[config_selfbot.lang])
 
         for friend in friends:
             try:
                 await friend.user.send(dmall_content)
-                print(f"[+] @{friend.user.name}({friend.user.id})")
+                print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + "@{friend.user.name}({friend.user.id})", Style.RESET_ALL)
                 await asyncio.sleep(random_cooldown(0.5, 2))
             except discord.Forbidden:
-                print(f"[-] @{friend.user.name}({friend.user.id})")
+                print(Fore.RED + "[-]", Fore.LIGHTRED_EX + "@{friend.user.name}({friend.user.id})", Style.RESET_ALL)
             except discord.CaptchaRequired:
                 await ctx.message.edit(fr_en.raid_dm_all_captcha[config_selfbot.lang])
                 await asyncio.sleep(config_selfbot.deltime)
                 await ctx.message.delete()
                 return
+        
+        print("========================")
 
 
         await ctx.message.edit(fr_en.raid_dm_all_success[config_selfbot.lang])
