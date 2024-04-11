@@ -170,6 +170,7 @@ async def on_ready():
                                 state=config_selfbot.activity_state,
                                 #timestamps={"start": time.time()}, # ONLY FOR PLAYING ACTIVITY
                                 assets=config_selfbot.assets,
+                                application_id=config_selfbot.application_id,
                                 buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
     
     await bot.change_presence(status=discord.Status.idle,

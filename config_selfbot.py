@@ -48,6 +48,7 @@ badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "b
 activity_name = "☄"
 activity_details = " "
 activity_state = " "
+application_id = 1200865454319747142
 
 streaming_url = "https://twitch.tv/twitch"
 activity_button_one = "Nuclear !"
