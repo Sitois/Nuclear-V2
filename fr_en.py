@@ -51,8 +51,8 @@ author = {
 ####################
 
 start_text = {
-    "fr": "Démarrage du Selfbot en cours...",
-    "en": "Starting the Selfbot..."
+    "fr": "Démarrage du selfbot en cours...",
+    "en": "Starting the selfbot..."
 }
 
 ready_text = {
@@ -94,8 +94,8 @@ help_general_hype = {
 }
 
 help_general_ping = {
-    "fr": "Affiche la latence du SelfBot",
-    "en": "Display the Selfbot's ping"
+    "fr": "Affiche la latence du selfbot",
+    "en": "Display the selfbot's ping"
 }
 
 help_general_sniper = {
@@ -109,13 +109,13 @@ error_no_message_snipe = {
 }
 
 help_config_restart = {
-    "fr": "Redémarre le SelfBot (peut régler un bug)",
-    "en": "Restart the SelfBot. (it can fix a bug)"
+    "fr": "Redémarre le selfbot (peut régler un bug)",
+    "en": "Restart the selfbot. (it can fix a bug)"
 }
 
 help_config_stop = {
-    "fr": "Stop le Selfbot",
-    "en": "Stop the Selfbot"
+    "fr": "Stop le selfbot",
+    "en": "Stop the selfbot"
 }
 
 help_general_bio = {
@@ -183,6 +183,16 @@ help_raid_kick = {
     "en": "Kick all members."
 }
 
+help_tools_close_dm = {
+    "fr": "Ferme tout vos MP",
+    "en": "Close all your DMs"
+}
+
+help_tools_close_dm_bots = {
+    "fr": "Ferme tout vos MP avec des bots",
+    "en": "Close all your DMs with bots"
+}
+
 
 ####################
 #  commands        #
@@ -190,13 +200,13 @@ help_raid_kick = {
 ####################
 
 restart_command = {
-    "fr": "✅ Le Selfbot a bien été redémarré (patientez quelques secondes...) !",
-    "en": "✅ Succesfully restarted the Selfbot (wait a couple of seconds...)!"
+    "fr": "✅ Le selfbot a bien été redémarré (patientez quelques secondes...) !",
+    "en": "✅ Succesfully restarted the selfbot (wait a couple of seconds...)!"
 }
 
 stop_command = {
-    "fr": "⭕ Le Selfbot a bien été stoppé.",
-    "en": "⭕ Succesfully stopped the Selfbot."
+    "fr": "⭕ Le selfbot a bien été stoppé.",
+    "en": "⭕ Succesfully stopped the selfbot."
 }
 
 leave_voice = {
@@ -339,6 +349,26 @@ raid_dm_all_success = {
     "en": "✅ Succesfully sent message to all friends!"
 }
 
+tool_close_dms = {
+    "fr": "🔧 Fermeture de tout vos MP...",
+    "en": "🔧 Closing all your DMs..."
+}
+
+tool_close_dms_success = {
+    "fr": "✅ Tout vos MP ont bien été fermés !",
+    "en": "✅ All of your DMs has been closed!"
+}
+
+tool_close_dms_bots = {
+    "fr": "🔧 Fermeture de tout vos MP avec des bots...",
+    "en": "🔧 Closing all your DMs with bots..."
+}
+
+tool_close_dms_bots_success = {
+    "fr": "✅ Tout vos MP avec des bots ont bien été fermés !",
+    "en": "✅ All of your DMs with bots has been closed!"
+}
+
 ####################
 #  rpc             #
 # translation !!!  #
@@ -421,8 +451,8 @@ template_help_reset = {
 }
 
 template_help_default = {
-    "fr": "Modifie votre RPC par défaut (`config_selfbot.py`).",
-    "en": "Edit your RPC to default (`config_selfbot.py`)."
+    "fr": "Modifie votre RPC par celui présent dans (`config_selfbot.py`).",
+    "en": "Edit your RPC to the default one (in `config_selfbot.py`)."
 }
 
 template_help_cod = {

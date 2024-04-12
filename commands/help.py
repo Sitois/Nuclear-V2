@@ -56,7 +56,18 @@ class HelpCommands(commands.Cog):
   🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
+  🔧| __**Tools:**__ `{config_selfbot.prefix}tools`
   ⚙️| __**Config:**__ `{config_selfbot.prefix}config`""")
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
+
+    @commands.command()
+    async def tools(self, ctx):
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+🔧| __**Tools:**__
+ `{config_selfbot.prefix}closealldm`: {fr_en.help_tools_close_dm[config_selfbot.lang]}.
+ `{config_selfbot.prefix}botclosedm`: {fr_en.help_tools_close_dm_bots[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
