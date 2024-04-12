@@ -86,12 +86,8 @@ class FunCommands(commands.Cog):
         except Exception:
             gift_type = "random"
         
-        if gift_type == "random":
-            alphabet = "abcdefghijklmnopqrstuvwxyz"
-            numbers = "0123456789"
-            gift_code = ''.join(random.choice(alphabet + numbers) for _ in range(16))
-            await ctx.message.edit(f"discord.gift/{gift_code}")
-        elif gift_type == "poor":
+
+        if gift_type == "poor":
             await ctx.message.edit("discord.gift/vhnuzE2YkNCZ7sfYHHKebKXB")
         elif gift_type == "nerd":
             await ctx.message.edit("discord.gift/Udzwm3hrQECQBnEEFFCEwdSq")
