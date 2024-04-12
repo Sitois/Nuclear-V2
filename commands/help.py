@@ -114,8 +114,8 @@ class HelpCommands(commands.Cog):
 
 📂| __**Utils:**__
  `{config_selfbot.prefix}ping`: {fr_en.help_general_ping[config_selfbot.lang]}.
- `{config_selfbot.prefix}snipe`: {fr_en.help_general_snipe[config_selfbot.lang]}.
- `{config_selfbot.prefix}clear`: {fr_en.help_general_clear[config_selfbot.lang]}.
+ `{config_selfbot.prefix}snipe`: {fr_en.help_general_snipe[config_selfbot.lang]}
+ `{config_selfbot.prefix}clear`: {fr_en.help_general_clear[config_selfbot.lang]}
  `{config_selfbot.prefix}hype`: {fr_en.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
  `{config_selfbot.prefix}bio`: {fr_en.help_general_bio[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
