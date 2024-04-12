@@ -43,7 +43,7 @@ class ConfigCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def lang(ctx):
+    async def lang(self, ctx):
         if config_selfbot.lang == "fr":
             config_selfbot.lang = "en"
             await ctx.message.edit("🟢 Language set to **English**.")
