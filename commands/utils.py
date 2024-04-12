@@ -5,7 +5,7 @@ import asyncio
 import config_selfbot
 import fr_en
 
-class GeneralCommands(commands.Cog):
+class UtilsCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.sniped_messages = {}

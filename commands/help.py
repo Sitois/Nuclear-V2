@@ -51,7 +51,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
   ☄ "{random.choice(poetry[config_selfbot.lang])}" ☄
 
-  🏮| __**General:**__ `{config_selfbot.prefix}general`
+  📂| __**Utils:**__ `{config_selfbot.prefix}utils`
   🎤| __**{fr_en.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
   🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
@@ -67,7 +67,8 @@ class HelpCommands(commands.Cog):
 
 🔧| __**Tools:**__
  `{config_selfbot.prefix}closealldm`: {fr_en.help_tools_close_dm[config_selfbot.lang]}.
- `{config_selfbot.prefix}botclosedm`: {fr_en.help_tools_close_dm_bots[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}botclosedm`: {fr_en.help_tools_close_dm_bots[config_selfbot.lang]}.
+ `{config_selfbot.prefix}dmall`: {fr_en.help_raid_dmall[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
@@ -102,17 +103,16 @@ class HelpCommands(commands.Cog):
 🏯| __**Raid:**__
  `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello).
  `{config_selfbot.prefix}flood`: Flood.
- `{config_selfbot.prefix}dmall`: {fr_en.help_raid_dmall[config_selfbot.lang]}.
  `{config_selfbot.prefix}kickall`: {fr_en.help_raid_kick[config_selfbot.lang]}.
  `{config_selfbot.prefix}banall`: {fr_en.help_raid_banall[config_selfbot.lang]}""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
     @commands.command()
-    async def general(self, ctx):
+    async def utils(self, ctx):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
-🏮| __**GENERAL:**__
+📂| __**Utils:**__
  `{config_selfbot.prefix}ping`: {fr_en.help_general_ping[config_selfbot.lang]}.
  `{config_selfbot.prefix}snipe`: {fr_en.help_general_snipe[config_selfbot.lang]}.
  `{config_selfbot.prefix}clear`: {fr_en.help_general_clear[config_selfbot.lang]}.

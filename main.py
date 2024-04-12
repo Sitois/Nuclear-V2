@@ -141,10 +141,10 @@ async def on_ready():
     except Exception as e:
         print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'FunCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
     try:
-        await bot.add_cog(GeneralCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'GeneralCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        await bot.add_cog(UtilsCommands(bot))
+        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'UtilsCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'GeneralCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'UtilsCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
     try:
         await bot.add_cog(VoiceCommands(bot))
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'VoiceCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)

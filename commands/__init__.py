@@ -1,5 +1,5 @@
 from .help import HelpCommands
-from .general import GeneralCommands
+from .utils import UtilsCommands
 from .fun import FunCommands
 from .voice import VoiceCommands
 from .config import ConfigCommands
