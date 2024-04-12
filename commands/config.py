@@ -23,10 +23,12 @@ class ConfigCommands(commands.Cog):
                     await gift.redeem(channel=ctx.channel)
                     print(Fore.LIGHTGREEN_EX + "[+]", Fore.GREEN, f"discord.gift/{gift_code} {fr_en.nitro_sniper_valid[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.HTTPException:
+                    gift_code = ctx.content.split("discord.gift/")[1]
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_claimed[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.NotFound:
+                    gift_code = ctx.content.split("discord.gift/")[1]
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_invalid_code[config_selfbot.lang]}", Style.RESET_ALL)
-                    
+
     @commands.command()
     async def nitrosniper(self, ctx):
         if not self.nitro_sniper:
@@ -37,5 +39,18 @@ class ConfigCommands(commands.Cog):
         elif self.nitro_sniper:
             self.nitro_sniper = False
             await ctx.message.edit("🔴 Nitro Sniper **Off**.")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+
+    @commands.command()
+    async def lang(ctx):
+        if config_selfbot.lang == "fr":
+            config_selfbot.lang = "en"
+            await ctx.message.edit("🟢 Language set to **English**.")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+        elif config_selfbot.lang == "en":
+            config_selfbot.lang = "fr"
+            await ctx.message.edit("🟢 Langue changé en **Français**.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
