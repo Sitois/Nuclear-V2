@@ -5,6 +5,10 @@ import asyncio
 import config_selfbot
 import fr_en
 
+def random_cooldown(minimum, maximum):
+    cooldown = random.randint(minimum*100000,maximum*100000) / 100000
+    return cooldown
+
 class UtilsCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -39,15 +43,12 @@ class UtilsCommands(commands.Cog):
             await ctx.message.delete()
             return
         
-        def is_me(m):
-            return m.author.id == self.bot.user.id
-            
-        for i in range(amount):
-         await ctx.channel.purge(limit=1, check=is_me)
-         await asyncio.sleep(0.4)
-        msg = await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**")
-        await asyncio.sleep(1.4)
-        await msg.delete()
+        async for message in ctx.channel.history(limit=amount):
+            if message.author.id == self.bot.user.id:
+                await message.delete()
+                await asyncio.sleep(random_cooldown(0.4, 1.9))
+
+        await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
     @commands.command()
     async def snipe(self, ctx):
