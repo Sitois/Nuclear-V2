@@ -60,6 +60,16 @@ ready_text = {
     "en": "Connected as"
 }
 
+ready_text_two = {
+    "fr": "démarré en",
+    "en": "started in"
+}
+
+ready_text_three = {
+    "fr": "secondes.",
+    "en": "seconds."
+}
+
 error_check_version_one = {
     "fr": "Une nouvelle version",
     "en": "A new version"

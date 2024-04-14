@@ -34,7 +34,7 @@ except ImportError:
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-nuclear_version = "v1.3"
+nuclear_version = "v1.4"
 
 print(Fore.LIGHTCYAN_EX + fr"""$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
@@ -122,11 +122,12 @@ today_date = datetime.datetime.today()
 
 bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)
 
-
+start_time = time.time()
 
 @bot.event
 async def on_ready():
     global today_date
+    global start_time
     print(Fore.YELLOW + " ------------------", Style.RESET_ALL)
 
     # Cogs !!
@@ -144,29 +145,29 @@ async def on_ready():
         await bot.add_cog(UtilsCommands(bot))
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'UtilsCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'UtilsCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'UtilsCommands:', fr_en.cog_fail[config_selfbot.lang] + e, Style.RESET_ALL)
     try:
         await bot.add_cog(VoiceCommands(bot))
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'VoiceCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'VoiceCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'VoiceCommands:', fr_en.cog_fail[config_selfbot.lang] + e, Style.RESET_ALL)
     try:
         await bot.add_cog(ConfigCommands(bot))
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'ConfigCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ConfigCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ConfigCommands:', fr_en.cog_fail[config_selfbot.lang] + e, Style.RESET_ALL)
     try:
         await bot.add_cog(RaidCommands(bot))
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'RaidCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'RaidCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'RaidCommands:', fr_en.cog_fail[config_selfbot.lang] + e, Style.RESET_ALL)
     try:
         await bot.add_cog(ToolsCommands(bot))
         print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'ToolsCommands:', fr_en.cog_success[config_selfbot.lang], Style.RESET_ALL)
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ToolsCommands:', fr_en.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ToolsCommands:', fr_en.cog_fail[config_selfbot.lang] + e, Style.RESET_ALL)
     
-    print(Fore.RED + "[!]", Fore.LIGHTRED_EX + f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}).", Style.RESET_ALL)
+    print(Fore.RED + "[!]", Fore.LIGHTRED_EX + f"{fr_en.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {fr_en.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {fr_en.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
     print(Fore.MAGENTA + " ------------------", Style.RESET_ALL)
     
     activity = discord.Activity(type=discord.ActivityType.competing,
