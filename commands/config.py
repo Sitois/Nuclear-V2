@@ -36,7 +36,7 @@ class ConfigCommands(commands.Cog):
             await ctx.message.edit("🟢 Nitro Sniper **On**.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
-        elif self.nitro_sniper:
+        else:
             self.nitro_sniper = False
             await ctx.message.edit("🔴 Nitro Sniper **Off**.")
             await asyncio.sleep(config_selfbot.deltime)
@@ -49,7 +49,7 @@ class ConfigCommands(commands.Cog):
             await ctx.message.edit("🟢 Language set to **English**.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
-        elif config_selfbot.lang == "en":
+        else:
             config_selfbot.lang = "fr"
             await ctx.message.edit("🟢 Langue changé en **Français**.")
             await asyncio.sleep(config_selfbot.deltime)
