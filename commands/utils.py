@@ -17,15 +17,16 @@ class UtilsCommands(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
-        try:
-            attachments_urls = [attachment.url for attachment in message.attachments]
-            self.sniped_messages[message.channel.id] = {
-                'author': message.author,
-                'content': message.content,
-                'images': attachments_urls if message.attachments else fr_en.empty[config_selfbot.lang]
-            }
-        except Exception:
-            return
+        if not message.author.id == self.bot.user.id:
+            try:
+                attachments_urls = [attachment.url for attachment in message.attachments]
+                self.sniped_messages[message.channel.id] = {
+                    'author': message.author,
+                    'content': message.content,
+                    'images': attachments_urls if message.attachments else fr_en.empty[config_selfbot.lang]
+                }
+            except Exception:
+                return
 
     @commands.command()
     async def clear(self, ctx):
