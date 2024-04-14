@@ -23,10 +23,8 @@ class ConfigCommands(commands.Cog):
                     await gift.redeem(channel=ctx.channel)
                     print(Fore.LIGHTGREEN_EX + "[+]", Fore.GREEN, f"discord.gift/{gift_code} {fr_en.nitro_sniper_valid[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.HTTPException:
-                    gift_code = ctx.content.split("discord.gift/")[1]
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_claimed[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.NotFound:
-                    gift_code = ctx.content.split("discord.gift/")[1]
                     print(Fore.LIGHTRED_EX + "[!]", Fore.RED, f"discord.gift/{gift_code} {fr_en.nitro_sniper_invalid_code[config_selfbot.lang]}", Style.RESET_ALL)
 
     @commands.command()
