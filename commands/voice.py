@@ -44,6 +44,7 @@ class VoiceCommands(commands.Cog):
             await ctx.message.edit(f"❌ {fr_en.voice_join_error[config_selfbot.lang]} : {e}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+            return
 
     @commands.command()
     async def joincam(self, ctx):
@@ -60,6 +61,7 @@ class VoiceCommands(commands.Cog):
             await ctx.message.edit(fr_en.voice_channel_error[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+            return
 
         voice_channel = self.bot.get_channel(voice_id)
         if voice_channel is None:
@@ -79,6 +81,7 @@ class VoiceCommands(commands.Cog):
             await ctx.message.edit(f"❌ {fr_en.voice_join_error[config_selfbot.lang]} : {e}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+            return
 
     @commands.command()
     async def leavevc(self, ctx):
@@ -105,3 +108,4 @@ class VoiceCommands(commands.Cog):
             await ctx.message.edit(f"❌ {fr_en.leave_voice_error[config_selfbot.lang]} : {e}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+            return
