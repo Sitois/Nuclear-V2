@@ -128,6 +128,6 @@ class HelpCommands(commands.Cog):
 🎤| __**Voice:**__
  `{config_selfbot.prefix}joinvc <voice_channel_id>`: {fr_en.help_voice_vc[config_selfbot.lang]}.
  `{config_selfbot.prefix}joincam <voice_channel_id>`: {fr_en.help_voice_cam[config_selfbot.lang]}.
- `{config_selfbot.prefix}leavevc <voice_channel_id>`: {fr_en.help_voice_leave[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}leavevc`: {fr_en.help_voice_leave[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
