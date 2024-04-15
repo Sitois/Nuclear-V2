@@ -24,6 +24,7 @@ class VoiceCommands(commands.Cog):
             await ctx.message.edit(fr_en.voice_channel_error[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+            return
 
         voice_channel = self.bot.get_channel(voice_id)
         if voice_channel is None:
@@ -35,7 +36,7 @@ class VoiceCommands(commands.Cog):
 
         try:
             voice_client = await voice_channel.connect()
-            await ctx.guild.change_voice_state(channel=voice_channel, self_mute=True)
+            await voice_channel.guild.change_voice_state(channel=voice_channel, self_mute=True)
             await ctx.message.edit(f"📲 {fr_en.voice_join[config_selfbot.lang]} `{voice_channel.name}`.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
@@ -70,7 +71,7 @@ class VoiceCommands(commands.Cog):
 
         try:
             await voice_channel.connect()
-            await ctx.guild.change_voice_state(channel=voice_channel, self_video=True, self_mute=True)
+            await voice_channel.guild.change_voice_state(channel=voice_channel, self_video=True, self_mute=True)
             await ctx.message.edit(f"🎥 {fr_en.voice_join_cam[config_selfbot.lang]} `{voice_channel.name}` {fr_en.voice_join_cam_two[config_selfbot.lang]}.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
