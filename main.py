@@ -1,11 +1,8 @@
 import subprocess
 try:
-    import sys
-    import os
-    import datetime
-    import platform
+    import sys, os, platform
     import ctypes
-    import time
+    import datetime, time
     import config_selfbot
     import fr_en
     from commands import *
@@ -14,16 +11,14 @@ try:
     import discord
     from discord.ext import commands
 except ImportError:
-    import sys
-    import os
+    import sys, os
     if sys.platform == 'win32' or 'win64':
      subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
     else:
      subprocess.check_call([sys.executable, "-m", "pip3", "install", '-r' , 'requirements.txt'])
-    import datetime
     import platform
     import ctypes
-    import time
+    import datetime, time
     import config_selfbot
     import fr_en
     from commands import *

@@ -39,7 +39,7 @@
 4. Exécutez le programme : `python selfbot.py`
 
 ## 🔧 Configuration
-Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un token d'__utilisateur__.
+Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un [token d'__utilisateur__](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token).
 
 ## 🌟 Fonctionnalités
 * Templates RPC personnalisés, [bientôt]
