@@ -31,7 +31,6 @@ class UtilsCommands(commands.Cog):
     @commands.command()
     async def clear(self, ctx):
         message_split = ctx.message.content.split()
-
         try:
             str_amount = message_split[1]
         except Exception:
@@ -45,10 +44,15 @@ class UtilsCommands(commands.Cog):
             await ctx.message.delete()
             return
         
-        async for message in ctx.channel.history(limit=amount):
-            if message.author.id == self.bot.user.id:
-                await message.delete()
-                await asyncio.sleep(random_cooldown(0.4, 1.9))
+        if ctx.guild is None:
+            async for message in ctx.channel.history(limit=amount):
+                if message.author.id == self.bot.user.id:
+                    await message.delete()
+                    await asyncio.sleep(random_cooldown(0.4, 1.9))
+        else:
+            def is_me(m):
+                return m.author.id == self.bot.user.id
+            await ctx.channel.pruge(limit=amount, check=is_me, oldest_first=True)
 
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
