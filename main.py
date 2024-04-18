@@ -8,7 +8,7 @@ try:
     from commands import *
     from colorama import Fore, Style, Back
     import requests
-    import twocaptcha
+    #import twocaptcha
     import discord
     from discord.ext import commands
 except ImportError:
@@ -25,7 +25,7 @@ except ImportError:
     from commands import *
     from colorama import Fore, Style, Back
     import requests
-    import twocaptcha
+    #import twocaptcha
     import discord
     from discord.ext import commands
 
