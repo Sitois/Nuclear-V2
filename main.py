@@ -8,6 +8,7 @@ try:
     from commands import *
     from colorama import Fore, Style, Back
     import requests
+    import twocaptcha
     import discord
     from discord.ext import commands
 except ImportError:
@@ -24,12 +25,13 @@ except ImportError:
     from commands import *
     from colorama import Fore, Style, Back
     import requests
+    import twocaptcha
     import discord
     from discord.ext import commands
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-nuclear_version = "v1.4"
+nuclear_version = "v1.5"
 
 print(Fore.LIGHTCYAN_EX + fr"""$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
@@ -110,12 +112,22 @@ print(Fore.LIGHTYELLOW_EX + "[#] " + Fore.YELLOW + fr_en.start_text[config_selfb
 #  start           #
 #   setup     !!!  #
 ####################
-
 assets = config_selfbot.assets
-
 today_date = datetime.datetime.today()
 
-bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)
+
+"""
+API_KEY = 'API_KEY_HERE'
+
+
+solver = twocaptcha.TwoCaptcha(API_KEY)
+
+async def handle_captcha(exc: discord.CaptchaRequired, bot: commands.Bot) -> str:
+    result = solver.solve_captcha(site_key=exc.sitekey, page_url="https://discord.com/")
+    return result['code']
+"""
+
+bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)#, captcha_handler=handle_captcha)
 
 start_time = time.time()
 
