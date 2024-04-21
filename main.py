@@ -228,7 +228,7 @@ except discord.LoginFailure:
 except Exception as e:
     if "400, message='Can not decode content-encoding: br'" in str(e):
         """
-        This error is from discord.py==1.7.3(it's the last version of fiscord.py that works with user account) that use an old version of aiohttp.
+        This error is from discord.py==1.7.3(it's the last version of discord.py that works with user account) that use an old version of aiohttp.
         This should fix this problem and restart the selfbot :).
         """
         print(Fore.LIGHTYELLOW_EX + "[WARNING] " + Fore.YELLOW + langs.aihottp_error[config_selfbot.lang], Style.RESET_ALL)
