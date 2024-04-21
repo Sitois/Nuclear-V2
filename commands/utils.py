@@ -4,7 +4,7 @@ import asyncio
 import random
 
 import config_selfbot
-import fr_en
+import langs
 
 def random_cooldown(minimum, maximum):
     cooldown = random.randint(minimum*100000,maximum*100000) / 100000
@@ -23,7 +23,7 @@ class UtilsCommands(commands.Cog):
                 self.sniped_messages[message.channel.id] = {
                     'author': message.author,
                     'content': message.content,
-                    'images': attachments_urls if message.attachments else fr_en.empty[config_selfbot.lang]
+                    'images': attachments_urls if message.attachments else langs.empty[config_selfbot.lang]
                 }
             except Exception:
                 return
@@ -39,7 +39,7 @@ class UtilsCommands(commands.Cog):
         try:
             amount = int(str_amount) + 1
         except Exception:
-            await ctx.message.edit(fr_en.spam_invalid[config_selfbot.lang])
+            await ctx.message.edit(langs.spam_invalid[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
@@ -52,7 +52,7 @@ class UtilsCommands(commands.Cog):
         else:
             def is_me(m):
                 return m.author.id == self.bot.user.id
-            await ctx.channel.pruge(limit=amount, check=is_me, oldest_first=True)
+            await ctx.channel.pruge(limit=amount, check=is_me)
 
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
@@ -60,16 +60,16 @@ class UtilsCommands(commands.Cog):
     async def snipe(self, ctx):
         sniped_message = self.sniped_messages.get(ctx.channel.id)
         if sniped_message:
-            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] == fr_en.empty[config_selfbot.lang] else None
+            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] == langs.empty[config_selfbot.lang] else None
             await ctx.message.edit(f"""__**🔫 Sniper:**__
 
-🗣️ {fr_en.author[config_selfbot.lang]}: {sniped_message['author']}
+🗣️ {langs.author[config_selfbot.lang]}: {sniped_message['author']}
 📩 Message: {sniped_message['content']}
 🖼️ Images: {images_text}""")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
-            await ctx.message.edit(fr_en.error_no_message_snipe[config_selfbot.lang])
+            await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
@@ -78,21 +78,21 @@ class UtilsCommands(commands.Cog):
         house = ctx.message.content.split()[1]
         if house == "balance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.balance)
-            await ctx.message.edit(f"🪄 HypeSquad {fr_en.hype_command[config_selfbot.lang]} ``{house}``")
+            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif house == "bravery":
             await self.bot.user.edit(house=discord.HypeSquadHouse.bravery)
-            await ctx.message.edit(f"🪄 HypeSquad {fr_en.hype_command[config_selfbot.lang]} ``{house}``")
+            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif house == "brilliance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.brilliance)
-            await ctx.message.edit(f"🪄 HypeSquad {fr_en.hype_command[config_selfbot.lang]} ``{house}``")
+            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
-            await ctx.message.edit(fr_en.hype_fail[config_selfbot.lang])
+            await ctx.message.edit(langs.hype_fail[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
@@ -107,6 +107,6 @@ class UtilsCommands(commands.Cog):
         message_split = ctx.message.content.split()
         new_bio = ctx.message.content.replace(f"{message_split[0]} ", "")
         await self.bot.user.edit(bio=new_bio)
-        await ctx.message.edit(f"📖 Bio {fr_en.bio_command[config_selfbot.lang]} \"`{new_bio}`\"")
+        await ctx.message.edit(f"📖 Bio {langs.bio_command[config_selfbot.lang]} \"`{new_bio}`\"")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()

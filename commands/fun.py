@@ -7,7 +7,7 @@ import json
 
 
 import config_selfbot
-import fr_en
+import langs
 
 
 class FunCommands(commands.Cog):
@@ -18,7 +18,7 @@ class FunCommands(commands.Cog):
     @commands.command()
     async def call(self, ctx):
         if not isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(fr_en.only_dm_fun[config_selfbot.lang])
+            await ctx.message.edit(langs.only_dm_fun[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
@@ -31,18 +31,18 @@ class FunCommands(commands.Cog):
                 await voice_client.disconnect()
                 await asyncio.sleep(1.3)
         except Exception as e:
-            print(f"{fr_en.voice_join_error[config_selfbot.lang]}: {e}")
+            print(f"{langs.voice_join_error[config_selfbot.lang]}: {e}")
 
     @commands.command()
     async def good(self, ctx):
         if not self.good_person:
             self.good_person = True
-            await ctx.message.edit(f"🌈 Good Person {fr_en.enable[config_selfbot.lang]}")
+            await ctx.message.edit(f"🌈 Good Person {langs.enable[config_selfbot.lang]}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif self.good_person:
             self.good_person = False
-            await ctx.message.edit(f"🔥 Good Person {fr_en.disable[config_selfbot.lang]}")
+            await ctx.message.edit(f"🔥 Good Person {langs.disable[config_selfbot.lang]}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 

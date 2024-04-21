@@ -6,7 +6,7 @@ import string
 from colorama import Fore, Style, Back
 
 import config_selfbot
-import fr_en
+import langs
 
 
 def generate_random_string(length):
@@ -27,7 +27,7 @@ class RaidCommands(commands.Cog):
         if ctx.author.guild_permissions.kick_members:
             members = ctx.guild.members
             
-            await ctx.message.edit(fr_en.raid_in_process[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_in_process[config_selfbot.lang])
             print(Fore.YELLOW + "=========KICK ALL=========", Style.RESET_ALL)
             for member in members:
                 if ctx.guild.me.top_role > member.top_role:
@@ -36,11 +36,11 @@ class RaidCommands(commands.Cog):
                     await asyncio.sleep(random_cooldown(0.5, 2))
 
             print(Fore.YELLOW + "========================", Style.RESET_ALL)
-            await ctx.message.edit(fr_en.raid_kick_all_success[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_kick_all_success[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
-            await ctx.message.edit(fr_en.raid_error_permisssion[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
@@ -49,7 +49,7 @@ class RaidCommands(commands.Cog):
         if ctx.author.guild_permissions.ban_members:
             members = ctx.guild.members
 
-            await ctx.message.edit(fr_en.raid_in_process[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_in_process[config_selfbot.lang])
             print(Fore.YELLOW + "=========BAN ALL=========", Style.RESET_ALL)
             for member in members:
                 if ctx.guild.me.top_role > member.top_role:
@@ -58,11 +58,11 @@ class RaidCommands(commands.Cog):
                     await asyncio.sleep(random_cooldown(0.5, 2))
             
             print(Fore.YELLOW + "========================", Style.RESET_ALL)
-            await ctx.message.edit(fr_en.raid_ban_all_success[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_ban_all_success[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
-            await ctx.message.edit(fr_en.raid_error_permisssion[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
@@ -74,13 +74,13 @@ class RaidCommands(commands.Cog):
         try:
             count = int(message_split[1]) - 1
         except Exception:
-            await ctx.message.edit(f"{fr_en.spam_invalid[config_selfbot.lang]}!")
+            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
         
         if count >= 100:
-            await ctx.message.edit(fr_en.spam_too_much[config_selfbot.lang])
+            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
@@ -88,7 +88,7 @@ class RaidCommands(commands.Cog):
         try:
             message_split[2]
         except Exception:
-            await ctx.message.edit(fr_en.raid_dm_all_fail[config_selfbot.lang])
+            await ctx.message.edit(langs.raid_dm_all_fail[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
@@ -103,7 +103,7 @@ class RaidCommands(commands.Cog):
                 await asyncio.sleep(random_cooldown(0.5, 2))
             self.is_spamming = False
         else:
-            await ctx.message.edit(fr_en.spam_cooldown[config_selfbot.lang])
+            await ctx.message.edit(langs.spam_cooldown[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 

@@ -4,7 +4,7 @@ import asyncio
 import random
 
 import config_selfbot
-import fr_en
+import langs
 
 class HelpCommands(commands.Cog):
     def __init__(self, bot):
@@ -52,7 +52,7 @@ class HelpCommands(commands.Cog):
   ☄ "{random.choice(poetry[config_selfbot.lang])}" ☄
 
   📂| __**Utils:**__ `{config_selfbot.prefix}utils`
-  🎤| __**{fr_en.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
+  🎤| __**{langs.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
   🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
@@ -66,9 +66,9 @@ class HelpCommands(commands.Cog):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🔧| __**Tools:**__
- `{config_selfbot.prefix}closealldm`: {fr_en.help_tools_close_dm[config_selfbot.lang]}.
- `{config_selfbot.prefix}botclosedm`: {fr_en.help_tools_close_dm_bots[config_selfbot.lang]}.
- `{config_selfbot.prefix}dmall`: {fr_en.help_raid_dmall[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}closealldm`: {langs.help_tools_close_dm[config_selfbot.lang]}.
+ `{config_selfbot.prefix}botclosedm`: {langs.help_tools_close_dm_bots[config_selfbot.lang]}.
+ `{config_selfbot.prefix}dmall`: {langs.help_raid_dmall[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
@@ -77,10 +77,10 @@ class HelpCommands(commands.Cog):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🎲| __**Fun:**__
- `{config_selfbot.prefix}cat`: {fr_en.help_fun_cat[config_selfbot.lang]}.
- `{config_selfbot.prefix}good`: {fr_en.help_fun_good[config_selfbot.lang]}.
- `{config_selfbot.prefix}call`: {fr_en.help_fun_call[config_selfbot.lang]}.
- `{config_selfbot.prefix}gift <random/nerd/poor>`: {fr_en.help_fun_gift[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}cat`: {langs.help_fun_cat[config_selfbot.lang]}.
+ `{config_selfbot.prefix}good`: {langs.help_fun_good[config_selfbot.lang]}.
+ `{config_selfbot.prefix}call`: {langs.help_fun_call[config_selfbot.lang]}.
+ `{config_selfbot.prefix}gift <random/nerd/poor>`: {langs.help_fun_gift[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
@@ -89,9 +89,9 @@ class HelpCommands(commands.Cog):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 ⚙️| __**Config:**__
- `{config_selfbot.prefix}nitrosniper`: {fr_en.help_general_sniper[config_selfbot.lang]}.
- `{config_selfbot.prefix}restart`: {fr_en.help_config_restart[config_selfbot.lang]}.
- `{config_selfbot.prefix}stop`: {fr_en.help_config_stop[config_selfbot.lang]}.
+ `{config_selfbot.prefix}nitrosniper`: {langs.help_general_sniper[config_selfbot.lang]}.
+ `{config_selfbot.prefix}restart`: {langs.help_config_restart[config_selfbot.lang]}.
+ `{config_selfbot.prefix}stop`: {langs.help_config_stop[config_selfbot.lang]}.
  `{config_selfbot.prefix}lang`""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
@@ -103,8 +103,8 @@ class HelpCommands(commands.Cog):
 🏯| __**Raid:**__
  `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello).
  `{config_selfbot.prefix}flood`: Flood.
- `{config_selfbot.prefix}kickall`: {fr_en.help_raid_kick[config_selfbot.lang]}.
- `{config_selfbot.prefix}banall`: {fr_en.help_raid_banall[config_selfbot.lang]}""")
+ `{config_selfbot.prefix}kickall`: {langs.help_raid_kick[config_selfbot.lang]}.
+ `{config_selfbot.prefix}banall`: {langs.help_raid_banall[config_selfbot.lang]}""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
@@ -113,11 +113,11 @@ class HelpCommands(commands.Cog):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 📂| __**Utils:**__
- `{config_selfbot.prefix}ping`: {fr_en.help_general_ping[config_selfbot.lang]}.
- `{config_selfbot.prefix}snipe`: {fr_en.help_general_snipe[config_selfbot.lang]}
- `{config_selfbot.prefix}clear`: {fr_en.help_general_clear[config_selfbot.lang]}
- `{config_selfbot.prefix}hype`: {fr_en.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
- `{config_selfbot.prefix}bio`: {fr_en.help_general_bio[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}ping`: {langs.help_general_ping[config_selfbot.lang]}.
+ `{config_selfbot.prefix}snipe`: {langs.help_general_snipe[config_selfbot.lang]}
+ `{config_selfbot.prefix}clear`: {langs.help_general_clear[config_selfbot.lang]}
+ `{config_selfbot.prefix}hype`: {langs.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
+ `{config_selfbot.prefix}bio`: {langs.help_general_bio[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
@@ -126,8 +126,8 @@ class HelpCommands(commands.Cog):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
                            
 🎤| __**Voice:**__
- `{config_selfbot.prefix}joinvc <voice_channel_id>`: {fr_en.help_voice_vc[config_selfbot.lang]}.
- `{config_selfbot.prefix}joincam <voice_channel_id>`: {fr_en.help_voice_cam[config_selfbot.lang]}.
- `{config_selfbot.prefix}leavevc`: {fr_en.help_voice_leave[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}joinvc <voice_channel_id>`: {langs.help_voice_vc[config_selfbot.lang]}.
+ `{config_selfbot.prefix}joincam <voice_channel_id>`: {langs.help_voice_cam[config_selfbot.lang]}.
+ `{config_selfbot.prefix}leavevc`: {langs.help_voice_leave[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()

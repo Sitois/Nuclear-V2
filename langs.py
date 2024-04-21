@@ -10,6 +10,16 @@ token_error = {
     "en": "Improper token. Please configure a valid token in config_selfbot.py"
 }
 
+aihottp_error = {
+    "fr": "Ancienne version d'aiohttp (cette erreur de vient pas de Nuclear ^^). Cette erreur vient de discord.py==1.7.3, Tentaive de fix (le selfbot va redémarrer!)...\nAppuyez sur Entrer.",
+    "en": "Old aiohttp error (not Nuclear's fault ^^). This comes from discord.py==1.7.3, trying to fix it (it will restart!)...\nPress Enter."
+}
+
+aihottp_success = {
+    "fr": "Redémarrage en cours...",
+    "en": "Restarting..."
+}
+
 weird_error = {
     "fr": "Maybe a config error. Make sure all information in config_selfbot.py are correct.\nError:",
     "en": "Peut-être une erreur de configuration. Assurez-vous que toutes les informations dans config_selfbot.py sont correctes.\nErreur:"
@@ -210,7 +220,7 @@ help_tools_close_dm_bots = {
 ####################
 
 restart_command = {
-    "fr": "✅ Le selfbot a bien été redémarré (patientez quelques secondes...) !",
+    "fr": "✅ Selfbot redémarré avec succès (patientez quelques secondes...) !",
     "en": "✅ Succesfully restarted the selfbot (wait a couple of seconds...)!"
 }
 
