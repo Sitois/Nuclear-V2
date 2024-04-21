@@ -33,14 +33,14 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 nuclear_version = "v1.5"
 
-print(Fore.LIGHTCYAN_EX + fr"""$$\   $$\                     $$\                               
+print(fr"""{Fore.LIGHTCYAN_EX}$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
 $$$$\ $$ |$$\   $$\  $$$$$$$\ $$ | $$$$$$\   $$$$$$\   $$$$$$\  
 $$ $$\$$ |$$ |  $$ |$$  _____|$$ |$$  __$$\  \____$$\ $$  __$$\ 
 $$ \$$$$ |$$ |  $$ |$$ /      $$ |$$$$$$$$ | $$$$$$$ |$$ |  \__|
 $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |      
 $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
-\__|  \__| \______/  \_______|\__| \_______| \_______|\__|  {nuclear_version}""", Style.RESET_ALL)
+\__|  \__| \______/  \_______|\__| \_______| \_______|\__|  {nuclear_version}{Style.RESET_ALL}""")
 
 
 
@@ -96,15 +96,15 @@ def call_check_repo():
     latest_version = check_latest_version(repo_owner, repo_name)
     if latest_version:
         if not latest_version == current_version:
-            print(Fore.BLUE + "[INFO]", f"{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
-            print(langs.error_check_version_three[config_selfbot.lang] + current_version, Style.RESET_ALL)
+            print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
+            print(f"{langs.error_check_version_three[config_selfbot.lang]} {current_version}{Style.RESET_ALL}")
 
 try:
     call_check_repo()
 except Exception as e:
     print(f"Error while trying to check the last Nuclear version: {e}")
 
-print(Fore.LIGHTYELLOW_EX + "[#] " + Fore.YELLOW + langs.start_text[config_selfbot.lang], Style.RESET_ALL)
+print(f"{Fore.LIGHTYELLOW_EX}[#] {Fore.YELLOW}{langs.start_text[config_selfbot.lang]}{Style.RESET_ALL}")
 
 
 
@@ -135,47 +135,47 @@ start_time = time.time()
 async def on_ready():
     global today_date
     global start_time
-    print(Fore.YELLOW + " ------------------", Style.RESET_ALL)
+    print(f"{Fore.YELLOW}------------------{Style.RESET_ALL}")
 
     # Cogs !!
     try:
         await bot.add_cog(HelpCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'HelpCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}HelpCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'HelpCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}HelpCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(FunCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'FunCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}FunCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'FunCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}FunCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(UtilsCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'UtilsCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}UtilsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'UtilsCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}UtilsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(VoiceCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'VoiceCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}VoiceCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'VoiceCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}VoiceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(ConfigCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'ConfigCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ConfigCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ConfigCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}ConfigCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(RaidCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'RaidCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}RaidCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'RaidCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(ToolsCommands(bot))
-        print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + 'ToolsCommands:', langs.cog_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     except Exception as e:
-        print(Fore.RED + "[-]", Fore.LIGHTRED_EX + 'ToolsCommands:', langs.cog_fail[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     
-    print(Fore.RED + "[!]", Fore.LIGHTRED_EX + f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
-    print(Fore.MAGENTA + " ------------------", Style.RESET_ALL)
+    print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}) {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
+    print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
     
     activity = discord.Activity(type=discord.ActivityType.competing,
                                 name=config_selfbot.activity_name,
@@ -221,17 +221,18 @@ async def stop(ctx):
 #      selfbot !!  #
 ####################
 
+
 try:
     bot.run(config_selfbot.token)
 except discord.LoginFailure:
-    print(Fore.LIGHTRED_EX + "[CRITICAL] " + Fore.RED + langs.token_error[config_selfbot.lang], Style.RESET_ALL)
+    print(f"{Fore.LIGHTRED_EX}[CRITICAL] {Fore.RED}{langs.token_error[config_selfbot.lang]}{Style.RESET_ALL}")
 except Exception as e:
     if "400, message='Can not decode content-encoding: br'" in str(e):
         """
         This error is from discord.py==1.7.3(it's the last version of discord.py that works with user account) that use an old version of aiohttp.
         This should fix this problem and restart the selfbot :).
         """
-        print(Fore.LIGHTYELLOW_EX + "[WARNING] " + Fore.YELLOW + langs.aihottp_error[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.LIGHTYELLOW_EX}[WARNING] {Fore.YELLOW} {langs.aihottp_error[config_selfbot.lang]}{Style.RESET_ALL}")
         if sys.platform == 'win32' or 'win64':
          subprocess.check_call([sys.executable, "-m", "pip", "uninstall", 'aiohttp'])
          time.sleep(3)
@@ -240,8 +241,8 @@ except Exception as e:
          subprocess.check_call([sys.executable, "-m", "pip3", "install", 'aiohttp'])
          time.sleep(3)
          subprocess.check_call([sys.executable, "-m", "pip3", "install", 'aiohttp'])
-        print(Fore.LIGHTGREEN_EX + "[INFO] " + Fore.GREEN + langs.aihottp_success[config_selfbot.lang], Style.RESET_ALL)
+        print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
         time.sleep(3)
         restart_selfbot()
     else:
-        print(Fore.LIGHTRED_EX + "[CRITICAL] " + Fore.RED + langs.weird_error[config_selfbot.lang], e, Style.RESET_ALL)
+        print(f"{Fore.LIGHTRED_EX}[CRITICAL] {Fore.RED}{langs.weird_error[config_selfbot.lang]} {e} {Style.RESET_ALL}")
