@@ -233,12 +233,12 @@ except Exception as e:
         This should fix this problem and restart the selfbot :).
         """
         print(f"{Fore.LIGHTYELLOW_EX}[WARNING] {Fore.YELLOW} {langs.aihottp_error[config_selfbot.lang]}{Style.RESET_ALL}")
-        if sys.platform == 'win32' or 'win64':
+        if sys.platform == 'win32' or sys.platform == 'win64':
          subprocess.check_call([sys.executable, "-m", "pip", "uninstall", 'aiohttp'])
          time.sleep(3)
          subprocess.check_call([sys.executable, "-m", "pip", "install", 'aiohttp'])
         else:
-         subprocess.check_call([sys.executable, "-m", "pip3", "install", 'aiohttp'])
+         subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", 'aiohttp'])
          time.sleep(3)
          subprocess.check_call([sys.executable, "-m", "pip3", "install", 'aiohttp'])
         print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
