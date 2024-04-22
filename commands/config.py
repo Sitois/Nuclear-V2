@@ -17,7 +17,7 @@ class ConfigCommands(commands.Cog):
         if self.nitro_sniper and not ctx.author.id == self.bot.user.id:
             if "discord.gift/" in ctx.content:
                 try:
-                    gift_code = ctx.content.split("discord.gift/")[1]
+                    gift_code = ctx.content.split("discord.gift/")[1].split()[0]
                     if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
                         print(Fore.LIGHTYELLOW_EX + "[~]", Fore.YELLOW, f"Nitro Sniper: discord.gift/{gift_code}", Style.RESET_ALL)
                     else:
