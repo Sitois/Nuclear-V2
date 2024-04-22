@@ -170,7 +170,7 @@ async def on_ready():
         print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(ToolsCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ToolsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     
@@ -233,7 +233,7 @@ except Exception as e:
         This should fix this problem and restart the selfbot :).
         """
         print(f"{Fore.LIGHTYELLOW_EX}[WARNING] {Fore.YELLOW} {langs.aihottp_error[config_selfbot.lang]}{Style.RESET_ALL}")
-        if sys.platform == 'win32' or sys.platform == 'win64':
+        if os.name == 'nt':
          subprocess.check_call([sys.executable, "-m", "pip", "uninstall", 'aiohttp'])
          time.sleep(3)
          subprocess.check_call([sys.executable, "-m", "pip", "install", 'aiohttp'])
