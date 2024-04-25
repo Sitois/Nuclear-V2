@@ -227,11 +227,11 @@ def fix_aiohttp():
     if os.name == 'nt':
         subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "aiohttp"])
         time.sleep(3)
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-u", "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", "aiohttp"])
     else:
         subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", "aiohttp"])
         time.sleep(3)
-        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-u",  "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-U",  "aiohttp"])
 
 try:
     bot.run(config_selfbot.token)
