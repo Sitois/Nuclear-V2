@@ -13,7 +13,7 @@ try:
     from discord.ext import commands
 except ImportError:
     import sys, os
-    if sys.platform == 'win32' or 'win64':
+    if os.name == 'nt':
      subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
     else:
      subprocess.check_call([sys.executable, "-m", "pip3", "install", '-r' , 'requirements.txt'])
@@ -222,6 +222,17 @@ async def stop(ctx):
 ####################
 
 
+
+def fix_aiohttp():
+    if os.name == 'nt':
+        subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "aiohttp"])
+        time.sleep(3)
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-u", "aiohttp"])
+    else:
+        subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", "aiohttp"])
+        time.sleep(3)
+        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-u",  "aiohttp"])
+
 try:
     bot.run(config_selfbot.token)
 except discord.LoginFailure:
@@ -233,14 +244,9 @@ except Exception as e:
         This should fix this problem and restart the selfbot :).
         """
         print(f"{Fore.LIGHTYELLOW_EX}[WARNING] {Fore.YELLOW} {langs.aihottp_error[config_selfbot.lang]}{Style.RESET_ALL}")
-        if os.name == 'nt':
-         subprocess.check_call([sys.executable, "-m", "pip", "uninstall", 'aiohttp'])
-         time.sleep(3)
-         subprocess.check_call([sys.executable, "-m", "pip", "install", 'aiohttp'])
-        else:
-         subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", 'aiohttp'])
-         time.sleep(3)
-         subprocess.check_call([sys.executable, "-m", "pip3", "install", 'aiohttp'])
+
+        fix_aiohttp()
+
         print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
         time.sleep(3)
         restart_selfbot()
