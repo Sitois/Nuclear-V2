@@ -44,7 +44,7 @@ class UtilsCommands(commands.Cog):
             await ctx.message.delete()
             return
         
-        if ctx.guild is None:
+        if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
             async for message in ctx.channel.history(limit=amount):
                 if message.author.id == self.bot.user.id:
                     await message.delete()
@@ -52,7 +52,7 @@ class UtilsCommands(commands.Cog):
         else:
             def is_me(m):
                 return m.author.id == self.bot.user.id
-            await ctx.channel.pruge(limit=amount, check=is_me)
+            await ctx.channel.purge(limit=amount, check=is_me)
 
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
