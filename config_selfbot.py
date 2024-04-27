@@ -57,10 +57,10 @@ activity_button_two = "Star it!"
 activity_button_two_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
 
 # see &tuto
-assets = {"large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=661a8c51&is=66081751&hm=791e0e36c6fe078da6c10af86c4c541f5eb0ca78157cdc4b84f4e0d70af88f15&=&format=webp&quality=lossless",
+assets = {"large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=662daa11&is=662c5891&hm=fd617583fee2ee05c504c282364ef5c30dbd54c9c252ba0b4179888c37ad08af&=&format=webp&quality=lossless",
           "large_text": "☄",
-          "small_image": "mp:attachments/1135264530188992562/1198617586389225592/aBjaPbQ.png?ex=661bd79d&is=6609629d&hm=2aff7ae01882753b086aac14119f874afbbfceacde64c17e6701e26350f67840&=&format=webp&quality=lossless",
-          "small_text": "☄"
+          "small_image": None,
+          "small_text": None
           }
 
 
