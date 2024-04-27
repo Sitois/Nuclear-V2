@@ -39,10 +39,10 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "omori":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1177984303456604253/i9ja3eA.gif?ex=65b517df&is=65a2a2df&hm=ba4d90afb6d6f47adceb1dbdc8ae28435c20a0fc46dd52cd3b492b427d356987&=&width=559&height=419",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1233797659429699745/uBNj49H.png?ex=662e671c&is=662d159c&hm=081493b0d766c8f1cf90cb6d230bdd4d633386e6cb99ebd701bbae8d854edf46&=&format=webp&quality=lossless",
                       "large_text": "Omori",
-                      "small_image": None,
-                      "small_text": None
+                      "small_image": "mp:attachments/1135264530188992562/1233797777436180511/4z6pDi6.png?ex=662e6738&is=662d15b8&hm=d7f9767e68ad97115b2032957aefd43933b67e8cd71bc2b17c36b1fdc608e0c0&=&format=webp&quality=lossless&width=373&height=498",
+                      "small_text": "The bulb."
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name="Omori",
