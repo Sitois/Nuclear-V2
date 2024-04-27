@@ -223,7 +223,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "dark":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=65d9f2d1&is=65c77dd1&hm=37a71d4fc6c032214d71c8d94d7d6f6c99f8f9773c467cf8f7cc4d56a618da73&=&format=webp&quality=lossless",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=662daa11&is=662c5891&hm=fd617583fee2ee05c504c282364ef5c30dbd54c9c252ba0b4179888c37ad08af&=&format=webp&quality=lossless",
                       "large_text": "☄",
                       "small_image": None,
                       "small_text": None
