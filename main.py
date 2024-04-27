@@ -117,7 +117,7 @@ today_date = datetime.datetime.today()
 
 
 """
-API_KEY = 'TR7PmF'
+API_KEY = 'YOUR_API_KEY'
 
 
 solver = twocaptcha.TwoCaptcha(API_KEY)
@@ -173,7 +173,13 @@ async def on_ready():
         print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ToolsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+    try:
+        await bot.add_cog(TemplatesCommands(bot))
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}TemplatesCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     
+
     print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}) {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
     print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
     
@@ -224,6 +230,10 @@ async def stop(ctx):
 
 
 def fix_aiohttp():
+    """
+    This error is from discord.py==1.7.3(it's the last version of discord.py that works with user account) that use an old version of aiohttp.
+    This should fix this problem and restart the selfbot :).
+    """
     if os.name == 'nt':
         subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "aiohttp"])
         time.sleep(3)
@@ -231,7 +241,12 @@ def fix_aiohttp():
     else:
         subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", "aiohttp"])
         time.sleep(3)
-        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-U",  "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-U", "aiohttp"])
+
+    print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
+    time.sleep(3)
+
+    restart_selfbot()
 
 try:
     bot.run(config_selfbot.token)
@@ -239,16 +254,7 @@ except discord.LoginFailure:
     print(f"{Fore.LIGHTRED_EX}[CRITICAL] {Fore.RED}{langs.token_error[config_selfbot.lang]}{Style.RESET_ALL}")
 except Exception as e:
     if "400, message='Can not decode content-encoding: br'" in str(e):
-        """
-        This error is from discord.py==1.7.3(it's the last version of discord.py that works with user account) that use an old version of aiohttp.
-        This should fix this problem and restart the selfbot :).
-        """
         print(f"{Fore.LIGHTYELLOW_EX}[WARNING] {Fore.YELLOW} {langs.aihottp_error[config_selfbot.lang]}{Style.RESET_ALL}")
-
         fix_aiohttp()
-
-        print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
-        time.sleep(3)
-        restart_selfbot()
     else:
         print(f"{Fore.LIGHTRED_EX}[CRITICAL] {Fore.RED}{langs.weird_error[config_selfbot.lang]} {e} {Style.RESET_ALL}")

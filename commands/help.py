@@ -10,6 +10,7 @@ class HelpCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    #  🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
     @commands.command()
     async def help(self, ctx):
         poetry = {
@@ -53,7 +54,7 @@ class HelpCommands(commands.Cog):
 
   📂| __**Utils:**__ `{config_selfbot.prefix}utils`
   🎤| __**{langs.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
-  🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
+  📖| __**Templates:**__ `{config_selfbot.prefix}templates`
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
   🔧| __**Tools:**__ `{config_selfbot.prefix}tools`
@@ -143,7 +144,7 @@ class HelpCommands(commands.Cog):
 
     #"reset": {langs.template_help_reset[config_selfbot.lang]}
     @commands.command()
-    async def template(self, ctx):
+    async def templates(self, ctx):
         await ctx.message.edit(f'''☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     📖| __**Templates:**__

@@ -52,9 +52,9 @@ application_id = 1200865454319747142
 
 streaming_url = "https://twitch.tv/twitch"
 activity_button_one = "Nuclear !"
-activity_button_one_answer = "https://github.com/Sitois/Nuclear"
+activity_button_one_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
 activity_button_two = "Star it!"
-activity_button_two_answer = "https://github.com/Sitois/Nuclear"
+activity_button_two_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
 
 # see &tuto
 assets = {"large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=661a8c51&is=66081751&hm=791e0e36c6fe078da6c10af86c4c541f5eb0ca78157cdc4b84f4e0d70af88f15&=&format=webp&quality=lossless",
