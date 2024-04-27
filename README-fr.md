@@ -43,7 +43,7 @@ Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un
 
 ## 🌟 Fonctionnalités
 * Templates RPC personnalisés, [bientôt]
-* Créez votre propre RPC, [bientôt]
+* Créez votre propre RPC,
 * Commandes vocal,
 * Commandes de raids,
 * MP nombreux (DM All),

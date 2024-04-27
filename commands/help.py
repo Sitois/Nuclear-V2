@@ -131,3 +131,33 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}leavevc`: {langs.help_voice_leave[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
+
+    @commands.command()
+    async def tuto(self, ctx):
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+    🎮| __**Rich Presence Image Tutorial:**__
+    {langs.tutorial_rpc[config_selfbot.lang]}""")
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
+
+    #"reset": {langs.template_help_reset[config_selfbot.lang]}
+    @commands.command()
+    async def template(self, ctx):
+        await ctx.message.edit(f'''☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+    📖| __**Templates:**__
+    `{config_selfbot.prefix}use default`: {langs.template_help_default[config_selfbot.lang]}
+    `{config_selfbot.prefix}use hi`: {langs.template_help_hi[config_selfbot.lang]}
+    `{config_selfbot.prefix}use webdeck`: {langs.template_help_webdeck[config_selfbot.lang]}
+    `{config_selfbot.prefix}use omori`: {langs.template_help_omori[config_selfbot.lang]}
+    `{config_selfbot.prefix}use youtube`: {langs.template_help_youtube[config_selfbot.lang]}
+    `{config_selfbot.prefix}use car`: {langs.template_help_car[config_selfbot.lang]}
+    `{config_selfbot.prefix}use nuclear`: {langs.template_help_self[config_selfbot.lang]}
+    `{config_selfbot.prefix}use dark`: {langs.template_help_dark[config_selfbot.lang]}
+    `{config_selfbot.prefix}use python`: {langs.template_help_python[config_selfbot.lang]}
+    `{config_selfbot.prefix}use js`: {langs.template_help_js[config_selfbot.lang]}
+    `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
+    `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}''')
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
