@@ -26,8 +26,8 @@
 4. [📜 Comment obtenir son token](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token)
 5. [👀 Aperçu](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-aper%C3%A7u)
 6. [☣️ Problèmes](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#%EF%B8%8F-probl%C3%A8mes)
-7. [🛠️ Developement version](https://github.com/Sitois/Nuclear-V2#%EF%B8%8F-developement-version)
-8. [❓ How to contribute](https://github.com/Sitois/Nuclear-V2#-how-to-contribute)
+7. [🛠️ Developement version](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#%EF%B8%8F-developement-version)
+8. [❓ Comment contribuer](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-contribuer)
 9. [⭐ Contributeurs](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-contributeurs)
 10. [🫂 Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support)
 
