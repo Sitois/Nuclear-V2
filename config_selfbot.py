@@ -41,6 +41,15 @@ badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "b
 ########################
 
 #######################
+#  raid               #
+#        config       #
+#######################
+# en: Ban reason (for &banall).
+# fr: Raison du banissement (pour &banall).
+ban_reason = "ezzed by Nuclear lol."
+kick_reason = "ezzed by Nuclear lol."
+
+#######################
 # fr: RPC par défaut  #
 # en: Default RPC     #
 #######################
