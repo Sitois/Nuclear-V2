@@ -64,8 +64,8 @@ class TemplatesCommands(commands.Cog):
         elif choice.lower() == "cod":
             assets = {"large_image": "mp:attachments/1135264530188992562/1199007140782813284/5rr7SXS.png?ex=65c0f96a&is=65ae846a&hm=f92e8757ce026cb26fc3d6e44e2e9e02ccb2577e9f047e62f9891c0f5925c725&=&format=webp&quality=lossless",
                       "large_text": "Call Of Duty: MWIII",
-                      "small_image": None,
-                      "small_text": None
+                      "small_image": "mp:attachments/1135264530188992562/1234196811426693160/vVgU3XI.png?ex=662fdada&is=662e895a&hm=308cd37825d203d89472f24fa1f89d165c5cc88b544679d7116becc59fb03028&=&format=webp&quality=lossless",
+                      "small_text": "Battle Pass level 21"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name="Call Of Duty: MWIII",
