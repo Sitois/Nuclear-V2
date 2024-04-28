@@ -207,8 +207,8 @@ class TemplatesCommands(commands.Cog):
                       }
             activity = discord.Activity(type=discord.ActivityType.streaming,
                                         name="Nuclear",
-                                        details="Nuclear $B",
-                                        state="github.com/Sitois/Nuclear-V2",
+                                        details="github.com/Sitois/Nuclear-V2",
+                                        state="Nuclear $B",
                                         assets=assets,
                                         url=config_selfbot.streaming_url,
                                         application_id=config_selfbot.application_id,
