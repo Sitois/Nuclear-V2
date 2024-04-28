@@ -201,14 +201,14 @@ class TemplatesCommands(commands.Cog):
             await ctx.message.delete()
         elif choice.lower() == "nuclear":
             assets = {"large_image": "mp:attachments/1135264530188992562/1198281648437993553/CIjvBOJ.png?ex=662f0dff&is=662dbc7f&hm=71b8aabd5af9c550d925999b2aa17422ad77d1cdc5a65cab906755cd11bb861b&=&format=webp&quality=lossless",
-                      "large_text": "Nuclear $B",
+                      "large_text": "github.com/Sitois/Nuclear-V2",
                       "small_image": "mp:attachments/1135264530188992562/1206622218847518821/zQk1BeA.png?ex=662dc1c2&is=662c7042&hm=98548b094da0e982a9d33780630917197867b296889c2090f580d5ae46ba96e6&=&format=webp&quality=lossless&width=498&height=498",
                       "small_text": "On GitHub!"
                       }
             activity = discord.Activity(type=discord.ActivityType.streaming,
                                         name="Nuclear",
-                                        details="github.com/Sitois/Nuclear-V2",
-                                        state="Nuclear $B",
+                                        details="Nuclear $B",
+                                        state="Best free open-source $B!",
                                         assets=assets,
                                         url=config_selfbot.streaming_url,
                                         application_id=config_selfbot.application_id,
