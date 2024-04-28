@@ -26,8 +26,10 @@
 4. [📜 Comment obtenir son token](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token)
 5. [👀 Aperçu](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-aper%C3%A7u)
 6. [☣️ Problèmes](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#%EF%B8%8F-probl%C3%A8mes)
-7. [⭐ Contributeurs](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-contributeurs)
-7. [🫂 Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support)
+7. [🛠️ Developement version](https://github.com/Sitois/Nuclear-V2#%EF%B8%8F-developement-version)
+8. [❓ How to contribute](https://github.com/Sitois/Nuclear-V2#-how-to-contribute)
+9. [⭐ Contributeurs](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-contributeurs)
+10. [🫂 Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support)
 
 
 ## 💾 Installation
@@ -93,7 +95,21 @@ Maintenant, votre token est dans votre presse-papier.
 <br>
 
 ## ☣️ Problèmes
-Ils ont tous été corrigé !!&&!&!1§!! (si t'en rencontre une: [https://guilded.gg/nuclear](https://guilded.gg/nuclear))
+Aucun problème n'a été trouvé pour le moment. (si t'en rencontre un: [https://guilded.gg/nuclear](https://guilded.gg/nuclear))
+
+## 🛠️ Developement version
+1. Ouvrez votre Terminal et rendez-vous dans le dossier souhaitée à l'aide de `cd`.
+2. Clonez le repo: `git clone https://github.com/Sitois/Nuclear-V2`
+**ou**
+Clonez le repo avec le bouton vert "Code", au-dessus du README.
+
+
+## ❓ Comment contribuer
+
+🖤 Vous pouvez contribuer en laissant une star si vous aimez le projet ! <br>
+🧷 Vous pouvez aussi le traduire (avec `langs.py`) ! <br>
+Ou vous pouvez juste m'aider avec ma liste "besoin d'aide":
+  - Captcha: Commentaires dans `main.py`
 
 ## ⭐ Contributeurs
 <table align="center">
