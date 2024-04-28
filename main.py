@@ -92,19 +92,20 @@ def call_check_repo():
     global nuclear_version
     repo_owner = "Sitois"
     repo_name = "Nuclear-V2"
-    
-    latest_version = check_latest_version(repo_owner, repo_name)
-    if latest_version:
-        if not latest_version == nuclear_version:
-            print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
-            print(f"{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}{Style.RESET_ALL}")
+    while True:
+        latest_version = check_latest_version(repo_owner, repo_name)
+        if latest_version:
+            if not latest_version == nuclear_version:
+                print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
+                print(f"{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}{Style.RESET_ALL}")
+            time.sleep(900)
 
 def run_in_background():
     thread = threading.Thread(target=call_check_repo, daemon=True)
     thread.start()
 
 try:
-    call_check_repo()
+    run_in_background()
 except Exception as e:
     print(f"Error while trying to check the last Nuclear version: {e}")
 
