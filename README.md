@@ -42,8 +42,8 @@
 Open `config_selfbot.py` with any text editor  and enter a [user token](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token).
 
 ## 🌟 Features
-* Custom RPC templates, [soon]
-* Build your own RPC,
+* Custom RPC templates,
+* Build your own RPC, [soon]
 * Voice commands,
 * Raid commands,
 * Massive DM (DM All),
