@@ -16,10 +16,10 @@ class TemplatesCommands(commands.Cog):
         today_date = datetime.datetime.today()
         choice = ctx.message.content.split()[1]
         if choice.lower() == "hi":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1194342119989575832/MGflOC7.jpg?ex=65b93b47&is=65a6c647&hm=af5387b219eb9f9bf4cf7137758c4fad9da45a174305655ccb84c977a38dcd9f&=&format=webp&width=744&height=419",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1194342294371958864/HAJ65By.png?ex=662f39b0&is=662de830&hm=a006c6aa09c89f7be46b65340405ed423e0bfb30b584877a4c4d075f37ea32b6&=&format=webp&quality=lossless",
                       "large_text": "heyyy",
-                      "small_image": None,
-                      "small_text": None
+                      "small_image": "mp:attachments/1135264530188992562/1194342119989575832/MGflOC7.jpg?ex=662f3987&is=662de807&hm=8bac90f1321ab6b4535c78cd110015e66f2387eb38aac122b681668f24058a40&=&format=webp&width=885&height=498",
+                      "small_text": "hiii"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name="Hi !",
@@ -63,7 +63,7 @@ class TemplatesCommands(commands.Cog):
             await ctx.message.delete()
         elif choice.lower() == "cod":
             assets = {"large_image": "mp:attachments/1135264530188992562/1199007140782813284/5rr7SXS.png?ex=65c0f96a&is=65ae846a&hm=f92e8757ce026cb26fc3d6e44e2e9e02ccb2577e9f047e62f9891c0f5925c725&=&format=webp&quality=lossless",
-                      "large_text": None,
+                      "large_text": "Call Of Duty: MWIII",
                       "small_image": None,
                       "small_text": None
                       }
@@ -85,13 +85,13 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "youtube":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1197991793111863417/ILAO8CE.png?ex=65bd47cd&is=65aad2cd&hm=585fcd20ef938d1a7637732d5d251cba50c82024c980c5b1e785bb486e4c5f4a&=&format=webp&quality=lossless&width=419&height=419",
-                      "large_text": None,
+            assets = {"large_image": "mp:attachments/1135264530188992562/1197991793111863417/ILAO8CE.png?ex=662f518d&is=662e000d&hm=33f7c2c5e2fba654684dff9298fb4c530cf0c5b48fc5b636b9dbb8eed1c71cc6&=&format=webp&quality=lossless&width=498&height=498",
+                      "large_text": "YouTube",
                       "small_image": None,
                       "small_text": None
                       }
             activity = discord.Activity(type=discord.ActivityType.watching,
-                                        name="Youtube",
+                                        name="YouTube",
                                         details="Watching Videos",
                                         state=None,
                                         timestamps={"start": time.time()},
@@ -108,8 +108,8 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "car":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1198216462536552468/Wy5D92g.gif?ex=65be190a&is=65aba40a&hm=ee3adfbaccfb4a72ef71196d5b675aaef7df29a6f92f6841e4b161ed989aa783&=",
-                      "large_text": None,
+            assets = {"large_image": "mp:attachments/1135264530188992562/1197994235174080602/gBXD4Yu.gif?ex=662f53d3&is=662e0253&hm=ec7d176cd7a822deaa503de324feba9cce4655ddf68588b034a752c5bde85585&=",
+                      "large_text": "Drift Car",
                       "small_image": None,
                       "small_text": None
                       }
@@ -131,7 +131,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "js":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1198623222678179960/FYcrOR1.png?ex=65bf93dd&is=65ad1edd&hm=196ea799818a84abed3db5089be49eb2f470fe31e9ed5d984bfb6b898c868a4a&=&format=webp&quality=lossless",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1198623222678179960/FYcrOR1.png?ex=662efa9d&is=662da91d&hm=3ec239c03ac70b20678be0006aa9a469f5a9836dc581b4651429e12caa7cfa87&=&format=webp&quality=lossless",
                       "large_text": "Editing a JAVASCRIPT file",
                       "small_image": "mp:attachments/1135264530188992562/1198617586389225592/aBjaPbQ.png?ex=662da3dd&is=662c525d&hm=ffe2d4eb99afb709b3ce0955211d88db77ff00d29623279f4248c8dce6544cb0&=&format=webp&quality=lossless",
                       "small_text": "Visual Studio Code"
@@ -154,7 +154,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "python":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1198617576553599057/3jMZG0a.png?ex=65bf8e9b&is=65ad199b&hm=d61ea94e9db57f790e49dab09a9390bd61e5362a14cd44738a9a2e8aa70092d0&=&format=webp&quality=lossless",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1198617576553599057/3jMZG0a.png?ex=662ef55b&is=662da3db&hm=66825352ae51d1f30e0f99a551a31d6c09e7fa0c716050e77d67497fbac19392&=&format=webp&quality=lossless",
                       "large_text": "Editing a PYTHON file",
                       "small_image": "mp:attachments/1135264530188992562/1198617586389225592/aBjaPbQ.png?ex=662da3dd&is=662c525d&hm=ffe2d4eb99afb709b3ce0955211d88db77ff00d29623279f4248c8dce6544cb0&=&format=webp&quality=lossless",
                       "small_text": "Visual Studio Code"
@@ -177,7 +177,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "webdeck":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1197999417853218927/jj0PYp2.png?ex=65bd4ee6&is=65aad9e6&hm=ef2a47c5023678209436c74e3067469cf5c28143e5c12a3f714746fd03f1321e&=&format=webp&quality=lossless",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1197999417853218927/jj0PYp2.png?ex=662f58a6&is=662e0726&hm=60c39acba6a4b41e5c643100bb3671320407a02eeb901ed22c7aa1e89584a0d8&=&format=webp&quality=lossless",
                       "large_text": "WebDeck Icon",
                       "small_image": "mp:attachments/1135264530188992562/1233765320406073475/fa1I0M7.png?ex=662e48fe&is=662cf77e&hm=964f0c85372beda0f0dfe864081dfb536fa611c664e63bb046ed1b13109d6875&=&format=webp&quality=lossless",
                       "small_text": "Lenochxd"
@@ -200,7 +200,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "nuclear":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1198281648437993553/CIjvBOJ.png?ex=65be55bf&is=65abe0bf&hm=40a3c63ca07dfac28726eadae220a07412551a69deea021b73c24ae00933782e&=&format=webp&quality=lossless",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1198281648437993553/CIjvBOJ.png?ex=662f0dff&is=662dbc7f&hm=71b8aabd5af9c550d925999b2aa17422ad77d1cdc5a65cab906755cd11bb861b&=&format=webp&quality=lossless",
                       "large_text": "Nuclear $B",
                       "small_image": "mp:attachments/1135264530188992562/1206622218847518821/zQk1BeA.png?ex=662dc1c2&is=662c7042&hm=98548b094da0e982a9d33780630917197867b296889c2090f580d5ae46ba96e6&=&format=webp&quality=lossless&width=498&height=498",
                       "small_text": "On GitHub!"
@@ -208,7 +208,7 @@ class TemplatesCommands(commands.Cog):
             activity = discord.Activity(type=discord.ActivityType.streaming,
                                         name="Nuclear",
                                         details="Nuclear $B",
-                                        state="github.com/Sitois/Nuclear",
+                                        state="github.com/Sitois/Nuclear-V2",
                                         assets=assets,
                                         url=config_selfbot.streaming_url,
                                         application_id=config_selfbot.application_id,
@@ -245,7 +245,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "gta":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1200905385230475424/rhqvEdX.png?ex=65c7e14b&is=65b56c4b&hm=b375f98036eb15cedb369aff743ab040585f4777cc3756530e936fd5bbbb98d4&=&format=webp&quality=lossless&width=417&height=419",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1200905385230475424/rhqvEdX.png?ex=662e0d8b&is=662cbc0b&hm=fc34f39c588683ed87a5e2fe6ea3917c5f1cf15cd8ee4e4ca175238669271367&=&format=webp&quality=lossless",
                       "large_text": "Grand Theft Auto VI",
                       "small_image": None,
                       "small_text": None
@@ -264,7 +264,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit(f"🔫 Template \"Grand Theft Auto VI\".")
+            await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             """
