@@ -31,7 +31,7 @@ except ImportError:
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-nuclear_version = "v1.5"
+nuclear_version = "v1.6"
 
 print(fr"""{Fore.LIGHTCYAN_EX}$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
@@ -91,13 +91,12 @@ def call_check_repo():
     global nuclear_version
     repo_owner = "Sitois"
     repo_name = "Nuclear-V2"
-    current_version = nuclear_version
     
     latest_version = check_latest_version(repo_owner, repo_name)
     if latest_version:
-        if not latest_version == current_version:
+        if not latest_version == nuclear_version:
             print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
-            print(f"{langs.error_check_version_three[config_selfbot.lang]} {current_version}{Style.RESET_ALL}")
+            print(f"{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}{Style.RESET_ALL}")
 
 try:
     call_check_repo()
@@ -183,7 +182,7 @@ async def on_ready():
     print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}) {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
     print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
     
-    activity = discord.Activity(type=discord.ActivityType.competing,
+    activity = discord.Activity(type=discord.ActivityType.playing,
                                 name=config_selfbot.activity_name,
                                 details=config_selfbot.activity_details,
                                 state=config_selfbot.activity_state,
