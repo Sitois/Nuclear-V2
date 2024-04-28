@@ -27,8 +27,8 @@
 4. [📜 How to get a user token](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token)
 5. [👀 Preview](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-preview)
 6. [☣️ Issues](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#%EF%B8%8F-issues)
-7. [🛠️ Developement version]
-8. [❓ How to contribute]
+7. [🛠️ Developement version](https://github.com/Sitois/Nuclear-V2#%EF%B8%8F-developement-version)
+8. [❓ How to contribute](https://github.com/Sitois/Nuclear-V2#-how-to-contribute)
 9. [⭐ Contributors](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-contributors)
 10. [🫂 Support](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#support)
 
