@@ -3,6 +3,7 @@ try:
     import sys, os, platform
     import ctypes
     import datetime, time
+    import threading
     import config_selfbot
     import langs
     from commands import *
@@ -20,6 +21,7 @@ except ImportError:
     import platform
     import ctypes
     import datetime, time
+    import threading
     import config_selfbot
     import langs
     from commands import *
@@ -41,7 +43,6 @@ $$ \$$$$ |$$ |  $$ |$$ /      $$ |$$$$$$$$ | $$$$$$$ |$$ |  \__|
 $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |      
 $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
 \__|  \__| \______/  \_______|\__| \_______| \_______|\__|  {nuclear_version}{Style.RESET_ALL}""")
-
 
 
 def set_terminal_title(title):
@@ -97,6 +98,10 @@ def call_check_repo():
         if not latest_version == nuclear_version:
             print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
             print(f"{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}{Style.RESET_ALL}")
+
+def run_in_background():
+    thread = threading.Thread(target=call_check_repo, daemon=True)
+    thread.start()
 
 try:
     call_check_repo()
