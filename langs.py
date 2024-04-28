@@ -521,8 +521,8 @@ template_help_hi = {
 }
 
 template_help_youtube = {
-    "fr": "Utilise la template \"Python\".",
-    "en": "Use \"Python\" template."
+    "fr": "Utilise la template \"YouTube\".",
+    "en": "Use \"YouTube\" template."
 }
 
 template_help_gta = {
