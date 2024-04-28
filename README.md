@@ -27,11 +27,12 @@
 4. [📜 How to get a user token](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token)
 5. [👀 Preview](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-preview)
 6. [☣️ Issues](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#%EF%B8%8F-issues)
-7. [⭐ Contributors](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-contributors)
-7. [🫂 Support](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#support)
+7. [🛠️ Developement version]
+8. [❓ How to contribute]
+9. [⭐ Contributors](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-contributors)
+10. [🫂 Support](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#support)
 
 ## 💾 Installation
-
 1. Download the latest version from the [Releases](https://github.com/Sitois/Nuclear-V2/releases) section on GitHub.
 2. Make sure to have [Python](https://www.python.org/downloads/ "Install Python here") installed.
 3. Open your Terminal and go to Nuclear with `cd`.
@@ -94,7 +95,21 @@ Now your token is in your clipboard.
 <br>
 
 ## ☣️ Issues
-THERE IS NO ISSUES !!&!11!!!! (if you get one, come on the [guilded](https://guilded.gg/nuclear) !!)
+I found 0 issues for the moment, if you get one, come on the [guilded](https://guilded.gg/nuclear)!
+
+## 🛠️ Developement version
+1. Open your Terminal and go to the wanted folder with `cd`.
+2. Clone the repository: `git clone https://github.com/Sitois/Nuclear-V2`
+**or**
+Just clone it with the green "Code" button above the README.
+
+
+## ❓ How to contribute
+
+🖤 You can contribute by leaving a star if you love my project! <br>
+🧷 You can also translate the selfbot (using `langs.py`)! <br>
+Or you can just help me with my "need help" list:
+  - Captcha: Check comments on `main.py`
 
 ## ⭐ Contributors
 <table align="center">
