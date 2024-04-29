@@ -38,10 +38,10 @@
 2. Assurez-vous d'avoir [Python](https://www.python.org/downloads/ "Installez Python ici") installé.
 3. Ouvrez votre Terminal et rendez-vous dans le dossier Nuclear en utilisant `cd`.
 3. Installez les dépendances : `pip install -r requirements.txt`
-4. Exécutez le programme : `python selfbot.py`
+4. Exécutez le programme : `python main.py`
 
 ## 🔧 Configuration
-Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un [token d'__utilisateur__](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token).
+Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un [token d'__utilisateur__](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token).
 
 ## 🌟 Fonctionnalités
 * Templates RPC personnalisés,

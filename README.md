@@ -1,4 +1,4 @@
-[![Version française](https://img.shields.io/badge/Lire%20en-Fran%C3%A7ais-blue?style=for-the-badge&logo=appveyor)](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md)
+main[![Version française](https://img.shields.io/badge/Lire%20en-Fran%C3%A7ais-blue?style=for-the-badge&logo=appveyor)](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md)
 
 
 
@@ -37,7 +37,7 @@
 2. Make sure to have [Python](https://www.python.org/downloads/ "Install Python here") installed.
 3. Open your Terminal and go to Nuclear with `cd`.
 4. Install dependencies: `pip install -r requirements.txt`
-5. Run the program: `python selfbot.py`
+5. Run the program: `python main.py`
 
 ## 🔧 Config
 Open `config_selfbot.py` with any text editor  and enter a [user token](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token).
