@@ -165,7 +165,7 @@ class HelpCommands(commands.Cog):
 
     @commands.command()
     async def presence(self, ctx):
-        await ctx.message.edit(f'''☄ __**{config_selfbot.selfbot_name} :**__ ☄
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     🕹️| __**Rich Presence Settings:**__                
     `{config_selfbot.prefix}rpc_name`: {langs.rpc_name_translate[config_selfbot.lang]}.
@@ -180,8 +180,6 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}rpc_button_text_one`: {langs.rpc_button_text_one_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_button_link_one`: {langs.rpc_button_link_one_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_link_two`: {langs.rpc_button_link_two_translate[config_selfbot.lang]}.
-    📖| __**Templates:**__
-    `{config_selfbot.prefix}template`''')
+    `{config_selfbot.prefix}rpc_button_link_two`: {langs.rpc_button_link_two_translate[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
