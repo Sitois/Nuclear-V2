@@ -37,7 +37,7 @@ deltime = 20
 
 # en: Default paramter for Good Person.
 # fr: Paramètre par défaut de Good Person.
-good_person = True
+good_person = False
 
 # en: Good Person badwords.
 # fr: Mot interdit pour Good Person.
