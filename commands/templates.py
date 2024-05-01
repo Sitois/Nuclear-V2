@@ -3,6 +3,7 @@ from discord.ext import commands
 import datetime
 import time
 import asyncio
+import rpc
 
 import config_selfbot
 import langs
@@ -28,7 +29,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -51,7 +52,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -74,7 +75,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -97,7 +98,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -120,7 +121,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -143,7 +144,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -166,7 +167,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -189,7 +190,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -212,7 +213,7 @@ class TemplatesCommands(commands.Cog):
                                         assets=assets,
                                         url=config_selfbot.streaming_url,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -234,7 +235,7 @@ class TemplatesCommands(commands.Cog):
                                         state=None,
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -257,7 +258,7 @@ class TemplatesCommands(commands.Cog):
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
@@ -267,17 +268,21 @@ class TemplatesCommands(commands.Cog):
             await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
-            """
-        elif choice.lower() == "reset": # RPC FROM ``rpc.json``
+        elif choice.lower() == "reset":
+            assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
+                      "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
+                      "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
+                      "small_text": config_selfbot.assets["small_text"] if rpc.read_variable_json("small_text") == "VOID" else rpc.read_variable_json("small_text")
+                     }
             activity = discord.Activity(type=discord.ActivityType.playing,
-                                        name=config_selfbot.activity_name,
-                                        details=config_selfbot.activity_details,
-                                        state=config_selfbot.activity_state,
-                                        timestamps={"start": time.time()},
-                                        assets=config_selfbot.assets,
-                                        application_id=config_selfbot.application_id,
-                                        buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
-            
+                                            name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
+                                            details=config_selfbot.activity_details if rpc.read_variable_json("activity_details") == "VOID" else rpc.read_variable_json("activity_details"),
+                                            state=config_selfbot.activity_state if rpc.read_variable_json("activity_state") == "VOID" else rpc.read_variable_json("activity_state"),
+                                            timestamps={"start": time.time()},
+                                            assets=assets,
+                                            application_id=config_selfbot.application_id,
+                                            buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
+                
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=activity,
                                     afk=True,
@@ -286,7 +291,6 @@ class TemplatesCommands(commands.Cog):
             await ctx.message.edit(f"🔄️ RPC Reset.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
-            """
         elif choice.lower() == "default":
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name=config_selfbot.activity_name,

@@ -44,7 +44,7 @@ Open `config_selfbot.py` with any text editor  and enter a [user token](https://
 
 ## 🌟 Features
 * Custom RPC templates,
-* Build your own RPC, [soon]
+* Build your own RPC,
 * Voice commands,
 * Raid commands,
 * Massive DM (DM All),

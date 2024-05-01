@@ -98,7 +98,7 @@ def call_check_repo():
             if not latest_version == nuclear_version:
                 print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
                 print(f"{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}{Style.RESET_ALL}")
-            time.sleep(900)
+            time.sleep(3600)
 
 def run_in_background():
     thread = threading.Thread(target=call_check_repo, daemon=True)
@@ -183,7 +183,11 @@ async def on_ready():
         print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}TemplatesCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
-    
+    try:
+        await bot.add_cog(RichPresenceCommands(bot))
+        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
 
     print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}) {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
     print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
@@ -192,7 +196,7 @@ async def on_ready():
                                 name=config_selfbot.activity_name,
                                 details=config_selfbot.activity_details,
                                 state=config_selfbot.activity_state,
-                                #timestamps={"start": time.time()}, # ONLY FOR PLAYING ACTIVITY
+                                timestamps={"start": time.time()},
                                 assets=config_selfbot.assets,
                                 application_id=config_selfbot.application_id,
                                 buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])

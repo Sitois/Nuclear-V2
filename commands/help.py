@@ -10,7 +10,6 @@ class HelpCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    #  🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
     @commands.command()
     async def help(self, ctx):
         poetry = {
@@ -54,6 +53,7 @@ class HelpCommands(commands.Cog):
 
   📂| __**Utils:**__ `{config_selfbot.prefix}utils`
   🎤| __**{langs.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
+  🕹️| __**Rich Presence:**__ `{config_selfbot.prefix}presence`
   📖| __**Templates:**__ `{config_selfbot.prefix}templates`
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
@@ -142,13 +142,13 @@ class HelpCommands(commands.Cog):
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
-    #"reset": {langs.template_help_reset[config_selfbot.lang]}
     @commands.command()
     async def templates(self, ctx):
-        await ctx.message.edit(f'''☄ __**{config_selfbot.selfbot_name} :**__ ☄
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     📖| __**Templates:**__
     `{config_selfbot.prefix}use default`: {langs.template_help_default[config_selfbot.lang]}
+    `{config_selfbot.prefix}use reset`: {langs.template_help_reset[config_selfbot.lang]}
     `{config_selfbot.prefix}use hi`: {langs.template_help_hi[config_selfbot.lang]}
     `{config_selfbot.prefix}use webdeck`: {langs.template_help_webdeck[config_selfbot.lang]}
     `{config_selfbot.prefix}use omori`: {langs.template_help_omori[config_selfbot.lang]}
@@ -159,6 +159,29 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}use python`: {langs.template_help_python[config_selfbot.lang]}
     `{config_selfbot.prefix}use js`: {langs.template_help_js[config_selfbot.lang]}
     `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
-    `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}''')
+    `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}""")
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
+
+    @commands.command()
+    async def presence(ctx):
+        await ctx.message.edit(f'''☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+    🕹️| __**Rich Presence Settings:**__                
+    `{config_selfbot.prefix}rpc_name`: {langs.rpc_name_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_details`: {langs.rpc_details_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_state`: {langs.rpc_state_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_url`: {langs.rpc_url_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_type`: {langs.rpc_type_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_large_image`: {langs.rpc_large_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
+    `{config_selfbot.prefix}rpc_large_text`: {langs.rpc_large_text_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_small_image`: {langs.rpc_small_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
+    `{config_selfbot.prefix}rpc_small_text`: {langs.rpc_small_text_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_button_text_one`: {langs.rpc_button_text_one_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_button_link_one`: {langs.rpc_button_link_one_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_button_link_two`: {langs.rpc_button_link_two_translate[config_selfbot.lang]}.
+    📖| __**Templates:**__
+    `{config_selfbot.prefix}template`''')
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
