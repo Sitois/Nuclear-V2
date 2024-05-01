@@ -34,7 +34,7 @@ class UtilsCommands(commands.Cog):
         try:
             str_amount = message_split[1]
         except Exception:
-            str_amount = "20"
+            str_amount = "19"
 
         try:
             amount = int(str_amount) + 1
