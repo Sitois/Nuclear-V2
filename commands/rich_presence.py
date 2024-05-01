@@ -404,7 +404,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit(f"🎮 **Type:** \"Game\".")
+            await ctx.message.edit("🎮 **Type:** \"Game\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "watch":
@@ -427,7 +427,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit(f"📺 **Type:** \"Watch\".")
+            await ctx.message.edit("📺 **Type:** \"Watch\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "competing":
@@ -449,7 +449,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit(f"🎉 **Type:** \"Competing\".")
+            await ctx.message.edit("🎉 **Type:** \"Competing\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "listen":
@@ -472,7 +472,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit(f"🎧 **Type:** \"Listen\".")
+            await ctx.message.edit("🎧 **Type:** \"Listen\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "stream":
@@ -495,7 +495,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit(f"⭕ **Type:** \"Stream\".")
+            await ctx.message.edit("⭕ **Type:** \"Stream\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "xbox":
@@ -513,7 +513,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit(f"⭕ **Type:** \"Stream\".")
+            await ctx.message.edit("🎮 **Type:** \"Xbox\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
