@@ -164,7 +164,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def presence(ctx):
+    async def presence(self, ctx):
         await ctx.message.edit(f'''☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     🕹️| __**Rich Presence Settings:**__                
