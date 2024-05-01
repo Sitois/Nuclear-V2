@@ -110,3 +110,38 @@ class UtilsCommands(commands.Cog):
         await ctx.message.edit(f"📖 Bio {langs.bio_command[config_selfbot.lang]} \"`{new_bio}`\"")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
+
+    @commands.command()
+    async def userinfo(self, ctx):
+        if ctx.message.mentions:
+            user = ctx.message.mentions[0]
+        else:
+            user = ctx.author
+
+        if user is None:
+            await ctx.message.edit("Impossible de trouver cet utilisateur.")
+            return
+
+        if ctx.guild:
+            guild = ctx.guild
+            member = guild.get_member(user.id)
+            roles = [role.name for role in member.roles[1:] if role.name != '@everyone'] if member else []
+        else:
+            roles = []
+
+
+        if roles:
+            roles_list = f">  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}\n"
+
+        message = f"""🗒️| {langs.info_title[config_selfbot.lang]} <@{user.id}> :
+>  👤| {langs.info_global[config_selfbot.lang]}: `{user.global_name}`
+>  🌐| {langs.info_username[config_selfbot.lang]}: `{user.name}`
+>  🆔| ID: `{user.id}`
+>  🌈| {langs.info_banner[config_selfbot.lang]}: `{user.banner.url if not user.banner is None else langs.empty[config_selfbot.lang]}`
+>  📅| {langs.info_created_at[config_selfbot.lang]}: `{user.created_at.strftime('%d/%m/%Y %H:%M:%S')}`
+{">  🖼️| " + langs.info_avatar[config_selfbot.lang] + ": [" + langs.info_avatar_link[config_selfbot.lang] + "](" + user.avatar.url + ")" if not user.avatar is None else langs.empty[config_selfbot.lang]}
+{roles_list if ctx.guild else ""}"""
+
+        await ctx.message.edit(message)
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()

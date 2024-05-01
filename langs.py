@@ -45,14 +45,20 @@ disable = {
     "en": "disabled!"
 }
 
+
 empty = {
     "fr": "Aucune",
-    "en": "Empty"
+    "en": "None"
 }
 
 author = {
     "fr": "Auteur",
     "en": "Author"
+}
+
+incorrect = {
+    "fr": "Choix incorrect.",
+    "en": "Incorrect choice."
 }
 
 ####################
@@ -151,6 +157,11 @@ help_general_snipe = {
 help_general_clear = {
     "fr": "Supprime le nombre de messages fourni.",
     "en": "Clear given number of messages."
+}
+
+help_general_user_info = {
+    "fr": "Renvoie les informations sur l'utilisateur mentionné",
+    "en": "Return informations about the mentionned user"
 }
 
 help_voice_vc = {
@@ -329,6 +340,46 @@ nitro_sniper_invalid_code = {
     "en": "is invalid!"
 }
 
+info_title = {
+    "fr": "Informations sur",
+    "en": "Informations about"
+}
+
+info_global = {
+    "fr": "Nom d'affichage",
+    "en": "Display name"
+}
+
+info_banner = {
+    "fr": "Bannière",
+    "en": "Banner"
+}
+
+info_created_at = {
+    "fr": "Créé le",
+    "en": "Created at"
+}
+
+info_avatar = {
+    "fr": "Photo de profil",
+    "en": "Avatar"
+}
+
+info_avatar_link = {
+    "fr": "Lien vers la photo",
+    "en": "Avatar's link"
+}
+
+info_roles = {
+    "fr": "Rôles",
+    "en": "Roles"
+}
+
+info_username = {
+    "fr": "Nom d'utilisateur",
+    "en": "Username"
+}
+
 raid_in_process = {
     "fr": "☣️ Raid en cours...",
     "en": "☣️ Raid in progress..."
@@ -396,12 +447,6 @@ tool_close_dms_bots_success = {
 
 
 
-
-rpc_status_translate = {
-    "fr": "Défini le statut du RPC",
-    "en": "Set RPC's status"
-}
-
 rpc_name_translate = {
     "fr": "Défini le nom du RPC",
     "en": "Set RPC's name"
@@ -427,14 +472,24 @@ rpc_type_translate = {
     "en": "Set RPC's type (game / watch / listen / stream)"
 }
 
-rpc_id_translate = {
-    "fr": "Défini l'ID de l'application pour le RPC",
-    "en": "Set RPC's Application ID"
+rpc_large_image_translate = {
+    "fr": "Défini la grande image du RPC",
+    "en": "Set RPC's large image"
 }
 
-rpc_image_translate = {
-    "fr": "Défini l'image du RPC",
-    "en": "Set RPC's image"
+rpc_large_text_translate = {
+    "fr": "Défini le texte de la grande image du RPC",
+    "en": "Set RPC's large image text"
+}
+
+rpc_small_image_translate = {
+    "fr": "Défini la petite image du RPC",
+    "en": "Set RPC's small image"
+}
+
+rpc_small_text_translate = {
+    "fr": "Défini le texte de la petite image du RPC",
+    "en": "Set RPC's small image text"
 }
 
 rpc_button_text_one_translate = {

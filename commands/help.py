@@ -118,7 +118,8 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}snipe`: {langs.help_general_snipe[config_selfbot.lang]}
  `{config_selfbot.prefix}clear`: {langs.help_general_clear[config_selfbot.lang]}
  `{config_selfbot.prefix}hype`: {langs.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
- `{config_selfbot.prefix}bio`: {langs.help_general_bio[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}bio`: {langs.help_general_bio[config_selfbot.lang]}.
+ `{config_selfbot.prefix}userinfo`: {langs.help_general_user_info[config_selfbot.lang]}""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
