@@ -13,7 +13,7 @@ import langs
 class FunCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.good_person = False
+        self.good_person = config_selfbot.good_person
 
     @commands.command()
     async def call(self, ctx):

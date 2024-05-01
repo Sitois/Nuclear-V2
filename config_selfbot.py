@@ -35,9 +35,14 @@ deltime = 20
 #        person       #
 #######################
 
+# en: Default paramter for Good Person.
+# fr: Paramètre par défaut de Good Person.
+good_person = True
+
 # en: Good Person badwords.
 # fr: Mot interdit pour Good Person.
-badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "bitch", "kys", "fdp", "ntm"]
+badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "bitch", "kys", "fdp", "ntm", "tg"]
+########################
 ########################
 
 #######################
