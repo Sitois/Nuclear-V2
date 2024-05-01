@@ -189,7 +189,7 @@ async def on_ready():
     except Exception as e:
         print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
 
-    print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}) {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
+    print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
     print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
     
     activity = discord.Activity(type=discord.ActivityType.playing,
