@@ -14,6 +14,8 @@ class FunCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.good_person = config_selfbot.good_person
+        self.badwords = config_selfbot.badwords
+        self.good_person_list = config_selfbot.good_person_list
 
     @commands.command()
     async def call(self, ctx):
@@ -48,26 +50,10 @@ class FunCommands(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
-        good_person_list =[
-        "GeForce RTX 4000",
-        "🍗",
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
-        "AMD Ryzen™ 9 7900",
-        "Intel Core is very good",
-        "🐈",
-        "🍟",
-        "yipeeeeeeeee",
-        "😍",
-        "🌠",
-        "u r beautiful",
-        "you are all very intelligent",
-        "excuse me"
-        ]
-
         if self.good_person:
             if ctx.author.id == self.bot.user.id:
-                if any(word in ctx.content for word in config_selfbot.badwords):
-                    await ctx.edit(random.choice(good_person_list))
+                if any(word in ctx.content.lower() for word in self.badwords):
+                    await ctx.edit(random.choice(self.good_person_list))
 
     @commands.command()
     async def cat(self, ctx):

@@ -42,6 +42,24 @@ good_person = False
 # en: Good Person badwords.
 # fr: Mot interdit pour Good Person.
 badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "bitch", "kys", "fdp", "ntm", "tg"]
+
+# en: Good Person "good words".
+# fr: Mot "bon" pour Good Person.
+good_person_list = [
+        "GeForce RTX 4000",
+        "🍗",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+        "AMD Ryzen™ 9 7900",
+        "Intel Core is very good",
+        "🐈",
+        "🍟",
+        "yipeeeeeeeee",
+        "😍",
+        "🌠",
+        "u r beautiful",
+        "you are all very intelligent",
+        "excuse me"
+        ]
 ########################
 ########################
 
