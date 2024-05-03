@@ -140,6 +140,7 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 
 # Support
 - Guilded server: [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
+- Discord server: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
 
 <br>
 

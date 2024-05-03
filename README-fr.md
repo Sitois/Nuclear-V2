@@ -31,9 +31,6 @@
 9. [⭐ Contributeurs](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-contributeurs)
 10. [🫂 Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support)
 
-### NEW
-discord support: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
-
 ## 💾 Installation
 
 1. Téléchargez la dernière version depuis la section [Releases](https://github.com/Sitois/Nuclear-V2/releases) sur GitHub.
@@ -139,6 +136,7 @@ Un grand merci à [Shell1010](https://github.com/Shell1010) pour m'avoir aidé d
 
 # Support
 - Serveur Guilded : [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
+- Serveur Discord : [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
 
 <br>
 
