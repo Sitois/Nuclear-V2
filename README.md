@@ -146,6 +146,10 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 
 ---
 
+Repo Views:
+[![](https://visitcount.itsvg.in/api?id=Nuclear&label=Repo%20Views&color=2&icon=5&pretty=false)](https://visitcount.itsvg.in)
+
+---
 Nuclear-V1: [![wakatime](https://wakatime.com/badge/user/018af69f-9d50-4699-932d-026a9efb0401/project/018d13ec-4c15-459c-b9a8-e02089e7681b.svg)](https://wakatime.com/badge/user/018af69f-9d50-4699-932d-026a9efb0401/project/018d13ec-4c15-459c-b9a8-e02089e7681b)
 
 Nuclear-V2: [![wakatime](https://wakatime.com/badge/user/018af69f-9d50-4699-932d-026a9efb0401/project/018e9e0c-29ce-4e43-9113-34945236a808.svg)](https://wakatime.com/badge/user/018af69f-9d50-4699-932d-026a9efb0401/project/018e9e0c-29ce-4e43-9113-34945236a808)
