@@ -333,6 +333,6 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
-            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]}.")
+            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
