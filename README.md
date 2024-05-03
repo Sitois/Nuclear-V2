@@ -146,7 +146,6 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 
 ---
 
-Repo Views:
 [![](https://visitcount.itsvg.in/api?id=Nuclear&label=Repo%20Views&color=2&icon=5&pretty=false)](https://visitcount.itsvg.in)
 
 ---
