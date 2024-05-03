@@ -160,7 +160,8 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}use python`: {langs.template_help_python[config_selfbot.lang]}
     `{config_selfbot.prefix}use js`: {langs.template_help_js[config_selfbot.lang]}
     `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
-    `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}""")
+    `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}
+    `{config_selfbot.prefix}use tiktok`: {langs.template_help_tiktok[config_selfbot.lang]}""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 

@@ -268,6 +268,29 @@ class TemplatesCommands(commands.Cog):
             await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+        elif choice.lower() == "tiktok":
+            assets = {"large_image": "mp:attachments/1135264530188992562/1235997837255376949/ssfXx3o.png?ex=66366830&is=663516b0&hm=44aff149f2a3cffca4ba34289cb1cc8e211545ad2ba649929af4d502bd0131ba&=&format=webp&quality=lossless&width=498&height=498",
+                      "large_text": "TikTok",
+                      "small_image": None,
+                      "small_text": None
+                      }
+            activity = discord.Activity(type=discord.ActivityType.watching,
+                                        name="TikTok",
+                                        details="ForYou page",
+                                        state=None,
+                                        timestamps={"start": time.time()},
+                                        assets=assets,
+                                        application_id=config_selfbot.application_id,
+                                        buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
+
+            await self.bot.change_presence(status=discord.Status.idle,
+                                    activity=activity,
+                                    afk=True,
+                                    idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
+
+            await ctx.message.edit("📱 Template \"TikTok\".")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
         elif choice.lower() == "reset":
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),

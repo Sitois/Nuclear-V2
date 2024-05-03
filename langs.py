@@ -585,6 +585,11 @@ template_help_gta = {
     "en": "Use \"GTA VI\" template."
 }
 
+template_help_tiktok = {
+    "fr": "Utilise la template \"TikTok\".",
+    "en": "Use \"TikTok\" template."
+}
+
 
 
 rpc_cod_details = {
