@@ -39,6 +39,9 @@
 4. Install dependencies: `pip install -r requirements.txt`
 5. Run the program: `python main.py`
 
+### NEW
+discord support: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
+
 ## 🔧 Config
 Open `config_selfbot.py` with any text editor  and enter a [user token](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token).
 

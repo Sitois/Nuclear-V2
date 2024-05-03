@@ -31,6 +31,8 @@
 9. [⭐ Contributeurs](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-contributeurs)
 10. [🫂 Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support)
 
+### NEW
+discord support: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
 
 ## 💾 Installation
 
