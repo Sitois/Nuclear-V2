@@ -61,9 +61,11 @@ class FunCommands(commands.Cog):
         if response.status_code == 200:
             data = json.loads(response.text)
             cat_image_url = data[0]['url']
-            await ctx.send(cat_image_url)
+            await ctx.message.edit(cat_image_url)
         else:
-            await ctx.send(f"Failed to fetch a cute cat: {response.text}")
+            await ctx.message.edit(f"Failed to fetch a cute cat: {response.text}")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
 
     @commands.command()
     async def gift(self, ctx):
