@@ -525,6 +525,11 @@ template_help_reset = {
     "en": "Reset your RPC."
 }
 
+template_help_clear = {
+    "fr": "Supprime votre RPC.",
+    "en": "Clear your RPC."
+}
+
 template_help_default = {
     "fr": "Modifie votre RPC par celui présent dans (`config_selfbot.py`).",
     "en": "Edit your RPC to the default one (in `config_selfbot.py`)."

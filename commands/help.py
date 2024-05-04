@@ -150,6 +150,7 @@ class HelpCommands(commands.Cog):
     📖| __**Templates:**__
     `{config_selfbot.prefix}use default`: {langs.template_help_default[config_selfbot.lang]}
     `{config_selfbot.prefix}use reset`: {langs.template_help_reset[config_selfbot.lang]}
+    `{config_selfbot.prefix}use clear`: {langs.template_help_clear[config_selfbot.lang]}
     `{config_selfbot.prefix}use hi`: {langs.template_help_hi[config_selfbot.lang]}
     `{config_selfbot.prefix}use webdeck`: {langs.template_help_webdeck[config_selfbot.lang]}
     `{config_selfbot.prefix}use omori`: {langs.template_help_omori[config_selfbot.lang]}

@@ -246,7 +246,7 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "gta":
-            assets = {"large_image": "mp:attachments/1135264530188992562/1200905385230475424/rhqvEdX.png?ex=6635f68b&is=6634a50b&hm=2a3817616d9343dd82bb8ed6166b3b130519162cbab4d52a5089893b84591fdb&=&format=webp&quality=lossless",
+            assets = {"large_image": "mp:attachments/1135264530188992562/1200905385230475424/rhqvEdX.png?ex=6637480b&is=6635f68b&hm=0a6170c72203ffc2f683228c884b434b585de6030082daeb787046a99c6ec464&=&format=webp&quality=lossless",
                       "large_text": "Grand Theft Auto VI",
                       "small_image": None,
                       "small_text": None
@@ -311,7 +311,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit(f"🔄️ RPC Reset.")
+            await ctx.message.edit("🔄️ RPC Reset.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "default":
@@ -329,7 +329,16 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit(f"🔄️ RPC \"Default\".")
+            await ctx.message.edit("🔄️ RPC \"Default\".")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+        elif choice.lower() == "clear":
+            await self.bot.change_presence(status=discord.Status.idle,
+                                    activity=None,
+                                    afk=True,
+                                    idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
+
+            await ctx.message.edit("❌ RPC \"Clear\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
