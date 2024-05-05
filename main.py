@@ -6,6 +6,7 @@ try:
     import threading
     import config_selfbot
     import langs
+    import rpc
     from commands import *
     from colorama import Fore, Style, Back
     import requests
@@ -24,6 +25,7 @@ except ImportError:
     import threading
     import config_selfbot
     import langs
+    import rpc
     from commands import *
     from colorama import Fore, Style, Back
     import requests
@@ -192,15 +194,20 @@ async def on_ready():
     print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
     print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
     
+    assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
+              "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
+              "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
+              "small_text": config_selfbot.assets["small_text"] if rpc.read_variable_json("small_text") == "VOID" else rpc.read_variable_json("small_text")
+             }
     activity = discord.Activity(type=discord.ActivityType.playing,
-                                name=config_selfbot.activity_name,
-                                details=config_selfbot.activity_details,
-                                state=config_selfbot.activity_state,
-                                timestamps={"start": time.time()},
-                                assets=config_selfbot.assets,
-                                application_id=config_selfbot.application_id,
-                                buttons=[config_selfbot.activity_button_one, config_selfbot.activity_button_two])
-    
+                                    name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
+                                    details=config_selfbot.activity_details if rpc.read_variable_json("activity_details") == "VOID" else rpc.read_variable_json("activity_details"),
+                                    state=config_selfbot.activity_state if rpc.read_variable_json("activity_state") == "VOID" else rpc.read_variable_json("activity_state"),
+                                    timestamps={"start": time.time()},
+                                    assets=assets,
+                                    application_id=config_selfbot.application_id,
+                                    buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
+            
     await bot.change_presence(status=discord.Status.idle,
                               activity=activity,
                               afk=True,
@@ -248,9 +255,9 @@ def fix_aiohttp():
         time.sleep(3)
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", "aiohttp"])
     else:
-        subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "aiohttp"])
         time.sleep(3)
-        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-U", "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", "aiohttp"])
 
     print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
     time.sleep(3)
