@@ -118,10 +118,6 @@ class UtilsCommands(commands.Cog):
         else:
             user = ctx.author
 
-        if user is None:
-            await ctx.message.edit("Impossible de trouver cet utilisateur.")
-            return
-
         if ctx.guild:
             guild = ctx.guild
             member = guild.get_member(user.id)
