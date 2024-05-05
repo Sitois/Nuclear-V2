@@ -338,7 +338,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("❌ RPC \"Clear\".")
+            await ctx.message.edit("🚮 RPC \"Clear\".")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
