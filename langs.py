@@ -199,6 +199,11 @@ help_fun_gift = {
     "en": "Send a fake Nitro"
 }
 
+help_fun_hack = {
+    "fr": "aque quelqu'un (😈)",
+    "en": "hack someone fr (😈)"
+}
+
 help_raid_dmall = {
     "fr": "Envoi un message privé à votre liste d'amis",
     "en": "Send a private message to your friend list."
@@ -338,6 +343,31 @@ nitro_sniper_valid = {
 nitro_sniper_invalid_code = {
     "fr": "est invalide !",
     "en": "is invalid!"
+}
+
+fun_hack_step_one = {
+    "fr": "aquage de",
+    "en": "hacking"
+}
+
+fun_hack_step_two = {
+    "fr": "récupération de l'adresse mail",
+    "en": "getting email adress"
+}
+
+fun_hack_step_three = {
+    "fr": "adresse mail trouvée",
+    "en": "found email adress"
+}
+
+fun_hack_step_four = {
+    "fr": "spam à tout ses contaktes...",
+    "en": "spamming all contacts"
+}
+
+fun_hack_step_five = {
+    "fr": "g bien aquer",
+    "en": "successfully hackd"
 }
 
 info_title = {
