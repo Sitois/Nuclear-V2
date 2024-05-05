@@ -52,7 +52,7 @@ class UtilsCommands(commands.Cog):
         else:
             def is_me(m):
                 return m.author.id == self.bot.user.id
-            await ctx.channel.purge(limit=amount, check=is_me)
+            await ctx.channel.purge(limit=amount*2, check=is_me)
 
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
@@ -118,6 +118,8 @@ class UtilsCommands(commands.Cog):
         else:
             user = ctx.author
 
+        user = await self.bot.fetch_user(user.id) # We can't use ``await self.bot.get_user(user.id)``; that will do less api requests; but it's necessary to fetch_user for the banner.
+
         if ctx.guild:
             guild = ctx.guild
             member = guild.get_member(user.id)
@@ -125,19 +127,45 @@ class UtilsCommands(commands.Cog):
         else:
             roles = []
 
-
-        if roles:
-            roles_list = f">  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}\n"
-
         message = f"""🗒️| {langs.info_title[config_selfbot.lang]} <@{user.id}> :
 >  👤| {langs.info_global[config_selfbot.lang]}: `{user.global_name}`
 >  🌐| {langs.info_username[config_selfbot.lang]}: `{user.name}`
 >  🆔| ID: `{user.id}`
->  🌈| {langs.info_banner[config_selfbot.lang]}: `{user.banner.url if not user.banner is None else langs.empty[config_selfbot.lang]}`
+>  🌈| {langs.info_banner[config_selfbot.lang] + ": [" + langs.info_banner_link[config_selfbot.lang] + "](" + user.banner.url + ")" if not user.banner is None else langs.empty[config_selfbot.lang]}
 >  📅| {langs.info_created_at[config_selfbot.lang]}: `{user.created_at.strftime('%d/%m/%Y %H:%M:%S')}`
-{">  🖼️| " + langs.info_avatar[config_selfbot.lang] + ": [" + langs.info_avatar_link[config_selfbot.lang] + "](" + user.avatar.url + ")" if not user.avatar is None else langs.empty[config_selfbot.lang]}
-{roles_list if ctx.guild else ""}"""
+>  🖼️| {langs.info_avatar[config_selfbot.lang] + ": [" + langs.info_avatar_link[config_selfbot.lang] + "](" + user.avatar.url + ")" if not user.avatar is None else langs.empty[config_selfbot.lang]}"""
+
+        if roles:
+            message += f"\n>  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}\n"
+
 
         await ctx.message.edit(message)
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
+
+    @commands.command()
+    async def serverinfo(self, ctx):
+        if ctx.message.mentions:
+            guild = ctx.message.mentions[0].guild
+        else:
+            guild = ctx.guild
+
+        if guild:
+            roles = [role.name for role in guild.roles[1:]]
+            channels = len(guild.channels)
+            text_channels = len(guild.text_channels)
+            voice_channels = len(guild.voice_channels)
+            members = guild.member_count
+
+            info = f"""Nom: {guild.name}
+ID: {guild.id}
+Propriétaire: <@{guild.owner.id}>({guild.owner.id})
+Nombre de membres: {members}
+Nombre de salons: Total: {channels}, Textuels: {text_channels}, Vocaux: {voice_channels}"""
+            
+            if roles:
+                info += f"Rôles: {', '.join(roles)}"
+
+            await ctx.channel.send(info)
+        else:
+            await ctx.channel.send("Cette commande n'est pas disponible dans les messages privés.")

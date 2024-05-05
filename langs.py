@@ -400,6 +400,11 @@ info_avatar_link = {
     "en": "Avatar's link"
 }
 
+info_banner_link = {
+    "fr": "Lien vers la bannière",
+    "en": "Banner's link"
+}
+
 info_roles = {
     "fr": "Rôles",
     "en": "Roles"
