@@ -60,7 +60,7 @@ class UtilsCommands(commands.Cog):
     async def snipe(self, ctx):
         sniped_message = self.sniped_messages.get(ctx.channel.id)
         if sniped_message:
-            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] == langs.empty[config_selfbot.lang] else None
+            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
             await ctx.message.edit(f"""__**🔫 Sniper:**__
 
 🗣️ {langs.author[config_selfbot.lang]}: {sniped_message['author']}
