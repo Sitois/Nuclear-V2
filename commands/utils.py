@@ -142,3 +142,33 @@ class UtilsCommands(commands.Cog):
         await ctx.message.edit(message)
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
+
+    @commads.command()
+        async def ltc(self, ctx)
+            await ctx.message.edit("**__LTC Address:__** : *your ltc address here*")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+
+    @commads.command()
+        async def btc(self, ctx)
+            await ctx.message.edit("**__BTC Address:__** : *your btc address here*")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+
+    @commads.command()
+        async def eth(self, ctx)
+            await ctx.message.edit(m"**__ETH Address:__** : *your eth address here*")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+
+    @commands.command()
+        async def comparetime(self, ctx, id1: int, id2: int):
+            try:
+                time1 = ((id1 >> 22) + 1420070400000) / 1000
+                time2 = ((id2 >> 22) + 1420070400000) / 1000
+
+            time_diff = abs(time1 - time2)
+
+            await ctx.message.edit(f"**The time difference between the two messages are {time_diff} seconds.**")
+        except Exception as e:
+            await ctx.message.edit(f"Error: {e}")
