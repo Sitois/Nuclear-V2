@@ -239,6 +239,11 @@ help_tools_close_dm_bots = {
     "en": "Close all your DMs with bots"
 }
 
+help_utils_comparetime = { 
+    "fr": "NUKE THE FRENCH",
+    "en": "Provide with 2 message IDs (.comparetime <id1> <id2>), and it will output the time difference"
+}
+
 
 ####################
 #  commands        #
