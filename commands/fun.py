@@ -100,3 +100,19 @@ class FunCommands(commands.Cog):
             numbers = "0123456789"
             gift_code = ''.join(random.choice(alphabet + numbers) for _ in range(16))
             await ctx.message.edit(f"discord.gift/{gift_code}")
+
+    @commands.command()
+    async def howfemboy(self, ctx):
+        if ctx.message.mentions:
+            user = ctx.message.mentions[0]
+        else:
+            user = ctx.author
+
+        rng = random.randint(1, 100)
+
+        if rng >= 85:
+            await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bQmRX.gif) 💅!")
+        if rng >= 75:
+            await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bUyzv.gif) 😈!")
+        else:
+            await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** femboy!")

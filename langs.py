@@ -61,6 +61,11 @@ incorrect = {
     "en": "Incorrect choice."
 }
 
+is_ = {
+    "fr": "est",
+    "en": "is"
+}
+
 ####################
 #  launch          #
 # translation !!!  #
@@ -202,6 +207,11 @@ help_fun_gift = {
 help_fun_hack = {
     "fr": "aque quelqu'un (😈)",
     "en": "hack someone fr (😈)"
+}
+
+help_fun_femboy = {
+    "fr": "Indique le pourcentage de femboy-ité",
+    "en": "Return the femboy percent of someone"
 }
 
 help_raid_dmall = {
