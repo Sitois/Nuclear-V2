@@ -95,7 +95,7 @@ Maintenant, votre token est dans votre presse-papier. <br><br>
 <br>
 
 ## ☣️ Problèmes
-Aucun problème n'a été trouvé pour le moment. (si t'en rencontre un: [https://guilded.gg/nuclear](https://guilded.gg/nuclear))
+Aucun problème n'a été trouvé pour le moment. (si t'en rencontre viesn sur le [Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support))
 
 ## 🛠️ Developement version
 1. Ouvrez votre Terminal et rendez-vous dans le dossier souhaitée à l'aide de `cd`.
