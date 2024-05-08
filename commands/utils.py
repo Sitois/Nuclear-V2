@@ -23,10 +23,30 @@ class UtilsCommands(commands.Cog):
                 self.sniped_messages[message.channel.id] = {
                     'author': message.author,
                     'content': message.content,
-                    'images': attachments_urls if message.attachments else langs.empty[config_selfbot.lang]
+                    'images': attachments_urls if message.attachments else None
                 }
             except Exception:
                 return
+            
+    @commands.command()
+    async def snipe(self, ctx):
+        sniped_message = self.sniped_messages.get(ctx.channel.id)
+        if sniped_message:
+            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
+            await ctx.message.edit(f"""__**🔫 Sniper:**__
+
+🗣️ {langs.author[config_selfbot.lang]}: {sniped_message['author']}
+📩 Message:
+```txt
+{sniped_message['content']}
+```
+🖼️ Images: {images_text}""")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+        else:
+            await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang])
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
 
     @commands.command()
     async def clear(self, ctx):
@@ -52,26 +72,9 @@ class UtilsCommands(commands.Cog):
         else:
             def is_me(m):
                 return m.author.id == self.bot.user.id
-            await ctx.channel.purge(limit=amount*2, check=is_me)
+            await ctx.channel.purge(limit=amount, check=is_me)
 
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
-
-    @commands.command()
-    async def snipe(self, ctx):
-        sniped_message = self.sniped_messages.get(ctx.channel.id)
-        if sniped_message:
-            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
-            await ctx.message.edit(f"""__**🔫 Sniper:**__
-
-🗣️ {langs.author[config_selfbot.lang]}: {sniped_message['author']}
-📩 Message: {sniped_message['content']}
-🖼️ Images: {images_text}""")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-        else:
-            await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
 
     @commands.command()
     async def hype(self, ctx):
@@ -142,33 +145,3 @@ class UtilsCommands(commands.Cog):
         await ctx.message.edit(message)
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
-
-    @commads.command()
-        async def ltc(self, ctx)
-            await ctx.message.edit("**__LTC Address:__** : *your ltc address here*")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-
-    @commads.command()
-        async def btc(self, ctx)
-            await ctx.message.edit("**__BTC Address:__** : *your btc address here*")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-
-    @commads.command()
-        async def eth(self, ctx)
-            await ctx.message.edit(m"**__ETH Address:__** : *your eth address here*")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-
-    @commands.command()
-        async def comparetime(self, ctx, id1: int, id2: int):
-            try:
-                time1 = ((id1 >> 22) + 1420070400000) / 1000
-                time2 = ((id2 >> 22) + 1420070400000) / 1000
-
-            time_diff = abs(time1 - time2)
-
-            await ctx.message.edit(f"**The time difference between the two messages are {time_diff} seconds.**")
-        except Exception as e:
-            await ctx.message.edit(f"Error: {e}")

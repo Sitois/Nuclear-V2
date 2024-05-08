@@ -122,7 +122,6 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}hype`: {langs.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
  `{config_selfbot.prefix}bio`: {langs.help_general_bio[config_selfbot.lang]}.
  `{config_selfbot.prefix}userinfo`: {langs.help_general_user_info[config_selfbot.lang]}""")
- `{config_selfbot.prefix}comparetime`: {langs.help_help_comparetime[config_selfbot.lang]}""")
 
 
         await asyncio.sleep(config_selfbot.deltime)
