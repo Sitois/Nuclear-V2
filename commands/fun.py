@@ -59,7 +59,10 @@ class FunCommands(commands.Cog):
         if ctx.message.mentions:
             user = ctx.message.mentions[0]
         else:
-            user = ctx.author
+            try:
+                user = self.bot.get_user(int(ctx.message.content.split()[1]))
+            except Exception:
+                user = ctx.author
         
         await ctx.message.edit(f"---{langs.fun_hack_step_one[config_selfbot.lang]} <@{user.id}>---")
         await asyncio.sleep(2)
@@ -106,7 +109,10 @@ class FunCommands(commands.Cog):
         if ctx.message.mentions:
             user = ctx.message.mentions[0]
         else:
-            user = ctx.author
+            try:
+                user = self.bot.get_user(int(ctx.message.content.split()[1]))
+            except Exception:
+                user = ctx.author
 
         rng = random.randint(1, 100)
 

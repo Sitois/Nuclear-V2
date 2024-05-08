@@ -119,9 +119,12 @@ class UtilsCommands(commands.Cog):
         if ctx.message.mentions:
             user = ctx.message.mentions[0]
         else:
-            user = ctx.author
+            try:
+                user = self.bot.get_user(int(ctx.message.content.split()[1]))
+            except Exception:
+                user = ctx.author
 
-        user = await self.bot.fetch_user(user.id) # We can't use ``await self.bot.get_user(user.id)``; that will do less api requests; but it's necessary to fetch_user for the banner.
+        user = await self.bot.fetch_user(user.id) # We can use ``await self.bot.get_user(user.id)``; that will do less api requests; but it's necessary to fetch_user for the banner.
 
         if ctx.guild:
             guild = ctx.guild
@@ -139,7 +142,7 @@ class UtilsCommands(commands.Cog):
 >  🖼️| {langs.info_avatar[config_selfbot.lang]}: {"[" + langs.info_avatar_link[config_selfbot.lang] + "](" + user.avatar.url + ")" if not user.avatar is None else "`" + langs.empty[config_selfbot.lang] + "`"}"""
 
         if roles:
-            message += f"\n>  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}\n"
+            message += f"\n>  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}"
 
 
         await ctx.message.edit(message)
