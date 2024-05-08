@@ -172,6 +172,10 @@ class HelpCommands(commands.Cog):
 
     @commands.command()
     async def presence(self, ctx):
+        """
+    `{config_selfbot.prefix}rpc_button_link_one`: {langs.rpc_button_link_one_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_button_link_two`: {langs.rpc_button_link_two_translate[config_selfbot.lang]}.
+        """
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     🕹️| __**Rich Presence Settings:**__                
@@ -185,8 +189,6 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}rpc_small_image`: {langs.rpc_small_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
     `{config_selfbot.prefix}rpc_small_text`: {langs.rpc_small_text_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_button_text_one`: {langs.rpc_button_text_one_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_link_one`: {langs.rpc_button_link_one_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_link_two`: {langs.rpc_button_link_two_translate[config_selfbot.lang]}.""")
+    `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
