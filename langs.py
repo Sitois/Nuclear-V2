@@ -655,13 +655,19 @@ rpc_cod_state = {
 
 tutorial_rpc = {
     "fr": f""" Pour obtenir une image personnalisé:
-  1. Envoyer une image (gif, png...) dans Discord. (dans n'importe quelle salon)
-  2. Clique droit et "Copier l'adresse de l'image".
-  3. Faites `{config_selfbot.prefix}rpc_image mp:attachements/67484738743874387438/657438923487543/exemple.png`.
-  4. Fini !""",
+
+  1. Rendez-vous sur le [portail développeur de Discord](https://discord.com/developers/docs/game-sdk/applications)
+  2. Créez une application.
+  3. Entrez l'ID de l'application dans `config_selfbot.py`
+  3. Rendez-vous dans `[Votre Application] > Rich Presence > Art Assets`, poster votre image et nommer la.
+  4. Faites `{config_selfbot.prefix}rpc_image nom_de_votre_asset`.
+  5. Fini !""",
     "en": f""" To get a custom rpc image, you should:
-  1. Upload an image (gif, png...) into Discord. (in any channel)
-  2. Right Click and "Copy Image Link".
-  3. Do `{config_selfbot.prefix}rpc_image mp:attachements/67484738743874387438/657438923487543/example.png`.
+
+  1. Go to [Discord dev portal](https://discord.com/developers/docs/game-sdk/applications)
+  2. Create an application.
+  3. Enter the application ID in `config_selfbot.py`
+  3. Go to `[Your Application] > Rich Presence > Art Assets`, poster votre image et nommer la.
+  4. Do `{config_selfbot.prefix}rpc_image your_asset_name`.
   4. Done !"""
 }
