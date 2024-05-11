@@ -89,7 +89,7 @@ activity_button_two = "Star it!"
 activity_button_two_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
 
 # see &tuto
-assets = {"large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=662daa11&is=662c5891&hm=fd617583fee2ee05c504c282364ef5c30dbd54c9c252ba0b4179888c37ad08af&=&format=webp&quality=lossless",
+assets = {"large_image": "dark_icon",
           "large_text": "☄",
           "small_image": None,
           "small_text": None
