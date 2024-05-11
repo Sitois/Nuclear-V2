@@ -80,7 +80,7 @@ kick_reason = "ezzed by Nuclear lol."
 activity_name = "☄"
 activity_details = " "
 activity_state = " "
-application_id = 1200865454319747142
+application_id = 1193291951290712154
 
 streaming_url = "https://twitch.tv/twitch"
 activity_button_one = "Nuclear !"
