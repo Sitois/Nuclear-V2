@@ -68,11 +68,15 @@ class UtilsCommands(commands.Cog):
             async for message in ctx.channel.history(limit=amount):
                 if message.author.id == self.bot.user.id:
                     await message.delete()
-                    await asyncio.sleep(random_cooldown(0.4, 1.9))
+                    await asyncio.sleep(random_cooldown(0.4, 1))
+        """
+        #SHIT RATE LIMIT 300 TIMES
+        
         else:
             def is_me(m):
                 return m.author.id == self.bot.user.id
             await ctx.channel.purge(limit=amount, check=is_me)
+        """
 
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
