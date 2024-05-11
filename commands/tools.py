@@ -29,27 +29,27 @@ class ToolsCommands(commands.Cog):
 
         friends = self.bot.friends
 
-        print(Fore.YELLOW + "=========DM ALL=========", Style.RESET_ALL)
-        print(Fore.BLUE + f"Friends Counter: {len(friends)} | Message:\n{dmall_content}", Style.RESET_ALL)
+        print(f"{Fore.YELLOW}=========DM ALL========={Style.RESET_ALL}")
+        print(f"{Fore.BLUE}Friends Counter: {len(friends)} | Message:\n{dmall_content}{Style.RESET_ALL}")
 
         await ctx.message.edit(langs.raid_dm_all[config_selfbot.lang])
 
         for friend in friends:
             try:
                 await friend.user.send(dmall_content)
-                print(Fore.GREEN + "[+]", Fore.LIGHTGREEN_EX + "@{friend.user.name}({friend.user.id})", Style.RESET_ALL)
+                print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}@{friend.user.name}({friend.user.id}){Style.RESET_ALL}")
                 await asyncio.sleep(random_cooldown(0.5, 2))
             except discord.Forbidden:
-                print(Fore.RED + "[-]", Fore.LIGHTRED_EX + "@{friend.user.name}({friend.user.id})", Style.RESET_ALL)
+                print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}@{friend.user.name}({friend.user.id}){Style.RESET_ALL}")
             except discord.CaptchaRequired:
-                print(Fore.RED + "[!]", Fore.LIGHTRED_EX + "Captcha Required!", Style.RESET_ALL)
+                print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}Captcha Required!{Style.RESET_ALL}")
                 print("========================")
                 await ctx.message.edit(langs.raid_dm_all_captcha[config_selfbot.lang])
                 await asyncio.sleep(config_selfbot.deltime)
                 await ctx.message.delete()
                 return
         
-        print(Fore.YELLOW + "========================", Style.RESET_ALL)
+        print(f"{Fore.YELLOW}========================{Style.RESET_ALL}")
 
 
         await ctx.message.edit(langs.raid_dm_all_success[config_selfbot.lang])
