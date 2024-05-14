@@ -139,6 +139,11 @@ error_no_message_snipe = {
     "en": "❌ No message deleted recently in this channel!"
 }
 
+time_snipe = {
+    "fr": "Deleted at",
+    "en": "Supprimé il y a"
+}
+
 help_config_restart = {
     "fr": "Redémarre le selfbot (peut régler un bug)",
     "en": "Restart the selfbot. (it can fix a bug)"
@@ -237,6 +242,11 @@ help_tools_close_dm = {
 help_tools_close_dm_bots = {
     "fr": "Ferme tout vos MP avec des bots",
     "en": "Close all your DMs with bots"
+}
+
+help_utils_comparetime = { 
+    "fr": "NUKE THE FRENCH",
+    "en": "Provide with 2 message IDs (.comparetime <id1> <id2>), and it will output the time difference"
 }
 
 

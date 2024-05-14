@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 import random
+import time
 
 import config_selfbot
 import langs
@@ -23,11 +24,12 @@ class UtilsCommands(commands.Cog):
                 self.sniped_messages[message.channel.id] = {
                     'author': message.author,
                     'content': message.content,
-                    'images': attachments_urls if message.attachments else None
+                    'images': attachments_urls if message.attachments else None,
+                    'time': round(time.time())
                 }
             except Exception:
                 return
-            
+
     @commands.command()
     async def snipe(self, ctx):
         sniped_message = self.sniped_messages.get(ctx.channel.id)
@@ -40,7 +42,8 @@ class UtilsCommands(commands.Cog):
 ```txt
 {sniped_message['content']}
 ```
-🖼️ Images: {images_text}""")
+🖼️ Images: {images_text}
+⌚ {langs.time_snipe[config_selfbot.lang]}: <t:{sniped_message['time']}:R>""")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         else:
