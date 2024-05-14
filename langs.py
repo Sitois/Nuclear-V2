@@ -285,11 +285,6 @@ voice_channel_error = {
     "en": "❌ Please enter a valid voice channel ID!"
 }
 
-voice_not_dm = {
-    "fr": "❌ Cette commande n'est pas disponible en MP!",
-    "en": "❌ You can't use this command in DMs!"
-}
-
 voice_channel_error_not_found = {
     "fr": "❌ Le salon vocal avec cet ID n'existe pas.",
     "en": "❌ Unable to find the voice channel!"

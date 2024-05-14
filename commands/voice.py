@@ -11,12 +11,6 @@ class VoiceCommands(commands.Cog):
 
     @commands.command()
     async def joinvc(self, ctx):
-        if isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(langs.voice_not_dm[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-            return
-
         voice_id = ctx.message.content.split()[1]
         try:
             voice_id = int(voice_id)
@@ -35,7 +29,7 @@ class VoiceCommands(commands.Cog):
 
 
         try:
-            voice_client = await voice_channel.connect()
+            await voice_channel.connect()
             await voice_channel.guild.change_voice_state(channel=voice_channel, self_mute=True)
             await ctx.message.edit(f"📲 {langs.voice_join[config_selfbot.lang]} `{voice_channel.name}`.")
             await asyncio.sleep(config_selfbot.deltime)
@@ -48,12 +42,6 @@ class VoiceCommands(commands.Cog):
 
     @commands.command()
     async def joincam(self, ctx):
-        if isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(langs.voice_not_dm[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-            return
-        
         voice_id = ctx.message.content.split()[1]
         try:
             voice_id = int(voice_id)
@@ -85,12 +73,6 @@ class VoiceCommands(commands.Cog):
 
     @commands.command()
     async def leavevc(self, ctx):
-        if isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(langs.voice_not_dm[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
-            return
-        
         if ctx.author.voice is None or ctx.author.voice.channel is None:
             await ctx.message.edit(langs.leave_voice_error_not_found[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
