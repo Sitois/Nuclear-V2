@@ -15,7 +15,7 @@ class ConfigCommands(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, ctx):
         if self.nitro_sniper and not ctx.author.id == self.bot.user.id:
-            if "discord.gift/" in ctx.content:
+            if "discord.gift/" in ctx.content and not "-" in ctx.content:
                 try:
                     gift_code = ctx.content.split("discord.gift/")[1].split()[0]
                     if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):

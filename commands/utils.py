@@ -64,13 +64,12 @@ class UtilsCommands(commands.Cog):
             await ctx.message.delete()
             return
         
-        if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
-            async for message in ctx.channel.history(limit=amount):
-                if message.author.id == self.bot.user.id:
-                    await message.delete()
-                    await asyncio.sleep(random_cooldown(0.4, 1))
+        async for message in ctx.channel.history(limit=amount):
+            if message.author.id == self.bot.user.id:
+                await message.delete()
+                await asyncio.sleep(random_cooldown(0.4, 1))
         """
-        #SHIT RATE LIMIT 300 TIMES
+        This can hardly rate limit you because user don't have access to bulk-message-delete endpoint.
         
         else:
             def is_me(m):
