@@ -38,6 +38,7 @@
 3. Open your Terminal and go to Nuclear with `cd`.
 4. Install dependencies: `pip install -r requirements.txt`
 5. Run the program: `python main.py`
+6. Get started with `&help`!
 
 ## 🔧 Config
 Open `config_selfbot.py` with any text editor  and enter a [user token](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-how-to-get-a-user-token).

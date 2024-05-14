@@ -36,8 +36,9 @@
 1. Téléchargez la dernière version depuis la section [Releases](https://github.com/Sitois/Nuclear-V2/releases) sur GitHub.
 2. Assurez-vous d'avoir [Python](https://www.python.org/downloads/ "Installez Python ici") installé.
 3. Ouvrez votre Terminal et rendez-vous dans le dossier Nuclear en utilisant `cd`.
-3. Installez les dépendances : `pip install -r requirements.txt`
-4. Exécutez le programme : `python main.py`
+4. Installez les dépendances : `pip install -r requirements.txt`
+5. Exécutez le programme : `python main.py`
+6. Commencez avec `&help` !
 
 ## 🔧 Configuration
 Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un [token d'__utilisateur__](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token).
