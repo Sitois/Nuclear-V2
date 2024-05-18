@@ -1,3 +1,4 @@
+import rpc
 #######################
 #  selfbot            #
 #        basic        #
@@ -89,9 +90,10 @@ activity_button_two = "Star it!"
 activity_button_two_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
 
 # see &tuto
-assets = {"large_image": "dark_icon",
+icon = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
+assets = {"large_image": icon["dark"]["large_image"],
           "large_text": "☄",
-          "small_image": None,
+          "small_image": icon["dark"]["small_image"],
           "small_text": None
           }
 
