@@ -11,7 +11,7 @@ token_error = {
 }
 
 aihottp_error = {
-    "fr": "Ancienne version d'aiohttp (cette erreur de vient pas de Nuclear ^^). Cette erreur vient de discord.py==1.7.3, Tentaive de fix (le selfbot va redémarrer!)...\nAppuyez sur Entrer.",
+    "fr": "Ancienne version d'aiohttp (cette erreur ne vient pas de Nuclear ^^). Cette erreur vient de discord.py==1.7.3, Tentaive de fix (le selfbot va redémarrer!)...\nAppuyez sur Entrer.",
     "en": "Old aiohttp error (not Nuclear's fault ^^). This comes from discord.py==1.7.3, trying to fix it (it will restart!)...\nPress Enter."
 }
 
@@ -140,8 +140,8 @@ error_no_message_snipe = {
 }
 
 time_snipe = {
-    "fr": "Deleted at",
-    "en": "Supprimé il y a"
+    "fr": "Supprimé il y a",
+    "en": "Deleted at"
 }
 
 help_config_restart = {
@@ -660,19 +660,13 @@ rpc_cod_state = {
 
 tutorial_rpc = {
     "fr": f""" Pour obtenir une image personnalisé:
-
-  1. Rendez-vous sur le [portail développeur de Discord](https://discord.com/developers/docs/game-sdk/applications)
-  2. Créez une application.
-  3. Entrez l'ID de l'application dans `config_selfbot.py`
-  3. Rendez-vous dans `[Votre Application] > Rich Presence > Art Assets`, poster votre image et nommer la.
-  4. Faites `{config_selfbot.prefix}rpc_image nom_de_votre_asset`.
-  5. Fini !""",
+  1. Envoyer une image (gif, png...) dans Discord. (dans n'importe quelle salon)
+  2. Clique droit et "Copier l'adresse de l'image".
+  3. Faites `{config_selfbot.prefix}rpc_image mp:attachements/67484738743874387438/657438923487543/exemple.png`.
+  4. Fini !""",
     "en": f""" To get a custom rpc image, you should:
-
-  1. Go to [Discord dev portal](https://discord.com/developers/docs/game-sdk/applications)
-  2. Create an application.
-  3. Enter the application ID in `config_selfbot.py`
-  3. Go to `[Your Application] > Rich Presence > Art Assets`, poster votre image et nommer la.
-  4. Do `{config_selfbot.prefix}rpc_image your_asset_name`.
+  1. Upload an image (gif, png...) into Discord. (in any channel)
+  2. Right Click and "Copy Image Link".
+  3. Do `{config_selfbot.prefix}rpc_image mp:attachements/67484738743874387438/657438923487543/example.png`.
   4. Done !"""
 }
