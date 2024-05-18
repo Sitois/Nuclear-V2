@@ -4,6 +4,7 @@ try:
     import ctypes
     import datetime, time
     import threading
+    import random
     import config_selfbot
     import langs
     import rpc
@@ -18,11 +19,12 @@ except ImportError:
     if os.name == 'nt':
      subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
     else:
-     subprocess.check_call([sys.executable, "-m", "pip3", "install", '-r' , 'requirements.txt'])
+     subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
     import platform
     import ctypes
     import datetime, time
     import threading
+    import random
     import config_selfbot
     import langs
     import rpc
