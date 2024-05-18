@@ -17,5 +17,15 @@
     "youtube": {
            "large_image": "mp:attachments/1135264530188992562/1197991793111863417/ILAO8CE.png?ex=6649af8d&is=66485e0d&hm=951b1e0dc5aa0f220d3e39f80954b581af7fd62edb7e46b6f4602b47937c7b16&=&format=webp&quality=lossless&width=498&height=498",
            "small_image": null
+          },
+
+    "car": {
+           "large_image": "mp:attachments/1135264530188992562/1197994235174080602/gBXD4Yu.gif?ex=6649b1d3&is=66486053&hm=c3c37f11e9f06ea926f9b1797d24e5f24751e1c629ac8c83657381556313f89f&=",
+           "small_image": null
+          },
+
+    "js": {
+           "large_image": "mp:attachments/1135264530188992562/1198623222678179960/FYcrOR1.png?ex=664a015d&is=6648afdd&hm=b9d2fc7897cbf947b234ed10b440e7c76e89923de9b7aef4b4399b6607672526&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1198617586389225592/aBjaPbQ.png?ex=6649fc1d&is=6648aa9d&hm=0468686e2ce4bafd6c5b174bda6aba15a3bb763960722eb87231021b1fa4cca8&=&format=webp&quality=lossless"
           }
 }
