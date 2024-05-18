@@ -11,15 +11,16 @@ import langs
 class TemplatesCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
 
     @commands.command()
     async def use(self, ctx):
         today_date = datetime.datetime.today()
         choice = ctx.message.content.split()[1]
         if choice.lower() == "hi":
-            assets = {"large_image": "sitois_pfp",
+            assets = {"large_image": self.templates_assets["hi"]["large_image"],
                       "large_text": "heyyy",
-                      "small_image": "hi_small_icon",
+                      "small_image": self.templates_assets["hi"]["small_image"],
                       "small_text": "hiii"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -40,9 +41,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "omori":
-            assets = {"large_image": "omori_icon",
+            assets = {"large_image": self.templates_assets["omori"]["large_image"],
                       "large_text": "Omori",
-                      "small_image": "omori_small_icon",
+                      "small_image": self.templates_assets["omori"]["small_image"],
                       "small_text": "The bulb."
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -63,9 +64,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "cod":
-            assets = {"large_image": "cod_icon",
+            assets = {"large_image": self.templates_assets["cod"]["large_image"],
                       "large_text": "Call Of Duty: MWIII",
-                      "small_image": "cod_small_icon",
+                      "small_image": self.templates_assets["cod"]["small_image"],
                       "small_text": "Battle Pass level 21"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -86,9 +87,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "youtube":
-            assets = {"large_image": "youtube_icon",
+            assets = {"large_image": self.templates_assets["youtube"]["large_image"],
                       "large_text": "YouTube",
-                      "small_image": None,
+                      "small_image": self.templates_assets["youtube"]["small_image"],
                       "small_text": None
                       }
             activity = discord.Activity(type=discord.ActivityType.watching,
@@ -109,9 +110,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "car":
-            assets = {"large_image": "drift_icon",
+            assets = {"large_image": self.templates_assets["car"]["large_image"],
                       "large_text": "Drift Car",
-                      "small_image": None,
+                      "small_image": self.templates_assets["car"]["small_image"],
                       "small_text": None
                       }
             activity = discord.Activity(type=discord.ActivityType.watching,
@@ -132,9 +133,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "js":
-            assets = {"large_image": "js_icon",
+            assets = {"large_image": self.templates_assets["js"]["large_image"],
                       "large_text": "Editing a JAVASCRIPT file",
-                      "small_image": "vscode_icon",
+                      "small_image": self.templates_assets["js"]["small_image"],
                       "small_text": "Visual Studio Code"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -155,9 +156,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "python":
-            assets = {"large_image": "python_icon",
+            assets = {"large_image": self.templates_assets["python"]["large_image"],
                       "large_text": "Editing a PYTHON file",
-                      "small_image": "vscode_icon",
+                      "small_image": self.templates_assets["python"]["small_image"],
                       "small_text": "Visual Studio Code"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -178,9 +179,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "webdeck":
-            assets = {"large_image": "webdeck_icon",
+            assets = {"large_image": self.templates_assets["webdeck"]["large_image"],
                       "large_text": "WebDeck Icon",
-                      "small_image": "lenoch_pfp",
+                      "small_image": self.templates_assets["webdeck"]["small_image"],
                       "small_text": "Lenochxd"
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -201,9 +202,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "nuclear":
-            assets = {"large_image": "nuclear_icon",
+            assets = {"large_image": self.templates_assets["nuclear"]["large_image"],
                       "large_text": "github.com/Sitois/Nuclear-V2",
-                      "small_image": "github_icon",
+                      "small_image": self.templates_assets["nuclear"]["small_image"],
                       "small_text": "On GitHub!"
                       }
             activity = discord.Activity(type=discord.ActivityType.streaming,
@@ -224,9 +225,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "dark":
-            assets = {"large_image": "dark_icon",
+            assets = {"large_image": self.templates_assets["dark"]["large_image"],
                       "large_text": "☄",
-                      "small_image": None,
+                      "small_image": self.templates_assets["dark"]["small_image"],
                       "small_text": None
                       }
             activity = discord.Activity(type=discord.ActivityType.competing,
@@ -246,9 +247,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "gta":
-            assets = {"large_image": "gta_six_icon",
+            assets = {"large_image": self.templates_assets["gta"]["large_image"],
                       "large_text": "Grand Theft Auto VI",
-                      "small_image": None,
+                      "small_image": self.templates_assets["gta"]["small_image"],
                       "small_text": None
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
@@ -269,9 +270,9 @@ class TemplatesCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         elif choice.lower() == "tiktok":
-            assets = {"large_image": "tiktok_icon",
+            assets = {"large_image": self.templates_assets["tiktok"]["large_image"],
                       "large_text": "TikTok",
-                      "small_image": None,
+                      "small_image": self.templates_assets["tiktok"]["small_image"],
                       "small_text": None
                       }
             activity = discord.Activity(type=discord.ActivityType.watching,
