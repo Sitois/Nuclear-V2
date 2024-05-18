@@ -35,7 +35,7 @@ def edit_variable_json(variable_name: str, new_value):
 
 # Templates
 
-def get_raw_json(repo_owner, repo_name, file_path):
+def get_raw_json(repo_owner: str, repo_name: str, file_path: str):
     """
     Helper fonction to get assets url from the `assets.json` of the repository.
     """
