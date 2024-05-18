@@ -6,7 +6,7 @@
 
 # en: SelfBot name
 # fr: Nom du SelfBot
-selfbot_name = "Nuclear Selfbot"
+selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod
 
 # en: Account Token.
 # fr: Token du compte.
