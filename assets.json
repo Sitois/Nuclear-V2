@@ -27,5 +27,35 @@
     "js": {
            "large_image": "mp:attachments/1135264530188992562/1198623222678179960/FYcrOR1.png?ex=664a015d&is=6648afdd&hm=b9d2fc7897cbf947b234ed10b440e7c76e89923de9b7aef4b4399b6607672526&=&format=webp&quality=lossless",
            "small_image": "mp:attachments/1135264530188992562/1198617586389225592/aBjaPbQ.png?ex=6649fc1d&is=6648aa9d&hm=0468686e2ce4bafd6c5b174bda6aba15a3bb763960722eb87231021b1fa4cca8&=&format=webp&quality=lossless"
+          },
+
+    "python": {
+           "large_image": "mp:attachments/1135264530188992562/1198617576553599057/3jMZG0a.png?ex=6649fc1b&is=6648aa9b&hm=73540cd08b672beb20cabf6fb7da722cd67bfdba8769c14cb3d9025677379272&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1198617586389225592/aBjaPbQ.png?ex=6649fc1d&is=6648aa9d&hm=0468686e2ce4bafd6c5b174bda6aba15a3bb763960722eb87231021b1fa4cca8&=&format=webp&quality=lossless"
+          },
+
+    "webdeck": {
+           "large_image": "mp:attachments/1135264530188992562/1197999417853218927/jj0PYp2.png?ex=6649b6a6&is=66486526&hm=734534f10f0651a917b1c3fc0f99c4c69f637949529034ffb447f893f1edef7b&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1233765320406073475/fa1I0M7.png?ex=6649f87e&is=6648a6fe&hm=73ef46363b3e4fd398108da8acff06d76a61e69893eec05b0af251b759aa09f5&=&format=webp&quality=lossless"
+          },
+
+    "nuclear": {
+           "large_image": "mp:attachments/1135264530188992562/1198281648437993553/CIjvBOJ.png?ex=664a14bf&is=6648c33f&hm=15a2d20b3ae7bd08d7e284ba136e29acd3f4b6b247ac438cc251462ecab7d46e&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1206622218847518821/zQk1BeA.png?ex=66497142&is=66481fc2&hm=881c60f61186efb515b579d6663c17886aa667cca1c380e2e1059ee89e7f5e85&=&format=webp&quality=lossless&width=498&height=498"
+          },
+
+    "dark": {
+           "large_image": "mp:attachments/1135264530188992562/1205872002238382111/PNjYcIL.png?ex=664a0251&is=6648b0d1&hm=feb728eda593bb99a18fda70bc6a702be3e5adaf8a6fc630d682ddc5341f6e54&=&format=webp&quality=lossless",
+           "small_image": null
+          },
+
+    "gta": {
+           "large_image": "mp:attachments/1135264530188992562/1200905385230475424/rhqvEdX.png?ex=6649bd0b&is=66486b8b&hm=cc7fdd42ce010ef2759d446a7753a3d53f513e0bc90dfff34bf07a8e31db02b1&=&format=webp&quality=lossless",
+           "small_image": null
+          },
+
+    "tiktok": {
+           "large_image": "mp:attachments/1135264530188992562/1235997837255376949/ssfXx3o.png?ex=664985f0&is=66483470&hm=e3b3fb35e0a8ef3e9ea1f94fbcb2041cd4c3347486451041f8c8f63a6c4aa3db&=&format=webp&quality=lossless&width=498&height=498",
+           "small_image": null
           }
 }
