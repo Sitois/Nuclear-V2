@@ -1,4 +1,5 @@
 import json
+import requests
 
 file_path = r"./rpc.json"
 
@@ -30,3 +31,18 @@ def edit_variable_json(variable_name: str, new_value):
 
         with open(file_path, "w") as file:
             json.dump(data, file, indent=4)
+
+
+# Templates
+
+def get_raw_json(repo_owner, repo_name, file_path):
+    """
+    Helper fonction to get assets url from the `assets.json` of the repository.
+    """
+    url = f"https://raw.githubusercontent.com/{repo_owner}/{repo_name}/main/{file_path}"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        return response.json()
+    else:
+        raise Exception(f"Failed to fetch raw JSON from GitHub. Status code: {response.status_code}")
