@@ -4,5 +4,18 @@
            "small_image": "mp:attachments/1135264530188992562/1194342294371958864/HAJ65By.png?ex=664997b0&is=66484630&hm=0046b7f44b4e2b7deb56b1b550538cf0264a6a78ac10f89263628645ef7d9ea7&=&format=webp&quality=lossless"
           },
 
-    "cod": {"": ""}
+    "omori": {
+           "large_image": "mp:attachments/1135264530188992562/1233797659429699745/uBNj49H.png?ex=66496ddc&is=66481c5c&hm=bbd40e142cfa325b17b59dedba1d63d15d5fd0983ee6b56f78230347dd36d832&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1233797777436180511/4z6pDi6.png?ex=66496df8&is=66481c78&hm=f437e832053618f158b3917feda62bb70ff82c81ca7cac42edf134f1eefeb356&=&format=webp&quality=lossless&width=373&height=498"
+          },
+
+    "cod": {
+           "large_image": "mp:attachments/1135264530188992562/1199007140782813284/5rr7SXS.png?ex=66496caa&is=66481b2a&hm=dec2ce1888a5ec0272f8321b2b751b7f6a6feb946ee35f9c3553771d1659dae0&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1234196811426693160/vVgU3XI.png?ex=6649901a&is=66483e9a&hm=3d2440352adb5bc061f5aa1f6eaaa17a1625fc07767a8ca7e3037c1f54a8313e&=&format=webp&quality=lossless"
+          },
+
+    "youtube": {
+           "large_image": "mp:ttachments/1135264530188992562/1197991793111863417/ILAO8CE.png?ex=6649af8d&is=66485e0d&hm=951b1e0dc5aa0f220d3e39f80954b581af7fd62edb7e46b6f4602b47937c7b16&=&format=webp&quality=lossless&width=498&height=498",
+           "small_image": null
+          }
 }
