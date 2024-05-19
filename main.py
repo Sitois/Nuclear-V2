@@ -136,7 +136,7 @@ async def handle_captcha(exc: discord.CaptchaRequired, bot: commands.Bot) -> str
     return result['code']
 """
 
-bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)#, captcha_handler=handle_captcha)
+bot = commands.Bot(command_prefix=config_selfbot.prefix, help_command=None)#, captcha_handler=handle_captcha)
 
 start_time = time.time()
 
