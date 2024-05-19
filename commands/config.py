@@ -19,8 +19,15 @@ class ConfigCommands(commands.Cog):
                 try:
                     gift_code = ctx.content.split("discord.gift/")[1].split()[0]
 
-                    # Prevent from claiming a promotionnal link
+                    # Prevent from claiming certains unclaimable links.
                     if "-" in gift_code: 
+                        # Prevent from claiming a promotional code.
+                        return
+                    elif gift_code == "Udzwm3hrQECQBnEEFFCEwdSq":
+                        # Prevent from claiming the custom "Nerd" nitro code.
+                        return
+                    elif gift_code == "vhnuzE2YkNCZ7sfYHHKebKXB":
+                        # Prevent from claiming the custom "No Nitro ?" nitro code.
                         return
 
                     if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
