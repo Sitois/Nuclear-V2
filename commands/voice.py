@@ -7,7 +7,7 @@ import langs
 
 class VoiceCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: commands.Bot = bot
 
     @commands.command()
     async def joinvc(self, ctx):
@@ -78,7 +78,9 @@ class VoiceCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
-
+        
+        # TODO:
+        # Improvement: `ctx.author.voice.channel` wll be used **only** if no channel ID is passed.
         voice_channel = ctx.author.voice.channel
 
         try:

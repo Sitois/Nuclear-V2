@@ -9,8 +9,8 @@ import langs
 
 class ConfigCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
-        self.nitro_sniper = config_selfbot.nitro_sniper
+        self.bot: commands.Bot = bot
+        self.nitro_sniper: bool = config_selfbot.nitro_sniper
 
     @commands.Cog.listener()
     async def on_message(self, ctx):

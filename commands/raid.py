@@ -19,8 +19,8 @@ def random_cooldown(minimum, maximum):
 
 class RaidCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
-        self.is_spamming = False
+        self.bot: commands.Bot = bot
+        self.is_spamming: bool = False
 
     @commands.command()
     async def kickall(self, ctx):
@@ -170,3 +170,6 @@ class RaidCommands(commands.Cog):
         for i in range(2):
             await ctx.channel.send(flood_spam)
             await asyncio.sleep(0.5)
+
+    # TODO:
+    # Add: `nuke` command that will delete all channel and all roles.

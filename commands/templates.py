@@ -10,7 +10,7 @@ import langs
 
 class TemplatesCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: commands.Bot = bot
         self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
 
     @commands.command()
@@ -346,3 +346,6 @@ class TemplatesCommands(commands.Cog):
             await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]}")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+
+    # TODO:
+    # Add: `reload` command that will reload tempaltes images (`self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")`)

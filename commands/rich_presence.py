@@ -10,7 +10,7 @@ import langs
 
 class RichPresenceCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: commands.Bot = bot
         self.today_date = datetime.datetime.today()
 
     @commands.command()
@@ -520,3 +520,6 @@ class RichPresenceCommands(commands.Cog):
             await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]} (`game` / `watch` / `listen` / `stream` / `competing` / `xbox`)")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
+
+    # TODO:
+    # Add: In the help command, add "(`game` / `watch` / `listen` / `stream` / `competing` / `xbox`)" and rename them, i.g. "game" to "play".

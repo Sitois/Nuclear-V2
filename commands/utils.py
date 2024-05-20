@@ -13,8 +13,8 @@ def random_cooldown(minimum, maximum):
 
 class UtilsCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
-        self.sniped_messages = {}
+        self.bot: commands.Bot = bot
+        self.sniped_messages: dict = {}
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
@@ -154,3 +154,9 @@ class UtilsCommands(commands.Cog):
         await ctx.message.edit(message)
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
+
+    # TODO:
+    # Improvement: Add user's bio in the `useinfo` command.
+    # Add: `serverinfo` command that will return informations about the server.
+    # Add: `botinvite` command that will return a botinvite using the given bot ID.
+    # Add: `support` command that will return support links.

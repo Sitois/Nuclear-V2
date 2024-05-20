@@ -12,10 +12,10 @@ import langs
 
 class FunCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
-        self.good_person = config_selfbot.good_person
-        self.badwords = config_selfbot.badwords
-        self.good_person_list = config_selfbot.good_person_list
+        self.bot: commands.Bot = bot
+        self.good_person: bool = config_selfbot.good_person
+        self.badwords: list = config_selfbot.badwords
+        self.good_person_list: list = config_selfbot.good_person_list
 
     @commands.command()
     async def call(self, ctx):

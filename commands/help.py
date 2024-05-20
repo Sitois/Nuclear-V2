@@ -8,7 +8,7 @@ import langs
 
 class HelpCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: commands.Bot = bot
 
     @commands.command()
     async def help(self, ctx):
@@ -167,6 +167,8 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
     `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}
     `{config_selfbot.prefix}use tiktok`: {langs.template_help_tiktok[config_selfbot.lang]}""")
+    # TODO:
+    # Improvement: Add a "💡 You can reload images if they don't work with the `reload` command."
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 

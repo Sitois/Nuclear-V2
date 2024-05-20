@@ -13,7 +13,7 @@ def random_cooldown(minimum, maximum):
 
 class ToolsCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: commands.Bot = bot
 
     @commands.command()
     async def dmall(self, ctx):

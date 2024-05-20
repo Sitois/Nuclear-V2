@@ -215,6 +215,17 @@ async def on_ready():
                               afk=True,
                               idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
+    # TODO:
+    # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and end a welome message,
+    # i.g.: "Don't use command in servers you can get reported, here the support link, offcial github link, current version" etc..
+    """
+    if not rpc.read_variable_json("first_start"):
+        random_user = random.choice(bot.friends)
+        panel = await bot.create_group(random_user.user)
+        await panel.remove_recipients(random_user.user)
+        await panel.edit(name="Nuclear Panel")
+        await panel.send("hi")
+    """
 
 def restart_selfbot():
     python = sys.executable
