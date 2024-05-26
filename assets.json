@@ -1,12 +1,12 @@
 {
     "hi": {
-           "large_image": "mp:attachments/1135264530188992562/1241885229296123904/NW6W99Z.png?ex=664bd33f&is=664a81bf&hm=e917cb6ac15696e06eb6b0d9f09d5358dda46a01a9c80acaab0397cbda96a6f3&=&format=webp&quality=lossless&width=885&height=498",
-           "small_image": "mp:attachments/1135264530188992562/1241885228839206952/KIq5Mph.png?ex=664bd33f&is=664a81bf&hm=40e06440b3f0339cb5df9f450994f8ca5cce269158eff4056de7a0dca2252c6c&=&format=webp&quality=lossless"
+           "large_image": "mp:attachments/1135264530188992562/1241885229296123904/NW6W99Z.png?ex=665464ff&is=6653137f&hm=28dc95d65dceeed6b8ee599f4b92c51936807cb426b03114f4d806f06d5f7f7a&=&format=webp&quality=lossless&width=885&height=498",
+           "small_image": "mp:attachments/1135264530188992562/1241885228839206952/KIq5Mph.png?ex=665464ff&is=6653137f&hm=0290160d6ad81fe5b0a9a464f8fda94f02a69cf7fad32fb5b5cc072a3795ca7d&=&format=webp&quality=lossless"
           },
 
     "omori": {
-           "large_image": "mp:attachments/1135264530188992562/1241884799065657464/aoeelX1.png?ex=664bd2d9&is=664a8159&hm=6562f8e81ef4367bd10149de13f5916685bfcd60b200a8382339c37804b86c4c&=&format=webp&quality=lossless",
-           "small_image": "mp:attachments/1135264530188992562/1241884799543677078/mz6hUwZ.png?ex=664bd2d9&is=664a8159&hm=b5b66e57b650428578f3b650482e2cbbfa9a61012ddd45377a9941146426d98f&=&format=webp&quality=lossless"
+           "large_image": "mp:attachments/1135264530188992562/1241884799065657464/aoeelX1.png?ex=66546499&is=66531319&hm=dab13e0729758c5b8b12df30275cc05fdca25cd703776e6bfcde16b6fa81b8db&=&format=webp&quality=lossless",
+           "small_image": "mp:attachments/1135264530188992562/1241884799543677078/mz6hUwZ.png?ex=66546499&is=66531319&hm=e4be1a149bfd1b293414d34b2333c86d6cfa47062b0b552f932730ef8f1d7298&=&format=webp&quality=lossless"
           },
 
     "cod": {
@@ -35,8 +35,8 @@
           },
 
     "webdeck": {
-           "large_image": "mp:attachments/1135264530188992562/1241885228113592320/LuWmXgt.png?ex=664bd33f&is=664a81bf&hm=5095004f09d98cfacb4c75772fdfcd4d9a0cd802ae24e2d51da5c030e23bd452&=&format=webp&quality=lossless",
-           "small_image": "mp:attachments/1135264530188992562/1241884799975555163/klIiyHV.png?ex=664bd2d9&is=664a8159&hm=97432b1a5a78114ac836042092f1c9a649afda167d99f1388ec5e63e0967b1d4&=&format=webp&quality=lossless"
+           "large_image": "mp:attachments/1135264530188992562/1241855591115391067/qUJWIgx.png?ex=66544965&is=6652f7e5&hm=b500351346ac8eb02d1e520bed12ef3596a2ba920b7d9e07cf372617dba2dfbf&=&format=webp&quality=lossless&width=498&height=498",
+           "small_image": "mp:attachments/1135264530188992562/1241884799975555163/klIiyHV.png?ex=66546499&is=66531319&hm=7928f27b4e19db2a314285835f1605d38cdcdae25173355b0d983d75bd52e27d&=&format=webp&quality=lossless"
           },
 
     "nuclear": {
