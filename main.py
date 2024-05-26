@@ -1,6 +1,4 @@
 import subprocess
-
-import discord.context_managers
 try:
     import sys, os, platform
     import ctypes
@@ -10,6 +8,7 @@ try:
     import config_selfbot
     import langs
     import rpc
+    from logger import log
     from commands import *
     from colorama import Fore, Style, Back
     import requests
@@ -21,7 +20,7 @@ except ImportError:
     if os.name == 'nt':
      subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
     else:
-     subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
+     subprocess.check_call([sys.executable, "-m", "pip3", "install", '-r' , 'requirements.txt'])
     import platform
     import ctypes
     import datetime, time
@@ -30,6 +29,7 @@ except ImportError:
     import config_selfbot
     import langs
     import rpc
+    from logger import log
     from commands import *
     from colorama import Fore, Style, Back
     import requests
@@ -64,7 +64,7 @@ def set_terminal_title(title):
 try:
    set_terminal_title("| Nuclear-V2 Selfbot |")
 except Exception as e:
-   print(f"Error while trying to change the terminal name: {e}")
+   log.warning(f"Error while trying to change the terminal name: {e}")
 
 
 if config_selfbot.token == "":
@@ -96,12 +96,12 @@ def check_latest_version(repo_owner, repo_name):
 
 # Prevent from starting the selfbot with discord.py==1.7.3
 if discord.__version__ == "1.7.3":
-    print(f"{Fore.RED}[CRITICAL] {langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}{Style.RESET_ALL}")
+    log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
 # Prevent from starting the selfbot with the broken pip version
 if discord.__version__ == "2.0.0":
-    print(f"{Fore.RED}[CRITICAL] {langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}{Style.RESET_ALL}")
+    log.critical(f"{Fore.RED}[CRITICAL] {langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
 
@@ -113,8 +113,8 @@ def call_check_repo():
         latest_version = check_latest_version(repo_owner, repo_name)
         if latest_version:
             if not latest_version == nuclear_version:
-                print(f"{Fore.BLUE}[INFO] {langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}")
-                print(f"{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}{Style.RESET_ALL}")
+                log.info(f"""{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}
+{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}""")
             time.sleep(3600)
 
 def run_in_background():
@@ -124,9 +124,9 @@ def run_in_background():
 try:
     run_in_background()
 except Exception as e:
-    print(f"Error while trying to check the last Nuclear version: {e}")
+    log.warning(f"Error while trying to check the last Nuclear version: {e}")
 
-print(f"{Fore.LIGHTYELLOW_EX}[#] {Fore.YELLOW}{langs.start_text[config_selfbot.lang]}{Style.RESET_ALL}")
+log.start(f"{langs.start_text[config_selfbot.lang]}{Style.RESET_ALL}")
 
 
 
@@ -149,66 +149,71 @@ async def handle_captcha(exc: discord.CaptchaRequired, bot: commands.Bot) -> str
     return result['code']
 """
 
+# Define the bot instance
 bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)#, captcha_handler=handle_captcha)
 
+# Get the start timestamp to put the counter at on_ready
 start_time = time.time()
 
 @bot.event
 async def on_ready():
     global today_date
     global start_time
-    print(f"{Fore.YELLOW}------------------{Style.RESET_ALL}")
 
-    # Cogs !!
+    log.separate_yellow()
+
+    # Load commands from cogs
     try:
         await bot.add_cog(HelpCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}HelpCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"HelpCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}HelpCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"HelpCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(FunCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}FunCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"FunCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}FunCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"FunCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(UtilsCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}UtilsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"UtilsCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}UtilsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"UtilsCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(VoiceCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}VoiceCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"VoiceCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}VoiceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"VoiceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(ConfigCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ConfigCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"ConfigCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}ConfigCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"ConfigCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(RaidCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}RaidCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"RaidCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(ToolsCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}ToolsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"ToolsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(TemplatesCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}TemplatesCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"TemplatesCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
     try:
         await bot.add_cog(RichPresenceCommands(bot))
-        print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
     except Exception as e:
-        print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
 
-    print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}", Style.RESET_ALL)
-    print(f"{Fore.MAGENTA}------------------{Style.RESET_ALL}")
-    
+    # Print when the bot is ready to receive and answer to commands
+    log.important(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
+
+    log.separate_magenta()
+
     assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
               "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
               "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -222,7 +227,7 @@ async def on_ready():
                                     assets=assets,
                                     application_id=config_selfbot.application_id,
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
-            
+
     await bot.change_presence(status=discord.Status.idle,
                               activity=activity,
                               afk=True,
@@ -230,8 +235,10 @@ async def on_ready():
 
 
     # TODO:
-    # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and welome message,
+    # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and a welcome message,
     # i.g.: "Don't use command in servers you can get reported, here the support link, offcial github link, current version" etc..
+
+    # TODO: Servers backup.
     """
     if not rpc.read_variable_json("first_start"):
         random_user = random.choice(bot.friends)
@@ -281,22 +288,29 @@ def fix_aiohttp():
         time.sleep(3)
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", "aiohttp"])
     else:
-        subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip3", "uninstall", "aiohttp"])
         time.sleep(3)
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", "aiohttp"])
+        subprocess.check_call([sys.executable, "-m", "pip3", "install", "-U", "aiohttp"])
 
-    print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{langs.aihottp_success[config_selfbot.lang]}{Style.RESET_ALL}")
+    log.info(langs.aihottp_success[config_selfbot.lang])
+    
     time.sleep(3)
 
     restart_selfbot()
 
 try:
+    # Launch the selfbot
+    # By the way, this is the first and the only moment where we use the token in the selfbot.
     bot.run(config_selfbot.token)
 except discord.LoginFailure:
-    print(f"{Fore.LIGHTRED_EX}[CRITICAL] {Fore.RED}{langs.token_error[config_selfbot.lang]}{Style.RESET_ALL}")
+    # Log if the passed token is incorrect
+    log.critical(langs.token_error[config_selfbot.lang])
 except Exception as e:
+    # Check what the error is from, and react
     if "400, message='Can not decode content-encoding: br'" in str(e):
-        print(f"{Fore.LIGHTYELLOW_EX}[WARNING] {Fore.YELLOW} {langs.aihottp_error[config_selfbot.lang]}{Style.RESET_ALL}")
+        # If the Exception is about the old aiohttp error, it try to fix itself with fix_aiohttp()
+        log.warning(langs.aihottp_error[config_selfbot.lang])
         fix_aiohttp()
     else:
-        print(f"{Fore.LIGHTRED_EX}[CRITICAL] {Fore.RED}{langs.weird_error[config_selfbot.lang]} {e} {Style.RESET_ALL}")
+        # Else, print the Exception
+        log.critical(f"{langs.weird_error[config_selfbot.lang]} {e}")
