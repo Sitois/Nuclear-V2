@@ -1,4 +1,6 @@
 import subprocess
+
+import discord.context_managers
 try:
     import sys, os, platform
     import ctypes
@@ -228,10 +230,8 @@ async def on_ready():
 
 
     # TODO:
-    # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and a welcome message,
+    # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and welome message,
     # i.g.: "Don't use command in servers you can get reported, here the support link, offcial github link, current version" etc..
-
-    # TODO: Servers backup.
     """
     if not rpc.read_variable_json("first_start"):
         random_user = random.choice(bot.friends)
