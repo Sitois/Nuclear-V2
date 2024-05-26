@@ -16,7 +16,7 @@ class log:
 
     def info(text: str) -> None:
         """Log given text to an INFO level"""
-        print(f"{Fore.LIGHTGREEN_EX}[INFO] {Fore.GREEN}{text}{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTBLUE_EX}[INFO] {Fore.BLUE}{text}{Style.RESET_ALL}")
 
     def success(text: str) -> None:
         """Log given text to a SUCCESS level"""
