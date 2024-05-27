@@ -3,8 +3,8 @@ from discord.ext import commands
 import asyncio
 import random
 import string
-from colorama import Fore, Style, Back
 
+from logger import log
 import config_selfbot
 import langs
 
@@ -28,14 +28,17 @@ class RaidCommands(commands.Cog):
             members = ctx.guild.members
             
             await ctx.message.edit(langs.raid_in_process[config_selfbot.lang])
-            print(f"{Fore.YELLOW}=========KICK ALL=========", Style.RESET_ALL)
+
+            log.separate_text("KICK ALL")
+
             for member in members:
                 if ctx.guild.me.top_role > member.top_role:
                     await member.kick(reason=f"{config_selfbot.kick_reason} {generate_random_string(6)}")
-                    print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}@{member.name}({member.id})", Style.RESET_ALL)
+                    log.success(f"@{member.name}({member.id}")
                     await asyncio.sleep(random_cooldown(0.5, 2))
 
-            print(f"{Fore.YELLOW}========================", Style.RESET_ALL)
+            log.separate("KICK ALL")
+
             await ctx.message.edit(langs.raid_kick_all_success[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
@@ -50,14 +53,17 @@ class RaidCommands(commands.Cog):
             members = ctx.guild.members
 
             await ctx.message.edit(langs.raid_in_process[config_selfbot.lang])
-            print(f"{Fore.YELLOW}=========BAN ALL=========", Style.RESET_ALL)
+
+            log.separate_text("BAN ALL")
+
             for member in members:
                 if ctx.guild.me.top_role > member.top_role:
                     await member.ban(reason=f"{config_selfbot.ban_reason}. {generate_random_string(6)}")
-                    print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}@{member.name}({member.id})", Style.RESET_ALL)
+                    log.success(f"@{member.name}({member.id}")
                     await asyncio.sleep(random_cooldown(0.5, 1.9))
-            
-            print(f"{Fore.YELLOW}========================", Style.RESET_ALL)
+
+            log.separate("BAN ALL")
+
             await ctx.message.edit(langs.raid_ban_all_success[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()

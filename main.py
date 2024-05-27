@@ -101,7 +101,7 @@ if discord.__version__ == "1.7.3":
 
 # Prevent from starting the selfbot with the broken pip version
 if discord.__version__ == "2.0.0":
-    log.critical(f"{Fore.RED}[CRITICAL] {langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+    log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
 

@@ -4,6 +4,7 @@ import random
 import asyncio
 from colorama import Fore, Style, Back
 
+from logger import log
 import config_selfbot
 import langs
 
@@ -29,7 +30,8 @@ class ToolsCommands(commands.Cog):
 
         friends = self.bot.friends
 
-        print(f"{Fore.YELLOW}=========DM ALL========={Style.RESET_ALL}")
+        log.separate_text("DM ALL")
+
         print(f"{Fore.BLUE}Friends Counter: {len(friends)} | Message:\n{dmall_content}{Style.RESET_ALL}")
 
         await ctx.message.edit(langs.raid_dm_all[config_selfbot.lang])
@@ -37,19 +39,19 @@ class ToolsCommands(commands.Cog):
         for friend in friends:
             try:
                 await friend.user.send(dmall_content)
-                print(f"{Fore.GREEN}[+] {Fore.LIGHTGREEN_EX}@{friend.user.name}({friend.user.id}){Style.RESET_ALL}")
+                log.success(f"@{friend.user.name}({friend.user.id})")
                 await asyncio.sleep(random_cooldown(0.5, 2))
             except discord.Forbidden:
-                print(f"{Fore.RED}[-] {Fore.LIGHTRED_EX}@{friend.user.name}({friend.user.id}){Style.RESET_ALL}")
+                log.fail(f"@{friend.user.name}({friend.user.id})")
             except discord.CaptchaRequired:
-                print(f"{Fore.RED}[!] {Fore.LIGHTRED_EX}Captcha Required!{Style.RESET_ALL}")
-                print("========================")
+                log.important("Captcha Required!")
+                log.separate("DM ALL")
                 await ctx.message.edit(langs.raid_dm_all_captcha[config_selfbot.lang])
                 await asyncio.sleep(config_selfbot.deltime)
                 await ctx.message.delete()
                 return
-        
-        print(f"{Fore.YELLOW}========================{Style.RESET_ALL}")
+
+        log.separate("DM ALL")
 
 
         await ctx.message.edit(langs.raid_dm_all_success[config_selfbot.lang])
