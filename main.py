@@ -126,7 +126,7 @@ try:
 except Exception as e:
     log.warning(f"Error while trying to check the last Nuclear version: {e}")
 
-log.start(f"{langs.start_text[config_selfbot.lang]}{Style.RESET_ALL}")
+log.start(f"{langs.start_text[config_selfbot.lang]}")
 
 
 
@@ -190,24 +190,24 @@ async def on_ready():
         log.fail(f"ConfigCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(RaidCommands(bot))
-        log.success(f"RaidCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"RaidCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(ToolsCommands(bot))
-        log.success(f"ToolsCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"ToolsCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(TemplatesCommands(bot))
-        log.success(f"TemplatesCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"TemplatesCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(RichPresenceCommands(bot))
-        log.success(f"RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}{Style.RESET_ALL}")
+        log.success(f"RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}{Style.RESET_ALL}")
+        log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
 
     # Print when the bot is ready to receive and answer to commands
     log.important(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
