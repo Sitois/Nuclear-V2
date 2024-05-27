@@ -74,7 +74,7 @@ class log:
 
     def separate(text: str) -> str:
         """The given text of `separated_text` is required. Returns the separated text"""
-        log_message = f"{Fore.YELLOW}=================={"=" * len(text)}{Style.RESET_ALL}"
+        log_message = f"{Fore.YELLOW}=================={'=' * len(text)}{Style.RESET_ALL}"
         print(log_message)
 
         return log_message
