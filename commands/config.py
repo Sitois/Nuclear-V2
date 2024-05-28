@@ -33,14 +33,14 @@ class ConfigCommands(commands.Cog):
                         return
 
                     if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
-                        print(f"{Fore.LIGHTYELLOW_EX}[~] {Fore.YELLOW}Nitro Sniper: discord.gift/{gift_code}", Style.RESET_ALL)
+                        print(f"{Fore.LIGHTYELLOW_EX}[~] {Fore.YELLOW}Nitro Sniper: discord.gift/{gift_code}{Style.RESET_ALL}")
                     else:
-                        print(f"{Fore.LIGHTYELLOW_EX}[~] {Fore.YELLOW}Nitro Sniper: discord.gift/{gift_code} | Channel: {ctx.channel.name}({ctx.channel.id}) | Guild: {ctx.guild.name}({ctx.guild.id})", Style.RESET_ALL)
+                        print(f"{Fore.LIGHTYELLOW_EX}[~] {Fore.YELLOW}Nitro Sniper: discord.gift/{gift_code} | Channel: {ctx.channel.name}({ctx.channel.id}) | Guild: {ctx.guild.name}({ctx.guild.id}){Style.RESET_ALL}")
                     gift = await self.bot.fetch_gift(gift_code)
                     await gift.redeem(channel=ctx.channel)
-                    log.success(f"discord.gift/{gift_code} {langs.nitro_sniper_valid[config_selfbot.lang]}", Style.RESET_ALL)
+                    log.success(f"discord.gift/{gift_code} {langs.nitro_sniper_valid[config_selfbot.lang]}")
                 except discord.NotFound:
-                    log.alert(f"discord.gift/{gift_code} {langs.nitro_sniper_invalid_code[config_selfbot.lang]}", Style.RESET_ALL)
+                    log.alert(f"discord.gift/{gift_code} {langs.nitro_sniper_invalid_code[config_selfbot.lang]}")
                 except discord.HTTPException:
                     log.alert(f"discord.gift/{gift_code} {langs.nitro_sniper_claimed[config_selfbot.lang]}")
 
