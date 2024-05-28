@@ -10,6 +10,11 @@ token_error = {
     "en": "Improper token. Please configure a valid token in config_selfbot.py"
 }
 
+error_discord_version = {
+    "fr": "Votre librairie discord ne fonctionne pas avec ce selfbot. Installez la version fonctionnel sur",
+    "en": "Your disocord library version doesn't work with this selfbot. Install the working version from"
+}
+
 aihottp_error = {
     "fr": "Ancienne version d'aiohttp (cette erreur ne vient pas de Nuclear ^^). Cette erreur vient de discord.py==1.7.3, Tentaive de fix (le selfbot va redémarrer!)...\nAppuyez sur Entrer.",
     "en": "Old aiohttp error (not Nuclear's fault ^^). This comes from discord.py==1.7.3, trying to fix it (it will restart!)...\nPress Enter."

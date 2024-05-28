@@ -210,7 +210,7 @@ async def on_ready():
         log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
 
     # Print when the bot is ready to receive and answer to commands
-    log.important(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
+    log.alert(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
 
     log.separate_magenta()
 

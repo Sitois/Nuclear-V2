@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 from colorama import Fore, Style, Back
 
-
+from logger import log
 import config_selfbot
 import langs
 
@@ -23,10 +23,12 @@ class ConfigCommands(commands.Cog):
                     if "-" in gift_code: 
                         # Prevent from claiming a promotional code.
                         return
-                    elif gift_code == "Udzwm3hrQECQBnEEFFCEwdSq":
+
+                    if gift_code == "Udzwm3hrQECQBnEEFFCEwdSq":
                         # Prevent from claiming the custom "Nerd" nitro code.
                         return
-                    elif gift_code == "vhnuzE2YkNCZ7sfYHHKebKXB":
+
+                    if gift_code == "vhnuzE2YkNCZ7sfYHHKebKXB":
                         # Prevent from claiming the custom "No Nitro ?" nitro code.
                         return
 
@@ -36,11 +38,11 @@ class ConfigCommands(commands.Cog):
                         print(f"{Fore.LIGHTYELLOW_EX}[~] {Fore.YELLOW}Nitro Sniper: discord.gift/{gift_code} | Channel: {ctx.channel.name}({ctx.channel.id}) | Guild: {ctx.guild.name}({ctx.guild.id})", Style.RESET_ALL)
                     gift = await self.bot.fetch_gift(gift_code)
                     await gift.redeem(channel=ctx.channel)
-                    print(f"{Fore.LIGHTGREEN_EX}[+] {Fore.GREEN}discord.gift/{gift_code} {langs.nitro_sniper_valid[config_selfbot.lang]}", Style.RESET_ALL)
+                    log.success(f"discord.gift/{gift_code} {langs.nitro_sniper_valid[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.NotFound:
-                    print(f"{Fore.LIGHTRED_EX}[!] {Fore.RED}discord.gift/{gift_code} {langs.nitro_sniper_invalid_code[config_selfbot.lang]}", Style.RESET_ALL)
+                    log.alert(f"discord.gift/{gift_code} {langs.nitro_sniper_invalid_code[config_selfbot.lang]}", Style.RESET_ALL)
                 except discord.HTTPException:
-                    print(f"{Fore.LIGHTRED_EX}[!] {Fore.RED}discord.gift/{gift_code} {langs.nitro_sniper_claimed[config_selfbot.lang]}", Style.RESET_ALL)
+                    log.alert(f"discord.gift/{gift_code} {langs.nitro_sniper_claimed[config_selfbot.lang]}")
 
     @commands.command()
     async def nitrosniper(self, ctx):
@@ -64,6 +66,6 @@ class ConfigCommands(commands.Cog):
             await ctx.message.delete()
         else:
             config_selfbot.lang = "fr"
-            await ctx.message.edit("🟢 Langue changé en **Français**.")
+            await ctx.message.edit("🟢 Langue changée en **Français**.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()

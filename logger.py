@@ -16,11 +16,11 @@ class log:
 
         return log_message
 
-    def important(text: str) -> str:
-        """Log given text to an IMPORTANT level. Returns the logged version of the given text"""
+    def alert(text: str) -> str:
+        """Log given text to an ALERT level. Returns the logged version of the given text"""
         log_message = f"{Fore.RED}[!] {Fore.LIGHTRED_EX}{text}{Style.RESET_ALL}"
         print(log_message)
-        
+
         return log_message
 
     def info(text: str) -> str:
