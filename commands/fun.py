@@ -118,7 +118,96 @@ class FunCommands(commands.Cog):
 
         if rng >= 85:
             await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bQmRX.gif) 💅!")
-        if rng >= 75:
+        elif rng >= 75:
             await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bUyzv.gif) 😈!")
         else:
             await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** femboy!")
+
+    """
+    TODO: Fix copyuser: discord.errors.CaptchaRequired: 400 Bad Request (error code: -1): Captcha required, at await self.bot.user.edit().
+          Improve: Copy user's Rich Presence.
+
+
+    @commands.command()
+    async def copyuser(self, ctx):
+        # Check if it's a valid user and return an error if not.
+        if ctx.message.mentions:
+            user = ctx.message.mentions[0]
+        else:
+            try:
+                user = self.bot.get_user(int(ctx.message.content.split()[1]))
+            except Exception:
+                await ctx.message.edit(langs.fun_copy_user_fail[config_selfbot.lang])
+                await asyncio.sleep(config_selfbot.deltime)
+                await ctx.message.delete()
+                return
+
+        await ctx.message.edit("att je save ton profile")
+
+        # Save curent profile for the recover command.
+        global user_backup
+        global user_backup_profile
+        global user_backup_avatar
+        global user_backup_banner
+
+        user_backup = await self.bot.fetch_user(self.bot.user.id)
+
+        user_backup_profile = await user_backup.profile()
+        await asyncio.sleep(0.7)
+        user_backup_avatar = await user_backup.avatar.read()
+        await asyncio.sleep(1)
+
+        # Save banner only if bot user have nitro
+        user_backup_banner = await user_backup.banner.read() if self.bot.user.premium_type is discord.PremiumType.nitro else None
+        await asyncio.sleep(0.9) if self.bot.user.premium_type is discord.PremiumType.nitro else None
+
+        # Fetch user's profile
+        user = await self.bot.fetch_user(user.id)
+
+        await ctx.message.edit("att je met le nouv profil")
+
+        user_avatar = await user.avatar.read() if user.avatar else None
+        await asyncio.sleep(1.2)
+        user_banner = await user.banner.read() if user.banner else None
+        await asyncio.sleep(1.4)
+        user_profile = await user.profile()
+        user_bio = user_profile.bio
+        await asyncio.sleep(0.7)
+
+        if self.bot.user.premium_type is discord.PremiumType.nitro and user.premium_type is discord.PremiumType.nitro:
+            await self.bot.user.edit(#username=user.name, It require the account's password...
+                                     global_name=user.display_name,
+                                     avatar=user_avatar,
+                                     banner=user_banner,
+                                     bio=user_bio)
+        elif self.bot.user.premium_type is discord.PremiumType.nitro:
+            await self.bot.user.edit(#username=user.name, It require the account's password...
+                                     global_name=user.display_name,
+                                     avatar=user_avatar,
+                                     bio=user_bio)
+        else:
+            await self.bot.user.edit(#username=user.name, It require the account's password...
+                                     global_name=user.display_name,
+                                     avatar=user_avatar,
+                                     accent_colour=user.accent_colour,
+                                     bio=user_bio)
+        await ctx.message.edit("c carré")
+
+    @commands.command()
+    async def recover(self, ctx):
+        await ctx.message.edit("att je remetle profil davant là")
+        if self.bot.user.premium_type is discord.PremiumType.nitro:
+            await self.bot.user.edit(#username=user.name, It require the account's password...
+                                     global_name=user_backup.display_name,
+                                     avatar=user_backup_avatar,
+                                     banner=user_backup_banner,
+                                     bio=user_backup_profile.bio)
+        else:
+            await self.bot.user.edit(#username=user.name, It require the account's password...
+                                     global_name=user_backup.display_name,
+                                     avatar=user_backup_avatar,
+                                     accent_colour=user_backup.accent_colour,
+                                     bio=user_backup_profile.bio)
+        
+        await ctx.message.edit("ui c bon bb")
+        """
