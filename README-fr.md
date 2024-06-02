@@ -23,6 +23,8 @@
 ## ⛔ Avertissement
 **Les SelfBots ne sont pas autorisés par les CGU (ou TOS) de Discord et peuvent facilement entraîner le banissement de votre compte. Veuillez utiliser ce script uniquement à des fins éducatives.**
 
+</div>
+
 ## 📖 Table des matières
 1. [💾 Installation](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-installation)
 2. [🔧 Configuration](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-configuration)
