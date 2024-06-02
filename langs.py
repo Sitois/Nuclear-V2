@@ -11,13 +11,13 @@ token_error = {
 }
 
 error_discord_version = {
-    "fr": "Votre librairie discord ne fonctionne pas avec ce selfbot. Installez la version fonctionnel sur",
-    "en": "Your disocord library version doesn't work with this selfbot. Install the working version from"
+    "fr": "Votre librairie discord ne fonctionne pas avec ce selfbot. Installez la version fonctionnel ici:",
+    "en": "Your discord library version doesn't work with this selfbot. Install the working version from"
 }
 
 aihottp_error = {
-    "fr": "Ancienne version d'aiohttp (cette erreur ne vient pas de Nuclear ^^). Cette erreur vient de discord.py==1.7.3, Tentaive de fix (le selfbot va redémarrer!)...\nAppuyez sur Entrer.",
-    "en": "Old aiohttp error (not Nuclear's fault ^^). This comes from discord.py==1.7.3, trying to fix it (it will restart!)...\nPress Enter."
+    "fr": "Ancienne version d'aiohttp. Cette version est utilisé uniquement sur discord.py==1.7.3. Tentative de réparer le problème...\n(si ça ne fonctionne pas: `pip uninstall aiohttp` et `pip install aiohttp`)...\nAppuyez sur Entrer.",
+    "en": "Old aiohttp error. This error is from discord.py==1.7.3.\nTrying to update aiohttp (if it doesn'twork: `pip uninstall aiohttp` and `pip install aiohttp`)...\nPress Enter."
 }
 
 aihottp_success = {
@@ -26,7 +26,7 @@ aihottp_success = {
 }
 
 weird_error = {
-    "fr": "Maybe a config error. Make sure all information in config_selfbot.py are correct.\nError:",
+    "fr": "Maybe a config error. Make sure all informations in config_selfbot.py are correct.\nError:",
     "en": "Peut-être une erreur de configuration. Assurez-vous que toutes les informations dans config_selfbot.py sont correctes.\nErreur:"
 }
 
@@ -249,11 +249,6 @@ help_tools_close_dm_bots = {
     "en": "Close all your DMs with bots"
 }
 
-help_utils_comparetime = { 
-    "fr": "NUKE THE FRENCH",
-    "en": "Provide with 2 message IDs (.comparetime <id1> <id2>), and it will output the time difference"
-}
-
 
 ####################
 #  commands        #
@@ -388,6 +383,11 @@ fun_hack_step_four = {
 fun_hack_step_five = {
     "fr": "g bien aquer",
     "en": "successfully hackd"
+}
+
+fun_copy_user_fail = {
+    "fr": "❌ Veuillez indiquer un utilisateur à copier (ID ou mention).",
+    "en": "❌ Please give an ID / mention for the user to copy."
 }
 
 info_title = {
