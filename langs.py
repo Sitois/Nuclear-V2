@@ -30,6 +30,11 @@ weird_error = {
     "en": "Peut-être une erreur de configuration. Assurez-vous que toutes les informations dans config_selfbot.py sont correctes.\nErreur:"
 }
 
+expired_token = {
+    "fr": "Account's Token has changed. Please insert the new one into config_selfbot.py",
+    "en": "Le Token du compte a changé. Merci d'insérer le nouveau dans config_selfbot.py"
+}
+
 cog_success = {
     "fr": "Catégorie chargé avec succès !",
     "en": "Successfully loaded category!"

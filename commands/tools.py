@@ -15,6 +15,7 @@ def random_cooldown(minimum, maximum):
 class ToolsCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
+        self.bump: bool = False
 
     @commands.command()
     async def dmall(self, ctx):
