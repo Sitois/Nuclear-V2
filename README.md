@@ -15,8 +15,11 @@
   [![CodeFactor](https://www.codefactor.io/repository/github/Sitois/Nuclear-V2/badge?style=flat)](https://www.codefactor.io/repository/github/Sitois/Nuclear-V2)
   [![GitHub issues](https://img.shields.io/github/issues/Sitois/Nuclear-V2.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/issues)
   [![Support](https://shields.yoki-labs.xyz/shields/i/kQj8PmAp?style=flat)](https://www.guilded.gg/i/kQj8PmAp?cid=c7d78c47-5231-47fa-b388-e11d41360e2a&intent=chat)
-  [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
+  [![Telegram Support](https://img.shields.io/endpoint?url=https%3A%2F%2Frunkit.io%2Fdamiankrawczyk%2Ftelegram-badge%2Fbranches%2Fmaster%3Furl%3Dhttps%3A%2F%2Ft.me%2Fnuclear_support)](https://t.me/nuclear_support)
 </div>
+<div align="center">
+
+  [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
 
 ## ⛔ Disclaimer
 **Discord SelfBots are not allowed by Discord TOS and can easily ban your account. Please use for educational purposes only.**
@@ -140,6 +143,8 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 # Support
 - Guilded server: [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
 - Discord server: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
+- Telegram news: [https://t.me/nuclear_support](https://t.me/nuclear_support)
+- Telegram discussions / support: [https://t.me/+9t1ED-hddqhjOTRk](https://t.me/+9t1ED-hddqhjOTRk)
 
 <br>
 
