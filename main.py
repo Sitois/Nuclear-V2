@@ -4,11 +4,10 @@ try:
     import ctypes
     import datetime, time
     import threading
-    import random
+    #import random
     import config_selfbot
     import langs
-    import rpc
-    from logger import log
+    from utils import rpc, log, __version__
     from commands import *
     from colorama import Fore, Style, Back
     import requests
@@ -25,11 +24,10 @@ except ImportError:
     import ctypes
     import datetime, time
     import threading
-    import random
+    #import random
     import config_selfbot
     import langs
-    import rpc
-    from logger import log
+    from utils import rpc, log, __version__
     from commands import *
     from colorama import Fore, Style, Back
     import requests
@@ -39,8 +37,6 @@ except ImportError:
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-nuclear_version = "v1.8"
-
 print(fr"""{Fore.LIGHTCYAN_EX}$$\   $$\                     $$\                               
 $$$\  $$ |                    $$ |                              
 $$$$\ $$ |$$\   $$\  $$$$$$$\ $$ | $$$$$$\   $$$$$$\   $$$$$$\  
@@ -48,7 +44,7 @@ $$ $$\$$ |$$ |  $$ |$$  _____|$$ |$$  __$$\  \____$$\ $$  __$$\
 $$ \$$$$ |$$ |  $$ |$$ /      $$ |$$$$$$$$ | $$$$$$$ |$$ |  \__|
 $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |      
 $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
-\__|  \__| \______/  \_______|\__| \_______| \_______|\__|  {nuclear_version}{Style.RESET_ALL}""")
+\__|  \__| \______/  \_______|\__| \_______| \_______|\__|  v{__version__}{Style.RESET_ALL}""")
 
 
 def set_terminal_title(title):
@@ -86,13 +82,23 @@ if config_selfbot.selfbot_name == "":
 def check_latest_version(repo_owner, repo_name):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
     response = requests.get(url)
-    
+
     if response.status_code == 200:
         release_info = response.json()
         latest_version = release_info['tag_name']
         return latest_version
     else:
         return None
+
+check_loop = True
+
+# Check if it's a developement version, if it is, disable UpdateChecker
+try:
+    if float(__version__) > float(check_latest_version('Sitois', 'Nuclear-V2').strip('v')):
+        log.warning(f"{langs.unstable_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+        check_loop = False
+except Exception:
+    pass
 
 # Prevent from starting the selfbot with discord.py==1.7.3
 if discord.__version__ == "1.7.3":
@@ -106,25 +112,25 @@ if discord.__version__ == "2.0.0":
 
 
 def call_check_repo():
-    global nuclear_version
     repo_owner = "Sitois"
     repo_name = "Nuclear-V2"
     while True:
         latest_version = check_latest_version(repo_owner, repo_name)
         if latest_version:
-            if not latest_version == nuclear_version:
+            if not latest_version == f"v{__version__}":
                 log.info(f"""{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}
-{langs.error_check_version_three[config_selfbot.lang]} {nuclear_version}""")
+{langs.error_check_version_three[config_selfbot.lang]} {__version__}""")
             time.sleep(3600)
 
 def run_in_background():
     thread = threading.Thread(target=call_check_repo, daemon=True)
     thread.start()
 
-try:
-    run_in_background()
-except Exception as e:
-    log.warning(f"Error while trying to check the last Nuclear version: {e}")
+if check_loop:
+    try:
+        run_in_background()
+    except Exception as e:
+        log.warning(f"Error while trying to check the last Nuclear version: {e}")
 
 log.start(f"{langs.start_text[config_selfbot.lang]}")
 
@@ -134,7 +140,6 @@ log.start(f"{langs.start_text[config_selfbot.lang]}")
 #  start           #
 #   setup     !!!  #
 ####################
-assets = config_selfbot.assets
 today_date = datetime.datetime.today()
 
 
@@ -152,7 +157,7 @@ async def handle_captcha(exc: discord.CaptchaRequired, bot: commands.Bot) -> str
 # Define the bot instance
 bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)#, captcha_handler=handle_captcha)
 
-# Get the start timestamp to put the counter at on_ready
+# Get the start timestamp to put the time it took to start at on_ready()
 start_time = time.time()
 
 @bot.event
@@ -232,7 +237,6 @@ async def on_ready():
                               activity=activity,
                               afk=True,
                               idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
-
 
     # TODO:
     # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and a welcome message,

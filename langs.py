@@ -101,6 +101,19 @@ ready_text_three = {
     "en": "seconds."
 }
 
+unstable_version = {
+    "fr": """Vous utilisez une version INSTABLE:
+- Si vous faites faces à un problème, merci d'en avertir le Support.
+- Si vous corrigez/ajoutez quelque chose, merci d'ouvrir une pull request sur GitHub pour l'ajouter dans le projet principal.
+- UpdateChecker est désactivé.
+- Si vous n'êtes pas un développeur, je vous recommande d'utiliser la version stable actuelle:""",
+    "en": """You are using an UNSTABLE version:
+- If you get any issues, please report them in the Support.
+- If you fix/add something, please open a pull request on GitHub to add it into the main project.
+- UpdateChecker is disabled.
+- If you aren't a developer, you should use the current stable version:"""
+}
+
 error_check_version_one = {
     "fr": "Une nouvelle version",
     "en": "A new version"
