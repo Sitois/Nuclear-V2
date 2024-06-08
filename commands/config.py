@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 from colorama import Fore, Style, Back
 
-from logger import log
+from utils import log
 import config_selfbot
 import langs
 

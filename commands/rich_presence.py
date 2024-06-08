@@ -3,7 +3,7 @@ from discord.ext import commands
 import datetime
 import time
 import asyncio
-import rpc
+from utils import rpc
 
 import config_selfbot
 import langs

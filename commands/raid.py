@@ -4,7 +4,7 @@ import asyncio
 import random
 import string
 
-from logger import log
+from utils import log
 import config_selfbot
 import langs
 

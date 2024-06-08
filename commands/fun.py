@@ -142,7 +142,7 @@ class FunCommands(commands.Cog):
                 await ctx.message.delete()
                 return
 
-        await ctx.message.edit("att je save ton profile")
+        await ctx.message.edit("wait i save ur profile")
 
         # Save curent profile for the recover command.
         global user_backup
@@ -164,14 +164,13 @@ class FunCommands(commands.Cog):
         # Fetch user's profile
         user = await self.bot.fetch_user(user.id)
 
-        await ctx.message.edit("att je met le nouv profil")
+        await ctx.message.edit("wait i copy the user")
 
         user_avatar = await user.avatar.read() if user.avatar else None
         await asyncio.sleep(1.2)
         user_banner = await user.banner.read() if user.banner else None
         await asyncio.sleep(1.4)
         user_profile = await user.profile()
-        user_bio = user_profile.bio
         await asyncio.sleep(0.7)
 
         if self.bot.user.premium_type is discord.PremiumType.nitro and user.premium_type is discord.PremiumType.nitro:
@@ -191,11 +190,11 @@ class FunCommands(commands.Cog):
                                      avatar=user_avatar,
                                      accent_colour=user.accent_colour,
                                      bio=user_bio)
-        await ctx.message.edit("c carré")
+        await ctx.message.edit("it works !!!")
 
     @commands.command()
     async def recover(self, ctx):
-        await ctx.message.edit("att je remetle profil davant là")
+        await ctx.message.edit("wait i do the old profile")
         if self.bot.user.premium_type is discord.PremiumType.nitro:
             await self.bot.user.edit(#username=user.name, It require the account's password...
                                      global_name=user_backup.display_name,

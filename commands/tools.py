@@ -4,7 +4,7 @@ import random
 import asyncio
 from colorama import Fore, Style, Back
 
-from logger import log
+from utils import log
 import config_selfbot
 import langs
 
@@ -15,7 +15,6 @@ def random_cooldown(minimum, maximum):
 class ToolsCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
-        self.bump: bool = False
 
     @commands.command()
     async def dmall(self, ctx):
