@@ -119,7 +119,7 @@ def call_check_repo():
         if latest_version:
             if not latest_version == f"v{__version__}":
                 log.info(f"""{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}
-{langs.error_check_version_three[config_selfbot.lang]} {__version__}""")
+{langs.error_check_version_three[config_selfbot.lang]} v{__version__}""")
             time.sleep(3600)
 
 def run_in_background():

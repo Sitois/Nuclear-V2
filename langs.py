@@ -193,8 +193,8 @@ help_general_clear = {
 }
 
 help_general_user_info = {
-    "fr": "Renvoie les informations sur l'utilisateur mentionné",
-    "en": "Return informations about the mentionned user"
+    "fr": "Renvoie les informations sur l'utilisateur mentionné.",
+    "en": "Return informations about the mentionned user."
 }
 
 help_voice_vc = {
