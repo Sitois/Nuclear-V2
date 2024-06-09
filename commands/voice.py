@@ -27,6 +27,7 @@ class VoiceCommands(commands.Cog):
             await ctx.message.delete()
             return
 
+
         try:
             await voice_channel.connect()
             await voice_channel.guild.change_voice_state(channel=voice_channel, self_mute=True)
@@ -58,6 +59,7 @@ class VoiceCommands(commands.Cog):
             await ctx.message.delete()
             return
 
+
         try:
             await voice_channel.connect()
             await voice_channel.guild.change_voice_state(channel=voice_channel, self_video=True, self_mute=True)
@@ -72,8 +74,8 @@ class VoiceCommands(commands.Cog):
 
     @commands.command()
     async def leavevc(self, ctx: commands.Context):
-        voice_channel = self.bot.user.voice.channel
-        voice_client = self.bot.voice_client
+        voice_channel = ctx.message.author.voice.channel
+        voice_client = ctx.voice_client
 
         if ctx.author.voice is None or ctx.author.voice.channel is None:
             await ctx.message.edit(langs.leave_voice_error_not_found[config_selfbot.lang])
