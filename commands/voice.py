@@ -10,7 +10,7 @@ class VoiceCommands(commands.Cog):
         self.bot: commands.Bot = bot
 
     @commands.command()
-    async def joinvc(self, ctx):
+    async def joinvc(self, ctx: commands.Context):
         voice_id = ctx.message.content.split()[1]
         try:
             voice_id = int(voice_id)
@@ -26,7 +26,6 @@ class VoiceCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
-
 
         try:
             await voice_channel.connect()
@@ -41,7 +40,7 @@ class VoiceCommands(commands.Cog):
             return
 
     @commands.command()
-    async def joincam(self, ctx):
+    async def joincam(self, ctx: commands.Context):
         voice_id = ctx.message.content.split()[1]
         try:
             voice_id = int(voice_id)
@@ -52,12 +51,12 @@ class VoiceCommands(commands.Cog):
             return
 
         voice_channel = self.bot.get_channel(voice_id)
+
         if voice_channel is None:
             await ctx.message.edit(langs.voice_channel_error_not_found[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
-
 
         try:
             await voice_channel.connect()
@@ -72,19 +71,18 @@ class VoiceCommands(commands.Cog):
             return
 
     @commands.command()
-    async def leavevc(self, ctx):
+    async def leavevc(self, ctx: commands.Context):
+        voice_channel = self.bot.user.voice.channel
+        voice_client = self.bot.voice_client
+
         if ctx.author.voice is None or ctx.author.voice.channel is None:
             await ctx.message.edit(langs.leave_voice_error_not_found[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
             return
-        
-        # TODO:
-        # Improvement: `ctx.author.voice.channel` wll be used **only** if no channel ID is passed.
-        voice_channel = ctx.author.voice.channel
 
         try:
-            await ctx.voice_client.disconnect()
+            await voice_client.disconnect()
             await ctx.message.edit(f"💼 {langs.leave_voice[config_selfbot.lang]} `{voice_channel.name}`.")
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
