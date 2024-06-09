@@ -22,9 +22,8 @@
 
   [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
 
-## ⛔ Disclaimer
-**Discord SelfBots are not allowed by Discord TOS and can easily ban your account. Please use for educational purposes only.**
-
+  ## ⛔ Disclaimer
+  **Discord SelfBots are not allowed by Discord TOS and can easily ban your account. Please use for educational purposes only.**
 </div>
 
 ## 📖 Table of content
@@ -104,7 +103,19 @@ Now your token is in your clipboard. <br><br>
 <br>
 
 ## ☣️ Issues
-I found 0 issues for the moment, if you get one, come on the [Support](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#support)!
+### Library Issues
+`discord.py-self` has some issues.
+<br>
+
+One of the most common is when an incompatible library is already installed. To solve this problem, you can uninstall them:
+```powershell
+pip uninstall discord discord.py py-cord pycord nextcord discord.py-self aiohttp
+```
+And now, you just need to re-install discord.py-self (from Git or from [here](https://github.com/Sitois/Nuclear-V2/releases/latest))
+
+If you still get an error, you can check [discord.py-self's support](https://t.me/dpy_self_discussions)
+### Nuclear's issues
+Check [support](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#support)!
 
 ## 🛠️ Developement version
 1. Open your Terminal and go to the wanted folder with `cd`.
@@ -119,6 +130,7 @@ Just clone it with the green "Code" button above the README.
 🧷 You can also translate the selfbot (using `langs.py`)! <br>
 Or you can just help me with my "need help" list:
   - Captcha: Check comments on `main.py`
+  - Every "TODO:" in the code
 
 ## ⭐ Contributors
 <table align="center">

@@ -21,9 +21,8 @@
 
   [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
 
-## ⛔ Avertissement
-**Les SelfBots ne sont pas autorisés par les CGU (ou TOS) de Discord et peuvent facilement entraîner le banissement de votre compte. Veuillez utiliser ce script uniquement à des fins éducatives.**
-
+  ## ⛔ Avertissement
+  **Les SelfBots ne sont pas autorisés par les CGU (ou TOS) de Discord et peuvent facilement entraîner le banissement de votre compte. Veuillez utiliser ce script uniquement à des fins éducatives.**
 </div>
 
 ## 📖 Table des matières
@@ -103,9 +102,21 @@ Maintenant, votre token est dans votre presse-papier. <br><br>
 <br>
 
 ## ☣️ Problèmes
-Aucun problème n'a été trouvé pour le moment. (si t'en rencontre viesn sur le [Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support))
+### Problèmes de la librairie
+`discord.py-self` possède quelques problèmes.
+<br>
 
-## 🛠️ Developement version
+Un des plus commun arrive lorsqu'une librairie incompatible est installée. Pour résoudre ce problème, vous devez les désinstaller:
+```powershell
+pip uninstall discord discord.py py-cord pycord nextcord discord.py-self aiohttp
+```
+Et maintenant, vous aurez seulement besoin de ré-installer discord.py-self (depuis Git ou depuis [ici](https://github.com/Sitois/Nuclear-V2/releases/latest))
+
+Si vous rencontez quand même une erreur, vous pouvez aller voir le [support de discord.py-self](https://t.me/dpy_self_discussions)
+### Problèmes de Nuclear
+Allez dans le [support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support)!
+
+## 🛠️ Version en cours de développement
 1. Ouvrez votre Terminal et rendez-vous dans le dossier souhaitée à l'aide de `cd`.
 2. Clonez le repo: `git clone https://github.com/Sitois/Nuclear-V2`
 **ou**
@@ -118,6 +129,7 @@ Clonez le repo avec le bouton vert "Code", au-dessus du README.
 🧷 Vous pouvez aussi le traduire (avec `langs.py`) ! <br>
 Ou vous pouvez juste m'aider avec ma liste "besoin d'aide":
   - Captcha: Commentaires dans `main.py`
+  - Tous les "TODO:" dans le code
 
 ## ⭐ Contributeurs
 <table align="center">
