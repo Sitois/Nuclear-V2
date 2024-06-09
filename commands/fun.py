@@ -17,8 +17,14 @@ class FunCommands(commands.Cog):
         self.badwords: list = config_selfbot.badwords
         self.good_person_list: list = config_selfbot.good_person_list
 
+    @commands.Cog.listener()
+    async def on_message(self, ctx):
+        if self.good_person and ctx.author.id == self.bot.user.id:
+            if any(word in ctx.content.lower() for word in self.badwords):
+                await ctx.edit(random.choice(self.good_person_list))
+
     @commands.command()
-    async def call(self, ctx):
+    async def call(self, ctx: commands.Context):
         if not isinstance(ctx.channel, discord.DMChannel):
             await ctx.message.edit(langs.only_dm_fun[config_selfbot.lang])
             await asyncio.sleep(config_selfbot.deltime)
@@ -36,7 +42,7 @@ class FunCommands(commands.Cog):
             print(f"{langs.voice_join_error[config_selfbot.lang]}: {e}")
 
     @commands.command()
-    async def good(self, ctx):
+    async def good(self, ctx: commands.Context):
         if self.good_person:
             self.good_person = False
             await ctx.message.edit(f"🔥 Good Person {langs.disable[config_selfbot.lang]}")
@@ -48,14 +54,8 @@ class FunCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
-    @commands.Cog.listener()
-    async def on_message(self, ctx):
-        if self.good_person and ctx.author.id == self.bot.user.id:
-            if any(word in ctx.content.lower() for word in self.badwords):
-                await ctx.edit(random.choice(self.good_person_list))
-
     @commands.command()
-    async def hack(self, ctx):
+    async def hack(self, ctx: commands.Context):
         if ctx.message.mentions:
             user = ctx.message.mentions[0]
         else:
@@ -75,7 +75,7 @@ class FunCommands(commands.Cog):
         await ctx.message.edit(f"{langs.fun_hack_step_five[config_selfbot.lang]} <@{user.id}>")
 
     @commands.command()
-    async def cat(self, ctx):
+    async def cat(self, ctx: commands.Context):
         response = requests.get('https://api.thecatapi.com/v1/images/search')
         if response.status_code == 200:
             data = json.loads(response.text)
@@ -87,7 +87,7 @@ class FunCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def gift(self, ctx):
+    async def gift(self, ctx: commands.Context):
         try:
             gift_type = ctx.message.content.split()[1]
         except Exception:
@@ -105,7 +105,7 @@ class FunCommands(commands.Cog):
             await ctx.message.edit(f"discord.gift/{gift_code}")
 
     @commands.command()
-    async def howfemboy(self, ctx):
+    async def howfemboy(self, ctx: commands.Context):
         if ctx.message.mentions:
             user = ctx.message.mentions[0]
         else:

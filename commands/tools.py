@@ -17,7 +17,7 @@ class ToolsCommands(commands.Cog):
         self.bot: commands.Bot = bot
 
     @commands.command()
-    async def dmall(self, ctx):
+    async def dmall(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         dmall_content = ctx.message.content.replace(f"{message_split[0]} ", "")
         try:
@@ -59,7 +59,7 @@ class ToolsCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def closealldm(self, ctx):
+    async def closealldm(self, ctx: commands.Context):
 
         await ctx.message.edit(langs.tool_close_dms[config_selfbot.lang])
 
@@ -73,7 +73,7 @@ class ToolsCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def botclosedm(self, ctx):
+    async def botclosedm(self, ctx: commands.Context):
         
         await ctx.message.edit(langs.tool_close_dms_bots[config_selfbot.lang])
 

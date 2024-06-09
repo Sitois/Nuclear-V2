@@ -45,7 +45,7 @@ class ConfigCommands(commands.Cog):
                     log.alert(f"discord.gift/{gift_code} {langs.nitro_sniper_claimed[config_selfbot.lang]}")
 
     @commands.command()
-    async def nitrosniper(self, ctx):
+    async def nitrosniper(self, ctx: commands.Context):
         if not self.nitro_sniper:
             self.nitro_sniper = True
             await ctx.message.edit("🟢 Nitro Sniper **On**.")
@@ -58,7 +58,7 @@ class ConfigCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def lang(self, ctx):
+    async def lang(self, ctx: commands.Context):
         if config_selfbot.lang == "fr":
             config_selfbot.lang = "en"
             await ctx.message.edit("🟢 Language set to **English**.")

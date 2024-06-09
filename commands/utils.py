@@ -31,7 +31,7 @@ class UtilsCommands(commands.Cog):
                 return
 
     @commands.command()
-    async def snipe(self, ctx):
+    async def snipe(self, ctx: commands.Context):
         sniped_message = self.sniped_messages.get(ctx.channel.id)
         if sniped_message:
             images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
@@ -52,7 +52,7 @@ class UtilsCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def clear(self, ctx):
+    async def clear(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         try:
             str_amount = message_split[1]
@@ -83,7 +83,7 @@ class UtilsCommands(commands.Cog):
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
     @commands.command()
-    async def hype(self, ctx):
+    async def hype(self, ctx: commands.Context):
         house = ctx.message.content.split()[1]
         if house == "balance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.balance)
@@ -106,13 +106,13 @@ class UtilsCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def ping(self, ctx):
+    async def ping(self, ctx: commands.Context):
         await ctx.message.edit(f"🏓 Pong ! (Ping: **{round(self.bot.latency * 1000)}ms**)")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
     @commands.command()
-    async def bio(self, ctx):
+    async def bio(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         new_bio = ctx.message.content.replace(f"{message_split[0]} ", "")
         await self.bot.user.edit(bio=new_bio)
@@ -121,7 +121,7 @@ class UtilsCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def userinfo(self, ctx):
+    async def userinfo(self, ctx: commands.Context):
         if ctx.message.mentions:
             user = ctx.message.mentions[0]
         else:

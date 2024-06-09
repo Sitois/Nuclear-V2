@@ -14,7 +14,7 @@ class RichPresenceCommands(commands.Cog):
         self.today_date = datetime.datetime.today()
 
     @commands.command()
-    async def rpc_details(self, ctx):
+    async def rpc_details(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -44,7 +44,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_name(self, ctx):
+    async def rpc_name(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -74,7 +74,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_state(self, ctx):
+    async def rpc_state(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -104,7 +104,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_url(self, ctx):
+    async def rpc_url(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -134,7 +134,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_large_image(self, ctx):
+    async def rpc_large_image(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -164,7 +164,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_large_text(self, ctx):
+    async def rpc_large_text(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -194,7 +194,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_small_image(self, ctx):
+    async def rpc_small_image(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -224,7 +224,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_small_text(self, ctx):
+    async def rpc_small_text(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -254,7 +254,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_button_text_one(self, ctx):
+    async def rpc_button_text_one(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -284,7 +284,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_button_text_two(self, ctx):
+    async def rpc_button_text_two(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
 
@@ -315,7 +315,7 @@ class RichPresenceCommands(commands.Cog):
 
     """ # WAITING FOR DISCORD.PY-SELF TO ADD BUTTON LINKS
     @commands.command()
-    async def rpc_button_link_one(ctx):
+    async def rpc_button_link_one(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
         rpc.edit_variable_json("activity_button_one_answer", message_content)
@@ -343,7 +343,7 @@ class RichPresenceCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def rpc_button_link_two(ctx):
+    async def rpc_button_link_two(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         message_content = ctx.message.content.replace(f"{message_split[0]} ", "")
         rpc.edit_variable_json("activity_button_two_answer", message_content)
@@ -382,7 +382,7 @@ class RichPresenceCommands(commands.Cog):
     """
 
     @commands.command()
-    async def rpc_type(self, ctx):
+    async def rpc_type(self, ctx: commands.Context):
         choice = ctx.message.content.split()[1]
         if choice.lower() == "game":
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),

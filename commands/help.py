@@ -11,7 +11,7 @@ class HelpCommands(commands.Cog):
         self.bot: commands.Bot = bot
 
     @commands.command()
-    async def help(self, ctx):
+    async def help(self, ctx: commands.Context):
         poetry = {
             "fr": [
             "Jour meilleur n'existe qu'avec douleur.",
@@ -63,7 +63,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def tools(self, ctx):
+    async def tools(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🔧| __**Tools:**__
@@ -74,7 +74,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def fun(self, ctx):
+    async def fun(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🎲| __**Fun:**__
@@ -88,7 +88,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def config(self, ctx):
+    async def config(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 ⚙️| __**Config:**__
@@ -100,7 +100,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def raid(self, ctx):
+    async def raid(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🏯| __**Raid:**__
@@ -112,7 +112,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def utils(self, ctx):
+    async def utils(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 📂| __**Utils:**__
@@ -128,7 +128,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def voice(self, ctx):
+    async def voice(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
                            
 🎤| __**Voice:**__
@@ -139,7 +139,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def tuto(self, ctx):
+    async def tuto(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     🎮| __**Rich Presence Image Tutorial:**__
@@ -148,7 +148,7 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def templates(self, ctx):
+    async def templates(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     📖| __**Templates:**__
@@ -173,14 +173,14 @@ class HelpCommands(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
-    async def presence(self, ctx):
+    async def presence(self, ctx: commands.Context):
         """
     `{config_selfbot.prefix}rpc_button_link_one`: {langs.rpc_button_link_one_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_button_link_two`: {langs.rpc_button_link_two_translate[config_selfbot.lang]}.
         """
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
-    🕹️| __**Rich Presence Settings:**__                
+    🕹️| __**Rich Presence:**__                
     `{config_selfbot.prefix}rpc_name`: {langs.rpc_name_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_details`: {langs.rpc_details_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_state`: {langs.rpc_state_translate[config_selfbot.lang]}.

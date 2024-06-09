@@ -23,7 +23,7 @@ class RaidCommands(commands.Cog):
         self.is_spamming: bool = False
 
     @commands.command()
-    async def kickall(self, ctx):
+    async def kickall(self, ctx: commands.Context):
         if ctx.author.guild_permissions.kick_members:
             members = ctx.guild.members
             
@@ -48,7 +48,7 @@ class RaidCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def banall(self, ctx):
+    async def banall(self, ctx: commands.Context):
         if ctx.author.guild_permissions.ban_members:
             members = ctx.guild.members
 
@@ -73,7 +73,7 @@ class RaidCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def spam(self, ctx):
+    async def spam(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         content = ctx.message.content.replace(f"{message_split[0]} {message_split[1]} ", "")
 
@@ -114,7 +114,7 @@ class RaidCommands(commands.Cog):
             await ctx.message.delete()
 
     @commands.command()
-    async def flood(self, ctx):
+    async def flood(self, ctx: commands.Context):
         flood_spam = """_ _
         _ _
         _ _

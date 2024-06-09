@@ -14,7 +14,7 @@ class TemplatesCommands(commands.Cog):
         self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
 
     @commands.command()
-    async def use(self, ctx):
+    async def use(self, ctx: commands.Context):
         today_date = datetime.datetime.today()
         choice = ctx.message.content.split()[1]
         if choice.lower() == "hi":
