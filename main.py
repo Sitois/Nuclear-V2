@@ -95,7 +95,7 @@ check_loop = True
 # Check if it's a developement version, if it is, disable UpdateChecker
 try:
     if float(__version__) > float(check_latest_version('Sitois', 'Nuclear-V2').strip('v')):
-        log.warning(f"{langs.unstable_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+        log.warning(f"{langs.unstable_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear-V2/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
         check_loop = False
 except Exception:
     pass
