@@ -107,7 +107,7 @@ if discord.__version__ == "1.7.3":
 
 # Prevent from starting the selfbot with the broken pip version
 if discord.__version__ == "2.0.0":
-    log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+    log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear-V2/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
 
@@ -118,7 +118,7 @@ def call_check_repo():
         latest_version = check_latest_version(repo_owner, repo_name)
         if latest_version:
             if not latest_version == f"v{__version__}":
-                log.info(f"""{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{latest_version}
+                log.info(f"""{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/{repo_owner}/{repo_name}/releases/tag/{latest_version}
 {langs.error_check_version_three[config_selfbot.lang]} v{__version__}""")
             time.sleep(3600)
 
