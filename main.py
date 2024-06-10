@@ -315,8 +315,8 @@ except Exception as e:
         # If the Exception is about the old aiohttp error, it try to fix itself with fix_aiohttp()
         log.warning(langs.aihottp_error[config_selfbot.lang])
         fix_aiohttp()
-    elif "4000" in str(e):
-        # If the session has closed with 4000, return log the error
+    elif "4004" in str(e):
+        # If the session has closed with 4004 (token has changed), log the error
         log.critical(langs.expired_token[config_selfbot.lang])
     else:
         # Else, print the Exception
