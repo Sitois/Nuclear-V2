@@ -227,6 +227,11 @@ help_fun_token = {
     "en": "Returns the beginning of the token of the mentionned user"
 }
 
+help_fun_hug = {
+    "fr": "Hug GIF (cute!)",
+    "en": "GIF de calin (mignon!!)"
+}
+
 help_fun_call = {
     "fr": "Spam d'appel (seulement en MP!)",
     "en": "Join and Leave the voice (only in dm!)"

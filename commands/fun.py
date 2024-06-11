@@ -55,7 +55,17 @@ class FunCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
-    # HUG COMMAND
+    @commands.command()
+    async def hug(self, ctx: commands.Context):
+        hug_gifs = ["https://media1.tenor.com/m/l35okzAUNMgAAAAC/peach-and-goma-peachcat.gif",
+                    "https://media1.tenor.com/m/4-UFx3TTQK0AAAAC/november.gif",
+                    "https://media1.tenor.com/m/n9C4G-QEsrcAAAAC/squeeze-hug.gif",
+                    "https://media1.tenor.com/m/JKo6Z5x3slYAAAAC/hug-extasyxx.gif",
+                    "https://media1.tenor.com/m/24n__MYJspQAAAAC/hug.gif"
+                   ]
+
+        await ctx.message.edit(random.choice(hug_gifs))
+
     @commands.command()
     async def hug(self, ctx):
         rng = random.randint(1, 100)
