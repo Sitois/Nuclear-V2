@@ -222,6 +222,11 @@ help_fun_good = {
     "en": "Transform you into a Good Person ! (*no insults*)"
 }
 
+help_fun_token = {
+    "fr": "Renvoie le début du token de la personne mentionné",
+    "en": "Returns the beginning of the token of the mentionned user"
+}
+
 help_fun_call = {
     "fr": "Spam d'appel (seulement en MP!)",
     "en": "Join and Leave the voice (only in dm!)"
@@ -406,6 +411,11 @@ fun_hack_step_five = {
 fun_copy_user_fail = {
     "fr": "❌ Veuillez indiquer un utilisateur à copier (ID ou mention).",
     "en": "❌ Please give an ID / mention for the user to copy."
+}
+
+fun_token = {
+    "fr": "Début du token de",
+    "en": "Start of the token of"
 }
 
 info_title = {

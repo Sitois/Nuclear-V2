@@ -4,6 +4,7 @@ import asyncio
 import random
 import requests
 import json
+import base64
 
 
 import config_selfbot
@@ -122,6 +123,22 @@ class FunCommands(commands.Cog):
             await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bUyzv.gif) 😈!")
         else:
             await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** femboy!")
+
+    @commands.command()
+    async def token(self, ctx: commands.Context):
+        if ctx.message.mentions:
+            user_id = ctx.message.mentions[0].id
+        else:
+            try:
+                user_id = self.bot.get_user(int(ctx.message.content.split()[1])).id
+            except Exception:
+                user_id = ctx.author.id
+
+        encode_text = base64.b64encode(str(user_id).encode('utf-8'))
+        start_token = str(encode_text).strip("b'").strip()
+        await ctx.message.edit(f"🌠 {langs.fun_token[config_selfbot.lang]} <@{user_id}> token: `{start_token}.`")
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
 
     """
     TODO: Fix copyuser: discord.errors.CaptchaRequired: 400 Bad Request (error code: -1): Captcha required, at await self.bot.user.edit().
