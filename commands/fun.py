@@ -55,6 +55,29 @@ class FunCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
 
+    # HUG COMMAND
+    @commands.command()
+    async def hug(self, ctx):
+        rng = random.randint(1, 100)
+        if rng <= 10:
+            hug = "https://images-ext-1.discordapp.net/external/XpidBLlVtXBEtSW_INDW86dcvMceXsH5VjwX8ltJCSk/https/media.tenor.com/9mUATMh3_oEAAAPo/peach-and-goma-peach-cat.mp4"
+            await ctx.message.edit(hug)
+        elif rng <= 20:
+            hug = "https://images-ext-1.discordapp.net/external/d9pbuhR-P2hpLD1R84WLrWQaKdSNdPzp42L-AS-U00I/https/media.tenor.com/hbcv_gVlGzkAAAPo/couple-cute.mp4"
+            await ctx.message.edit(hug)
+        elif rng <= 30:
+            hug = "https://images-ext-1.discordapp.net/external/vfFvDZRTMYkmqDELfVmtMzBrjm1C0LPwTUr2UF6YYjw/https/media.tenor.com/RN7jCU8o7eAAAAPo/laverne-and.mp4"
+            await ctx.message.edit(hug)    
+        elif rng <= 40:
+            hug = "https://images-ext-1.discordapp.net/external/ikhaYclZWr6MVPh_cN-j-4BV2Qx5IE6zbn4N9SV3ykw/https/media.tenor.com/yMjbC5MEv5UAAAPo/hug-squeeze.mp4"
+            await ctx.message.edit(hug)   
+        elif rng <= 50:
+            hug = "https://images-ext-1.discordapp.net/external/PHnrTAVKY2HVT7PGw2L-hJ4ztyR5t46m0rYPfpq2mDw/https/media.tenor.com/JKo6Z5x3slYAAAPo/hug-extasyxx.mp4"
+            await ctx.message.edit(hug)   
+        elif rng > 60:
+            hug = "https://images-ext-1.discordapp.net/external/MlIhTcnnwMOrGv4PZkfB0pZMlwId20GStbF2EJBMu4o/https/media.tenor.com/P6FsFii7pnoAAAPo/hug-warm-hug.mp4"
+            await ctx.message.edit(hug) 
+
     @commands.command()
     async def hack(self, ctx: commands.Context):
         if ctx.message.mentions:
