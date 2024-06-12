@@ -1,15 +1,11 @@
 import discord
 from discord.ext import commands
 import asyncio
-import random
 import time
 
+from utils import random_cooldown
 import config_selfbot
 import langs
-
-def random_cooldown(minimum, maximum):
-    cooldown = random.randint(minimum*100000,maximum*100000) / 100000
-    return cooldown
 
 class UtilsCommands(commands.Cog):
     def __init__(self, bot):

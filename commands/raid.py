@@ -1,21 +1,13 @@
 import discord
 from discord.ext import commands
 import asyncio
-import random
-import string
 
-from utils import log
+from utils import log, generate_random_string, random_cooldown
 import config_selfbot
 import langs
 
 
-def generate_random_string(length):
-    letters = string.ascii_letters
-    return ''.join(random.choice(letters) for _ in range(length))
 
-def random_cooldown(minimum, maximum):
-    cooldown = random.randint(minimum*100000,maximum*100000) / 100000
-    return cooldown
 
 class RaidCommands(commands.Cog):
     def __init__(self, bot):
