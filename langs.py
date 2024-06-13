@@ -272,6 +272,11 @@ help_tools_close_dm = {
     "en": "Close all your DMs"
 }
 
+help_tools_bump = {
+    "fr": "Bump automatiquement avec Disboard",
+    "en": "Automatically bump with Disboard"
+}
+
 help_tools_close_dm_bots = {
     "fr": "Ferme tout vos MP avec des bots",
     "en": "Close all your DMs with bots"
@@ -511,6 +516,21 @@ raid_dm_all_success = {
 tool_close_dms = {
     "fr": "🔧 Fermeture de tout vos MP...",
     "en": "🔧 Closing all your DMs..."
+}
+
+tool_bump = {
+    "fr": "🔁 Le serveur sera bump sur ce salon",
+    "en": "🔁 This server wil be bumped on this channel"
+}
+
+tool_bump_not_found = {
+    "fr": "❌ Le bot Disboard n'a pas été trouvé sur ce serveur.",
+    "en": "❌ Disboard wasn't found on this server."
+}
+
+tool_bump_two = {
+    "fr": "fois.",
+    "en": "times."
 }
 
 tool_close_dms_success = {

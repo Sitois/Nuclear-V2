@@ -12,6 +12,40 @@ class ToolsCommands(commands.Cog):
         self.bot: commands.Bot = bot
 
     @commands.command()
+    async def bump(self, ctx: commands.Context):
+        message_split = ctx.message.content.split()
+
+        disboard = ctx.guild.get_member(302050872383242240)
+        if disboard is None:
+            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang])
+            await asyncio.sleep()
+            await ctx.message.delete()
+            return
+
+        try:
+            count = int(message_split[1])
+        except Exception:
+            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!")
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+            return
+
+        if count >= 100:
+            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang])
+            await asyncio.sleep(config_selfbot.deltime)
+            await ctx.message.delete()
+            return
+
+        await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} {count} {langs.tool_bump_two[config_selfbot.lang]}")
+        await asyncio.sleep(config_selfbot.deltime)
+        await ctx.message.delete()
+
+        command = [_ for _ in await ctx.channel.application_commands() if _.name == 'bump' and _.application_id == 302050872383242240][0]
+        for i in range(count):
+            await command.__call__(channel=ctx.channel)
+            await asyncio.sleep(random_cooldown(7200, 7387))
+
+    @commands.command()
     async def dmall(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         dmall_content = ctx.message.content.replace(f"{message_split[0]} ", "")

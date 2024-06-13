@@ -10,8 +10,8 @@ class HelpCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
 
-    @commands.command()
-    async def help(self, ctx: commands.Context):
+    @commands.command(name="help")
+    async def help_command(self, ctx: commands.Context):
         poetry = {
             "fr": [
             "Jour meilleur n'existe qu'avec douleur.",
@@ -69,7 +69,8 @@ class HelpCommands(commands.Cog):
 🔧| __**Tools:**__
  `{config_selfbot.prefix}closealldm`: {langs.help_tools_close_dm[config_selfbot.lang]}.
  `{config_selfbot.prefix}botclosedm`: {langs.help_tools_close_dm_bots[config_selfbot.lang]}.
- `{config_selfbot.prefix}dmall`: {langs.help_raid_dmall[config_selfbot.lang]}.""")
+ `{config_selfbot.prefix}dmall`: {langs.help_raid_dmall[config_selfbot.lang]}.
+ `{config_selfbot.prefix}bump <count>`: {langs.help_tools_bump[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
 
