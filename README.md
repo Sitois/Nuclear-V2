@@ -58,6 +58,7 @@ Open `config_selfbot.py` with any text editor  and enter a [user token](https://
 * Nitro Sniper,
 * Spam and Flood command,
 * Snipe command,
+* Auto bump (in the future v1.8),
 * And others, check the `Help` command!
 
 ## 📜 How to get a user token

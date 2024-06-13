@@ -58,6 +58,7 @@ Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un
 * Nitro Sniper,
 * Flood et Spam,
 * Snipe,
+* Auto bump (dans la v1.8),
 * Et bien plus, consultez la commande `Help` !
 
 ## 📜 Comment obtenir son token
