@@ -147,12 +147,12 @@ class HelpCommands(commands.Cog):
         """
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
-    🕹️| __**Rich Presence:**__                
+    🕹️| __**Rich Presence:**__
     `{config_selfbot.prefix}rpc_name`: {langs.rpc_name_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_details`: {langs.rpc_details_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_state`: {langs.rpc_state_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_url`: {langs.rpc_url_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_type`: {langs.rpc_type_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_type  <play / watch / listen / stream / competing / xbox>`: {langs.rpc_type_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_large_image`: {langs.rpc_large_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
     `{config_selfbot.prefix}rpc_large_text`: {langs.rpc_large_text_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_small_image`: {langs.rpc_small_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
