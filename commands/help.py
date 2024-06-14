@@ -12,44 +12,8 @@ class HelpCommands(commands.Cog):
 
     @commands.command(name="help")
     async def help_command(self, ctx: commands.Context):
-        poetry = {
-            "fr": [
-            "Jour meilleur n'existe qu'avec douleur.",
-            "La seule personne que vous êtes destiné à devenir est la personne que vous décidez d'être.",
-            "L'avenir appartient à ceux qui croient en la beauté de leurs rêves.",
-            "L'échec est le fondement de la réussite.",
-            "Ne rêvez pas votre vie, vivez vos rêves.",
-            "Crois en toi, et les autres suivront.",
-            "Sois le changement que tu veux voir dans le monde.",
-            "Poursuis tes rêves, ils connaissent le chemin.",
-            "La vie récompense l'action.",
-            "Tu es plus fort que tu ne le crois.",
-            "Le succès commence par l'action.",
-            "La persévérance bat le talent.",
-            "Ne remettez pas à demain.",
-            "Chaque effort compte.",
-            "Les montagnes les plus hautes ont les pentes les plus raides.",
-            "Les éclats de lumière percent l'obscurité la plus profonde."
-            ],
-            "en": [
-            "Your attitude determines your direction.",
-            "Progress, not perfection.",
-            "Embrace the challenges, for they are the stepping stones to success.",
-            "Embrace failure as a stepping stone, not a stumbling block.",
-            "The only limits that exist are the ones you place on yourself.",
-            "Courage is not the absence of fear but the triumph over it.",
-            "Dreams don't work unless you do",
-            "Opportunities don't happen. You create them.",
-            "Don't wait for the perfect moment; take the moment and make it perfect.",
-            "The only way to do great work is to love what you do.",
-            "Believe you can, and you're halfway there.",
-            "Don't watch the clock; do what it does. Keep going"
-            ],
-        }
-
-
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-  ☄ "{random.choice(poetry[config_selfbot.lang])}" ☄
+  ☄ "{random.choice(langs.poetry[config_selfbot.lang])}" ☄
 
   📂| __**Utils:**__ `{config_selfbot.prefix}utils`
   🎤| __**{langs.help_voice[config_selfbot.lang]}:**__ `{config_selfbot.prefix}voice`
@@ -69,7 +33,7 @@ class HelpCommands(commands.Cog):
 🔧| __**Tools:**__
  `{config_selfbot.prefix}closealldm`: {langs.help_tools_close_dm[config_selfbot.lang]}.
  `{config_selfbot.prefix}botclosedm`: {langs.help_tools_close_dm_bots[config_selfbot.lang]}.
- `{config_selfbot.prefix}dmall`: {langs.help_raid_dmall[config_selfbot.lang]}.
+ `{config_selfbot.prefix}dmall`: {langs.help_raid_dmall[config_selfbot.lang]}
  `{config_selfbot.prefix}bump <count>`: {langs.help_tools_bump[config_selfbot.lang]}.""")
         await asyncio.sleep(config_selfbot.deltime)
         await ctx.message.delete()
