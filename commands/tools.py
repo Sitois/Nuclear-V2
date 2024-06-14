@@ -51,9 +51,9 @@ class ToolsCommands(commands.Cog):
 
         for i in range(count):
             await command.__call__(channel=ctx.channel)
-            await asyncio.sleep(random_cooldown(7200, 7387))
             log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.
 Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).""")
+            await asyncio.sleep(random_cooldown(7200, 7387))
 
         log.separate("AUTO-BUMP")
 
