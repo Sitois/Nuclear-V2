@@ -10,5 +10,8 @@
     "large_image": "VOID",
     "large_text": "VOID",
     "small_image": "VOID",
-    "small_text": "VOID"
+    "small_text": "VOID",
+
+
+    "create_panel": true
 }
