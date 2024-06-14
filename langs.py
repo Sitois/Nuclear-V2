@@ -129,6 +129,20 @@ error_check_version_three = {
     "en": "You are currently using "
 }
 
+panel_message = {
+    "fr": f"""# __N'utilisez pas les commandes dans des serveurs, vous pouvez vous faire signaler__ #
+> ## [Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support) ##
+
+Commencez avec `{config_selfbot.prefix}help`!
+Vous pouvez utilisez toutes les commandes, sans problèmes, dans ce panel.""",
+    "en": f"""# __Don't use command in servers, you can get reported.__ #
+
+> ## [Support](https://github.com/Sitois/Nuclear-V2#support) ##
+
+Get started with `{config_selfbot.prefix}help`!
+You can use every commands safely, in this panel."""
+}
+
 ####################
 #  help            #
 # translation !!!  #

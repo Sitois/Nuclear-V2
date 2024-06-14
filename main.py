@@ -238,25 +238,20 @@ async def on_ready():
                               afk=True,
                               idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-    # TODO:
-    # Add: Nuclear Panel: Create a group, rename it to "Nuclear Panel" and a welcome message,
-    # i.g.: "Don't use command in servers you can get reported, here the support link, offcial github link, current version" etc..
-
     # TODO: Servers backup.
-    """
-    with open('nuclear_icon.jpg', 'b') as image:
+
+    with open('nuclear_icon.png', 'rb') as image:
         nuclear_icon = image.read()
 
-    if rpc.read_variable_json("first_start"):
-        random_user = random.choice(bot.friends)
-        random_user_two = random.choice(bot.friends)
-        panel = await bot.create_group(random_user.user, random_user_two.user)
-        await panel.remove_recipients(random_user.user, random_user_two.user)
+    if rpc.read_variable_json("create_panel"):
+        panel = await bot.create_group()
         await asyncio.sleep(0.7)
         await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
-        await panel.send("hey")
-        rpc.edit_variable_json("first_start", False)
-    """
+        await panel.send(langs.panel_message[config_selfbot.lang])
+        ping = await panel.send(f"<@{bot.user.id}>")
+        await asyncio.sleep(0.4)
+        await ping.delete()
+        rpc.edit_variable_json("create_panel", False)
 
 
 def restart_selfbot():
