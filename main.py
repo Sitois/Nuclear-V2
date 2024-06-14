@@ -302,10 +302,16 @@ def fix_aiohttp():
 
     restart_selfbot()
 
+
+# Launch the selfbot
+# By the way, this is the first and the only moment where we use the token in the selfbot.
 try:
-    # Launch the selfbot
-    # By the way, this is the first and the only moment where we use the token in the selfbot.
-    bot.run(config_selfbot.token)
+    if config_selfbot.discord_log:
+        # If `discord_log` in `config_selfbot` is True, enable discord.py-self's logs
+        bot.run(config_selfbot.token)
+    else:
+        # Else, disable discord.py-self's logs
+        bot.run(config_selfbot.token, log_handler=None)
 except discord.LoginFailure:
     # Log if the passed token is incorrect
     log.critical(langs.token_error[config_selfbot.lang])
@@ -316,8 +322,8 @@ except Exception as e:
         log.warning(langs.aihottp_error[config_selfbot.lang])
         fix_aiohttp()
     elif "4004" in str(e):
-        # If the session has closed with 4004 (token has changed), log the error
+        # If the session has closed with 4004 (token has changed), log the error.
         log.critical(langs.expired_token[config_selfbot.lang])
     else:
-        # Else, print the Exception
+        # Else, print the Exception.
         log.critical(f"{langs.weird_error[config_selfbot.lang]} {e}")

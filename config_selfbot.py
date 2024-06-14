@@ -21,6 +21,10 @@ prefix = "&"
 # en: Language.
 lang = "en" # fr / en
 
+# fr: Activer/Désactiver les logs de discord (ex: Connected to gateway , Rate Limited etc..).
+# en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).
+discord_log = True
+
 # fr: Default Nitro Sniper mode. (True=On, False=Off)
 # fr: Mode du Nitro Sniper par défaut. (True=On, False=Off)
 nitro_sniper = False
