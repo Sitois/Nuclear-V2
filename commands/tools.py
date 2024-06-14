@@ -48,12 +48,14 @@ class ToolsCommands(commands.Cog):
 
         command = [_ for _ in await ctx.channel.application_commands() if _.name == 'bump' and _.application_id == 302050872383242240][0]
         log.separate_text("AUTO-BUMP")
+
         for i in range(count):
             await command.__call__(channel=ctx.channel)
             await asyncio.sleep(random_cooldown(7200, 7387))
-            log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i} time.
-Still need to bump {count - i} time in {ctx.channel.name}({ctx.channel.id}).""")
-            log.separate("AUTO-BUMP")
+            log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.
+Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).""")
+
+        log.separate("AUTO-BUMP")
 
     @commands.command()
     async def dmall(self, ctx: commands.Context):
