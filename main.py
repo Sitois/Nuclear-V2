@@ -4,7 +4,7 @@ try:
     import ctypes
     import datetime, time
     import threading
-    #import random
+    import random, asyncio
     import config_selfbot
     import langs
     from utils import rpc, log, __version__
@@ -24,7 +24,7 @@ except ImportError:
     import ctypes
     import datetime, time
     import threading
-    #import random
+    import random, asyncio
     import config_selfbot
     import langs
     from utils import rpc, log, __version__
@@ -101,12 +101,12 @@ except Exception:
     pass
 
 # Prevent from starting the selfbot with discord.py==1.7.3
-if discord.__version__ == "1.7.3":
+if discord.__version__.startswith("1.7.3"):
     log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
 # Prevent from starting the selfbot with the broken pip version
-if discord.__version__ == "2.0.0":
+if discord.__version__.startswith("2.0.0"):
     log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear-V2/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
@@ -244,13 +244,20 @@ async def on_ready():
 
     # TODO: Servers backup.
     """
-    if not rpc.read_variable_json("first_start"):
+    with open('nuclear_icon.jpg', 'b') as image:
+        nuclear_icon = image.read()
+
+    if rpc.read_variable_json("first_start"):
         random_user = random.choice(bot.friends)
-        panel = await bot.create_group(random_user.user)
-        await panel.remove_recipients(random_user.user)
-        await panel.edit(name="Nuclear Panel")
-        await panel.send("hi")
+        random_user_two = random.choice(bot.friends)
+        panel = await bot.create_group(random_user.user, random_user_two.user)
+        await panel.remove_recipients(random_user.user, random_user_two.user)
+        await asyncio.sleep(0.7)
+        await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
+        await panel.send("hey")
+        rpc.edit_variable_json("first_start", False)
     """
+
 
 def restart_selfbot():
     python = sys.executable
