@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import asyncio
 import random
 
 import config_selfbot
@@ -22,9 +21,7 @@ class HelpCommands(commands.Cog):
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
   🔧| __**Tools:**__ `{config_selfbot.prefix}tools`
-  ⚙️| __**Config:**__ `{config_selfbot.prefix}config`""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+  ⚙️| __**Config:**__ `{config_selfbot.prefix}config`""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def tools(self, ctx: commands.Context):
@@ -34,9 +31,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}closealldm`: {langs.help_tools_close_dm[config_selfbot.lang]}.
  `{config_selfbot.prefix}botclosedm`: {langs.help_tools_close_dm_bots[config_selfbot.lang]}.
  `{config_selfbot.prefix}dmall`: {langs.help_raid_dmall[config_selfbot.lang]}
- `{config_selfbot.prefix}bump <count>`: {langs.help_tools_bump[config_selfbot.lang]}.""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+ `{config_selfbot.prefix}bump <amount>`: {langs.help_tools_bump[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def fun(self, ctx: commands.Context):
@@ -50,9 +45,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}hack`: {langs.help_fun_hack[config_selfbot.lang]}.
  `{config_selfbot.prefix}howfemboy`: {langs.help_fun_femboy[config_selfbot.lang]}.
  `{config_selfbot.prefix}token`: {langs.help_fun_token[config_selfbot.lang]}.
- `{config_selfbot.prefix}hug`: {langs.help_fun_hug[config_selfbot.lang]}.""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+ `{config_selfbot.prefix}hug`: {langs.help_fun_hug[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def config(self, ctx: commands.Context):
@@ -62,9 +55,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}nitrosniper`: {langs.help_general_sniper[config_selfbot.lang]}.
  `{config_selfbot.prefix}restart`: {langs.help_config_restart[config_selfbot.lang]}.
  `{config_selfbot.prefix}stop`: {langs.help_config_stop[config_selfbot.lang]}.
- `{config_selfbot.prefix}lang`""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+ `{config_selfbot.prefix}lang`""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def raid(self, ctx: commands.Context):
@@ -74,9 +65,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello).
  `{config_selfbot.prefix}flood`: Flood.
  `{config_selfbot.prefix}kickall`: {langs.help_raid_kick[config_selfbot.lang]}.
- `{config_selfbot.prefix}banall`: {langs.help_raid_banall[config_selfbot.lang]}""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+ `{config_selfbot.prefix}banall`: {langs.help_raid_banall[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def utils(self, ctx: commands.Context):
@@ -88,11 +77,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}clear`: {langs.help_general_clear[config_selfbot.lang]}
  `{config_selfbot.prefix}hype`: {langs.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
  `{config_selfbot.prefix}bio`: {langs.help_general_bio[config_selfbot.lang]}.
- `{config_selfbot.prefix}userinfo`: {langs.help_general_user_info[config_selfbot.lang]}""")
-
-
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+ `{config_selfbot.prefix}userinfo`: {langs.help_general_user_info[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def voice(self, ctx: commands.Context):
@@ -101,18 +86,14 @@ class HelpCommands(commands.Cog):
 🎤| __**Voice:**__
  `{config_selfbot.prefix}joinvc <voice_channel_id>`: {langs.help_voice_vc[config_selfbot.lang]}.
  `{config_selfbot.prefix}joincam <voice_channel_id>`: {langs.help_voice_cam[config_selfbot.lang]}.
- `{config_selfbot.prefix}leavevc`: {langs.help_voice_leave[config_selfbot.lang]}.""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+ `{config_selfbot.prefix}leavevc`: {langs.help_voice_leave[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def tuto(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
     🎮| __**Rich Presence Image Tutorial:**__
-    {langs.tutorial_rpc[config_selfbot.lang]}""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+    {langs.tutorial_rpc[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def templates(self, ctx: commands.Context):
@@ -133,11 +114,8 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}use js`: {langs.template_help_js[config_selfbot.lang]}
     `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
     `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}
-    `{config_selfbot.prefix}use tiktok`: {langs.template_help_tiktok[config_selfbot.lang]}""")
-    # TODO:
-    # Improvement: Add a "💡 You can reload images if they don't work with the `reload` command."
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+    `{config_selfbot.prefix}use tiktok`: {langs.template_help_tiktok[config_selfbot.lang]}
+    💡 {langs.template_help_reload[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def presence(self, ctx: commands.Context):
@@ -152,12 +130,10 @@ class HelpCommands(commands.Cog):
     `{config_selfbot.prefix}rpc_details`: {langs.rpc_details_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_state`: {langs.rpc_state_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_url`: {langs.rpc_url_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_type  <play / watch / listen / stream / competing / xbox>`: {langs.rpc_type_translate[config_selfbot.lang]}.
+    `{config_selfbot.prefix}rpc_type <play / watch / listen / stream / competing / xbox>`: {langs.rpc_type_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_large_image`: {langs.rpc_large_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
     `{config_selfbot.prefix}rpc_large_text`: {langs.rpc_large_text_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_small_image`: {langs.rpc_small_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
     `{config_selfbot.prefix}rpc_small_text`: {langs.rpc_small_text_translate[config_selfbot.lang]}.
     `{config_selfbot.prefix}rpc_button_text_one`: {langs.rpc_button_text_one_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.""")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+    `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)

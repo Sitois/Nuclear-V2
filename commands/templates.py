@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import datetime
 import time
-import asyncio
 from utils import rpc
 
 import config_selfbot
@@ -37,9 +36,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
             
-            await ctx.message.edit("👋 Template \"hi !\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("👋 Template \"hi !\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "omori":
             assets = {"large_image": self.templates_assets["omori"]["large_image"],
                       "large_text": "Omori",
@@ -60,9 +57,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("💡 Template \"Omori\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("💡 Template \"Omori\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "cod":
             assets = {"large_image": self.templates_assets["cod"]["large_image"],
                       "large_text": "Call Of Duty: MWIII",
@@ -83,9 +78,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🔫 Template \"Call Of Duty\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🔫 Template \"Call Of Duty\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "youtube":
             assets = {"large_image": self.templates_assets["youtube"]["large_image"],
                       "large_text": "YouTube",
@@ -106,9 +99,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🎦 Template \"YouTube\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🎦 Template \"YouTube\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "car":
             assets = {"large_image": self.templates_assets["car"]["large_image"],
                       "large_text": "Drift Car",
@@ -129,9 +120,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🏎️ Template \"Car\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🏎️ Template \"Car\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "js":
             assets = {"large_image": self.templates_assets["js"]["large_image"],
                       "large_text": "Editing a JAVASCRIPT file",
@@ -152,9 +141,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("👨‍💻 Template \"JavaScript\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("👨‍💻 Template \"JavaScript\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "python":
             assets = {"large_image": self.templates_assets["python"]["large_image"],
                       "large_text": "Editing a PYTHON file",
@@ -175,9 +162,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("👨‍💻 Template \"Python\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("👨‍💻 Template \"Python\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "webdeck":
             assets = {"large_image": self.templates_assets["webdeck"]["large_image"],
                       "large_text": "WebDeck Icon",
@@ -198,9 +183,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("📱 Template \"WebDeck\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("📱 Template \"WebDeck\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "nuclear":
             assets = {"large_image": self.templates_assets["nuclear"]["large_image"],
                       "large_text": "github.com/Sitois/Nuclear-V2",
@@ -221,9 +204,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🌌 Template \"Nuclear\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🌌 Template \"Nuclear\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "dark":
             assets = {"large_image": self.templates_assets["dark"]["large_image"],
                       "large_text": "☄",
@@ -243,9 +224,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🖤 Template \"Dark\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🖤 Template \"Dark\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "gta":
             assets = {"large_image": self.templates_assets["gta"]["large_image"],
                       "large_text": "Grand Theft Auto VI",
@@ -266,9 +245,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "tiktok":
             assets = {"large_image": self.templates_assets["tiktok"]["large_image"],
                       "large_text": "TikTok",
@@ -289,9 +266,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("📱 Template \"TikTok\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("📱 Template \"TikTok\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "reset":
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
@@ -312,9 +287,7 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🔄️ RPC Reset.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🔄️ RPC Reset.", delete_after=config_selfbot.deltime)
         elif choice.lower() == "default":
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name=config_selfbot.activity_name,
@@ -330,22 +303,18 @@ class TemplatesCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🔄️ RPC \"Default\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🔄️ RPC \"Default\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "clear":
             await self.bot.change_presence(status=discord.Status.idle,
                                     activity=None,
                                     afk=True,
                                     idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
 
-            await ctx.message.edit("🚮 RPC \"Clear\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🚮 RPC \"Clear\".", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
 
-    # TODO:
-    # Add: `reload` command that will reload tempaltes images (`self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")`)
+    @commands.command()
+    async def reload(self, ctx: commands.Context):
+        self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
+        await ctx.message.edit(langs.template_reload[config_selfbot.lang], delete_after=config_selfbot.deltime)

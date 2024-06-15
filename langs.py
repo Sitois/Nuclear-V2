@@ -750,6 +750,16 @@ template_help_tiktok = {
     "en": "Use \"TikTok\" template."
 }
 
+template_help_reload = {
+    "fr": f"Vous pouvez mettre à jour les images avec la commande`{config_selfbot.prefix}reload` !",
+    "en": f"You can reload Templates images with the `{config_selfbot.prefix}reload` command!"
+}
+
+template_reload = {
+    "fr": "Images des Templates mises à jour !",
+    "en": "Templates images updated!"
+}
+
 
 
 rpc_cod_details = {
