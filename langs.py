@@ -567,7 +567,7 @@ tool_close_dms = {
 
 tool_bump = {
     "fr": "🔁 Le serveur sera bump sur ce salon",
-    "en": "🔁 This server wil be bumped on this channel"
+    "en": "🔁 This server will be bumped on this channel"
 }
 
 tool_bump_not_found = {
