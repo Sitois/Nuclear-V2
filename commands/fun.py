@@ -101,6 +101,8 @@ class FunCommands(commands.Cog):
             await ctx.message.edit("discord.gift/vhnuzE2YkNCZ7sfYHHKebKXB")
         elif gift_type == "nerd":
             await ctx.message.edit("discord.gift/Udzwm3hrQECQBnEEFFCEwdSq")
+        elif gift_type == "hit":
+            await ctx.message.edit("discord.gift/BMHmv4FWEM5WVGnHUHCYFKMx")
         else:
             alphabet = "abcdefghijklmnopqrstuvwxyz"
             numbers = "0123456789"

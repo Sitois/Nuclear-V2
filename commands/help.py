@@ -42,7 +42,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}cat`: {langs.help_fun_cat[config_selfbot.lang]}.
  `{config_selfbot.prefix}good`: {langs.help_fun_good[config_selfbot.lang]}.
  `{config_selfbot.prefix}call`: {langs.help_fun_call[config_selfbot.lang]}.
- `{config_selfbot.prefix}gift <random/nerd/poor>`: {langs.help_fun_gift[config_selfbot.lang]}.
+ `{config_selfbot.prefix}gift <random/nerd/poor/hit>`: {langs.help_fun_gift[config_selfbot.lang]}.
  `{config_selfbot.prefix}hack`: {langs.help_fun_hack[config_selfbot.lang]}.
  `{config_selfbot.prefix}howfemboy`: {langs.help_fun_femboy[config_selfbot.lang]}.
  `{config_selfbot.prefix}token`: {langs.help_fun_token[config_selfbot.lang]}.

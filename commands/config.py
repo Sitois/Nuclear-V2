@@ -32,6 +32,10 @@ class ConfigCommands(commands.Cog):
                         # Prevent from claiming the custom "No Nitro ?" nitro code.
                         return
 
+                    if gift_code == "BMHmv4FWEM5WVGnHUHCYFKMx":
+                        # Prevent from claiming the custom "Does he know ?" nitro code.
+                        return
+
                     if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
                         print(f"{Fore.LIGHTYELLOW_EX}[~] {Fore.YELLOW}Nitro Sniper: discord.gift/{gift_code}{Style.RESET_ALL}")
                     else:
