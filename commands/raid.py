@@ -7,8 +7,6 @@ import config_selfbot
 import langs
 
 
-
-
 class RaidCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
@@ -31,13 +29,9 @@ class RaidCommands(commands.Cog):
 
             log.separate("KICK ALL")
 
-            await ctx.message.edit(langs.raid_kick_all_success[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.raid_kick_all_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def banall(self, ctx: commands.Context):
@@ -56,13 +50,9 @@ class RaidCommands(commands.Cog):
 
             log.separate("BAN ALL")
 
-            await ctx.message.edit(langs.raid_ban_all_success[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.raid_ban_all_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def spam(self, ctx: commands.Context):
@@ -72,23 +62,17 @@ class RaidCommands(commands.Cog):
         try:
             count = int(message_split[1]) - 1
         except Exception:
-            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!", delete_after=config_selfbot.deltime)
             return
         
         if count >= 100:
-            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         try:
             message_split[2]
         except Exception:
-            await ctx.message.edit(langs.raid_dm_all_fail[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.raid_dm_all_fail[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         if not self.is_spamming:
@@ -101,9 +85,7 @@ class RaidCommands(commands.Cog):
                 await asyncio.sleep(random_cooldown(0.5, 2))
             self.is_spamming = False
         else:
-            await ctx.message.edit(langs.spam_cooldown[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.spam_cooldown[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def flood(self, ctx: commands.Context):

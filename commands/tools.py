@@ -7,6 +7,7 @@ from utils import log, random_cooldown
 import config_selfbot
 import langs
 
+
 class ToolsCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
@@ -14,37 +15,27 @@ class ToolsCommands(commands.Cog):
     @commands.command()
     async def bump(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
-        if isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+        if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
+            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         try:
             await ctx.guild.fetch_member(302050872383242240)
         except discord.NotFound:
-            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         try:
             count = int(message_split[1])
         except Exception:
-            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!", delete_after=config_selfbot.deltime)
             return
 
         if count >= 100:
-            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
-        await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} {count} {langs.tool_bump_two[config_selfbot.lang]}")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} {count} {langs.tool_bump_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
 
         command = [_ for _ in await ctx.channel.application_commands() if _.name == 'bump' and _.application_id == 302050872383242240][0]
         log.separate_text("AUTO-BUMP")
@@ -64,9 +55,7 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
         try:
             message_split[1]
         except Exception:
-            await ctx.message.edit(langs.raid_dm_all_fail[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.raid_dm_all_fail[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         friends = self.bot.friends
@@ -87,17 +76,13 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
             except discord.CaptchaRequired:
                 log.important("Captcha Required!")
                 log.separate("DM ALL")
-                await ctx.message.edit(langs.raid_dm_all_captcha[config_selfbot.lang])
-                await asyncio.sleep(config_selfbot.deltime)
-                await ctx.message.delete()
+                await ctx.message.edit(langs.raid_dm_all_captcha[config_selfbot.lang], delete_after=config_selfbot.deltime)
                 return
 
         log.separate("DM ALL")
 
 
-        await ctx.message.edit(langs.raid_dm_all_success[config_selfbot.lang])
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(langs.raid_dm_all_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def closealldm(self, ctx: commands.Context):
@@ -109,9 +94,7 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
                 await dm_channel.close()
                 await asyncio.sleep(random_cooldown(0.5, 2))
         
-        await ctx.message.edit(langs.tool_close_dms_success[config_selfbot.lang])
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(langs.tool_close_dms_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def botclosedm(self, ctx: commands.Context):
@@ -123,6 +106,4 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
                 await dm_channel.close()
                 await asyncio.sleep(random_cooldown(0.5, 2))
 
-        await ctx.message.edit(langs.tool_close_dms_bots_success[config_selfbot.lang])
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(langs.tool_close_dms_bots_success[config_selfbot.lang], delete_after=config_selfbot.deltime)

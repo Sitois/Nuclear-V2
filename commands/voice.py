@@ -5,6 +5,7 @@ import asyncio
 import config_selfbot
 import langs
 
+
 class VoiceCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
@@ -15,29 +16,21 @@ class VoiceCommands(commands.Cog):
         try:
             voice_id = int(voice_id)
         except Exception:
-            await ctx.message.edit(langs.voice_channel_error[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.voice_channel_error[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         voice_channel = self.bot.get_channel(voice_id)
         if voice_channel is None:
-            await ctx.message.edit(langs.voice_channel_error_not_found[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.voice_channel_error_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
 
         try:
             await voice_channel.connect()
             await voice_channel.guild.change_voice_state(channel=voice_channel, self_mute=True)
-            await ctx.message.edit(f"📲 {langs.voice_join[config_selfbot.lang]} `{voice_channel.name}`.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"📲 {langs.voice_join[config_selfbot.lang]} `{voice_channel.name}`.", delete_after=config_selfbot.deltime)
         except Exception as e:
-            await ctx.message.edit(f"❌ {langs.voice_join_error[config_selfbot.lang]} : {e}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"❌ {langs.voice_join_error[config_selfbot.lang]} : {e}", delete_after=config_selfbot.deltime)
             return
 
     @commands.command()
@@ -46,17 +39,13 @@ class VoiceCommands(commands.Cog):
         try:
             voice_id = int(voice_id)
         except Exception:
-            await ctx.message.edit(langs.voice_channel_error[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.voice_channel_error[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         voice_channel = self.bot.get_channel(voice_id)
 
         if voice_channel is None:
-            await ctx.message.edit(langs.voice_channel_error_not_found[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.voice_channel_error_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
 
@@ -67,9 +56,7 @@ class VoiceCommands(commands.Cog):
             await asyncio.sleep(config_selfbot.deltime)
             await ctx.message.delete()
         except Exception as e:
-            await ctx.message.edit(f"❌ {langs.voice_join_error[config_selfbot.lang]} : {e}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"❌ {langs.voice_join_error[config_selfbot.lang]} : {e}", delete_after=config_selfbot.deltime)
             return
 
     @commands.command()
@@ -78,18 +65,12 @@ class VoiceCommands(commands.Cog):
         voice_client = ctx.voice_client
 
         if ctx.author.voice is None or ctx.author.voice.channel is None:
-            await ctx.message.edit(langs.leave_voice_error_not_found[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.leave_voice_error_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         try:
             await voice_client.disconnect()
-            await ctx.message.edit(f"💼 {langs.leave_voice[config_selfbot.lang]} `{voice_channel.name}`.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"💼 {langs.leave_voice[config_selfbot.lang]} `{voice_channel.name}`.", delete_after=config_selfbot.deltime)
         except Exception as e:
-            await ctx.message.edit(f"❌ {langs.leave_voice_error[config_selfbot.lang]} : {e}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"❌ {langs.leave_voice_error[config_selfbot.lang]} : {e}", delete_after=config_selfbot.deltime)
             return

@@ -1,11 +1,11 @@
 import discord
 from discord.ext import commands
-import asyncio
 from colorama import Fore, Style, Back
 
 from utils import log
 import config_selfbot
 import langs
+
 
 class ConfigCommands(commands.Cog):
     def __init__(self, bot):
@@ -48,24 +48,16 @@ class ConfigCommands(commands.Cog):
     async def nitrosniper(self, ctx: commands.Context):
         if not self.nitro_sniper:
             self.nitro_sniper = True
-            await ctx.message.edit("🟢 Nitro Sniper **On**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🟢 Nitro Sniper **On**.", delete_after=config_selfbot.deltime)
         else:
             self.nitro_sniper = False
-            await ctx.message.edit("🔴 Nitro Sniper **Off**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🔴 Nitro Sniper **Off**.", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def lang(self, ctx: commands.Context):
         if config_selfbot.lang == "fr":
             config_selfbot.lang = "en"
-            await ctx.message.edit("🟢 Language set to **English**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🟢 Language set to **English**.", delete_after=config_selfbot.deltime)
         else:
             config_selfbot.lang = "fr"
-            await ctx.message.edit("🟢 Langue changée en **Français**.")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🟢 Langue changée en **Français**.", delete_after=config_selfbot.deltime)

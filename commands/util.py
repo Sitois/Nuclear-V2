@@ -7,6 +7,7 @@ from utils import random_cooldown
 import config_selfbot
 import langs
 
+
 class UtilsCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
@@ -39,13 +40,9 @@ class UtilsCommands(commands.Cog):
 {sniped_message['content']}
 ```
 🖼️ Images: {images_text}
-⌚ {langs.time_snipe[config_selfbot.lang]}: <t:{sniped_message['time']}:R>""")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+⌚ {langs.time_snipe[config_selfbot.lang]}: <t:{sniped_message['time']}:R>""", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def clear(self, ctx: commands.Context):
@@ -58,9 +55,7 @@ class UtilsCommands(commands.Cog):
         try:
             amount = int(str_amount) + 1
         except Exception:
-            await ctx.message.edit(langs.spam_invalid[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.spam_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
         
         async for message in ctx.channel.history(limit=amount):
@@ -75,7 +70,7 @@ class UtilsCommands(commands.Cog):
                 return m.author.id == self.bot.user.id
             await ctx.channel.purge(limit=amount, check=is_me)
         """
-
+        # TODO: Edits the message instead of sending a new one
         await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
     @commands.command()
@@ -83,38 +78,26 @@ class UtilsCommands(commands.Cog):
         house = ctx.message.content.split()[1]
         if house == "balance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.balance)
-            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``", delete_after=config_selfbot.deltime)
         elif house == "bravery":
             await self.bot.user.edit(house=discord.HypeSquadHouse.bravery)
-            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``", delete_after=config_selfbot.deltime)
         elif house == "brilliance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.brilliance)
-            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.hype_fail[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.hype_fail[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def ping(self, ctx: commands.Context):
-        await ctx.message.edit(f"🏓 Pong ! (Ping: **{round(self.bot.latency * 1000)}ms**)")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🏓 Pong ! (Ping: **{round(self.bot.latency * 1000)}ms**)", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def bio(self, ctx: commands.Context):
         message_split = ctx.message.content.split()
         new_bio = ctx.message.content.replace(f"{message_split[0]} ", "")
         await self.bot.user.edit(bio=new_bio)
-        await ctx.message.edit(f"📖 Bio {langs.bio_command[config_selfbot.lang]} \"`{new_bio}`\"")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"📖 Bio {langs.bio_command[config_selfbot.lang]} \"`{new_bio}`\"", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def userinfo(self, ctx: commands.Context):
@@ -147,12 +130,10 @@ class UtilsCommands(commands.Cog):
             message += f"\n>  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}"
 
 
-        await ctx.message.edit(message)
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(message, delete_after=config_selfbot.deltime)
 
     # TODO:
-    # Improvement: Add user's bio in the `useinfo` command.
+    # Improvement: Add user's status in the `useinfo` command.
     # Add: `serverinfo` command that will return informations about the server.
     # Add: `botinvite` command that will return a botinvite using the given bot ID.
     # Add: `support` command that will return support links.

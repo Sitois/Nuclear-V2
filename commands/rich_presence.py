@@ -2,11 +2,11 @@ import discord
 from discord.ext import commands
 import datetime
 import time
-import asyncio
 from utils import rpc
 
 import config_selfbot
 import langs
+
 
 class RichPresenceCommands(commands.Cog):
     def __init__(self, bot):
@@ -39,9 +39,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             
-        await ctx.message.edit(f"🕹️| Details: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Details: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_name(self, ctx: commands.Context):
@@ -69,9 +67,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
  
-        await ctx.message.edit(f"🕹️| Name: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Name: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_state(self, ctx: commands.Context):
@@ -99,9 +95,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| State: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| State: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_url(self, ctx: commands.Context):
@@ -129,9 +123,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| Stream URL: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Stream URL: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_large_image(self, ctx: commands.Context):
@@ -159,9 +151,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| Large Image: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Large Image: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_large_text(self, ctx: commands.Context):
@@ -189,9 +179,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| Large image text: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Large image text: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_small_image(self, ctx: commands.Context):
@@ -219,9 +207,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| Small Image: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Small Image: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_small_text(self, ctx: commands.Context):
@@ -249,9 +235,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| Small image text: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Small image text: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_button_text_one(self, ctx: commands.Context):
@@ -279,9 +263,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️| Button One Text: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️| Button One Text: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def rpc_button_text_two(self, ctx: commands.Context):
@@ -309,9 +291,7 @@ class RichPresenceCommands(commands.Cog):
                                     afk=True,
                                     idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-        await ctx.message.edit(f"🕹️|Button Text Two: `{message_content}`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🕹️|Button Text Two: `{message_content}`", delete_after=config_selfbot.deltime)
 
     """ # WAITING FOR DISCORD.PY-SELF TO ADD BUTTON LINKS
     @commands.command()
@@ -404,9 +384,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit("🎮 **Type:** \"Game\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🎮 **Type:** \"Game\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("watch"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
@@ -427,9 +405,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit("📺 **Type:** \"Watching\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("📺 **Type:** \"Watching\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("compet"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
@@ -449,9 +425,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit("🎉 **Type:** \"Competing\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🎉 **Type:** \"Competing\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("listen"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
@@ -472,9 +446,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit("🎧 **Type:** \"Listening\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🎧 **Type:** \"Listening\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("stream"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
@@ -495,9 +467,7 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit("⭕ **Type:** \"Stream\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("⭕ **Type:** \"Stream\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "xbox":
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
@@ -513,10 +483,6 @@ class RichPresenceCommands(commands.Cog):
                                         afk=True,
                                         idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
 
-            await ctx.message.edit("🎮 **Type:** \"Xbox\".")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit("🎮 **Type:** \"Xbox\".", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]} (`play` / `watch` / `listen` / `stream` / `competing` / `xbox`)")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]} (`play` / `watch` / `listen` / `stream` / `competing` / `xbox`)", delete_after=config_selfbot.deltime)

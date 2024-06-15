@@ -6,7 +6,6 @@ import requests
 import json
 import base64
 
-
 import config_selfbot
 import langs
 
@@ -27,9 +26,7 @@ class FunCommands(commands.Cog):
     @commands.command()
     async def call(self, ctx: commands.Context):
         if not isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(langs.only_dm_fun[config_selfbot.lang])
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(langs.only_dm_fun[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
         try:
@@ -46,14 +43,10 @@ class FunCommands(commands.Cog):
     async def good(self, ctx: commands.Context):
         if self.good_person:
             self.good_person = False
-            await ctx.message.edit(f"🔥 Good Person {langs.disable[config_selfbot.lang]}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"🔥 Good Person {langs.disable[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
         else:
             self.good_person = True
-            await ctx.message.edit(f"🌈 Good Person {langs.enable[config_selfbot.lang]}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"🌈 Good Person {langs.enable[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def hug(self, ctx: commands.Context):
@@ -65,28 +58,6 @@ class FunCommands(commands.Cog):
                    ]
 
         await ctx.message.edit(random.choice(hug_gifs))
-
-    @commands.command()
-    async def hug(self, ctx):
-        rng = random.randint(1, 100)
-        if rng <= 10:
-            hug = "https://images-ext-1.discordapp.net/external/XpidBLlVtXBEtSW_INDW86dcvMceXsH5VjwX8ltJCSk/https/media.tenor.com/9mUATMh3_oEAAAPo/peach-and-goma-peach-cat.mp4"
-            await ctx.message.edit(hug)
-        elif rng <= 20:
-            hug = "https://images-ext-1.discordapp.net/external/d9pbuhR-P2hpLD1R84WLrWQaKdSNdPzp42L-AS-U00I/https/media.tenor.com/hbcv_gVlGzkAAAPo/couple-cute.mp4"
-            await ctx.message.edit(hug)
-        elif rng <= 30:
-            hug = "https://images-ext-1.discordapp.net/external/vfFvDZRTMYkmqDELfVmtMzBrjm1C0LPwTUr2UF6YYjw/https/media.tenor.com/RN7jCU8o7eAAAAPo/laverne-and.mp4"
-            await ctx.message.edit(hug)    
-        elif rng <= 40:
-            hug = "https://images-ext-1.discordapp.net/external/ikhaYclZWr6MVPh_cN-j-4BV2Qx5IE6zbn4N9SV3ykw/https/media.tenor.com/yMjbC5MEv5UAAAPo/hug-squeeze.mp4"
-            await ctx.message.edit(hug)   
-        elif rng <= 50:
-            hug = "https://images-ext-1.discordapp.net/external/PHnrTAVKY2HVT7PGw2L-hJ4ztyR5t46m0rYPfpq2mDw/https/media.tenor.com/JKo6Z5x3slYAAAPo/hug-extasyxx.mp4"
-            await ctx.message.edit(hug)   
-        elif rng > 60:
-            hug = "https://images-ext-1.discordapp.net/external/MlIhTcnnwMOrGv4PZkfB0pZMlwId20GStbF2EJBMu4o/https/media.tenor.com/P6FsFii7pnoAAAPo/hug-warm-hug.mp4"
-            await ctx.message.edit(hug) 
 
     @commands.command()
     async def hack(self, ctx: commands.Context):
@@ -116,9 +87,7 @@ class FunCommands(commands.Cog):
             cat_image_url = data[0]['url']
             await ctx.message.edit(cat_image_url)
         else:
-            await ctx.message.edit(f"Failed to fetch a cute cat: {response.text}")
-            await asyncio.sleep(config_selfbot.deltime)
-            await ctx.message.delete()
+            await ctx.message.edit(f"Failed to fetch a cute cat: {response.text}", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def gift(self, ctx: commands.Context):
@@ -169,9 +138,7 @@ class FunCommands(commands.Cog):
 
         encode_text = base64.b64encode(str(user_id).encode('utf-8'))
         start_token = str(encode_text).strip("b'").strip()
-        await ctx.message.edit(f"🌠 {langs.fun_token[config_selfbot.lang]} <@{user_id}> token: `{start_token}.`")
-        await asyncio.sleep(config_selfbot.deltime)
-        await ctx.message.delete()
+        await ctx.message.edit(f"🌠 {langs.fun_token[config_selfbot.lang]} <@{user_id}> token: `{start_token}.`", delete_after=config_selfbot.deltime)
 
     """
     TODO: Fix copyuser: discord.errors.CaptchaRequired: 400 Bad Request (error code: -1): Captcha required, at await self.bot.user.edit().
@@ -187,9 +154,7 @@ class FunCommands(commands.Cog):
             try:
                 user = self.bot.get_user(int(ctx.message.content.split()[1]))
             except Exception:
-                await ctx.message.edit(langs.fun_copy_user_fail[config_selfbot.lang])
-                await asyncio.sleep(config_selfbot.deltime)
-                await ctx.message.delete()
+                await ctx.message.edit(langs.fun_copy_user_fail[config_selfbot.lang], delete_after=config_selfbot.deltime)
                 return
 
         await ctx.message.edit("wait i save ur profile")
