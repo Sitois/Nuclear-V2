@@ -38,15 +38,12 @@ class ToolsCommands(commands.Cog):
         await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} {count} {langs.tool_bump_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
 
         command = [_ for _ in await ctx.channel.application_commands() if _.name == 'bump' and _.application_id == 302050872383242240][0]
-        log.separate_text("AUTO-BUMP")
 
         for i in range(count):
             await command.__call__(channel=ctx.channel)
             log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.
 Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).""")
             await asyncio.sleep(random_cooldown(7200, 7387))
-
-        log.separate("AUTO-BUMP")
 
     @commands.command()
     async def dmall(self, ctx: commands.Context):
