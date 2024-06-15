@@ -142,7 +142,7 @@ log.start(f"{langs.start_text[config_selfbot.lang]}")
 ####################
 today_date = datetime.datetime.today()
 
-
+# TODO: Finish captcha handler
 """
 API_KEY = 'YOUR_API_KEY'
 
@@ -242,15 +242,13 @@ async def on_ready():
 
     with open('nuclear_icon.png', 'rb') as image:
         nuclear_icon = image.read()
-
+ 
     if rpc.read_variable_json("create_panel"):
         panel = await bot.create_group()
         await asyncio.sleep(0.7)
         await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
         await panel.send(langs.panel_message[config_selfbot.lang])
-        ping = await panel.send(f"<@{bot.user.id}>")
-        await asyncio.sleep(0.4)
-        await ping.delete()
+        await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         rpc.edit_variable_json("create_panel", False)
 
 
