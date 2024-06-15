@@ -57,7 +57,9 @@ class UtilsCommands(commands.Cog):
         except Exception:
             await ctx.message.edit(langs.spam_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
-        
+
+        await ctx.message.edit(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.7)
+
         async for message in ctx.channel.history(limit=amount):
             if message.author.id == self.bot.user.id:
                 await message.delete()
@@ -70,8 +72,6 @@ class UtilsCommands(commands.Cog):
                 return m.author.id == self.bot.user.id
             await ctx.channel.purge(limit=amount, check=is_me)
         """
-        # TODO: Edits the message instead of sending a new one
-        await ctx.channel.send(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.4)
 
     @commands.command()
     async def hype(self, ctx: commands.Context):
