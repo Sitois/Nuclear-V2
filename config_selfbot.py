@@ -1,4 +1,4 @@
-import rpc
+import utils.rpc as rpc
 #######################
 #  selfbot            #
 #        basic        #
