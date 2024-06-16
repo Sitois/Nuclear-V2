@@ -22,7 +22,7 @@
   [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
 
   ## ⛔ Avertissement
-  **Les SelfBots ne sont pas autorisés par les CGU (ou TOS) de Discord et peuvent facilement entraîner le banissement de votre compte. Veuillez utiliser ce script uniquement à des fins éducatives.**
+  **Les SelfBots ne sont pas autorisés par les CGU (ou TOS) de Discord et peuvent facilement entraîner le banissement de votre compte. Veuillez utiliser ce script uniquement à des fins éducatives. Ce projet est seulement une preuve de concept.**
 </div>
 
 ## 📖 Table des matières
@@ -58,7 +58,8 @@ Ouvrez `config_selfbot.py` avec n'importe quel éditeur de texte et saisissez un
 * Nitro Sniper,
 * Flood et Spam,
 * Snipe,
-* Auto bump (dans la v1.8),
+* Auto bump,
+* Backups de serveurs,
 * Et bien plus, consultez la commande `Help` !
 
 ## 📜 Comment obtenir son token

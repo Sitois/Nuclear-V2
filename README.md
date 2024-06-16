@@ -23,7 +23,7 @@
   [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
 
   ## ⛔ Disclaimer
-  **Discord SelfBots are not allowed by Discord TOS and can easily ban your account. Please use for educational purposes only.**
+  **Discord SelfBots are not allowed by Discord TOS and can easily ban your account. Please use for educational purposes only. This project is just a proof of concept.**
 </div>
 
 ## 📖 Table of content
@@ -58,7 +58,8 @@ Open `config_selfbot.py` with any text editor  and enter a [user token](https://
 * Nitro Sniper,
 * Spam and Flood command,
 * Snipe command,
-* Auto bump (in the future v1.8),
+* Auto bump,
+* Servers backup,
 * And others, check the `Help` command!
 
 ## 📜 How to get a user token
