@@ -329,6 +329,30 @@ help_tools_close_dm_bots = {
     "en": "Close all your DMs with bots"
 }
 
+help_backup_backups = {
+    "fr": "Affiche la liste des sauvegardes disponibles.",
+    "en": "Return the list of available backups"
+}
+
+help_backup_save = {
+    "fr": "Sauvegarde ce serveur (vous pouvez indiquer un autre serveur avec son ID).",
+    "en": "Save this server (you can specify another server with its ID)."
+}
+
+help_backup_load = {
+    "fr": "Charge une sauvegarde (vous pouvez indiquer un autre serveur avec son ID).",
+    "en": "Load a backup (you can specify another server with its ID)."
+}
+
+help_backup_delete = {
+    "fr": "Supprime une backup avec son ID.",
+    "en": "Delete a backup with its ID."
+}
+
+backup_no_permissions = {
+    "fr": "Vous n'avez pas les permissions nécessaires pour charger cette backup.",
+    "en": "You don't have the permissions to load this backup."
+}
 
 ####################
 #  commands        #
@@ -784,4 +808,56 @@ tutorial_rpc = {
   2. Right Click and "Copy Image Link".
   3. Do `{config_selfbot.prefix}rpc_image mp:attachements/67484738743874387438/657438923487543/example.png`.
   4. Done !"""
+}
+
+
+
+backup_not_find_folder = {
+    "fr": "Impossible de trouevr le dossier 'backups' !",
+    "en": "Unable to find the 'backups' folder!"
+}
+
+backup_success_save = {
+    "fr": "Sauvegarde réussie pour le serveur",
+    "en": "Successfully saved guild"
+}
+
+backup_save_already_exist = {
+    "fr": "Une backup pour",
+    "en:": "A save for"
+}
+
+backup_save_already_exist_two = {
+    "fr": f"existe déjà. Utilisez `{config_selfbot.prefix}delete <server_id>` pour la supprimer.",
+    "en:": f"already exists. Use `{config_selfbot.prefix}delete <server_id>` to remove it."
+}
+
+no_backup_error = {
+    "fr": "Aucune backup disponible.",
+    "en": "No backup available."
+}
+
+backup_list = {
+    "fr": "Backups disponibles:\n",
+    "en": "Severs backups:\n"
+}
+
+backup_invalid = {
+    "fr": f"Aucune backup disponible pour cet ID. Utilisez `{config_selfbot.prefix}backups` pour voir les backup disponibles !",
+    "en": f"No backup available for this server ID. Use `{config_selfbot.prefix}backups` to see available backups!"
+}
+
+backup_id_required = {
+    "fr": "Vous devez indiquer une ID de serveur !",
+    "en": "You must indicate a server ID!"
+}
+
+backup_done = {
+    "fr": "Backup effectué avec succès !",
+    "en": "Backup done successfully!"
+}
+
+backup_delete_done = {
+    "fr": "Backup supprimé avec succès !",
+    "en": "Backup deleted successfully!"
 }

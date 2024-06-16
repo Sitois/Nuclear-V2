@@ -213,6 +213,11 @@ async def on_ready():
         log.success(f"RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
         log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+    try:
+        await bot.add_cog(BackupCommands(bot))
+        log.success(f"BackupCommands: {langs.cog_success[config_selfbot.lang]}")
+    except Exception as e:
+        log.fail(f"BackupCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
 
     # Print when the bot is ready to receive and answer to commands
     log.alert(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
@@ -250,6 +255,7 @@ async def on_ready():
         await panel.send(langs.panel_message[config_selfbot.lang])
         await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         rpc.edit_variable_json("create_panel", False)
+        log.alert("NuclearPanel successfully created (check DMs!).")
 
 
 def restart_selfbot():

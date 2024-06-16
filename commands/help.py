@@ -22,7 +22,18 @@ class HelpCommands(commands.Cog):
   🎲| __**Fun:**__ `{config_selfbot.prefix}fun`
   🏯| __**Raid:**__ `{config_selfbot.prefix}raid`
   🔧| __**Tools:**__ `{config_selfbot.prefix}tools`
-  ⚙️| __**Config:**__ `{config_selfbot.prefix}config`""", delete_after=config_selfbot.deltime)
+  ⚙️| __**Config:**__ `{config_selfbot.prefix}config`
+  🗃️| __**Backup:**__ `{config_selfbot.prefix}backup`""", delete_after=config_selfbot.deltime)
+
+    @commands.command()
+    async def backup(self, ctx: commands.Context):
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+🗃️| __**Backup:**__
+ `{config_selfbot.prefix}backups`: {langs.help_backup_backups[config_selfbot.lang]}
+ `{config_selfbot.prefix}save Optional[server_id]`: {langs.help_backup_save[config_selfbot.lang]}
+ `{config_selfbot.prefix}load <backup_id> Optional[server_id]`: {langs.help_backup_load[config_selfbot.lang]}
+ `{config_selfbot.prefix}delete`: {langs.help_backup_delete[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def tools(self, ctx: commands.Context):

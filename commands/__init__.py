@@ -7,3 +7,4 @@ from .raid import RaidCommands
 from .tools import ToolsCommands
 from .templates import TemplatesCommands
 from .rich_presence import RichPresenceCommands
+from .backup import BackupCommands
