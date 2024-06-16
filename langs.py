@@ -780,8 +780,8 @@ template_help_reload = {
 }
 
 template_reload = {
-    "fr": "Images des Templates mises à jour !",
-    "en": "Templates images updated!"
+    "fr": "✅ Images des Templates mises à jour !",
+    "en": "✅ Templates images updated!"
 }
 
 
