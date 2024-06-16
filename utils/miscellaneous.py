@@ -1,7 +1,6 @@
 import random, string, os, json
-import discord
 
-import config_selfbot
+import discord
 
 from .logger import log
 
@@ -20,6 +19,7 @@ async def save_guild_info(guild: discord.Guild):
         "id": guild.id,
         "name": guild.name,
         "roles": [],
+        "categories": [],
         "channels": []
     }
 
@@ -35,10 +35,18 @@ async def save_guild_info(guild: discord.Guild):
                 "hoist": role.hoist
             })
 
-    # Save @everyone's permisions
+    # Save @everyone's permissions
     guild_info["default_role"] = {
         "permissions": guild.default_role.permissions.value
     }
+
+    # Save guild's categories
+    for category in guild.categories:
+        guild_info["categories"].append({
+            "id": category.id,
+            "name": category.name,
+            "position": category.position
+        })
 
     # Save guild's channels
     for channel in guild.channels:
@@ -47,6 +55,7 @@ async def save_guild_info(guild: discord.Guild):
             "name": channel.name,
             "type": str(channel.type),
             "position": channel.position,
+            "category": channel.category_id,
             "permissions": []
         }
 
@@ -61,6 +70,7 @@ async def save_guild_info(guild: discord.Guild):
             })
 
         guild_info["channels"].append(channel_info)
+
 
     # Check if backups folder exists
     if not os.path.exists("backups"):

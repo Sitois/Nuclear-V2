@@ -812,8 +812,13 @@ tutorial_rpc = {
 
 
 
+backup_saving = {
+    "fr": "Création de la backup en cours...",
+    "en": "Creating backup..."
+}
+
 backup_not_find_folder = {
-    "fr": "Impossible de trouevr le dossier 'backups' !",
+    "fr": "Impossible de trouver le dossier 'backups' !",
     "en": "Unable to find the 'backups' folder!"
 }
 

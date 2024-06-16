@@ -25,6 +25,8 @@ class BackupCommands(commands.Cog):
             await ctx.message.edit(f"{langs.backup_save_already_exist[config_selfbot.lang]} {guild.name} {langs.backup_save_already_exist_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
             return
 
+        await ctx.message.edit(langs.backup_saving[config_selfbot.lang])
+
         await save_guild_info(guild)
 
         await ctx.message.edit(f"{langs.backup_success_save[config_selfbot.lang]}: {guild.name}", delete_after=config_selfbot.deltime)
@@ -96,7 +98,17 @@ class BackupCommands(commands.Cog):
                 mentionable=role_info["mentionable"],
                 hoist=role_info["hoist"]
             )
-            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Pause d'une seconde pour éviter le rate limit
+            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait to avoid rate limit
+
+        # Add backup's categories
+        category_map = {}
+        for category_info in guild_info["categories"]:
+            new_category = await guild.create_category(
+                name=category_info["name"],
+                position=category_info["position"]
+            )
+            category_map[category_info["id"]] = new_category.id
+            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait to avoid rate limit
 
         # Add backup's channels
         for channel_info in guild_info["channels"]:
@@ -109,17 +121,20 @@ class BackupCommands(commands.Cog):
                         discord.Permissions(perm["deny"])
                     )
 
+            category = guild.get_channel(category_map[channel_info["category"]]) if channel_info["category"] else None
             channel_type = discord.ChannelType.text if channel_info["type"] == "text" else discord.ChannelType.voice
             await guild.create_text_channel(
                 name=channel_info["name"],
                 position=channel_info["position"],
-                overwrites=overwrites
+                overwrites=overwrites,
+                category=category
             ) if channel_type == discord.ChannelType.text else await guild.create_voice_channel(
                 name=channel_info["name"],
                 position=channel_info["position"],
-                overwrites=overwrites
+                overwrites=overwrites,
+                category=category
             )
-            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait, to avoid rate limits
+            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait to avoid rate limit
 
         # Set backup's @everyone permissions
         await guild.default_role.edit(permissions=discord.Permissions(guild_info["default_role"]["permissions"]))
