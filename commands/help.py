@@ -33,7 +33,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}backups`: {langs.help_backup_backups[config_selfbot.lang]}
  `{config_selfbot.prefix}save Optional[server_id]`: {langs.help_backup_save[config_selfbot.lang]}
  `{config_selfbot.prefix}load <backup_id> Optional[server_id]`: {langs.help_backup_load[config_selfbot.lang]}
- `{config_selfbot.prefix}delete`: {langs.help_backup_delete[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
+ `{config_selfbot.prefix}delete <backup_id>`: {langs.help_backup_delete[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def tools(self, ctx: commands.Context):
