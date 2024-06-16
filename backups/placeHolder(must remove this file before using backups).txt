@@ -1,0 +1,1 @@
+YOU MUST remove this file before using backups command (the folder needs to be empty)
