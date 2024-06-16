@@ -36,11 +36,11 @@ class BackupCommands(commands.Cog):
             await ctx.message.edit(langs.no_backup_error[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
-        response = langs.backup_list[config_selfbot.lang] 
+        response = f"__**🗒️| {langs.backup_list[config_selfbot.lang]}**__"
         for backup_file in backups_list:
             with open(f"./backups/{backup_file}", "r") as f:
                 guild_info = json.load(f)
-                response += f"{guild_info['name']} ({guild_info['id']})\n"
+                response += f"{guild_info['name']} (ID: `{guild_info['id']}`)\n"
 
         await ctx.message.edit(response, delete_after=config_selfbot.deltime)
 
