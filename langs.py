@@ -812,15 +812,6 @@ tutorial_rpc = {
 
 
 
-backup_not_find_folder = {
-    "fr": "Impossible de trouevr le dossier 'backups' !",
-    "en": "Unable to find the 'backups' folder!"
-}
-
-backup_success_save = {
-    "fr": "Sauvegarde réussie pour le serveur",
-    "en": "Successfully saved guild"
-}
 
 backup_save_already_exist = {
     "fr": "Une backup pour",

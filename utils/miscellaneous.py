@@ -1,7 +1,6 @@
 import random, string, os, json
 import discord
 
-import langs
 import config_selfbot
 
 from .logger import log
@@ -65,10 +64,10 @@ async def save_guild_info(guild: discord.Guild):
 
     # Check if backups folder exists
     if not os.path.exists("backups"):
-        log.alert(langs.backup_not_find_folder[config_selfbot.lang])
+        log.alert("Unable to find the 'backups' folder!")
 
     # Save guild's infos in a json file
     with open(f"./backups/{guild.id}.json", "w") as f:
         json.dump(guild_info, f, indent=4)
 
-    log.success(f"{langs.backup_success_save[config_selfbot.lang]}: {guild.name}({guild.id}).")
+    log.success(f"Successfully saved guild: {guild.name}({guild.id}).")
