@@ -813,23 +813,23 @@ tutorial_rpc = {
 
 
 backup_saving = {
-    "fr": "Création de la backup en cours...",
-    "en": "Creating backup..."
+    "fr": "🔁 Création de la backup en cours...",
+    "en": "🔁 Creating backup..."
 }
 
 backup_not_find_folder = {
-    "fr": "Impossible de trouver le dossier 'backups' !",
-    "en": "Unable to find the 'backups' folder!"
+    "fr": "❌ Impossible de trouver le dossier 'backups' !",
+    "en": "❌ Unable to find the 'backups' folder!"
 }
 
 backup_success_save = {
-    "fr": "Sauvegarde réussie pour le serveur",
-    "en": "Successfully saved guild"
+    "fr": "✅ Sauvegarde réussie pour le serveur",
+    "en": "✅ Successfully saved guild"
 }
 
 backup_save_already_exist = {
-    "fr": "Une backup pour",
-    "en:": "A save for"
+    "fr": "❌ Une backup pour",
+    "en:": "❌ A save for"
 }
 
 backup_save_already_exist_two = {
@@ -838,8 +838,8 @@ backup_save_already_exist_two = {
 }
 
 no_backup_error = {
-    "fr": "Aucune backup disponible.",
-    "en": "No backup available."
+    "fr": "❌ Aucune backup disponible.",
+    "en": "❌ No backup available."
 }
 
 backup_list = {
@@ -848,21 +848,21 @@ backup_list = {
 }
 
 backup_invalid = {
-    "fr": f"Aucune backup disponible pour cet ID. Utilisez `{config_selfbot.prefix}backups` pour voir les backup disponibles !",
-    "en": f"No backup available for this server ID. Use `{config_selfbot.prefix}backups` to see available backups!"
+    "fr": f"❌ Aucune backup disponible pour cet ID. Utilisez `{config_selfbot.prefix}backups` pour voir les backup disponibles !",
+    "en": f"❌ No backup available for this server ID. Use `{config_selfbot.prefix}backups` to see available backups!"
 }
 
 backup_id_required = {
-    "fr": "Vous devez indiquer une ID de serveur !",
-    "en": "You must indicate a server ID!"
+    "fr": "❌ Vous devez indiquer un ID de serveur !",
+    "en": "❌ You must indicate a server ID!"
 }
 
 backup_done = {
-    "fr": "Backup effectué avec succès !",
-    "en": "Backup done successfully!"
+    "fr": "✅ Backup effectué avec succès !",
+    "en": "✅ Backup done successfully!"
 }
 
 backup_delete_done = {
-    "fr": "Backup supprimé avec succès !",
-    "en": "Backup deleted successfully!"
+    "fr": "✅ Backup supprimé avec succès !",
+    "en": "✅ Backup deleted successfully!"
 }
