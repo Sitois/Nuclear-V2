@@ -48,8 +48,8 @@ $$ /  $$ |$$$$$$$\   $$$$$$$ | $$$$$$\   $$$$$$\  $$\ $$\   $$\ $$$$$$\$$$$\
 $$$$$$$$ |$$  __$$\ $$  __$$ |$$  __$$\ $$  __$$\ $$ |$$ |  $$ |$$  _$$  _$$\ 
 $$  __$$ |$$ |  $$ |$$ /  $$ |$$ /  $$ |$$ |  \__|$$ |$$ |  $$ |$$ / $$ / $$ |
 $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |$$ |  $$ |$$ | $$ | $$ |  
-$$ |  $$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |      $$ |\$$$$$$  |$$ | $$ | $$ |  {LIGHT_PURPLE}v{__version__}{Style.RESET_ALL}{DARK_PURPLE}
-\__|  \__|\__|  \__| \_______| \______/ \__|      \__| \______/ \__| \__| \__|  Powered by {LIGHT_PURPLE}Nuclear """)
+$$ |  $$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |      $$ |\$$$$$$  |$$ | $$ | $$ |  {LIGHT_PURPLE}v{__version__}{DARK_PURPLE}
+\__|  \__|\__|  \__| \_______| \______/ \__|      \__| \______/ \__| \__| \__|  Powered by {LIGHT_PURPLE}Nuclear{Style.RESET_ALL} """)
 
                                                                               
 
@@ -68,7 +68,7 @@ def set_terminal_title(title):
         sys.stdout.flush()
 
 try:
-   set_terminal_title("| Andorium V1.8 Selfbot |")
+   set_terminal_title("| Andorium V1{__version__} Selfbot |")
 except Exception as e:
    log.warning(f"Error while trying to change the terminal name: {e}")
 
