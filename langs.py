@@ -57,8 +57,8 @@ disable = {
 
 
 empty = {
-    "fr": "Aucune",
-    "en": "None"
+    "fr": "",
+    "en": ""
 }
 
 author = {
@@ -209,6 +209,11 @@ error_no_message_snipe = {
     "en": "❌ No message deleted recently in this channel!"
 }
 
+error_no_picture_snipe = {
+    "fr": "❌ Aucun image supprimé récemment dans ce salon !",
+    "en": "❌ No picture deleted recently in this channel!"
+}
+
 time_snipe = {
     "fr": "Supprimé il y a",
     "en": "Deleted at"
@@ -232,6 +237,11 @@ help_general_bio = {
 help_general_snipe = {
     "fr": "Snipe le dernier message supprimé.",
     "en": "Snipe the last deleted message."
+}
+
+help_general_snipepic = {
+    "fr": "Snipe la dernière image supprimé.",
+    "en": "Snipe the last deleted picture."
 }
 
 help_general_clear = {
