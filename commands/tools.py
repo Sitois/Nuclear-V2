@@ -42,8 +42,45 @@ class ToolsCommands(commands.Cog):
         for i in range(count):
             await command.__call__(channel=ctx.channel)
             log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.
-Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).""")
-            await asyncio.sleep(random_cooldown(7200, 7387))
+Still need to bump {count - i -1} time in {ctx.channel.name}({ctx.channel.id}).""")
+            await asyncio.sleep(7300)
+
+
+
+
+    @commands.command()
+    async def bumpauto(self, ctx: commands.Context):
+        message_split = ctx.message.content.split()
+        if isinstance(ctx.channel, discord.DMChannel) or isinstance(ctx.channel, discord.GroupChannel):
+            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            return
+
+        try:
+            await ctx.guild.fetch_member(302050872383242240)
+        except discord.NotFound:
+            await ctx.message.edit(langs.tool_bump_not_found[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            return
+
+        try:
+            count = int(1)
+        except Exception:
+            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!", delete_after=config_selfbot.deltime)
+            return
+
+        await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} {count} {langs.tool_bump_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+
+        command = [_ for _ in await ctx.channel.application_commands() if _.name == 'bump' and _.application_id == 302050872383242240][0]
+
+        for i in range(count):
+            await command.__call__(channel=ctx.channel)
+            log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1}""")
+            await asyncio.sleep(7300)
+
+
+
+
+
+
 
     @commands.command()
     async def dmall(self, ctx: commands.Context):
@@ -67,7 +104,7 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
             try:
                 await friend.user.send(dmall_content)
                 log.success(f"@{friend.user.name}({friend.user.id})")
-                await asyncio.sleep(random_cooldown(0.5, 2))
+                await asyncio.sleep(0.27)
             except discord.Forbidden:
                 log.fail(f"@{friend.user.name}({friend.user.id})")
             except discord.CaptchaRequired:
@@ -89,7 +126,7 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
         for dm_channel in self.bot.private_channels:
             if isinstance(dm_channel, discord.DMChannel) and dm_channel.me.id == self.bot.user.id:
                 await dm_channel.close()
-                await asyncio.sleep(random_cooldown(0.5, 2))
+                await asyncio.sleep(0.27)
         
         await ctx.message.edit(langs.tool_close_dms_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
@@ -101,6 +138,6 @@ Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).
         for dm_channel in self.bot.private_channels:
             if isinstance(dm_channel, discord.DMChannel) and dm_channel.recipient.bot:
                 await dm_channel.close()
-                await asyncio.sleep(random_cooldown(0.5, 2))
+                await asyncio.sleep(0.27)
 
         await ctx.message.edit(langs.tool_close_dms_bots_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
