@@ -67,7 +67,7 @@ Still need to bump {count - i -1} time in {ctx.channel.name}({ctx.channel.id})."
             await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!", delete_after=config_selfbot.deltime)
             return
 
-        await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} {count} {langs.tool_bump_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+        await ctx.message.edit(f"{langs.tool_bump[config_selfbot.lang]} ∞ {langs.tool_bump_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
 
         command = [_ for _ in await ctx.channel.application_commands() if _.name == 'bump' and _.application_id == 302050872383242240][0]
 
