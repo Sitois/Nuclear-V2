@@ -71,13 +71,13 @@ class FunCommands(commands.Cog):
         
         await ctx.message.edit(f"---{langs.fun_hack_step_one[config_selfbot.lang]} <@{user.id}>---")
         await asyncio.sleep(2)
-        await ctx.message.edit(f"{langs.fun_hack_step_two[config_selfbot.lang]}...")
+        await ctx.channel.send(f"{langs.fun_hack_step_two[config_selfbot.lang]}...")
         await asyncio.sleep(2)
-        await ctx.message.edit(f"{langs.fun_hack_step_three[config_selfbot.lang]} {user.name}@gmail.com")
+        await ctx.channel.send(f"{langs.fun_hack_step_three[config_selfbot.lang]} {user.name}@gmail.com")
         await asyncio.sleep(2)
-        await ctx.message.edit(langs.fun_hack_step_four[config_selfbot.lang])
+        await ctx.channel.send(langs.fun_hack_step_four[config_selfbot.lang])
         await asyncio.sleep(2)
-        await ctx.message.edit(f"{langs.fun_hack_step_five[config_selfbot.lang]} <@{user.id}>")
+        await ctx.channel.send(f"{langs.fun_hack_step_five[config_selfbot.lang]} <@{user.id}>")
 
     @commands.command()
     async def cat(self, ctx: commands.Context):
@@ -103,6 +103,10 @@ class FunCommands(commands.Cog):
             await ctx.message.edit("discord.gift/Udzwm3hrQECQBnEEFFCEwdSq")
         elif gift_type == "hit":
             await ctx.message.edit("discord.gift/BMHmv4FWEM5WVGnHUHCYFKMx")
+        elif gift_type == "real":
+            await ctx.message.edit("discord.gift/ytSYxsUB3Yq2BY9XP7bFdEsH")
+            await asyncio.sleep(0.22)
+            await ctx.channel.send("Bien joué au sniper qui l'as eu frame perfect !")
         else:
             alphabet = "abcdefghijklmnopqrstuvwxyz"
             numbers = "0123456789"
