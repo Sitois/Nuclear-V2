@@ -31,18 +31,23 @@ class UtilsCommands(commands.Cog):
     async def snipe(self, ctx: commands.Context):
         sniped_message = self.sniped_messages.get(ctx.channel.id)
         if sniped_message:
-            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
-            await ctx.message.edit(f"""__**🔫 Sniper:**__
-
-🗣️ {langs.author[config_selfbot.lang]}: {sniped_message['author']}
-📩 Message:
-```txt
-{sniped_message['content']}
-```
-🖼️ Images: {images_text}
-⌚ {langs.time_snipe[config_selfbot.lang]}: <t:{sniped_message['time']}:R>""", delete_after=config_selfbot.deltime)
+            images_text = "".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
+            await ctx.message.edit(f"""Je t'ai eu !!!
+<@{sniped_message['author_id']}> as envoillé : ''** {images_text}{sniped_message['content']} **''
+Malheureusement, cela a été supprimé <t:{sniped_message['time']}:R>...""")
         else:
             await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang], delete_after=config_selfbot.deltime)
+
+    @commands.command()
+    async def snipepic(self, ctx: commands.Context):
+        sniped_message = self.sniped_messages.get(ctx.channel.id)
+        if sniped_message:
+            images_text = "".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
+            await ctx.message.edit(f"""Je t'ai eu !!!
+<@{sniped_message['author_id']}> as envoillé une image ! ( {images_text} )
+Malheureusement, cela a été supprimé <t:{sniped_message['time']}:R>...""")
+        else:
+            await ctx.message.edit(langs.error_no_picture_snipe[config_selfbot.lang], delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def clear(self, ctx: commands.Context):
