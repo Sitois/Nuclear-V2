@@ -73,14 +73,8 @@ Still need to bump {count - i -1} time in {ctx.channel.name}({ctx.channel.id})."
 
         for i in range(count):
             await command.__call__(channel=ctx.channel)
-            log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1}""")
-            await asyncio.sleep(7300)
-
-
-
-
-
-
+            log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.""")
+            await asyncio.sleep(7250)
 
     @commands.command()
     async def dmall(self, ctx: commands.Context):
