@@ -86,6 +86,7 @@ class HelpCommands(commands.Cog):
 📂| __**Utils:**__
  `{config_selfbot.prefix}ping`: {langs.help_general_ping[config_selfbot.lang]}.
  `{config_selfbot.prefix}snipe`: {langs.help_general_snipe[config_selfbot.lang]}
+  `{config_selfbot.prefix}snipepic`: {langs.help_general_snipepic[config_selfbot.lang]}
  `{config_selfbot.prefix}clear`: {langs.help_general_clear[config_selfbot.lang]}
  `{config_selfbot.prefix}hype`: {langs.help_general_hype[config_selfbot.lang]} (bravery, brilliance, balance).
  `{config_selfbot.prefix}bio`: {langs.help_general_bio[config_selfbot.lang]}.
