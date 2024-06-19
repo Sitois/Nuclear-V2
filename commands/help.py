@@ -33,7 +33,9 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}backups`: {langs.help_backup_backups[config_selfbot.lang]}
  `{config_selfbot.prefix}save Optional[server_id]`: {langs.help_backup_save[config_selfbot.lang]}
  `{config_selfbot.prefix}load <backup_id> Optional[server_id]`: {langs.help_backup_load[config_selfbot.lang]}
- `{config_selfbot.prefix}delete <backup_id>`: {langs.help_backup_delete[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
+ `{config_selfbot.prefix}delete`: {langs.help_backup_delete[config_selfbot.lang]}
+ 🖋️ {langs.help_backup_note[config_selfbot.lang]}
+ 💡 {langs.help_backup_tip[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def tools(self, ctx: commands.Context):
@@ -104,30 +106,30 @@ class HelpCommands(commands.Cog):
     async def tuto(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
-    🎮| __**Rich Presence Image Tutorial:**__
-    {langs.tutorial_rpc[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
+🎮| __**Rich Presence Image Tutorial:**__
+{langs.tutorial_rpc[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def templates(self, ctx: commands.Context):
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
-    📖| __**Templates:**__
-    `{config_selfbot.prefix}use default`: {langs.template_help_default[config_selfbot.lang]}
-    `{config_selfbot.prefix}use reset`: {langs.template_help_reset[config_selfbot.lang]}
-    `{config_selfbot.prefix}use clear`: {langs.template_help_clear[config_selfbot.lang]}
-    `{config_selfbot.prefix}use hi`: {langs.template_help_hi[config_selfbot.lang]}
-    `{config_selfbot.prefix}use webdeck`: {langs.template_help_webdeck[config_selfbot.lang]}
-    `{config_selfbot.prefix}use omori`: {langs.template_help_omori[config_selfbot.lang]}
-    `{config_selfbot.prefix}use youtube`: {langs.template_help_youtube[config_selfbot.lang]}
-    `{config_selfbot.prefix}use car`: {langs.template_help_car[config_selfbot.lang]}
-    `{config_selfbot.prefix}use nuclear`: {langs.template_help_self[config_selfbot.lang]}
-    `{config_selfbot.prefix}use dark`: {langs.template_help_dark[config_selfbot.lang]}
-    `{config_selfbot.prefix}use python`: {langs.template_help_python[config_selfbot.lang]}
-    `{config_selfbot.prefix}use js`: {langs.template_help_js[config_selfbot.lang]}
-    `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
-    `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}
-    `{config_selfbot.prefix}use tiktok`: {langs.template_help_tiktok[config_selfbot.lang]}
-    💡 {langs.template_help_reload[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
+📖| __**Templates:**__
+ `{config_selfbot.prefix}use default`: {langs.template_help_default[config_selfbot.lang]}
+ `{config_selfbot.prefix}use reset`: {langs.template_help_reset[config_selfbot.lang]}
+ `{config_selfbot.prefix}use clear`: {langs.template_help_clear[config_selfbot.lang]}
+ `{config_selfbot.prefix}use hi`: {langs.template_help_hi[config_selfbot.lang]}
+ `{config_selfbot.prefix}use webdeck`: {langs.template_help_webdeck[config_selfbot.lang]}
+ `{config_selfbot.prefix}use omori`: {langs.template_help_omori[config_selfbot.lang]}
+ `{config_selfbot.prefix}use youtube`: {langs.template_help_youtube[config_selfbot.lang]}
+ `{config_selfbot.prefix}use car`: {langs.template_help_car[config_selfbot.lang]}
+ `{config_selfbot.prefix}use nuclear`: {langs.template_help_self[config_selfbot.lang]}
+ `{config_selfbot.prefix}use dark`: {langs.template_help_dark[config_selfbot.lang]}
+ `{config_selfbot.prefix}use python`: {langs.template_help_python[config_selfbot.lang]}
+ `{config_selfbot.prefix}use js`: {langs.template_help_js[config_selfbot.lang]}
+ `{config_selfbot.prefix}use cod`: {langs.template_help_cod[config_selfbot.lang]}
+ `{config_selfbot.prefix}use gta`: {langs.template_help_gta[config_selfbot.lang]}
+ `{config_selfbot.prefix}use tiktok`: {langs.template_help_tiktok[config_selfbot.lang]}
+ 💡 {langs.template_help_reload[config_selfbot.lang]}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def presence(self, ctx: commands.Context):
@@ -137,15 +139,15 @@ class HelpCommands(commands.Cog):
         """
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
-    🕹️| __**Rich Presence:**__
-    `{config_selfbot.prefix}rpc_name`: {langs.rpc_name_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_details`: {langs.rpc_details_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_state`: {langs.rpc_state_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_url`: {langs.rpc_url_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_type <play / watch / listen / stream / competing / xbox>`: {langs.rpc_type_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_large_image`: {langs.rpc_large_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
-    `{config_selfbot.prefix}rpc_large_text`: {langs.rpc_large_text_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_small_image`: {langs.rpc_small_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
-    `{config_selfbot.prefix}rpc_small_text`: {langs.rpc_small_text_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_text_one`: {langs.rpc_button_text_one_translate[config_selfbot.lang]}.
-    `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)
+🕹️| __**Rich Presence:**__
+ `{config_selfbot.prefix}rpc_name`: {langs.rpc_name_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_details`: {langs.rpc_details_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_state`: {langs.rpc_state_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_url`: {langs.rpc_url_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_type <play / watch / listen / stream / competing / xbox>`: {langs.rpc_type_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_large_image`: {langs.rpc_large_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
+ `{config_selfbot.prefix}rpc_large_text`: {langs.rpc_large_text_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_small_image`: {langs.rpc_small_image_translate[config_selfbot.lang]}. (`{config_selfbot.prefix}tuto` !)
+ `{config_selfbot.prefix}rpc_small_text`: {langs.rpc_small_text_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_button_text_one`: {langs.rpc_button_text_one_translate[config_selfbot.lang]}.
+ `{config_selfbot.prefix}rpc_button_text_two`: {langs.rpc_button_text_two_translate[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)

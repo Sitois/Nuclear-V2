@@ -1,9 +1,8 @@
 import discord
 from discord.ext import commands
 import os, json
-import asyncio
 
-from utils import log, save_guild_info, random_cooldown
+from utils import log, save_guild, load_guild
 import config_selfbot
 import langs
 
@@ -27,7 +26,7 @@ class BackupCommands(commands.Cog):
 
         await ctx.message.edit(langs.backup_saving[config_selfbot.lang])
 
-        await save_guild_info(guild)
+        await save_guild(guild)
 
         await ctx.message.edit(f"{langs.backup_success_save[config_selfbot.lang]}: {guild.name}", delete_after=config_selfbot.deltime)
 
@@ -48,98 +47,31 @@ class BackupCommands(commands.Cog):
 
     @commands.command()
     async def load(self, ctx: commands.Context):
-        if not ctx.author.guild_permissions.administrator:
-            await ctx.message.edit(langs.no_admin_error[config_selfbot.lang], delete_after=config_selfbot.deltime)
-            return
-
         try:
             backup_id = ctx.message.content.split()[1]
         except Exception:
             await ctx.message.edit(langs.backup_id_required[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
 
-        backup_file = f"./backups/{backup_id}.json"
-
-        if not os.path.exists(backup_file):
+        if not os.path.exists(f"./backups/{backup_id}.json"):
             await ctx.message.edit(langs.backup_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
-
-        with open(backup_file, "r") as f:
-            guild_info = json.load(f)
 
         try:
             guild = await self.bot.fetch_guild(int(ctx.message.content.split()[2]), with_counts=False)
         except Exception:
             guild = ctx.guild
 
-        # Delete old channels
-        for channel in guild.channels:
-            try:
-                await channel.delete()
-                await asyncio.sleep(random_cooldown(0.7, 1.7))  # Wait to avoid rate limit
-            except Exception as e:
-                log.fail(f"Error while trying to delete channel: {channel.name}({channel.id}): {e}")
+        if not guild.me.guild_permissions.administrator:
+            await ctx.message.edit(langs.backup_no_permissions[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            return
 
-        # Delete old roles (not @everyone, not bot roles)
-        for role in guild.roles:
-            if role.name != "@everyone" and not role.is_integration():
-                try:
-                    await role.delete()
-                    await asyncio.sleep(random_cooldown(0.7, 2.1))  # Wait to avoid rate limit
-                except Exception as e:
-                    log.fail(f"Error while trying to delete role: {role.name}: {e}")
+        with open(f"./backups/{backup_id}.json", "r") as f:
+            backup = json.load(f)
 
-        # Add backup's roles
-        for role_info in guild_info["roles"]:
-            await guild.create_role(
-                name=role_info["name"],
-                permissions=discord.Permissions(role_info["permissions"]),
-                color=discord.Color(role_info["color"]),
-                mentionable=role_info["mentionable"],
-                hoist=role_info["hoist"]
-            )
-            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait to avoid rate limit
+        await load_guild(guild, backup, 0.8, 25.6)
 
-        # Add backup's categories
-        category_map = {}
-        for category_info in guild_info["categories"]:
-            new_category = await guild.create_category(
-                name=category_info["name"],
-                position=category_info["position"]
-            )
-            category_map[category_info["id"]] = new_category.id
-            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait to avoid rate limit
-
-        # Add backup's channels
-        for channel_info in guild_info["channels"]:
-            overwrites = {}
-            for perm in channel_info["permissions"]:
-                target = guild.get_role(perm["id"]) if perm["type"] == "role" else guild.get_member(perm["id"])
-                if target:
-                    overwrites[target] = discord.PermissionOverwrite.from_pair(
-                        discord.Permissions(perm["allow"]),
-                        discord.Permissions(perm["deny"])
-                    )
-
-            category = guild.get_channel(category_map[channel_info["category"]]) if channel_info["category"] else None
-            channel_type = discord.ChannelType.text if channel_info["type"] == "text" else discord.ChannelType.voice
-            await guild.create_text_channel(
-                name=channel_info["name"],
-                position=channel_info["position"],
-                overwrites=overwrites,
-                category=category
-            ) if channel_type == discord.ChannelType.text else await guild.create_voice_channel(
-                name=channel_info["name"],
-                position=channel_info["position"],
-                overwrites=overwrites,
-                category=category
-            )
-            await asyncio.sleep(random_cooldown(0.8, 1.4))  # Wait to avoid rate limit
-
-        # Set backup's @everyone permissions
-        await guild.default_role.edit(permissions=discord.Permissions(guild_info["default_role"]["permissions"]))
-
-        log.success(f"{backup_id}: {langs.backup_done[config_selfbot.lang]}")
+        log.success(f"./backups/{backup_id}.json: {langs.backup_done[config_selfbot.lang]}")
 
     @commands.command()
     async def delete(self, ctx: commands.Context):
@@ -156,4 +88,4 @@ class BackupCommands(commands.Cog):
 
         os.remove(backup_file)
 
-        await ctx.message.edit(f"{backup_id}: {langs.backup_delete_done[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+        await ctx.message.edit(f"./backups/{backup_id}.json: {langs.backup_delete_done[config_selfbot.lang]}", delete_after=config_selfbot.deltime)

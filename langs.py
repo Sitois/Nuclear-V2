@@ -331,28 +331,34 @@ help_tools_close_dm_bots = {
 
 help_backup_backups = {
     "fr": "Affiche la liste des sauvegardes disponibles.",
-    "en": "Return the list of available backups"
+    "en": "Return the list of available backups."
 }
 
 help_backup_save = {
-    "fr": "Sauvegarde ce serveur (vous pouvez indiquer un autre serveur avec son ID).",
-    "en": "Save this server (you can specify another server with its ID)."
+    "fr": "Sauvegarde ce serveur.",
+    "en": "Save this server."
 }
 
 help_backup_load = {
-    "fr": "Charge une sauvegarde (vous pouvez indiquer un autre serveur avec son ID).",
+    "fr": "Charge une sauvegarde.",
     "en": "Load a backup (you can specify another server with its ID)."
 }
 
+help_backup_tip = {
+    "fr": "Vous pouvez indiquer un autre serveur avec son ID!",
+    "en": "You can specify another server with its ID!"
+}
+
+help_backup_note = {
+    "fr": "Les abckups prennent énormément de temps à se charger, soyez patient!",
+    "en": "Backups take a long time to load, be patient!"
+}
+# le attention ça prend 10 minutes, le vous pouvez mettre l'ID du serveur sinonça pred celui où t'as envoyé le msg
 help_backup_delete = {
     "fr": "Supprime une backup avec son ID.",
     "en": "Delete a backup with its ID."
 }
 
-backup_no_permissions = {
-    "fr": "Vous n'avez pas les permissions nécessaires pour charger cette backup.",
-    "en": "You don't have the permissions to load this backup."
-}
 
 ####################
 #  commands        #
@@ -865,4 +871,9 @@ backup_done = {
 backup_delete_done = {
     "fr": "✅ Backup supprimé avec succès !",
     "en": "✅ Backup deleted successfully!"
+}
+
+backup_no_permissions = {
+    "fr": "Vous n'avez pas la permission 'Administrateur' pour charger cette backup.",
+    "en": "You don't have the permissions 'Administrator' to load this backup."
 }
