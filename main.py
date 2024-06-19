@@ -4,7 +4,7 @@ try:
     import ctypes
     import datetime, time
     import threading
-    import random, asyncio
+    import asyncio
     import config_selfbot
     import langs
     from utils import rpc, log, __version__
@@ -24,7 +24,7 @@ except ImportError:
     import ctypes
     import datetime, time
     import threading
-    import random, asyncio
+    import asyncio
     import config_selfbot
     import langs
     from utils import rpc, log, __version__

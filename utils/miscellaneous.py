@@ -13,7 +13,7 @@ def random_cooldown(minimum, maximum):
     return cooldown
 
 
-async def save_guild_info(guild: discord.Guild):
+async def save_guild(guild: discord.Guild):
     """Save the given guild into ./backups/guild_id.json"""
     guild_info = {
         "id": guild.id,
