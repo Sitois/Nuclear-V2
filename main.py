@@ -37,24 +37,14 @@ except ImportError:
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-DARK_PURPLE = '\033[38;5;54m'
-LIGHT_PURPLE = '\033[38;5;165m'
-
-
-print(fr"""{DARK_PURPLE}                             
- $$$$$$\                  $$\                     $$\                         
-$$  __$$\                 $$ |                    \__|               
-$$ /  $$ |$$$$$$$\   $$$$$$$ | $$$$$$\   $$$$$$\  $$\ $$\   $$\ $$$$$$\$$$$\  
-$$$$$$$$ |$$  __$$\ $$  __$$ |$$  __$$\ $$  __$$\ $$ |$$ |  $$ |$$  _$$  _$$\ 
-$$  __$$ |$$ |  $$ |$$ /  $$ |$$ /  $$ |$$ |  \__|$$ |$$ |  $$ |$$ / $$ / $$ |
-$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |$$ |  $$ |$$ | $$ | $$ |  
-$$ |  $$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |      $$ |\$$$$$$  |$$ | $$ | $$ |  {LIGHT_PURPLE}v{__version__}{DARK_PURPLE}
-\__|  \__|\__|  \__| \_______| \______/ \__|      \__| \______/ \__| \__| \__|  Powered by {LIGHT_PURPLE}Nuclear{Style.RESET_ALL} """)
-
-                                                                              
-
-
-
+print(fr"""{Fore.LIGHTCYAN_EX}$$\   $$\                     $$\                               
+$$$\  $$ |                    $$ |                              
+$$$$\ $$ |$$\   $$\  $$$$$$$\ $$ | $$$$$$\   $$$$$$\   $$$$$$\  
+$$ $$\$$ |$$ |  $$ |$$  _____|$$ |$$  __$$\  \____$$\ $$  __$$\ 
+$$ \$$$$ |$$ |  $$ |$$ /      $$ |$$$$$$$$ | $$$$$$$ |$$ |  \__|
+$$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |      
+$$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
+\__|  \__| \______/  \_______|\__| \_______| \_______|\__|  v{__version__}{Style.RESET_ALL}""")
 
 
 def set_terminal_title(title):
@@ -68,7 +58,7 @@ def set_terminal_title(title):
         sys.stdout.flush()
 
 try:
-   set_terminal_title("| Andorium V1{__version__} Selfbot |")
+   set_terminal_title("| Nuclear-V2 Selfbot |")
 except Exception as e:
    log.warning(f"Error while trying to change the terminal name: {e}")
 
@@ -180,57 +170,57 @@ async def on_ready():
     # Load commands from cogs
     try:
         await bot.add_cog(HelpCommands(bot))
-        log.success(f"{DARK_PURPLE}HelpCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"HelpCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}HelpCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"HelpCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(FunCommands(bot))
-        log.success(f"{DARK_PURPLE}FunCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"FunCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}FunCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"FunCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(UtilsCommands(bot))
-        log.success(f"{DARK_PURPLE}UtilsCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"UtilsCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}UtilsCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"UtilsCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(VoiceCommands(bot))
-        log.success(f"{DARK_PURPLE}VoiceCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"VoiceCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}VoiceCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"VoiceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(ConfigCommands(bot))
-        log.success(f"{DARK_PURPLE}ConfigCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"ConfigCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}ConfigCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"ConfigCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(RaidCommands(bot))
-        log.success(f"{DARK_PURPLE}RaidCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"RaidCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}RaidCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(ToolsCommands(bot))
-        log.success(f"{DARK_PURPLE}ToolsCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"ToolsCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}ToolsCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(TemplatesCommands(bot))
-        log.success(f"{DARK_PURPLE}TemplatesCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"TemplatesCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}TemplatesCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(RichPresenceCommands(bot))
-        log.success(f"{DARK_PURPLE}RichPresenceCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}RichPresenceCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
     try:
         await bot.add_cog(BackupCommands(bot))
-        log.success(f"{DARK_PURPLE}BackupCommands: {LIGHT_PURPLE}{langs.cog_success[config_selfbot.lang]}")
+        log.success(f"BackupCommands: {langs.cog_success[config_selfbot.lang]}")
     except Exception as e:
-        log.fail(f"{DARK_PURPLE}BackupCommands: {LIGHT_PURPLE}{langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"BackupCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
 
     # Print when the bot is ready to receive and answer to commands
-    log.alert(f"{DARK_PURPLE}{langs.ready_text[config_selfbot.lang]}{LIGHT_PURPLE} @{bot.user.name}{DARK_PURPLE} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {LIGHT_PURPLE}{round(time.time()) - round(start_time)} {DARK_PURPLE}{langs.ready_text_three[config_selfbot.lang]}")
+    log.alert(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
 
     log.separate_magenta()
 
