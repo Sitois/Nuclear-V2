@@ -11,10 +11,10 @@ class TemplatesCommands(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
         self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
+        self.today_date = datetime.datetime.today()
 
     @commands.command()
     async def use(self, ctx: commands.Context):
-        today_date = datetime.datetime.today()
         choice = ctx.message.content.split()[1]
         if choice.lower() == "hi":
             assets = {"large_image": self.templates_assets["hi"]["large_image"],
