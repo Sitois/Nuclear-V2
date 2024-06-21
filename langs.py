@@ -341,7 +341,7 @@ help_backup_save = {
 
 help_backup_load = {
     "fr": "Charge une sauvegarde.",
-    "en": "Load a backup (you can specify another server with its ID)."
+    "en": "Load a backup."
 }
 
 help_backup_tip = {
@@ -875,5 +875,5 @@ backup_delete_done = {
 
 backup_no_permissions = {
     "fr": "Vous n'avez pas la permission 'Administrateur' pour charger cette backup.",
-    "en": "You don't have the permissions 'Administrator' to load this backup."
+    "en": "'Administrator' permission is required to load this backup."
 }
