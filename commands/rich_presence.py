@@ -35,9 +35,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
             
         await ctx.message.edit(f"🕹️| Details: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -63,10 +64,11 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
- 
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
+
         await ctx.message.edit(f"🕹️| Name: `{message_content}`", delete_after=config_selfbot.deltime)
 
     @commands.command()
@@ -91,9 +93,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| State: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -119,9 +122,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Stream URL: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -147,9 +151,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Large Image: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -175,9 +180,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Large image text: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -203,9 +209,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Small Image: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -231,9 +238,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Small image text: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -259,9 +267,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Button One Text: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -287,9 +296,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️|Button Text Two: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -314,9 +324,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await ctx.message.edit(f"🕹️| Button One Link: `{message_content}`")
         await asyncio.sleep(deltime)
@@ -342,9 +353,10 @@ class RichPresenceCommands(commands.Cog):
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
         await self.bot.change_presence(status=discord.Status.idle,
-                                    activity=activity,
-                                    afk=True,
-                                    idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                       activity=activity,
+                                       afk=True,
+                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                       edit_settings=False)
 
         await bot.change_presence(status=config_selfbot.status_activity if rpc.read_variable_json("status_activity") == "VOID" else rpc.read_variable_json("status_activity"),
                                 afk=afk,
@@ -380,9 +392,10 @@ class RichPresenceCommands(commands.Cog):
                                         buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
-                                        activity=activity,
-                                        afk=True,
-                                        idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                           edit_settings=False)
 
             await ctx.message.edit("🎮 **Type:** \"Game\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("watch"):
@@ -401,9 +414,11 @@ class RichPresenceCommands(commands.Cog):
                                         buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
-                                        activity=activity,
-                                        afk=True,
-                                        idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                           edit_settings=False)
+
 
             await ctx.message.edit("📺 **Type:** \"Watching\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("compet"):
@@ -421,9 +436,10 @@ class RichPresenceCommands(commands.Cog):
                                         buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
-                                        activity=activity,
-                                        afk=True,
-                                        idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                           edit_settings=False)
 
             await ctx.message.edit("🎉 **Type:** \"Competing\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("listen"):
@@ -442,9 +458,10 @@ class RichPresenceCommands(commands.Cog):
                                         buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
-                                        activity=activity,
-                                        afk=True,
-                                        idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                           edit_settings=False)
 
             await ctx.message.edit("🎧 **Type:** \"Listening\".", delete_after=config_selfbot.deltime)
         elif choice.lower().startswith("stream"):
@@ -463,9 +480,10 @@ class RichPresenceCommands(commands.Cog):
                                         buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
             await self.bot.change_presence(status=discord.Status.idle,
-                                        activity=activity,
-                                        afk=True,
-                                        idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                           edit_settings=False)
 
             await ctx.message.edit("⭕ **Type:** \"Stream\".", delete_after=config_selfbot.deltime)
         elif choice.lower() == "xbox":
@@ -479,9 +497,10 @@ class RichPresenceCommands(commands.Cog):
                                         buttons=None)
 
             await self.bot.change_presence(status=discord.Status.idle,
-                                        activity=activity,
-                                        afk=True,
-                                        idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
+                                           edit_settings=False)
 
             await ctx.message.edit("🎮 **Type:** \"Xbox\".", delete_after=config_selfbot.deltime)
         else:

@@ -230,25 +230,23 @@ async def on_ready():
               "small_text": config_selfbot.assets["small_text"] if rpc.read_variable_json("small_text") == "VOID" else rpc.read_variable_json("small_text")
              }
     activity = discord.Activity(type=discord.ActivityType.playing,
-                                    name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
-                                    details=config_selfbot.activity_details if rpc.read_variable_json("activity_details") == "VOID" else rpc.read_variable_json("activity_details"),
-                                    state=config_selfbot.activity_state if rpc.read_variable_json("activity_state") == "VOID" else rpc.read_variable_json("activity_state"),
-                                    timestamps={"start": time.time()},
-                                    assets=assets,
-                                    application_id=config_selfbot.application_id,
-                                    buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
+                                name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
+                                details=config_selfbot.activity_details if rpc.read_variable_json("activity_details") == "VOID" else rpc.read_variable_json("activity_details"),
+                                state=config_selfbot.activity_state if rpc.read_variable_json("activity_state") == "VOID" else rpc.read_variable_json("activity_state"),
+                                timestamps={"start": time.time()},
+                                assets=assets,
+                                application_id=config_selfbot.application_id,
+                                buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
     await bot.change_presence(status=discord.Status.idle,
                               activity=activity,
                               afk=True,
-                              idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
+                              idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day),
+                              edit_settings=False)
 
-    # TODO: Servers backup.
-
-    with open('nuclear_icon.png', 'rb') as image:
-        nuclear_icon = image.read()
- 
     if rpc.read_variable_json("create_panel"):
+        with open('nuclear_icon.png', 'rb') as image:
+            nuclear_icon = image.read()
         panel = await bot.create_group()
         await asyncio.sleep(0.7)
         await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
