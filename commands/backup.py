@@ -66,7 +66,7 @@ class BackupCommands(commands.Cog):
             return
 
         try:
-            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
+            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[2]), with_counts=False)
             guild_channels = await guild.fetch_channel(int(ctx.message.content.split()[1]))
             await asyncio.sleep(random_cooldown(0.4, 2))
             guild_roles = await guild.fetch_roles(int(ctx.message.content.split()[1]))
