@@ -100,8 +100,8 @@ try:
 except Exception:
     pass
 
-# Prevent from starting the selfbot with discord.py==1.7.3
-if discord.__version__.startswith("1.7.3"):
+# Prevent from starting the selfbot with another discord library
+if not discord.__title__ == "discord.py-self":
     log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
