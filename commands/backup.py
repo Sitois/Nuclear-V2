@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
-import os, json
+import os, json, asyncio
 
-from utils import log, save_guild, load_guild
+from utils import log, save_guild, load_guild, random_cooldown
 import config_selfbot
 import langs
 
@@ -15,8 +15,14 @@ class BackupCommands(commands.Cog):
     async def save(self, ctx: commands.Context):
         try:
             guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
+            guild_channels = await guild.fetch_channel(int(ctx.message.content.split()[1]))
+            await asyncio.sleep(random_cooldown(0.4, 2))
+            guild_roles = await guild.fetch_roles(int(ctx.message.content.split()[1]))
+            await asyncio.sleep(random_cooldown(0.4, 2))
         except Exception:
             guild = ctx.guild
+            guild_channels = guild.channels
+            guild_roles = guild.roles
 
         backup_file = f"./backups/{guild.id}.json"
 
@@ -26,7 +32,9 @@ class BackupCommands(commands.Cog):
 
         await ctx.message.edit(langs.backup_saving[config_selfbot.lang])
 
-        await save_guild(guild)
+        await save_guild(guild,
+                         guild_channels,
+                         guild_roles)
 
         await ctx.message.edit(f"{langs.backup_success_save[config_selfbot.lang]}: {guild.name}", delete_after=config_selfbot.deltime)
 
@@ -58,9 +66,15 @@ class BackupCommands(commands.Cog):
             return
 
         try:
-            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[2]), with_counts=False)
+            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
+            guild_channels = await guild.fetch_channel(int(ctx.message.content.split()[1]))
+            await asyncio.sleep(random_cooldown(0.4, 2))
+            guild_roles = await guild.fetch_roles(int(ctx.message.content.split()[1]))
+            await asyncio.sleep(random_cooldown(0.4, 2))
         except Exception:
             guild = ctx.guild
+            guild_channels = guild.channels
+            guild_roles = guild.roles
 
         if not guild.me.guild_permissions.administrator:
             await ctx.message.edit(langs.backup_no_permissions[config_selfbot.lang], delete_after=config_selfbot.deltime)
@@ -69,7 +83,11 @@ class BackupCommands(commands.Cog):
         with open(f"./backups/{backup_id}.json", "r") as f:
             backup = json.load(f)
 
-        await load_guild(guild, backup, 0.8, 25.6)
+        await load_guild(guild,
+                         guild_channels,
+                         guild_roles,
+                         backup,
+                         0.8, 25.6)
 
         log.success(f"./backups/{backup_id}.json: {langs.backup_done[config_selfbot.lang]}")
 
@@ -85,7 +103,10 @@ class BackupCommands(commands.Cog):
         if not os.path.exists(backup_file):
             await ctx.message.edit(langs.backup_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
+        
+        with open(f"./backups/{backup_file}", "r") as f:
+            guild_info = json.load(f)
+
+        await ctx.message.edit(f"{guild_info['name']}: {langs.backup_delete_done[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
 
         os.remove(backup_file)
-
-        await ctx.message.edit(f"./backups/{backup_id}.json: {langs.backup_delete_done[config_selfbot.lang]}", delete_after=config_selfbot.deltime)

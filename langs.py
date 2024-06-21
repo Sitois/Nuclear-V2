@@ -835,7 +835,7 @@ backup_success_save = {
 
 backup_save_already_exist = {
     "fr": "❌ Une backup pour",
-    "en:": "❌ A save for"
+    "en": "❌ A save for"
 }
 
 backup_save_already_exist_two = {

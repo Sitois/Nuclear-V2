@@ -13,7 +13,9 @@ def random_cooldown(minimum, maximum):
     return cooldown
 
 
-async def save_guild(guild: discord.Guild):
+async def save_guild(guild: discord.Guild,
+                    channels,
+                    roles):
     """Save the given guild into ./backups/guild_id.json"""
     guild_info = {
         "id": guild.id,
@@ -24,7 +26,7 @@ async def save_guild(guild: discord.Guild):
     }
 
     # Save guild's roles
-    for role in guild.roles:
+    for role in roles:
         if not role.is_integration() and role != guild.default_role:
             guild_info["roles"].append({
                 "id": role.id,
@@ -52,7 +54,7 @@ async def save_guild(guild: discord.Guild):
         log.success(f"Successfully saved category: {category.name}({category.id}) from {guild.name}({guild.id}).")
 
     # Save guild's channels
-    for channel in guild.channels:
+    for channel in channels:
         channel_info = {
             "id": channel.id,
             "name": channel.name,
@@ -89,10 +91,15 @@ async def save_guild(guild: discord.Guild):
 
 
 
-async def load_guild(guild: discord.Guild, backup, minimal_cooldown, maximum_cooldown):
+async def load_guild(guild: discord.Guild,
+                     channels,
+                     roles,
+                     backup,
+                     minimal_cooldown,
+                     maximum_cooldown):
     """Load the given guild into the choosen guild."""
     # Delete old channels
-    for channel in guild.channels:
+    for channel in channels:
         try:
             await channel.delete()
             log.success(f"Successfully deleted channel: {channel.name}({channel.id}) for {guild.name}({guild.id}).")
@@ -101,7 +108,7 @@ async def load_guild(guild: discord.Guild, backup, minimal_cooldown, maximum_coo
             log.fail(f"Error while trying to delete channel: {channel.name}({channel.id}): {e}")
 
     # Delete old roles (not @everyone, not bot roles)
-    for role in guild.roles:
+    for role in roles:
         if role.name != "@everyone" and not role.is_integration():
             try:
                 await role.delete()
@@ -109,6 +116,15 @@ async def load_guild(guild: discord.Guild, backup, minimal_cooldown, maximum_coo
                 await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
             except Exception as e:
                 log.fail(f"Error while trying to delete role: {role.name}: {e}")
+
+    # Delete old categories
+    for category in guild.categories:
+        try:
+            await category.delete()
+            log.success(f"Successfully deleted category: {category.name}({category.id}) for {guild.name}({guild.id}).")
+            await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
+        except Exception as e:
+            log.fail(f"Error while trying to delete category: {role.name}: {e}")
 
     # Add backup's roles
     for role_info in backup["roles"]:
