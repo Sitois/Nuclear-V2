@@ -454,7 +454,7 @@ class TemplatesCommands(commands.Cog):
                 log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
-                                                   activity=activity,
+                                                   activity=None,
                                                    edit_settings=False)
                     log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
                 except Exception as e:
