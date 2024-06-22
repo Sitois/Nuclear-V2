@@ -15,13 +15,11 @@ class BackupCommands(commands.Cog):
     async def save(self, ctx: commands.Context):
         try:
             guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
-            guild_channels = await guild.fetch_channels()
-            guild_roles = guild.roles
             await asyncio.sleep(random_cooldown(0.4, 2))
+            guild_channels = await guild.fetch_channels()
         except Exception:
             guild = ctx.guild
             guild_channels = guild.channels
-            guild_roles = guild.roles
 
         backup_file = f"./backups/{guild.id}.json"
 
@@ -32,8 +30,7 @@ class BackupCommands(commands.Cog):
         await ctx.message.edit(langs.backup_saving[config_selfbot.lang])
 
         await save_guild(guild,
-                         guild_channels,
-                         guild_roles)
+                         guild_channels)
 
         await ctx.message.edit(f"{langs.backup_success_save[config_selfbot.lang]}: {guild.name}", delete_after=config_selfbot.deltime)
 

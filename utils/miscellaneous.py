@@ -14,8 +14,7 @@ def random_cooldown(minimum, maximum):
 
 
 async def save_guild(guild: discord.Guild,
-                    channels,
-                    roles):
+                    channels):
     """Save the given guild into ./backups/guild_id.json"""
     guild_info = {
         "id": guild.id,
@@ -26,7 +25,7 @@ async def save_guild(guild: discord.Guild,
     }
 
     # Save guild's roles
-    for role in roles:
+    for role in guild.roles:
         if not role.is_integration() and role != guild.default_role:
             guild_info["roles"].append({
                 "id": role.id,
