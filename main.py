@@ -238,11 +238,20 @@ async def on_ready():
                                 application_id=config_selfbot.application_id,
                                 buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
 
-    await bot.change_presence(status=discord.Status.idle,
-                              activity=activity,
-                              afk=True,
-                              idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day),
-                              edit_settings=False)
+    try:
+        await bot.change_presence(status=discord.Status.idle,
+                                  activity=activity,
+                                  afk=True,
+                                  idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
+    except Exception as e:
+        log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+        try:
+            await bot.change_presence(status=discord.Status.idle,
+                                      activity=activity,
+                                      edit_settings=False)
+            log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+        except Exception as e:
+            log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
     if rpc.read_variable_json("create_panel"):
         with open('nuclear_icon.png', 'rb') as image:
