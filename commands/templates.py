@@ -15,8 +15,8 @@ class TemplatesCommands(commands.Cog):
 
     @commands.command()
     async def use(self, ctx: commands.Context):
-        choice = ctx.message.content.split()[1]
-        if choice.lower() == "hi":
+        choice = ctx.message.content.split()[1].lower()
+        if choice == "hi":
             assets = {"large_image": self.templates_assets["hi"]["large_image"],
                       "large_text": "heyyy",
                       "small_image": self.templates_assets["hi"]["small_image"],
@@ -47,7 +47,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("👋 Template \"hi !\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "omori":
+        elif choice == "omori":
             assets = {"large_image": self.templates_assets["omori"]["large_image"],
                       "large_text": "Omori",
                       "small_image": self.templates_assets["omori"]["small_image"],
@@ -78,7 +78,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("💡 Template \"Omori\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "cod":
+        elif choice == "cod":
             assets = {"large_image": self.templates_assets["cod"]["large_image"],
                       "large_text": "Call Of Duty: MWIII",
                       "small_image": self.templates_assets["cod"]["small_image"],
@@ -109,7 +109,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🔫 Template \"Call Of Duty\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "youtube":
+        elif choice == "youtube":
             assets = {"large_image": self.templates_assets["youtube"]["large_image"],
                       "large_text": "YouTube",
                       "small_image": self.templates_assets["youtube"]["small_image"],
@@ -140,7 +140,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🎦 Template \"YouTube\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "car":
+        elif choice == "car":
             assets = {"large_image": self.templates_assets["car"]["large_image"],
                       "large_text": "Drift Car",
                       "small_image": self.templates_assets["car"]["small_image"],
@@ -171,7 +171,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🏎️ Template \"Car\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "js":
+        elif choice == "js":
             assets = {"large_image": self.templates_assets["js"]["large_image"],
                       "large_text": "Editing a JAVASCRIPT file",
                       "small_image": self.templates_assets["js"]["small_image"],
@@ -202,7 +202,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("👨‍💻 Template \"JavaScript\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "python":
+        elif choice == "python":
             assets = {"large_image": self.templates_assets["python"]["large_image"],
                       "large_text": "Editing a PYTHON file",
                       "small_image": self.templates_assets["python"]["small_image"],
@@ -233,7 +233,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("👨‍💻 Template \"Python\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "webdeck":
+        elif choice == "webdeck":
             assets = {"large_image": self.templates_assets["webdeck"]["large_image"],
                       "large_text": "WebDeck Icon",
                       "small_image": self.templates_assets["webdeck"]["small_image"],
@@ -264,7 +264,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("📱 Template \"WebDeck\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "nuclear":
+        elif choice == "nuclear":
             assets = {"large_image": self.templates_assets["nuclear"]["large_image"],
                       "large_text": "github.com/Sitois/Nuclear-V2",
                       "small_image": self.templates_assets["nuclear"]["small_image"],
@@ -295,7 +295,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🌌 Template \"Nuclear\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "dark":
+        elif choice == "dark":
             assets = {"large_image": self.templates_assets["dark"]["large_image"],
                       "large_text": "☄",
                       "small_image": self.templates_assets["dark"]["small_image"],
@@ -325,7 +325,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🖤 Template \"Dark\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "gta":
+        elif choice == "gta":
             assets = {"large_image": self.templates_assets["gta"]["large_image"],
                       "large_text": "Grand Theft Auto VI",
                       "small_image": self.templates_assets["gta"]["small_image"],
@@ -356,7 +356,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "tiktok":
+        elif choice == "tiktok":
             assets = {"large_image": self.templates_assets["tiktok"]["large_image"],
                       "large_text": "TikTok",
                       "small_image": self.templates_assets["tiktok"]["small_image"],
@@ -387,7 +387,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("📱 Template \"TikTok\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "reset":
+        elif choice == "reset":
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
                       "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -418,7 +418,7 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🔄️ RPC Reset.", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "default":
+        elif choice == "default":
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name=config_selfbot.activity_name,
                                         details=config_selfbot.activity_details,
@@ -444,10 +444,10 @@ class TemplatesCommands(commands.Cog):
                     log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
 
             await ctx.message.edit("🔄️ RPC \"Default\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "clear":
+        elif choice == "clear":
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
-                                               activity=activity,
+                                               activity=None,
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
