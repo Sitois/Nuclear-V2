@@ -15,9 +15,9 @@ class BackupCommands(commands.Cog):
     async def save(self, ctx: commands.Context):
         try:
             guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
-            guild_channels = await guild.fetch_channel(int(ctx.message.content.split()[1]))
+            guild_channels = await guild.fetch_channels()
             await asyncio.sleep(random_cooldown(0.4, 2))
-            guild_roles = await guild.fetch_roles(int(ctx.message.content.split()[1]))
+            guild_roles = await guild.fetch_roles()
             await asyncio.sleep(random_cooldown(0.4, 2))
         except Exception:
             guild = ctx.guild
