@@ -874,6 +874,6 @@ backup_delete_done = {
 }
 
 backup_no_permissions = {
-    "fr": "Vous n'avez pas la permission 'Administrateur' pour charger cette backup.",
-    "en": "'Administrator' permission is required to load this backup."
+    "fr": "❌ Vous n'avez pas la permission 'Administrateur' pour charger les backup.",
+    "en": "❌ 'Administrator' permission is required to load backups."
 }

@@ -14,6 +14,7 @@ try:
     #import twocaptcha
     import discord
     from discord.ext import commands
+    import nacl
 except ImportError:
     import sys, os
     if os.name == 'nt':
@@ -34,6 +35,7 @@ except ImportError:
     #import twocaptcha
     import discord
     from discord.ext import commands
+    import nacl
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -132,7 +134,7 @@ if check_loop:
     except Exception as e:
         log.warning(f"Error while trying to check the last Nuclear version: {e}")
 
-log.start(f"{langs.start_text[config_selfbot.lang]}")
+log.start(langs.start_text[config_selfbot.lang])
 
 
 
@@ -298,8 +300,10 @@ async def stop(ctx):
 
 def fix_aiohttp():
     """
-    This error is from discord.py==1.7.3(it's the last version of discord.py that works with user account) that use an old version of aiohttp.
-    This should fix this problem and restart the selfbot :).
+    This error is from discord.py==1.7.3(it's the last version of discord.py
+    that works with user account) that use an old version of aiohttp.
+
+    This should fix this error.
     """
     if os.name == 'nt':
         subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "aiohttp"])
