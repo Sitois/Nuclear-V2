@@ -15,6 +15,8 @@ def random_cooldown(minimum, maximum):
 
 async def save_guild(guild: discord.Guild, channels):
     """Save the given guild into ./backups/guild_id.json"""
+
+    log.separate_text("CREATING BACKUP")
     guild_info = {
         "id": guild.id,
         "name": guild.name,
@@ -86,16 +88,17 @@ async def save_guild(guild: discord.Guild, channels):
         json.dump(guild_info, f, indent=4)
 
     log.success(f"Successfully saved guild: {guild.name}({guild.id}).")
+    log.separate("CREATING BACKUP")
 
 
 
 async def load_guild(guild: discord.Guild,
                      channels,
-                     roles,
                      backup,
                      minimal_cooldown,
                      maximum_cooldown):
     """Load the given guild into the choosen guild."""
+    log.separate_text("LOADING BACKUP")
     # Delete old channels
     for channel in channels:
         try:
@@ -106,7 +109,7 @@ async def load_guild(guild: discord.Guild,
             log.fail(f"Error while trying to delete channel: {channel.name}({channel.id}): {e}")
 
     # Delete old roles (not @everyone, not bot roles)
-    for role in roles:
+    for role in guild.roles:
         if role.name != "@everyone" and not role.is_integration():
             try:
                 await role.delete()
@@ -179,3 +182,4 @@ async def load_guild(guild: discord.Guild,
     await guild.default_role.edit(permissions=discord.Permissions(backup["default_role"]["permissions"]))
 
     log.success(f"Successfully loaded backup: {backup['name']}({backup['id']}) to {guild.name}({guild.id}).")
+    log.separate("CREATING BACKUP")

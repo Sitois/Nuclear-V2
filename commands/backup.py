@@ -62,15 +62,12 @@ class BackupCommands(commands.Cog):
             return
 
         try:
-            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[2]), with_counts=False)
-            guild_channels = await guild.fetch_channel(int(ctx.message.content.split()[1]))
+            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
             await asyncio.sleep(random_cooldown(0.4, 2))
-            guild_roles = await guild.fetch_roles(int(ctx.message.content.split()[1]))
-            await asyncio.sleep(random_cooldown(0.4, 2))
+            guild_channels = await guild.fetch_channels()
         except Exception:
             guild = ctx.guild
             guild_channels = guild.channels
-            guild_roles = guild.roles
 
         if not guild.me.guild_permissions.administrator:
             await ctx.message.edit(langs.backup_no_permissions[config_selfbot.lang], delete_after=config_selfbot.deltime)
@@ -81,7 +78,6 @@ class BackupCommands(commands.Cog):
 
         await load_guild(guild,
                          guild_channels,
-                         guild_roles,
                          backup,
                          0.8, 25.6)
 
@@ -99,7 +95,7 @@ class BackupCommands(commands.Cog):
         if not os.path.exists(backup_file):
             await ctx.message.edit(langs.backup_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
             return
-        
+
         with open(f"./backups/{backup_file}", "r") as f:
             guild_info = json.load(f)
 
