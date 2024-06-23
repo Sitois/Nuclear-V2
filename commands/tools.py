@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import asyncio
 from colorama import Fore, Style, Back
 
@@ -10,7 +10,11 @@ import langs
 
 class ToolsCommands(commands.Cog):
     def __init__(self, bot):
-        self.bot: commands.Bot = bot
+        self.bot = bot
+        self.auto_bump_task = None
+        self.auto_bump_channel = None
+        self.auto_bump_count = 0
+
 
     @commands.command()
     async def bump(self, ctx: commands.Context):
@@ -44,6 +48,42 @@ class ToolsCommands(commands.Cog):
             log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.
 Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).""")
             await asyncio.sleep(random_cooldown(7200, 7387))
+
+
+
+    @commands.command()
+    async def autobump(self, ctx: commands.Context):
+        if self.auto_bump_task is not None and self.auto_bump_task.is_running():
+            await ctx.message.edit("~~On auto bump ça !~~ C'est pas bon", delete_after=config_selfbot.deltime)
+            return
+
+        self.auto_bump_channel = ctx.channel
+        self.auto_bump_task = self.auto_bump.start()
+        await ctx.message.edit("On auto bump ça !", delete_after=config_selfbot.deltime)
+
+    @tasks.loop(hours=2)
+    async def auto_bump(self):
+        if self.auto_bump_channel is not None:
+            command = next((cmd for cmd in await self.auto_bump_channel.application_commands() if cmd.name == 'bump' and cmd.application_id == 302050872383242240), None)
+            
+            if command is not None:
+                await command(self.auto_bump_channel)
+                self.auto_bump_count += 1
+                log.success(f"Auto-bumped {self.auto_bump_channel.guild.name}({self.auto_bump_channel.guild.id}) for the {self.auto_bump_count} time in {self.auto_bump_channel.name}({self.auto_bump_channel.id}).")
+
+    @commands.command()
+    async def stopautobump(self, ctx: commands.Context):
+        if self.auto_bump_task is not None and self.auto_bump_task.is_running():
+            self.auto_bump_task.cancel()
+            self.auto_bump_task = None
+            self.auto_bump_channel = None
+            self.auto_bump_count = 0
+            await ctx.message.edit("on stop tout !", delete_after=config_selfbot.deltime)
+        else:
+            await ctx.message.edit("y'as rien a stopé...", delete_after=config_selfbot.deltime)
+
+
+
 
     @commands.command()
     async def dmall(self, ctx: commands.Context):
