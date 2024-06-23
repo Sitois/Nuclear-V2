@@ -62,7 +62,7 @@ class BackupCommands(commands.Cog):
             return
 
         try:
-            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[1]), with_counts=False)
+            guild = await self.bot.fetch_guild(int(ctx.message.content.split()[2]), with_counts=False)
             await asyncio.sleep(random_cooldown(0.4, 2))
             guild_channels = await guild.fetch_channels()
         except Exception:
