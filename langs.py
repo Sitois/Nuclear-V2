@@ -823,6 +823,11 @@ backup_saving = {
     "en": "🔁 Creating backup..."
 }
 
+backup_loading = {
+    "fr": "🔁 Chargement de la backup en cours...",
+    "en": "🔁 Loading backup..."
+}
+
 backup_not_find_folder = {
     "fr": "❌ Impossible de trouver le dossier 'backups' !",
     "en": "❌ Unable to find the 'backups' folder!"

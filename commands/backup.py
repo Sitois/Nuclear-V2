@@ -76,10 +76,14 @@ class BackupCommands(commands.Cog):
         with open(f"./backups/{backup_id}.json", "r") as f:
             backup = json.load(f)
 
+        await ctx.message.edit(langs.backup_loading[config_selfbot.lang])
+
         await load_guild(guild,
                          guild_channels,
                          backup,
                          0.8, 25.6)
+
+        await ctx.message.edit(langs.backup_done[config_selfbot.lang])
 
         log.success(f"./backups/{backup_id}.json: {langs.backup_done[config_selfbot.lang]}")
 
