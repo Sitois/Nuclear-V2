@@ -101,7 +101,7 @@ async def load_guild(guild: discord.Guild,
         try:
             await channel.delete()
             log.success(f"Successfully deleted channel: {channel.name}({channel.id}) for {guild.name}({guild.id}).")
-            await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
+            await asyncio.sleep(random_cooldown(0.6, 12.9))  # Wait to avoid rate limit
         except Exception as e:
             log.fail(f"Error while trying to delete channel: {channel.name}({channel.id}): {e}")
 
@@ -111,7 +111,7 @@ async def load_guild(guild: discord.Guild,
             try:
                 await role.delete()
                 log.success(f"Successfully deleted role: {role.name}({role.id}) for {guild.name}({guild.id}).")
-                await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
+                await asyncio.sleep(random_cooldown(0.4, 13.6))  # Wait to avoid rate limit
             except Exception as e:
                 log.fail(f"Error while trying to delete role: {role.name}: {e}")
 
@@ -120,7 +120,7 @@ async def load_guild(guild: discord.Guild,
         try:
             await category.delete()
             log.success(f"Successfully deleted category: {category.name}({category.id}) for {guild.name}({guild.id}).")
-            await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
+            await asyncio.sleep(random_cooldown(0.8, 14.2))  # Wait to avoid rate limit
         except Exception as e:
             log.fail(f"Error while trying to delete category: {role.name}: {e}")
 

@@ -253,7 +253,7 @@ async def on_ready():
                                       edit_settings=False)
             log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+            log.alert(f"Failed to set custom Rich Presence.\nError: {e}\nPlease check the 'Issues' category into the GitHub's README for further help.")
 
     if rpc.read_variable_json("create_panel"):
         with open('nuclear_icon.png', 'rb') as image:
