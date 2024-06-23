@@ -13,8 +13,7 @@ def random_cooldown(minimum, maximum):
     return cooldown
 
 
-async def save_guild(guild: discord.Guild,
-                    channels):
+async def save_guild(guild: discord.Guild, channels):
     """Save the given guild into ./backups/guild_id.json"""
     guild_info = {
         "id": guild.id,
@@ -35,7 +34,7 @@ async def save_guild(guild: discord.Guild,
                 "mentionable": role.mentionable,
                 "hoist": role.hoist
             })
-        log.success(f"Successfully saved role: {role.name}({role.id}) from {guild.name}({guild.id}).")
+            log.success(f"Successfully saved role: {role.name}({role.id}) from {guild.name}({guild.id}).")
 
     # Save @everyone's permissions
     guild_info["default_role"] = {
@@ -64,19 +63,19 @@ async def save_guild(guild: discord.Guild,
         }
         log.success(f"Successfully saved channel: {channel.name}({channel.id}) from {guild.name}({guild.id}).")
 
-        # Save channel's permissions
+        # Save channel's permissions, excluding user permissions
         for overwrite in channel.overwrites:
-            allow, deny = channel.overwrites[overwrite].pair()
-            channel_info["permissions"].append({
-                "id": overwrite.id,
-                "type": "role" if isinstance(overwrite, discord.Role) else "member",
-                "allow": allow.value,
-                "deny": deny.value
-            })
-        log.success(f"Successfully saved permissions for {channel.name}({channel.id}) from {guild.name}({guild.id}).")
+            if isinstance(overwrite, discord.Role):
+                allow, deny = channel.overwrites[overwrite].pair()
+                channel_info["permissions"].append({
+                    "id": overwrite.id,
+                    "type": "role",
+                    "allow": allow.value,
+                    "deny": deny.value
+                })
+        log.success(f"Successfully saved role permissions for {channel.name}({channel.id}) from {guild.name}({guild.id}).")
 
         guild_info["channels"].append(channel_info)
-
 
     # Check if backups folder exists
     if not os.path.exists("backups"):
