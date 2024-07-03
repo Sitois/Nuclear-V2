@@ -59,6 +59,19 @@ class FunCommands(commands.Cog):
 
         await ctx.message.edit(random.choice(hug_gifs))
 
+
+    @commands.command()
+    async def slap(self, ctx: commands.Context):
+        slap_gifs = ["https://tenor.com/bVL3e.gif",
+                    "https://tenor.com/h0DwLm9JkoL.gif",
+                    "https://tenor.com/bBKQH.gif",
+                    "https://tenor.com/bR6Oj.gif",
+                    "https://tenor.com/ptFuKOKXwCp.gif",
+                    "https://tenor.com/fFuVfLoRW0z.gif"
+                   ]
+
+        await ctx.message.edit(random.choice(slap_gifs))
+
     @commands.command()
     async def hack(self, ctx: commands.Context):
         if ctx.message.mentions:
