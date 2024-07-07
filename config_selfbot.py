@@ -7,30 +7,44 @@ from utils import rpc
 
 # en: SelfBot name
 # fr: Nom du SelfBot
+# es: Nombre del SelfBot
+# jp: セルフボットの名前
 selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod
 
 # en: Account Token.
 # fr: Token du compte.
+# es: Token de la cuenta.
+# jp: アカウントのトークン
 token = ""
 
 # en: Commands prefix.
 # fr: Prefix des commandes.
+# es: Prefijo de comandos.
+# jp: コマンドの接頭辞
 prefix = "&"
 
 # fr: Langue.
 # en: Language.
-lang = "en" # fr / en
+# es: Idioma.
+# jp: 言語
+lang = "en" # fr / en / es /jp
 
 # fr: Activer/Désactiver les logs de discord (ex: Connected to gateway , Rate Limited etc..).
 # en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).
+# es: Activar/Desactivar registros de Discord (como: Conectado a la gateway, Límite de velocidad, etc...).
+# jp: Discordのログを切り替える（例: Gatewayに接続しました、レート制限など...）
 discord_log = True
 
 # fr: Default Nitro Sniper mode. (True=On, False=Off)
 # fr: Mode du Nitro Sniper par défaut. (True=On, False=Off)
+# es: Modo de Nitro Sniper por defecto. (True=Activado, False=Desactivado)
+# jp: デフォルトのNitroスナイパーモード（True=オン、False=オフ）
 nitro_sniper = False
 
 # en: Commands delay of delete.
 # fr: Délai de supression des commandes.
+# es: Retraso en la eliminación de comandos.
+# jp: コマンド削除の遅延
 deltime = 20
 ########################
 
@@ -42,14 +56,20 @@ deltime = 20
 
 # en: Default paramter for Good Person.
 # fr: Paramètre par défaut de Good Person.
+# es: Parámetro predeterminado para Good Person.
+# jp: Good Personのデフォルトパラメータ
 good_person = False
 
 # en: Good Person badwords.
 # fr: Mot interdit pour Good Person.
+# es: Palabras prohibidas para Good Person.
+# jp: Good Personの禁止ワード
 badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "bitch", "kys", "fdp", "ntm", "tg"]
 
 # en: Good Person "good words".
 # fr: Mot "bon" pour Good Person.
+# es: Palabras "buenas" para Good Person.
+# jp: Good Personの「いい言葉」
 good_person_list = [
         "GeForce RTX 4000",
         "🍗",
@@ -74,12 +94,16 @@ good_person_list = [
 #######################
 # en: Ban reason (for &banall).
 # fr: Raison du banissement (pour &banall).
+# es: Razón de baneo (para &banall).
+# jp: Ban理由（&banall用）
 ban_reason = "ezzed by Nuclear lol."
 kick_reason = "ezzed by Nuclear lol."
 
 #######################
 # fr: RPC par défaut  #
 # en: Default RPC     #
+# es: RPC por defecto  #
+# jp: デフォルトRPC    #
 #######################
 
 activity_name = "☄"
@@ -102,4 +126,4 @@ assets = {"large_image": icon["dark"]["large_image"],
           }
 
 
-#################
+################# 
