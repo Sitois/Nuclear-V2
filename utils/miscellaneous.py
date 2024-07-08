@@ -34,7 +34,8 @@ async def save_guild(guild: discord.Guild, channels):
                 "permissions": role.permissions.value,
                 "color": role.color.value,
                 "mentionable": role.mentionable,
-                "hoist": role.hoist
+                "hoist": role.hoist,
+                "position": role.position  # Save the position of the role
             })
             log.success(f"Successfully saved role: {role.name}({role.id}) from {guild.name}({guild.id}).")
 
@@ -67,11 +68,11 @@ async def save_guild(guild: discord.Guild, channels):
 
         # Save channel's permissions, excluding user permissions
         for overwrite in channel.overwrites:
-            if isinstance(overwrite, discord.Role):
+            if isinstance(overwrite, discord.Role) or overwrite == guild.default_role:
                 allow, deny = channel.overwrites[overwrite].pair()
                 channel_info["permissions"].append({
                     "id": overwrite.id,
-                    "type": "role",
+                    "type": "role" if isinstance(overwrite, discord.Role) else "@everyone",
                     "allow": allow.value,
                     "deny": deny.value
                 })
@@ -81,7 +82,8 @@ async def save_guild(guild: discord.Guild, channels):
 
     # Check if backups folder exists
     if not os.path.exists("backups"):
-        log.alert("Unable to find the 'backups' folder!")
+        os.makedirs("backups")
+        log.alert("Created the 'backups' folder!")
 
     # Save guild's infos in a json file
     with open(f"./backups/{guild.id}.json", "w") as f:
@@ -97,7 +99,7 @@ async def load_guild(guild: discord.Guild,
                      backup,
                      minimal_cooldown,
                      maximum_cooldown):
-    """Load the given guild into the choosen guild."""
+    """Load the given guild into the chosen guild."""
     log.separate_text("LOADING BACKUP")
     # Delete old channels
     for channel in channels:
@@ -128,16 +130,26 @@ async def load_guild(guild: discord.Guild,
             log.fail(f"Error while trying to delete category: {role.name}: {e}")
 
     # Add backup's roles
+    role_map = {}
     for role_info in backup["roles"]:
-        await guild.create_role(
+        new_role = await guild.create_role(
             name=role_info["name"],
             permissions=discord.Permissions(role_info["permissions"]),
             color=discord.Color(role_info["color"]),
             mentionable=role_info["mentionable"],
             hoist=role_info["hoist"]
         )
+        role_map[role_info["id"]] = new_role
         log.success(f"Successfully created role: {role_info['name']}({role_info['id']}) for {guild.name}({guild.id}).")
         await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
+
+    # Adjust role positions
+    for role_info in backup["roles"]:
+        role = role_map.get(role_info["id"])
+        if role:
+            await role.edit(position=role_info["position"])
+            log.success(f"Successfully adjusted position for role: {role_info['name']}({role_info['id']}) for {guild.name}({guild.id}).")
+            await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
 
     # Add backup's categories
     category_map = {}
@@ -154,32 +166,35 @@ async def load_guild(guild: discord.Guild,
     for channel_info in backup["channels"]:
         overwrites = {}
         for perm in channel_info["permissions"]:
-            target = guild.get_role(perm["id"]) if perm["type"] == "role" else guild.get_member(perm["id"])
-        if target:
-            overwrites[target] = discord.PermissionOverwrite.from_pair(
-                discord.Permissions(perm["allow"]),
-                discord.Permissions(perm["deny"])
-            )
+            target = guild.get_role(perm["id"]) if perm["type"] == "role" else guild.default_role
+            if target:
+                overwrites[target] = discord.PermissionOverwrite.from_pair(
+                    discord.Permissions(perm["allow"]),
+                    discord.Permissions(perm["deny"])
+                )
 
-    category = guild.get_channel(category_map[channel_info["category"]]) if channel_info["category"] else None
-    channel_type = discord.ChannelType.text if channel_info["type"] == "text" else discord.ChannelType.voice
-    await guild.create_text_channel(
-        name=channel_info["name"],
-        position=channel_info["position"],
-        overwrites=overwrites,
-        category=category
-    ) if channel_type == discord.ChannelType.text else await guild.create_voice_channel(
-        name=channel_info["name"],
-        position=channel_info["position"],
-        overwrites=overwrites,
-        category=category
-    )
-    log.success(f"Successfully created channel: {channel_info['name']}({channel_info['id']}) for {guild.name}({guild.id}).")
-    await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
+        category = guild.get_channel(category_map[channel_info["category"]]) if channel_info["category"] else None
+        channel_type = discord.ChannelType.text if channel_info["type"] == "text" else discord.ChannelType.voice
+        if channel_type == discord.ChannelType.text:
+            await guild.create_text_channel(
+                name=channel_info["name"],
+                position=channel_info["position"],
+                overwrites=overwrites,
+                category=category
+            )
+        else:
+            await guild.create_voice_channel(
+                name=channel_info["name"],
+                position=channel_info["position"],
+                overwrites=overwrites,
+                category=category
+            )
+        log.success(f"Successfully created channel: {channel_info['name']}({channel_info['id']}) for {guild.name}({guild.id}).")
+        await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
 
     # Set backup's @everyone permissions
-    log.success(f"Successfully set @everyone permissions to: {backup['default_role']['permissions']} for {guild.name}({guild.id}).")
     await guild.default_role.edit(permissions=discord.Permissions(backup["default_role"]["permissions"]))
+    log.success(f"Successfully set @everyone permissions to: {backup['default_role']['permissions']} for {guild.name}({guild.id}).")
 
     log.success(f"Successfully loaded backup: {backup['name']}({backup['id']}) to {guild.name}({guild.id}).")
     log.separate("CREATING BACKUP")
