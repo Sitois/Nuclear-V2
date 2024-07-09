@@ -882,3 +882,8 @@ backup_no_permissions = {
     "fr": "❌ Vous n'avez pas la permission 'Administrateur' pour charger les backup.",
     "en": "❌ 'Administrator' permission is required to load backups."
 }
+
+help_fun_slap = {
+    "fr": "Envoie une big gifle",
+    "en": "Send slap gif"
+}
