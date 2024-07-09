@@ -378,6 +378,11 @@ help_fun_femboy = {
     "en": "Return the femboy percent of someone"
 }
 
+help_fun_slap = {
+    "fr": "Envoie une big gifle",
+    "en": "Send a slap GIF"
+}
+
 help_raid_dmall = {
     "fr": "Envoi un message privé à votre liste d'amis",
     "en": "Send a private message to your friend list."
@@ -1022,9 +1027,4 @@ backup_delete_done = {
 backup_no_permissions = {
     "fr": "❌ Vous n'avez pas la permission 'Administrateur' pour charger les backup.",
     "en": "❌ 'Administrator' permission is required to load backups."
-}
-
-help_fun_slap = {
-    "fr": "Envoie une big gifle",
-    "en": "Send slap gif"
 }

@@ -59,7 +59,7 @@ class HelpCommands(commands.Cog):
  `{config_selfbot.prefix}hack`: {langs.help_fun_hack[config_selfbot.lang]}.
  `{config_selfbot.prefix}howfemboy`: {langs.help_fun_femboy[config_selfbot.lang]}.
  `{config_selfbot.prefix}token`: {langs.help_fun_token[config_selfbot.lang]}.
- `{config_selfbot.prefix}hug`: {langs.help_fun_hug[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)
+ `{config_selfbot.prefix}hug`: {langs.help_fun_hug[config_selfbot.lang]}.
  `{config_selfbot.prefix}slap`: {langs.help_fun_slap[config_selfbot.lang]}.""", delete_after=config_selfbot.deltime)
  
     @commands.command()
