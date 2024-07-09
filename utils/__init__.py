@@ -9,4 +9,4 @@ __version__ = "1.8"
 
 from . import rpc
 from .logger import *
-from .miscellaneous import *
+from .misc import *
