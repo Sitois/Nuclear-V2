@@ -40,14 +40,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Details: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -78,14 +79,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Name: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -116,14 +118,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| State: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -154,14 +157,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Stream URL: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -192,14 +196,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Large Image: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -230,14 +235,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Large image text: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -268,14 +274,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Small Image: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -306,14 +313,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Small image text: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -344,14 +352,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Button One Text: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -382,14 +391,15 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️|Button Text Two: `{message_content}`", delete_after=config_selfbot.deltime)
 
@@ -413,11 +423,21 @@ class RichPresenceCommands(commands.Cog):
                                     application_id=config_selfbot.application_id,
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
-        await self.bot.change_presence(status=discord.Status.idle,
-                                       activity=activity,
-                                       afk=True,
-                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
-                                       edit_settings=False)
+        try:
+            await self.bot.change_presence(status=discord.Status.idle,
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+        except Exception as e:
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
+            try:
+                await self.bot.change_presence(status=discord.Status.idle,
+                                               activity=activity,
+                                               edit_settings=False)
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
+            except Exception as e:
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
         await ctx.message.edit(f"🕹️| Button One Link: `{message_content}`")
         await asyncio.sleep(deltime)
@@ -442,22 +462,22 @@ class RichPresenceCommands(commands.Cog):
                                     application_id=config_selfbot.application_id,
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
             
-        await self.bot.change_presence(status=discord.Status.idle,
-                                       activity=activity,
-                                       afk=True,
-                                       idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day),
-                                       edit_settings=False)
+        try:
+            await self.bot.change_presence(status=discord.Status.idle,
+                                           activity=activity,
+                                           afk=True,
+                                           idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
+        except Exception as e:
+            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
+            try:
+                await self.bot.change_presence(status=discord.Status.idle,
+                                               activity=activity,
+                                               edit_settings=False)
+                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
+            except Exception as e:
+                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                return
 
-        await bot.change_presence(status=config_selfbot.status_activity if rpc.read_variable_json("status_activity") == "VOID" else rpc.read_variable_json("status_activity"),
-                                afk=afk,
-                                activity=selfcord.Activity.Game(name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
-                                                                    details=config_selfbot.activity_details if rpc.read_variable_json("activity_details") == "VOID" else rpc.read_variable_json("activity_details"),
-                                                                    state=config_selfbot.activity_state if rpc.read_variable_json("activity_state") == "VOID" else rpc.read_variable_json("activity_state"),
-                                                                    buttons={config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"): config_selfbot.activity_button_one_answer if rpc.read_variable_json("activity_button_one_answer") == "VOID" else rpc.read_variable_json("activity_button_one_answer"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two"): config_selfbot.activity_button_two_answer if rpc.read_variable_json("activity_button_two_answer") == "VOID" else rpc.read_variable_json("activity_button_two_answer")},
-                                                                    key=config_selfbot.image_key if rpc.read_variable_json("image_key") == "VOID" else rpc.read_variable_json("image_key"), 
-                                                                    application_id=config_selfbot.application_id if rpc.read_variable_json("application_id") == "VOID" else rpc.read_variable_json("application_id")
-                                                                    )
-                                                                    )
         await ctx.message.edit(f"🕹️| Button Link Two: `{message_content}`")
         await asyncio.sleep(deltime)
         await ctx.message.delete()
@@ -465,8 +485,8 @@ class RichPresenceCommands(commands.Cog):
 
     @commands.command()
     async def rpc_type(self, ctx: commands.Context):
-        choice = ctx.message.content.split()[1]
-        if choice.lower().startswith("play"):
+        choice = ctx.message.content.split()[1].lower()
+        if choice.startswith("play"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
                       "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -487,17 +507,18 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🎮 **Type:** \"Game\".", delete_after=config_selfbot.deltime)
-        elif choice.lower().startswith("watch"):
+        elif choice.startswith("watch"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
                       "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -518,17 +539,18 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("📺 **Type:** \"Watching\".", delete_after=config_selfbot.deltime)
-        elif choice.lower().startswith("compet"):
+        elif choice.startswith("compet"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
                       "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -548,17 +570,18 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🎉 **Type:** \"Competing\".", delete_after=config_selfbot.deltime)
-        elif choice.lower().startswith("listen"):
+        elif choice.startswith("listen"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
                       "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -579,17 +602,18 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🎧 **Type:** \"Listening\".", delete_after=config_selfbot.deltime)
-        elif choice.lower().startswith("stream"):
+        elif choice.startswith("stream"):
             assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
                       "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
                       "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
@@ -610,17 +634,18 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("⭕ **Type:** \"Stream\".", delete_after=config_selfbot.deltime)
-        elif choice.lower() == "xbox":
+        elif choice == "xbox":
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name=config_selfbot.activity_name if rpc.read_variable_json("activity_name") == "VOID" else rpc.read_variable_json("activity_name"),
                                         details=config_selfbot.activity_details if rpc.read_variable_json("activity_details") == "VOID" else rpc.read_variable_json("activity_details"),
@@ -636,14 +661,15 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🎮 **Type:** \"Xbox\".", delete_after=config_selfbot.deltime)
         else:

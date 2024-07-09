@@ -2,7 +2,10 @@ import random, string, os, json, asyncio
 
 import discord
 
+import config_selfbot
+
 from .logger import log
+
 
 def generate_random_string(length):
     letters = string.ascii_letters
@@ -13,10 +16,52 @@ def random_cooldown(minimum, maximum):
     return cooldown
 
 
+# -- Save logs --
+
+
+#######################
+#  save              #
+#    backup     !!!  #
+#######################
+
+creating_backup = {
+    "fr": "CREATING BACKUP",
+    "en": "CRÉATION DE LA BACKUP"
+}
+
+save_everyone_success = {
+    "fr": "Rôle @everyone sauvegardé avec succès",
+    "en": "Successfully saved @everyone role from"
+}
+
+save_role_success = {
+    "fr": "Rôle sauvegardé avec succès:",
+    "en": "Successfully saved role:"
+}
+
+save_guild_success = {
+    "fr": "Serveur sauvegardé avec succès:",
+    "en": "Successfully saved guild:"
+}
+save_role_permission_success = {
+    "fr": "Permissions du rôle sauvegardé avec succès pour",
+    "en": "Successfully saved role permissions for"
+}
+
+save_folder_not_found = {
+    "fr": "Impossible de trouver le dossier 'backups' !",
+    "en": "Can't find the 'backups' folder!"
+}
+
+_from = {
+    "fr": "depuis",
+    "en": "from"
+}
+
 async def save_guild(guild: discord.Guild, channels):
     """Save the given guild into ./backups/guild_id.json"""
 
-    log.separate_text("CREATING BACKUP")
+    log.separate_text(creating_backup[config_selfbot.lang])
     guild_info = {
         "id": guild.id,
         "name": guild.name,
@@ -35,15 +80,15 @@ async def save_guild(guild: discord.Guild, channels):
                 "color": role.color.value,
                 "mentionable": role.mentionable,
                 "hoist": role.hoist,
-                "position": role.position  # Save the position of the role
+                "position": role.position
             })
-            log.success(f"Successfully saved role: {role.name}({role.id}) from {guild.name}({guild.id}).")
+            log.success(f"{save_role_success[config_selfbot.lang]} {role.name}({role.id}) {_from[config_selfbot.lang]} {guild.name}({guild.id}).")
 
     # Save @everyone's permissions
     guild_info["default_role"] = {
         "permissions": guild.default_role.permissions.value
     }
-    log.success(f"Successfully saved @everyone role from {guild.name}({guild.id}).")
+    log.success(f"{save_everyone_success[config_selfbot.lang]} {guild.name}({guild.id}).")
 
     # Save guild's categories
     for category in guild.categories:
@@ -52,7 +97,7 @@ async def save_guild(guild: discord.Guild, channels):
             "name": category.name,
             "position": category.position
         })
-        log.success(f"Successfully saved category: {category.name}({category.id}) from {guild.name}({guild.id}).")
+        log.success(f"Successfully saved category: {category.name}({category.id}) {_from[config_selfbot.lang]} {guild.name}({guild.id}).")
 
     # Save guild's channels
     for channel in channels:
@@ -64,7 +109,7 @@ async def save_guild(guild: discord.Guild, channels):
             "category": channel.category_id,
             "permissions": []
         }
-        log.success(f"Successfully saved channel: {channel.name}({channel.id}) from {guild.name}({guild.id}).")
+        log.success(f"Successfully saved channel: {channel.name}({channel.id}) {_from[config_selfbot.lang]} {guild.name}({guild.id}).")
 
         # Save channel's permissions, excluding user permissions
         for overwrite in channel.overwrites:
@@ -76,23 +121,99 @@ async def save_guild(guild: discord.Guild, channels):
                     "allow": allow.value,
                     "deny": deny.value
                 })
-        log.success(f"Successfully saved role permissions for {channel.name}({channel.id}) from {guild.name}({guild.id}).")
+        log.success(f"{save_role_permission_success[config_selfbot.lang]} {channel.name}({channel.id}) {_from[config_selfbot.lang]} {guild.name}({guild.id}).")
 
         guild_info["channels"].append(channel_info)
 
-    # Check if backups folder exists
+    # Check if 'backups' folder exists
     if not os.path.exists("backups"):
-        os.makedirs("backups")
-        log.alert("Created the 'backups' folder!")
+        log.alert(save_folder_not_found[config_selfbot.lang])
+        return
 
     # Save guild's infos in a json file
     with open(f"./backups/{guild.id}.json", "w") as f:
         json.dump(guild_info, f, indent=4)
 
-    log.success(f"Successfully saved guild: {guild.name}({guild.id}).")
-    log.separate("CREATING BACKUP")
+    log.success(f"{save_guild_success[config_selfbot.lang]} {guild.name}({guild.id}).")
+    log.separate(creating_backup[config_selfbot.lang])
 
 
+# -- Load logs --
+
+#######################
+#  load               #
+#    backup      !!!  #
+#######################
+
+loading_backup = {
+    "fr": "CHARGEMENT DE LA BACKUP",
+    "en": "LOADING BACKUP"
+}
+
+_for = {
+    "fr": "pour",
+    "en": "for"
+}
+
+load_delete_channel_success = {
+    "fr": "Salon supprimé avec succès:",
+    "en": "Successfully deleted channel:"
+}
+
+load_delete_channel_fail = {
+    "fr": "Error lors de la suppression du salon:",
+    "en": "Error while trying to delete channel:"
+}
+
+load_delete_role_success = {
+    "fr": "Rôle supprimé avec succès:",
+    "en": "Successfully deleted role:"
+}
+
+load_delete_role_fail = {
+    "fr": "Error lors de la suppression du rôle:",
+    "en": "Error while trying to delete role:"
+}
+
+load_delete_category_success = {
+    "fr": "Catégorie supprimée avec succès",
+    "en": "Successfully deleted category"
+}
+
+load_delete_category_fail = {
+    "fr": "Erreur lors de la suppression de la catégorie",
+    "en": "Error while trying to delete category"
+}
+
+load_create_role_success = {
+    "fr": "Role créé avec succès:",
+    "en": "Successfully created role:"
+}
+
+load_role_position_success = {
+    "fr": "Position du rôle ajusté avec succès:",
+    "en": "Successfully adjusted position for role:"
+}
+
+load_create_category_success = {
+    "fr": "Catégorie créée avec succès:",
+    "en": "Successfully created category:"
+}
+
+load_create_channel_success = {
+    "fr": "Salon créé avec succès:",
+    "en": "Successfully created channel:"
+}
+
+load_everyone_permissions = {
+    "fr": "Permissions de @everyone configuré avec succès en:",
+    "en": "Successfully set @everyone permissions to:"
+}
+
+load_backup_success = {
+    "fr": "Backup chargée avec succès:",
+    "en": "Successfully loaded backup:"
+}
 
 async def load_guild(guild: discord.Guild,
                      channels,
@@ -100,34 +221,34 @@ async def load_guild(guild: discord.Guild,
                      minimal_cooldown,
                      maximum_cooldown):
     """Load the given guild into the chosen guild."""
-    log.separate_text("LOADING BACKUP")
+    log.separate_text(loading_backup[config_selfbot.lang])
     # Delete old channels
     for channel in channels:
         try:
             await channel.delete()
-            log.success(f"Successfully deleted channel: {channel.name}({channel.id}) for {guild.name}({guild.id}).")
-            await asyncio.sleep(random_cooldown(0.6, 12.9))  # Wait to avoid rate limit
+            log.success(f"{load_delete_channel_success[config_selfbot.lang]} {channel.name}({channel.id}) {_for[config_selfbot.lang]} {guild.name}({guild.id}).")
+            await asyncio.sleep(random_cooldown(0.8, 10.3))  # Wait to avoid rate limit
         except Exception as e:
-            log.fail(f"Error while trying to delete channel: {channel.name}({channel.id}): {e}")
+            log.fail(f"{load_delete_channel_fail[config_selfbot.lang]} {channel.name}({channel.id}): {e}")
 
     # Delete old roles (not @everyone, not bot roles)
     for role in guild.roles:
         if role.name != "@everyone" and not role.is_integration():
             try:
                 await role.delete()
-                log.success(f"Successfully deleted role: {role.name}({role.id}) for {guild.name}({guild.id}).")
-                await asyncio.sleep(random_cooldown(0.4, 13.6))  # Wait to avoid rate limit
+                log.success(f"{load_delete_role_success[config_selfbot.lang]} {role.name}({role.id}) {_for[config_selfbot.lang]} {guild.name}({guild.id}).")
+                await asyncio.sleep(random_cooldown(0.7, 7.6))  # Wait to avoid rate limit
             except Exception as e:
-                log.fail(f"Error while trying to delete role: {role.name}: {e}")
+                log.fail(f"{load_delete_role_fail[config_selfbot.lang]} {role.name}: {e}")
 
     # Delete old categories
     for category in guild.categories:
         try:
             await category.delete()
-            log.success(f"Successfully deleted category: {category.name}({category.id}) for {guild.name}({guild.id}).")
-            await asyncio.sleep(random_cooldown(0.8, 14.2))  # Wait to avoid rate limit
+            log.success(f"{load_delete_category_success[config_selfbot.lang]}: {category.name}({category.id}) {_for[config_selfbot.lang]} {guild.name}({guild.id}).")
+            await asyncio.sleep(random_cooldown(0.8, 6.2))  # Wait to avoid rate limit
         except Exception as e:
-            log.fail(f"Error while trying to delete category: {role.name}: {e}")
+            log.fail(f"{load_delete_category_fail[config_selfbot.lang]}: {role.name}: {e}")
 
     # Add backup's roles
     role_map = {}
@@ -140,7 +261,7 @@ async def load_guild(guild: discord.Guild,
             hoist=role_info["hoist"]
         )
         role_map[role_info["id"]] = new_role
-        log.success(f"Successfully created role: {role_info['name']}({role_info['id']}) for {guild.name}({guild.id}).")
+        log.success(f"{load_create_role_success[config_selfbot.lang]} {role_info['name']}({role_info['id']}) {_for[config_selfbot.lang]} {guild.name}({guild.id}).")
         await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
 
     # Adjust role positions
@@ -148,7 +269,7 @@ async def load_guild(guild: discord.Guild,
         role = role_map.get(role_info["id"])
         if role:
             await role.edit(position=role_info["position"])
-            log.success(f"Successfully adjusted position for role: {role_info['name']}({role_info['id']}) for {guild.name}({guild.id}).")
+            log.success(f"{load_role_position_success[config_selfbot.lang]} {role_info['name']}({role_info['id']}) {_for[config_selfbot.lang]} {guild.name}({guild.id}).")
             await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
 
     # Add backup's categories
@@ -159,7 +280,7 @@ async def load_guild(guild: discord.Guild,
             position=category_info["position"]
         )
         category_map[category_info["id"]] = new_category.id
-        log.success(f"Successfully created category: {category_info['name']}({category_info['id']}) for {guild.name}({guild.id}).")
+        log.success(f"{load_create_category_success[config_selfbot.lang]} {category_info['name']}({category_info['id']}) {_for[config_selfbot.lang]} {guild.name}({guild.id}).")
         await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
 
     # Add backup's channels
@@ -189,12 +310,12 @@ async def load_guild(guild: discord.Guild,
                 overwrites=overwrites,
                 category=category
             )
-        log.success(f"Successfully created channel: {channel_info['name']}({channel_info['id']}) for {guild.name}({guild.id}).")
+        log.success(f"{load_create_channel_success[config_selfbot.lang]} {channel_info['name']}({channel_info['id']}) for {guild.name}({guild.id}).")
         await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
 
     # Set backup's @everyone permissions
     await guild.default_role.edit(permissions=discord.Permissions(backup["default_role"]["permissions"]))
-    log.success(f"Successfully set @everyone permissions to: {backup['default_role']['permissions']} for {guild.name}({guild.id}).")
+    log.success(f"{load_everyone_permissions[config_selfbot.lang]} {backup['default_role']['permissions']} for {guild.name}({guild.id}).")
 
-    log.success(f"Successfully loaded backup: {backup['name']}({backup['id']}) to {guild.name}({guild.id}).")
-    log.separate("CREATING BACKUP")
+    log.success(f"{load_backup_success[config_selfbot.lang]} {backup['name']}({backup['id']}) to {guild.name}({guild.id}).")
+    log.separate(loading_backup[config_selfbot.lang])

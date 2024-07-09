@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+print("========================")
+print("LAUNCHING NUCLEAR-V2")
 import subprocess
+print("10%, Importing required modules...")
 try:
     import sys, os, platform
     import ctypes
@@ -7,20 +12,27 @@ try:
     import asyncio
     import config_selfbot
     import langs
+    print("25%, Loaded required python-integrated libraries.")
     from utils import rpc, log, __version__
+    print("35%, Loading commands...")
     from commands import *
     from colorama import Fore, Style, Back
     import requests
     #import twocaptcha
+    print("50%, Loading discord.py-self...")
     import discord
     from discord.ext import commands
     import nacl
 except ImportError:
     import sys, os
+    print("++++++++++++++++++++++++")
+    print("MISSING REQUIRED LIBRARIES")
+    print("Downloading missing libraries from pip ...")
     if os.name == 'nt':
      subprocess.check_call([sys.executable, "-m", "pip", "install", '-r' , 'requirements.txt'])
     else:
      subprocess.check_call([sys.executable, "-m", "pip3", "install", '-r' , 'requirements.txt'])
+    print("++++++++++++++++++++++++")
     import platform
     import ctypes
     import datetime, time
@@ -28,14 +40,20 @@ except ImportError:
     import asyncio
     import config_selfbot
     import langs
+    print("25%, Loading required python-integrated libraries...")
     from utils import rpc, log, __version__
+    print("35%, Loading commands...")
     from commands import *
     from colorama import Fore, Style, Back
     import requests
     #import twocaptcha
+    print("50%, Loading discord.py-self...")
     import discord
     from discord.ext import commands
     import nacl
+
+print("100%")
+print("========================")
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -103,7 +121,7 @@ except Exception:
     pass
 
 # Prevent from starting the selfbot with another discord library
-if not discord.__title__ == "discord.py-self":
+if discord.__title__ != "discord.py-self":
     log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
     exit()
 
@@ -246,14 +264,14 @@ async def on_ready():
                                   afk=True,
                                   idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
     except Exception as e:
-        log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+        log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
         try:
             await bot.change_presence(status=discord.Status.idle,
                                       activity=activity,
                                       edit_settings=False)
-            log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+            log.success(langs.no_notification_rpc_success[config_selfbot.lang])
         except Exception as e:
-            log.alert(f"Failed to set custom Rich Presence.\nError: {e}\nPlease check the 'Issues' category into the GitHub's README for further help.")
+            log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
 
     if rpc.read_variable_json("create_panel"):
         with open('nuclear_icon.png', 'rb') as image:
@@ -261,11 +279,11 @@ async def on_ready():
         panel = await bot.create_group()
         await asyncio.sleep(0.7)
         await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
+        await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         msg = await panel.send(langs.panel_message[config_selfbot.lang])
         await msg.unack()
-        await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         rpc.edit_variable_json("create_panel", False)
-        log.alert("NuclearPanel successfully created (check DMs!).")
+        log.alert("NuclearPanel successfully created (check DMs!).\nIf not, please check the 'Issues' category into the GitHub's README for further help.")
 
 
 def restart_selfbot():
@@ -273,14 +291,14 @@ def restart_selfbot():
     os.execl(python, python, *sys.argv)
 
 @bot.command()
-async def restart(ctx):
+async def restart(ctx: commands.Context):
     await ctx.message.edit(langs.restart_command[config_selfbot.lang])
     time.sleep(2)
     await ctx.message.delete()
     restart_selfbot()
 
 @bot.command()
-async def stop(ctx):
+async def stop(ctx: commands.Context):
     await ctx.message.edit(langs.stop_command[config_selfbot.lang])
     time.sleep(2)
     await ctx.message.delete()

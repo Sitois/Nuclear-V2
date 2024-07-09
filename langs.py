@@ -5,6 +5,55 @@ import config_selfbot
 #    translation >.<  #
 #######################
 
+# Don't forget translation into utils/misc.py!
+
+# Available languages
+languages = "fr, en, es, jp"
+
+class English():
+    """English translation, feel free to open a pull request for any errors.
+    https://github.com/Sitois/Nuclear-V2/pulls"""
+    lang_name = "Français"
+    lang_short = "fr"
+
+    __author__ = "Sitois"
+    __contact__ = "https://github.com/Sitois"
+
+class French():
+    """Traduction française par Sitois, merci d'ouvrir une pull request pour toute erreurs !
+    https://github.com/Sitois/Nuclear-V2/pulls"""
+    lang_name = "Français"
+    lang_short = "fr"
+
+    __author__ = "Sitois"
+    __contact__ = "https://github.com/Sitois"
+
+class Spanish():
+    """
+    https://github.com/Sitois/Nuclear-V2/pulls"""
+    lang_name = "Español"
+    lang_short = "es"
+
+    __author__ = "" # TODO: Andor please
+    __contact__ = "https://github.com/"
+
+class Japanese():
+    """
+    https://github.com/Sitois/Nuclear-V2/pulls"""
+    lang_name = "" # TODO: Andor please
+    lang_short = "jp"
+
+    __author__ = ""
+    __contact__ = "https://github.com/"
+
+
+# -- Main --
+
+#######################
+#  main               #
+#    translation >.<  #
+#######################
+
 token_error = {
     "fr": "Token incorrect. Merci d'entrer un token valide dans config_selfbot.py",
     "en": "Improper token. Please configure a valid token in config_selfbot.py"
@@ -129,6 +178,31 @@ error_check_version_three = {
     "en": "You are currently using "
 }
 
+no_notification_rpc_one = {
+    "fr": "Erreur lors de la configuration de la Rich Presence:",
+    "en": "Failed to set custom Rich Presence:"
+}
+
+no_notification_rpc_two = {
+    "fr": "Configuration de la Rich Presence sans garder les notifications...",
+    "en": "Re-trying without push-notifications-keeping..."
+}
+
+no_notification_rpc_success = {
+    "fr": "Rich Presence configurée avec succès (sans garder les notifiations).",
+    "en": "Custom Rich Presence successfully set (without push-notifications-keeping)."
+}
+
+error_rpc_one = {
+    "fr": "Improssible de configurer la Rich Presence. Erreur:",
+    "en": "Failed to set custom Rich Presence. Error:"
+}
+
+error_rpc_two = {
+    "fr": "Merci de se rendre sur la captégorie 'Problèmes' dans le README-fr sur GitHub pour plus d'aide.",
+    "en": "Please check the 'Issues' category into the GitHub's README for further help."
+}
+
 panel_message = {
     "fr": f"""# __N'utilisez pas les commandes dans des serveurs, vous pouvez vous faire signaler__ #
 > ## [Support](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support) ##
@@ -143,13 +217,17 @@ Get started with `{config_selfbot.prefix}help`!
 You can use every commands safely, in this panel."""
 }
 
+
+# -- Commands --
+
 ####################
 #  help            #
 # translation !!!  #
 ####################
 
-poetry = {
-            "fr": [
+
+# You can put any poetry, no need to translate these
+poetry = {"fr": [
             "Jour meilleur n'existe qu'avec douleur.",
             "La seule personne que vous êtes destiné à devenir est la personne que vous décidez d'être.",
             "L'avenir appartient à ceux qui croient en la beauté de leurs rêves.",
@@ -179,9 +257,10 @@ poetry = {
             "Don't wait for the perfect moment; take the moment and make it perfect.",
             "The only way to do great work is to love what you do.",
             "Believe you can, and you're halfway there.",
-            "Don't watch the clock; do what it does. Keep going"
-            ],
-        }
+            "Don't watch the clock; do what it does. Keep going."
+            ]
+}
+
 
 help_voice = {
     "fr": "Vocal",
@@ -353,7 +432,7 @@ help_backup_note = {
     "fr": "Les abckups prennent énormément de temps à se charger, soyez patient!",
     "en": "Backups take a long time to load, be patient!"
 }
-# le attention ça prend 10 minutes, le vous pouvez mettre l'ID du serveur sinonça pred celui où t'as envoyé le msg
+
 help_backup_delete = {
     "fr": "Supprime une backup avec son ID.",
     "en": "Delete a backup with its ID."
@@ -415,6 +494,11 @@ bio_command = {
     "en": "changed to"
 }
 
+####################
+#  raid            #
+# translation !!!  #
+####################
+
 spam_cooldown = {
     "fr": f"❌ Un spam est déjà en cours ! Pour l'arrêter, faites `{config_selfbot.prefix}restart`.",
     "en": f"❌ A spam is already active! To spam the current spam, do `{config_selfbot.prefix}restart`."
@@ -434,6 +518,11 @@ only_dm_fun = {
     "fr": "❌ Cette commande n'est disponible qu'en MP!",
     "en": "❌ You must use this command in DM!"
 }
+
+####################
+#  voice           #
+# translation !!!  #
+####################
 
 voice_join = {
     "fr": "Connecté au salon vocal",
@@ -470,6 +559,12 @@ nitro_sniper_invalid_code = {
     "en": "is invalid!"
 }
 
+
+####################
+#  fun            #
+# translation !!!  #
+####################
+
 fun_hack_step_one = {
     "fr": "aquage de",
     "en": "hacking"
@@ -503,6 +598,11 @@ fun_copy_user_fail = {
 fun_token = {
     "fr": "Début du token de",
     "en": "Start of the token of"
+}
+
+config_lang_invalid = {
+    "fr": "❌ Veuillez indiquer une langue valide !",
+    "en": "❌ Please give a valid language!"
 }
 
 info_title = {
@@ -550,6 +650,13 @@ info_username = {
     "en": "Username"
 }
 
+
+####################
+#  raid            #
+# translation !!!  #
+####################
+
+
 raid_in_process = {
     "fr": "☣️ Raid en cours...",
     "en": "☣️ Raid in progress..."
@@ -590,6 +697,13 @@ raid_dm_all_success = {
     "en": "✅ Succesfully sent message to all friends!"
 }
 
+
+####################
+#  tool            #
+# translation !!!  #
+####################
+
+
 tool_close_dms = {
     "fr": "🔧 Fermeture de tout vos MP...",
     "en": "🔧 Closing all your DMs..."
@@ -625,12 +739,36 @@ tool_close_dms_bots_success = {
     "en": "✅ All of your DMs with bots has been closed!"
 }
 
+tool_auto_bump_one = {
+    "fr": "Serveur bumpé",
+    "en": "Bumped server"
+}
+
+tool_auto_bump_two = {
+    "fr": "pour la",
+    "en": "for the"
+}
+
+tool_auto_bump_three = {
+    "fr": "fois",
+    "en": "time"
+}
+
+tool_auto_bump_four = {
+    "fr": "Encore besoin de bumper",
+    "en": "Still need to bump"
+}
+
+tool_auto_bump_five = {
+    "fr": "fois dans",
+    "en": "time in"
+}
+
+
 ####################
 #  rpc             #
 # translation !!!  #
 ####################
-
-
 
 rpc_name_translate = {
     "fr": "Défini le nom du RPC",
@@ -701,7 +839,7 @@ rpc_button_link_two_translate = {
 
 
 ####################
-# template         #
+# templates        #
 # translation !!!  #
 ####################
 
@@ -790,8 +928,6 @@ template_reload = {
     "en": "✅ Templates images updated!"
 }
 
-
-
 rpc_cod_details = {
     "fr": "En attente de mission...",
     "en": "Waiting for a mission..."
@@ -817,6 +953,11 @@ tutorial_rpc = {
 }
 
 
+
+####################
+#  backup          #
+# translation !!!  #
+####################
 
 backup_saving = {
     "fr": "🔁 Création de la backup en cours...",

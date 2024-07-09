@@ -41,8 +41,8 @@ class ToolsCommands(commands.Cog):
 
         for i in range(count):
             await command.__call__(channel=ctx.channel)
-            log.success(f"""Bumped {ctx.guild.name}({ctx.guild.id}) for the {i + 1} time.
-Still need to bump {count - i - 1} time in {ctx.channel.name}({ctx.channel.id}).""")
+            log.success(f"""{langs.tool_auto_bump_one[config_selfbot.lang]} {ctx.guild.name}({ctx.guild.id}) {langs.tool_auto_bump_two[config_selfbot.lang]} {i + 1} {langs.tool_auto_bump_three[config_selfbot.lang]}.
+{langs.tool_auto_bump_four[config_selfbot.lang]} {count - i - 1} {langs.tool_auto_bump_five[config_selfbot.lang]} {ctx.channel.name}({ctx.channel.id}).""")
             await asyncio.sleep(random_cooldown(7200, 7387))
 
     @commands.command()

@@ -37,14 +37,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("👋 Template \"hi !\".", delete_after=config_selfbot.deltime)
         elif choice == "omori":
@@ -68,14 +69,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("💡 Template \"Omori\".", delete_after=config_selfbot.deltime)
         elif choice == "cod":
@@ -99,14 +101,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🔫 Template \"Call Of Duty\".", delete_after=config_selfbot.deltime)
         elif choice == "youtube":
@@ -130,14 +133,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🎦 Template \"YouTube\".", delete_after=config_selfbot.deltime)
         elif choice == "car":
@@ -161,14 +165,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🏎️ Template \"Car\".", delete_after=config_selfbot.deltime)
         elif choice == "js":
@@ -192,14 +197,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("👨‍💻 Template \"JavaScript\".", delete_after=config_selfbot.deltime)
         elif choice == "python":
@@ -223,14 +229,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("👨‍💻 Template \"Python\".", delete_after=config_selfbot.deltime)
         elif choice == "webdeck":
@@ -254,14 +261,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("📱 Template \"WebDeck\".", delete_after=config_selfbot.deltime)
         elif choice == "nuclear":
@@ -285,14 +293,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🌌 Template \"Nuclear\".", delete_after=config_selfbot.deltime)
         elif choice == "dark":
@@ -315,14 +324,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🖤 Template \"Dark\".", delete_after=config_selfbot.deltime)
         elif choice == "gta":
@@ -346,14 +356,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".", delete_after=config_selfbot.deltime)
         elif choice == "tiktok":
@@ -377,14 +388,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("📱 Template \"TikTok\".", delete_after=config_selfbot.deltime)
         elif choice == "reset":
@@ -408,14 +420,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🔄️ RPC Reset.", delete_after=config_selfbot.deltime)
         elif choice == "default":
@@ -434,14 +447,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🔄️ RPC \"Default\".", delete_after=config_selfbot.deltime)
         elif choice == "clear":
@@ -451,14 +465,15 @@ class TemplatesCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"Failed to set custom Rich Presence: {e}. Re-trying withouth push-notifications-keeping...")
+                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=None,
                                                    edit_settings=False)
-                    log.success("Rich Presence successfully set (withouth push-notifications-keeping).")
+                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
-                    log.alert(f"Failed to set custom Rich Presence.\nError: {e} . Please check the 'Issues' category into the GitHub's README for further help.")
+                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    return
 
             await ctx.message.edit("🚮 RPC \"Clear\".", delete_after=config_selfbot.deltime)
         else:
