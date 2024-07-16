@@ -51,10 +51,12 @@ except ImportError:
     import discord
     from discord.ext import commands
     import nacl
+    print("75%, Imported requried modules!")
 
 print("100%")
 print("========================")
 
+# Clear terminal
 os.system('cls' if os.name == 'nt' else 'clear')
 
 print(fr"""{Fore.LIGHTCYAN_EX}$$\   $$\                     $$\                               
@@ -66,7 +68,7 @@ $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |
 $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
 \__|  \__| \______/  \_______|\__| \_______| \_______|\__|  v{__version__}{Style.RESET_ALL}""")
 
-
+# Change terminal title
 def set_terminal_title(title):
     system = platform.system()
     if system == 'Windows':
@@ -83,14 +85,19 @@ except Exception as e:
    log.warning(f"Error while trying to change the terminal name: {e}")
 
 
+# Ask for required informations
 if config_selfbot.token == "":
    config_selfbot.token = input("Token: ")
 
+# You can add add your language here
 if config_selfbot.lang == "":
-   print("""Language Choice / Choix de la langue:
-fr: Français
-en: English""")
-   config_selfbot.lang = input("fr / en: ")
+   print(f"""Language Choice:
+{langs.English.lang_short}: {langs.English.lang_name}
+{langs.French.lang_short}: {langs.French.lang_name}
+{langs.Spanish.lang_short}: {langs.Spanish.lang_name}
+{langs.Japanese.lang_short}: {langs.Japanese.lang_name}
+""")
+   config_selfbot.lang = input(f"{langs.languages}: ")
 
 if config_selfbot.prefix == "":
    config_selfbot.prefix = input("Prefix: ")

@@ -58,8 +58,18 @@ _from = {
     "en": "from"
 }
 
-async def save_guild(guild: discord.Guild, channels):
-    """Save the given guild into ./backups/guild_id.json"""
+async def save_guild(guild: discord.Guild,
+                     channels):
+    """|coro|
+
+    Save the given guild into ./backups/guild_id.json
+    
+    Parameters:
+    -----------
+    guild: :class:`discord.Guild`
+        The guild object to save.
+    channels: Sequence[:class:`discord.abc.GuildChannel`]
+        Commonly given from `discord.Guild.channels`."""
 
     log.separate_text(creating_backup[config_selfbot.lang])
     guild_info = {
@@ -220,7 +230,24 @@ async def load_guild(guild: discord.Guild,
                      backup,
                      minimal_cooldown,
                      maximum_cooldown):
-    """Load the given guild into the chosen guild."""
+    """|coro|
+
+    Load the given guild into the chosen guild.
+
+    Parameters:
+    -----------
+    guild: :class:`discord.Guild`
+        The guild to load.
+    channels: Sequence[:class:`discord.abc.GuildChannel`]
+        Commonly given from `discord.Guild.channels`.
+    backup: :class:`dict`
+        The backup to load from.
+    minimal_cooldown: :class:`int`
+        The minimal cooldown for the random load cooldown.
+    miximum_cooldown: :class:`int`
+        The maximal cooldown for the random load cooldown.
+    """
+
     log.separate_text(loading_backup[config_selfbot.lang])
     # Delete old channels
     for channel in channels:

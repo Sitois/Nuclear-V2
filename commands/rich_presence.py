@@ -40,12 +40,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -79,12 +77,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -118,12 +114,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -157,12 +151,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -196,12 +188,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -235,12 +225,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -274,12 +262,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -313,12 +299,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -352,12 +336,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -391,12 +373,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -429,12 +409,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -468,12 +446,10 @@ class RichPresenceCommands(commands.Cog):
                                            afk=True,
                                            idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
         except Exception as e:
-            log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
             try:
                 await self.bot.change_presence(status=discord.Status.idle,
                                                activity=activity,
                                                edit_settings=False)
-                log.success(langs.no_notification_rpc_success[config_selfbot.lang])
             except Exception as e:
                 log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                 return
@@ -507,12 +483,10 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
                     log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                     return
@@ -539,12 +513,10 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
                     log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                     return
@@ -570,12 +542,10 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
                     log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                     return
@@ -602,12 +572,10 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
                     log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                     return
@@ -634,12 +602,10 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
                     log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                     return
@@ -661,12 +627,10 @@ class RichPresenceCommands(commands.Cog):
                                                afk=True,
                                                idle_since=datetime.datetime(self.today_date.year, self.today_date.month, self.today_date.day))
             except Exception as e:
-                log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
                 try:
                     await self.bot.change_presence(status=discord.Status.idle,
                                                    activity=activity,
                                                    edit_settings=False)
-                    log.success(langs.no_notification_rpc_success[config_selfbot.lang])
                 except Exception as e:
                     log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
                     return

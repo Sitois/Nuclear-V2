@@ -5,19 +5,19 @@ import config_selfbot
 #    translation >.<  #
 #######################
 
-# Don't forget translation into utils/misc.py!
+# Don't forget translation into utils/misc.py and line 92 into main.py!
 
 # Available languages
 languages = "fr, en, es, jp"
 
 class English():
-    """English translation, feel free to open a pull request for any errors.
+    """English translation, feel free to open a pull request for any errors!
     https://github.com/Sitois/Nuclear-V2/pulls"""
-    lang_name = "Français"
-    lang_short = "fr"
+    lang_name = "English"
+    lang_short = "en"
 
     __author__ = "Sitois"
-    __contact__ = "https://github.com/Sitois"
+    __contact__ = "GitHub: https://github.com/Sitois" # You can put anything you want(Twitter, Discord...)
 
 class French():
     """Traduction française par Sitois, merci d'ouvrir une pull request pour toute erreurs !
@@ -26,7 +26,7 @@ class French():
     lang_short = "fr"
 
     __author__ = "Sitois"
-    __contact__ = "https://github.com/Sitois"
+    __contact__ = "GitHub: https://github.com/Sitois"
 
 class Spanish():
     """
@@ -35,7 +35,7 @@ class Spanish():
     lang_short = "es"
 
     __author__ = "" # TODO: Andor please
-    __contact__ = "https://github.com/"
+    __contact__ = " GitHub: https://github.com/"
 
 class Japanese():
     """
@@ -44,7 +44,7 @@ class Japanese():
     lang_short = "jp"
 
     __author__ = ""
-    __contact__ = "https://github.com/"
+    __contact__ = "GitHub: https://github.com/"
 
 
 # -- Main --
@@ -261,6 +261,50 @@ poetry = {"fr": [
             ]
 }
 
+optional = {
+    "fr": "Optionel",
+    "en": "Optional"
+}
+
+help_utils ={
+    "fr": "Divers",
+    "en": "Utils"
+}
+
+help_config = {
+    "fr": "Configuration",
+    "en": "Config"
+}
+
+help_raid = {
+    "fr": "Raid",
+    "en": "Raid"
+}
+
+help_backup = {
+    "fr": "Sauvegardes",
+    "en": "Backup"
+}
+
+help_rich_presence = {
+    "fr": "Rich Presence",
+    "en": "Rich Presence"
+}
+
+help_templates = {
+    "fr": "Templates",
+    "en": "Templates"
+}
+
+help_fun = {
+    "fr": "Fun",
+    "en": "Fun"
+}
+
+help_tools = {
+    "fr": "Outils",
+    "en": "Tools"
+}
 
 help_voice = {
     "fr": "Vocal",
@@ -274,8 +318,8 @@ help_general_hype = {
 }
 
 help_general_ping = {
-    "fr": "Affiche la latence du selfbot",
-    "en": "Display the selfbot's ping"
+    "fr": "Affiche la latence du selfbot.",
+    "en": "Display the selfbot's ping."
 }
 
 help_general_sniper = {
@@ -304,8 +348,8 @@ help_config_stop = {
 }
 
 help_general_bio = {
-    "fr": "Change la biographie du compte",
-    "en": "Change account's bio"
+    "fr": "Change la biographie du compte.",
+    "en": "Change account's bio."
 }
 
 help_general_snipe = {
@@ -324,63 +368,63 @@ help_general_user_info = {
 }
 
 help_voice_vc = {
-    "fr": "Rejoins le salon vocal",
-    "en": "Join the voice channel"
+    "fr": "Rejoins le salon vocal.",
+    "en": "Join the voice channel."
 }
 
 help_voice_cam = {
-    "fr": "Rejoins le salon vocal avec une fausse caméra",
-    "en": "Join the voice channel with a fake camera"
+    "fr": "Rejoins le salon vocal avec une fausse caméra.",
+    "en": "Join the voice channel with a fake camera."
 }
 
 help_voice_leave = {
-    "fr": "Quitte le salon vocal",
-    "en": "Leave the voice channnel"
+    "fr": "Quitte le salon vocal.",
+    "en": "Leave the voice channnel."
 }
 
 help_fun_cat = {
-    "fr": "Chat mignon 🐈",
-    "en": "Cute cat 🐈"
+    "fr": "Chat mignon 🐈.",
+    "en": "Cute cat 🐈."
 }
 
 help_fun_good = {
-    "fr": "Vous transforme en une Bonne Personne ! (*censure les insultes*)",
-    "en": "Transform you into a Good Person ! (*no insults*)"
+    "fr": "Vous transforme en une Bonne Personne ! (*censure les insultes*).",
+    "en": "Transform you into a Good Person ! (*no insults*)."
 }
 
 help_fun_token = {
-    "fr": "Renvoie le début du token de la personne mentionné",
-    "en": "Returns the beginning of the token of the mentionned user"
+    "fr": "Renvoie le début du token de la personne mentionné.",
+    "en": "Returns the beginning of the token of the mentionned user."
 }
 
 help_fun_hug = {
-    "fr": "Hug GIF (cute!)",
-    "en": "GIF de calin (mignon!!)"
+    "fr": "Hug GIF (cute!).",
+    "en": "GIF de calin (mignon!!)."
 }
 
 help_fun_call = {
-    "fr": "Spam d'appel (seulement en MP!)",
-    "en": "Join and Leave the voice (only in dm!)"
+    "fr": "Spam d'appel (seulement en MP!).",
+    "en": "Join and Leave the voice (only in dm!)."
 }
 
 help_fun_gift = {
-    "fr": "Envoie un faux lien Nitro",
-    "en": "Send a fake Nitro"
+    "fr": "Envoie un faux lien Nitro.",
+    "en": "Send a fake Nitro."
 }
 
 help_fun_hack = {
-    "fr": "aque quelqu'un (😈)",
-    "en": "hack someone fr (😈)"
+    "fr": "aque quelqu'un (😈).",
+    "en": "hack someone fr (😈)."
 }
 
 help_fun_femboy = {
-    "fr": "Indique le pourcentage de femboy-ité",
-    "en": "Return the femboy percent of someone"
+    "fr": "Indique le pourcentage de femboy-ité.",
+    "en": "Return the femboy percent of someone."
 }
 
 help_fun_slap = {
-    "fr": "Envoie une big gifle",
-    "en": "Send a slap GIF"
+    "fr": "Envoie une big gifle.",
+    "en": "Send a slap GIF."
 }
 
 help_raid_dmall = {
@@ -399,18 +443,18 @@ help_raid_kick = {
 }
 
 help_tools_close_dm = {
-    "fr": "Ferme tout vos MP",
-    "en": "Close all your DMs"
+    "fr": "Ferme tout vos MP.",
+    "en": "Close all your DMs."
 }
 
 help_tools_bump = {
-    "fr": "Bump automatiquement avec Disboard",
-    "en": "Automatically bump with Disboard"
+    "fr": "Bump automatiquement avec Disboard.",
+    "en": "Automatically bump with Disboard."
 }
 
 help_tools_close_dm_bots = {
-    "fr": "Ferme tout vos MP avec des bots",
-    "en": "Close all your DMs with bots"
+    "fr": "Ferme tout vos MP avec des bots.",
+    "en": "Close all your DMs with bots."
 }
 
 help_backup_backups = {
@@ -776,68 +820,69 @@ tool_auto_bump_five = {
 ####################
 
 rpc_name_translate = {
-    "fr": "Défini le nom du RPC",
-    "en": "Set RPC's name"
+    "fr": "Défini le nom du RPC.",
+    "en": "Set RPC's name."
 }
 
 rpc_details_translate = {
-    "fr": "Défini les details du RPC",
-    "en": "Set RPC's details"
+    "fr": "Défini les details du RPC.",
+    "en": "Set RPC's details."
 }
 
 rpc_state_translate = {
-    "fr": "Défini le \"state\" du RPC",
-    "en": "Set RPC's state"
+    "fr": "Défini le \"state\" du RPC.",
+    "en": "Set RPC's state."
 }
 
 rpc_url_translate = {
-    "fr": "Défini l'url de steaming du RPC ``(https://twitch.tv/nom)``",
-    "en": "Set RPC's streaming URL ``(https://twitch.tv/name)``"
+    "fr": "Défini l'url de steaming du RPC ``(https://twitch.tv/nom)``.",
+    "en": "Set RPC's streaming URL ``(https://twitch.tv/name)``."
 }
 
 rpc_type_translate = {
-    "fr": "Défini le type de votre RPC (game / watch / listen / stream)",
-    "en": "Set RPC's type (game / watch / listen / stream)"
+    "fr": "Défini le type de votre RPC (game / watch / listen / stream).",
+    "en": "Set RPC's type (game / watch / listen / stream)."
 }
 
 rpc_large_image_translate = {
-    "fr": "Défini la grande image du RPC",
-    "en": "Set RPC's large image"
+    "fr": "Défini la grande image du RPC.",
+    "en": "Set RPC's large image."
 }
 
 rpc_large_text_translate = {
-    "fr": "Défini le texte de la grande image du RPC",
-    "en": "Set RPC's large image text"
+    "fr": "Défini le texte de la grande image du RPC.",
+    "en": "Set RPC's large image text."
 }
 
 rpc_small_image_translate = {
-    "fr": "Défini la petite image du RPC",
-    "en": "Set RPC's small image"
+    "fr": "Défini la petite image du RPC.",
+    "en": "Set RPC's small image."
 }
 
 rpc_small_text_translate = {
-    "fr": "Défini le texte de la petite image du RPC",
-    "en": "Set RPC's small image text"
+    "fr": "Défini le texte de la petite image du RPC.",
+    "en": "Set RPC's small image text."
 }
 
 rpc_button_text_one_translate = {
-    "fr": "Défini le texte du premier bouton du RPC",
-    "en": "Set RPC's first button text"
+    "fr": "Défini le texte du premier bouton du RPC.",
+    "en": "Set RPC's first button text."
 }
 
+# TODO: WAITING FOR discord.py-self to add RPC buttons links.
 rpc_button_link_one_translate = {
-    "fr": "Défini le lien du premier bouton du RPC",
-    "en": "Set RPC's first button link"
+    "fr": "Défini le lien du premier bouton du RPC.",
+    "en": "Set RPC's first button link."
 }
 
 rpc_button_text_two_translate = {
-    "fr": "Défini le texte du second bouton du RPC",
-    "en": "Set RPC's second button text"
+    "fr": "Défini le texte du second bouton du RPC.",
+    "en": "Set RPC's second button text."
 }
 
 rpc_button_link_two_translate = {
-    "fr": "Défini le lien du second bouton du RPC",
-    "en": "Set RPC's second button link"
+    "fr": "Défini le lien du second bouton du RPC.",
+    "en": "Set RPC's second button link."
 }
 
 
