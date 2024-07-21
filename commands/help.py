@@ -61,7 +61,7 @@ poetry = {"fr": [
             "Cada esfuerzo cuenta.",
             "Las montañas más altas tienen las pendientes más empinadas.",
             "Los destellos de luz atraviesan la oscuridad más profunda.",
-            ]
+            ],
 
             "jp": [
             "あなたの態度があなたの方向を決めます。",
