@@ -1,12 +1,13 @@
 import discord
 from discord.ext import commands
-import datetime
-import time
-from utils import rpc, log
+
+import datetime, time
 
 import config_selfbot
-import langs
+from utils import rpc, Lang, log
 
+lang = Lang(path=r".\translations",
+            default_language='en_US')
 
 class RichPresenceCommands(commands.Cog):
     def __init__(self, bot):
@@ -45,7 +46,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Details: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -82,7 +83,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Name: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -119,7 +120,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| State: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -144,7 +145,7 @@ class RichPresenceCommands(commands.Cog):
                                     assets=assets,
                                     application_id=config_selfbot.application_id,
                                     buttons=[config_selfbot.activity_button_one if rpc.read_variable_json("activity_button_one") == "VOID" else rpc.read_variable_json("activity_button_one"), config_selfbot.activity_button_two if rpc.read_variable_json("activity_button_two") == "VOID" else rpc.read_variable_json("activity_button_two")])
-            
+
         try:
             await self.bot.change_presence(status=discord.Status.idle,
                                            activity=activity,
@@ -156,7 +157,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Stream URL: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -193,7 +194,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Large Image: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -230,7 +231,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Large image text: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -267,7 +268,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Small Image: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -304,7 +305,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Small image text: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -341,7 +342,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Button One Text: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -378,7 +379,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️|Button Text Two: `{message_content}`", delete_after=config_selfbot.deltime)
@@ -414,7 +415,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Button One Link: `{message_content}`")
@@ -451,7 +452,7 @@ class RichPresenceCommands(commands.Cog):
                                                activity=activity,
                                                edit_settings=False)
             except Exception as e:
-                log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                 return
 
         await ctx.message.edit(f"🕹️| Button Link Two: `{message_content}`")
@@ -488,7 +489,7 @@ class RichPresenceCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🎮 **Type:** \"Game\".", delete_after=config_selfbot.deltime)
@@ -518,7 +519,7 @@ class RichPresenceCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("📺 **Type:** \"Watching\".", delete_after=config_selfbot.deltime)
@@ -547,7 +548,7 @@ class RichPresenceCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🎉 **Type:** \"Competing\".", delete_after=config_selfbot.deltime)
@@ -577,7 +578,7 @@ class RichPresenceCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🎧 **Type:** \"Listening\".", delete_after=config_selfbot.deltime)
@@ -607,7 +608,7 @@ class RichPresenceCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("⭕ **Type:** \"Stream\".", delete_after=config_selfbot.deltime)
@@ -632,9 +633,9 @@ class RichPresenceCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🎮 **Type:** \"Xbox\".", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]} (`play` / `watch` / `listen` / `stream` / `competing` / `xbox`)", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"❌ {lang.text('incorrect')} (`play` / `watch` / `listen` / `stream` / `competing` / `xbox`)", delete_after=config_selfbot.deltime)

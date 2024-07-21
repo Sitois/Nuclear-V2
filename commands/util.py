@@ -1,12 +1,13 @@
 import discord
 from discord.ext import commands
-import asyncio
-import time
 
-from utils import random_cooldown
+import asyncio, time
+
 import config_selfbot
-import langs
+from utils import Lang, random_cooldown
 
+lang = Lang(path=r".\translations",
+            default_language='en_US')
 
 class UtilsCommands(commands.Cog):
     def __init__(self, bot):
@@ -31,18 +32,18 @@ class UtilsCommands(commands.Cog):
     async def snipe(self, ctx: commands.Context):
         sniped_message = self.sniped_messages.get(ctx.channel.id)
         if sniped_message:
-            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else langs.empty[config_selfbot.lang]
+            images_text = ", ".join(sniped_message['images']) if not sniped_message['images'] is None else lang.text('empty')
             await ctx.message.edit(f"""__**🔫 Sniper:**__
 
-🗣️ {langs.author[config_selfbot.lang]}: {sniped_message['author']}
+🗣️ {lang.text('author')}: {sniped_message['author']}
 📩 Message:
 ```txt
 {sniped_message['content']}
 ```
 🖼️ Images: {images_text}
-⌚ {langs.time_snipe[config_selfbot.lang]}: <t:{sniped_message['time']}:R>""", delete_after=config_selfbot.deltime)
+⌚ {lang.text('time_snipe')}: <t:{sniped_message['time']}:R>""", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.error_no_message_snipe[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('error_no_message_snipe'), delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def clear(self, ctx: commands.Context):
@@ -55,7 +56,7 @@ class UtilsCommands(commands.Cog):
         try:
             amount = int(str_amount) + 1
         except Exception:
-            await ctx.message.edit(langs.spam_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('spam_invalid'), delete_after=config_selfbot.deltime)
             return
 
         await ctx.message.edit(f"> 🌌 **{config_selfbot.selfbot_name}**", delete_after=1.7)
@@ -66,7 +67,7 @@ class UtilsCommands(commands.Cog):
                 await asyncio.sleep(random_cooldown(0.4, 1))
         """
         This can hardly rate limit you because user don't have access to bulk-message-delete endpoint.
-        
+
         else:
             def is_me(m):
                 return m.author.id == self.bot.user.id
@@ -78,15 +79,15 @@ class UtilsCommands(commands.Cog):
         house = ctx.message.content.split()[1]
         if house == "balance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.balance)
-            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"🪄 HypeSquad {lang.text('hype_command')} ``{house}``", delete_after=config_selfbot.deltime)
         elif house == "bravery":
             await self.bot.user.edit(house=discord.HypeSquadHouse.bravery)
-            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"🪄 HypeSquad {lang.text('hype_command')} ``{house}``", delete_after=config_selfbot.deltime)
         elif house == "brilliance":
             await self.bot.user.edit(house=discord.HypeSquadHouse.brilliance)
-            await ctx.message.edit(f"🪄 HypeSquad {langs.hype_command[config_selfbot.lang]} ``{house}``", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"🪄 HypeSquad {lang.text('hype_command')} ``{house}``", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.hype_fail[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('hype_fail'), delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def ping(self, ctx: commands.Context):
@@ -97,7 +98,7 @@ class UtilsCommands(commands.Cog):
         message_split = ctx.message.content.split()
         new_bio = ctx.message.content.replace(f"{message_split[0]} ", "")
         await self.bot.user.edit(bio=new_bio)
-        await ctx.message.edit(f"📖 Bio {langs.bio_command[config_selfbot.lang]} \"`{new_bio}`\"", delete_after=config_selfbot.deltime)
+        await ctx.message.edit(f"📖 Bio {lang.text('bio_command')} \"`{new_bio}`\"", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def userinfo(self, ctx: commands.Context):
@@ -118,17 +119,16 @@ class UtilsCommands(commands.Cog):
         else:
             roles = []
 
-        message = f"""🗒️| {langs.info_title[config_selfbot.lang]} <@{user.id}> :
->  👤| {langs.info_global[config_selfbot.lang]}: `{user.global_name}`
->  🌐| {langs.info_username[config_selfbot.lang]}: `{user.name}`
+        message = f"""🗒️| {lang.text('info_title')} <@{user.id}> :
+>  👤| {lang.text('info_global')}: `{user.global_name}`
+>  🌐| {lang.text('info_username')}: `{user.name}`
 >  🆔| ID: `{user.id}`
->  🌈| {langs.info_banner[config_selfbot.lang]}: {"[" + langs.info_banner_link[config_selfbot.lang] + "](" + user.banner.url + ")" if not user.banner is None else "`" + langs.empty[config_selfbot.lang] + "`"}
->  📅| {langs.info_created_at[config_selfbot.lang]}: `{user.created_at.strftime('%Y/%m/%d %H:%M:%S')}`
->  🖼️| {langs.info_avatar[config_selfbot.lang]}: {"[" + langs.info_avatar_link[config_selfbot.lang] + "](" + user.avatar.url + ")" if not user.avatar is None else "`" + langs.empty[config_selfbot.lang] + "`"}"""
+>  🌈| {lang.text('info_banner')}: {"[" + lang.text('info_banner_link') + "](" + user.banner.url + ")" if not user.banner is None else "`" + lang.text('empty') + "`"}
+>  📅| {lang.text('info_created_at')}: `{user.created_at.strftime('%Y/%m/%d %H:%M:%S')}`
+>  🖼️| {lang.text('info_avatar')}: {"[" + lang.text('info_avatar_link') + "](" + user.avatar.url + ")" if not user.avatar is None else "`" + lang.text('empty') + "`"}"""
 
         if roles:
-            message += f"\n>  🎭| {langs.info_roles[config_selfbot.lang]}: {', '.join(roles)}"
-
+            message += f"\n>  🎭| {lang.text('info_roles')}: {', '.join(roles)}"
 
         await ctx.message.edit(message, delete_after=config_selfbot.deltime)
 

@@ -1,3 +1,10 @@
+"""
+Nuclear.commands
+~~~~~~~~~~~~~
+
+Commands folder with Cogs(collection of commands).
+"""
+
 from .help import HelpCommands
 from .util import UtilsCommands
 from .fun import FunCommands

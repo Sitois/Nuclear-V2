@@ -1,10 +1,11 @@
 from discord.ext import commands
 import os, json, asyncio
 
-from utils import log, save_guild, load_guild, random_cooldown
+from utils import log, Lang, save_guild, load_guild, random_cooldown
 import config_selfbot
-import langs
 
+lang = Lang(path=r".\translations",
+            default_language='en_US')
 
 class BackupCommands(commands.Cog):
     def __init__(self, bot):
@@ -23,28 +24,28 @@ class BackupCommands(commands.Cog):
         backup_file = f"./backups/{guild.id}.json"
 
         if os.path.exists(backup_file):
-            await ctx.message.edit(f"{langs.backup_save_already_exist[config_selfbot.lang]} {guild.name} {langs.backup_save_already_exist_two[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"{lang.text('backup_save_already_exist')} {guild.name} {lang.text('backup_save_already_exist_two')}", delete_after=config_selfbot.deltime)
             return
 
-        await ctx.message.edit(langs.backup_saving[config_selfbot.lang])
+        await ctx.message.edit(lang.text('backup_saving'))
 
         await save_guild(guild,
                          guild_channels)
 
-        await ctx.message.edit(f"{langs.backup_success_save[config_selfbot.lang]}: {guild.name}", delete_after=config_selfbot.deltime)
+        await ctx.message.edit(f"{lang.text('backup_success_save')}: {guild.name}", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def backups(self, ctx: commands.Context):
         backups_list = os.listdir("backups")
         if not backups_list:
-            await ctx.message.edit(langs.no_backup_error[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('no_backup_error'), delete_after=config_selfbot.deltime)
             return
 
-        response = f"__**🗒️| {langs.backup_list[config_selfbot.lang]}**__"
+        response = f"__**🗒️| {lang.text('backup_list')}**__"
         for backup_file in backups_list:
             with open(f"./backups/{backup_file}", "r") as f:
                 guild_info = json.load(f)
-                response += f"{guild_info['name']} (ID: `{guild_info['id']}`)\n"
+                response += f"👥{guild_info['name']} (🪪ID: `{guild_info['id']}`)\n"
 
         await ctx.message.edit(response, delete_after=config_selfbot.deltime)
 
@@ -53,11 +54,11 @@ class BackupCommands(commands.Cog):
         try:
             backup_id = ctx.message.content.split()[1]
         except Exception:
-            await ctx.message.edit(langs.backup_id_required[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('backup_id_required'), delete_after=config_selfbot.deltime)
             return
 
         if not os.path.exists(f"./backups/{backup_id}.json"):
-            await ctx.message.edit(langs.backup_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('backup_invalid'), delete_after=config_selfbot.deltime)
             return
 
         try:
@@ -69,39 +70,39 @@ class BackupCommands(commands.Cog):
             guild_channels = guild.channels
 
         if not guild.me.guild_permissions.administrator:
-            await ctx.message.edit(langs.backup_no_permissions[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('backup_no_permissions'), delete_after=config_selfbot.deltime)
             return
 
         with open(f"./backups/{backup_id}.json", "r") as f:
             backup = json.load(f)
 
-        await ctx.message.edit(langs.backup_loading[config_selfbot.lang])
+        await ctx.message.edit(lang.text('backup_loading'))
 
         await load_guild(guild,
                          guild_channels,
                          backup,
                          0.8, 25.6)
 
-        await ctx.message.edit(langs.backup_done[config_selfbot.lang])
+        await ctx.message.edit(lang.text('backup_done'))
 
-        log.success(f"./backups/{backup_id}.json: {langs.backup_done[config_selfbot.lang]}")
+        log.success(f"./backups/{backup_id}.json: {lang.text('backup_done')}")
 
     @commands.command()
     async def delete(self, ctx: commands.Context):
         try:
             backup_id = ctx.message.content.split()[1]
         except Exception:
-            await ctx.message.edit(langs.backup_id_required[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('backup_id_required'), delete_after=config_selfbot.deltime)
             return
 
         backup_file = f"./backups/{backup_id}.json"
         if not os.path.exists(backup_file):
-            await ctx.message.edit(langs.backup_invalid[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('backup_invalid'), delete_after=config_selfbot.deltime)
             return
 
         with open(f"./backups/{backup_file}", "r") as f:
             guild_info = json.load(f)
 
-        await ctx.message.edit(f"{guild_info['name']}: {langs.backup_delete_done[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+        await ctx.message.edit(f"{guild_info['name']}: {lang.text('backup_delete_done')}", delete_after=config_selfbot.deltime)
 
         os.remove(backup_file)

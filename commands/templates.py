@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
-import datetime
-import time
-from utils import rpc, log
+
+import datetime, time
 
 import config_selfbot
-import langs
+from utils import rpc, Lang, log
+
+lang = Lang(path=r".\translations",
+            default_language='en_US')
 
 class TemplatesCommands(commands.Cog):
     def __init__(self, bot):
@@ -42,7 +44,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("👋 Template \"hi !\".", delete_after=config_selfbot.deltime)
@@ -72,7 +74,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("💡 Template \"Omori\".", delete_after=config_selfbot.deltime)
@@ -84,8 +86,8 @@ class TemplatesCommands(commands.Cog):
                       }
             activity = discord.Activity(type=discord.ActivityType.playing,
                                         name="Call Of Duty: MWIII",
-                                        details=langs.rpc_cod_details[config_selfbot.lang],
-                                        state=langs.rpc_cod_state[config_selfbot.lang],
+                                        details=lang.text('rpc_cod_details'),
+                                        state=lang.text('rpc_cod_state'),
                                         timestamps={"start": time.time()},
                                         assets=assets,
                                         application_id=1193291951290712154,
@@ -102,7 +104,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🔫 Template \"Call Of Duty\".", delete_after=config_selfbot.deltime)
@@ -132,7 +134,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🎦 Template \"YouTube\".", delete_after=config_selfbot.deltime)
@@ -162,7 +164,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🏎️ Template \"Car\".", delete_after=config_selfbot.deltime)
@@ -192,7 +194,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("👨‍💻 Template \"JavaScript\".", delete_after=config_selfbot.deltime)
@@ -222,7 +224,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("👨‍💻 Template \"Python\".", delete_after=config_selfbot.deltime)
@@ -252,7 +254,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("📱 Template \"WebDeck\".", delete_after=config_selfbot.deltime)
@@ -282,7 +284,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🌌 Template \"Nuclear\".", delete_after=config_selfbot.deltime)
@@ -311,7 +313,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🖤 Template \"Dark\".", delete_after=config_selfbot.deltime)
@@ -341,7 +343,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🔫 Template \"Grand Theft Auto VI\".", delete_after=config_selfbot.deltime)
@@ -371,7 +373,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("📱 Template \"TikTok\".", delete_after=config_selfbot.deltime)
@@ -401,7 +403,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🔄️ RPC Reset.", delete_after=config_selfbot.deltime)
@@ -426,7 +428,7 @@ class TemplatesCommands(commands.Cog):
                                                    activity=activity,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🔄️ RPC \"Default\".", delete_after=config_selfbot.deltime)
@@ -442,14 +444,14 @@ class TemplatesCommands(commands.Cog):
                                                    activity=None,
                                                    edit_settings=False)
                 except Exception as e:
-                    log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+                    log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
                     return
 
             await ctx.message.edit("🚮 RPC \"Clear\".", delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(f"❌ {langs.incorrect[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"❌ {lang.text('incorrect')}", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def reload(self, ctx: commands.Context):
         self.templates_assets = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
-        await ctx.message.edit(langs.template_reload[config_selfbot.lang], delete_after=config_selfbot.deltime)
+        await ctx.message.edit(lang.text('template_reload'), delete_after=config_selfbot.deltime)

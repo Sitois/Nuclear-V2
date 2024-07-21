@@ -11,9 +11,8 @@ try:
     import threading
     import asyncio
     import config_selfbot
-    import langs
     print("25%, Loaded required python-integrated libraries.")
-    from utils import rpc, log, __version__
+    from utils import rpc, log, __version__, Lang
     print("35%, Loading commands...")
     from commands import *
     from colorama import Fore, Style, Back
@@ -39,9 +38,8 @@ except ImportError:
     import threading
     import asyncio
     import config_selfbot
-    import langs
     print("25%, Loading required python-integrated libraries...")
-    from utils import rpc, log, __version__
+    from utils import rpc, log, __version__, Lang
     print("35%, Loading commands...")
     from commands import *
     from colorama import Fore, Style, Back
@@ -68,8 +66,12 @@ $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |
 $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
 \__|  \__| \______/  \_______|\__| \_______| \_______|\__|  v{__version__}{Style.RESET_ALL}""")
 
+lang = Lang(path=r".\translations",
+            default_language='en_US')
+
 # Change terminal title
-def set_terminal_title(title):
+def set_terminal_title(title: str):
+    """Changes the terminal title."""
     system = platform.system()
     if system == 'Windows':
         ctypes.windll.kernel32.SetConsoleTitleW(title)
@@ -85,28 +87,33 @@ except Exception as e:
    log.warning(f"Error while trying to change the terminal name: {e}")
 
 
-# Ask for required informations
+# Ask for required informations if not already set up in config file.
 if config_selfbot.token == "":
-   config_selfbot.token = input("Token: ")
+    config_selfbot.token = input("Token: ")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(fr"""{Fore.LIGHTCYAN_EX}$$\   $$\                     $$\                               
+    $$$\  $$ |                    $$ |                              
+    $$$$\ $$ |$$\   $$\  $$$$$$$\ $$ | $$$$$$\   $$$$$$\   $$$$$$\  
+    $$ $$\$$ |$$ |  $$ |$$  _____|$$ |$$  __$$\  \____$$\ $$  __$$\ 
+    $$ \$$$$ |$$ |  $$ |$$ /      $$ |$$$$$$$$ | $$$$$$$ |$$ |  \__|
+    $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |      
+    $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
+    \__|  \__| \______/  \_______|\__| \_______| \_______|\__|  v{__version__}{Style.RESET_ALL}""")
 
-# You can add add your language here
+
 if config_selfbot.lang == "":
-   print(f"""Language Choice:
-{langs.English.lang_short}: {langs.English.lang_name}
-{langs.French.lang_short}: {langs.French.lang_name}
-{langs.Spanish.lang_short}: {langs.Spanish.lang_name}
-{langs.Japanese.lang_short}: {langs.Japanese.lang_name}
-""")
-   config_selfbot.lang = input(f"{langs.languages}: ")
+    print("Language Choice:")
+    print('\n'.join([f"{list(item.values())[0]}: {list(item.values())[2]}" for item in lang.languages()]))
+    config_selfbot.lang = input("Lang: ")
 
 if config_selfbot.prefix == "":
-   config_selfbot.prefix = input("Prefix: ")
+    config_selfbot.prefix = input("Prefix: ")
 
 if config_selfbot.selfbot_name == "":
-   config_selfbot.selfbot_name = input("Selfbot name: ")
+    config_selfbot.selfbot_name = input("Selfbot name: ")
 
 
-def check_latest_version(repo_owner, repo_name):
+def check_latest_version(repo_owner: str, repo_name: str):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
     response = requests.get(url)
 
@@ -122,19 +129,20 @@ check_loop = True
 # Check if it's a developement version, if it is, disable UpdateChecker
 try:
     if float(__version__) > float(check_latest_version('Sitois', 'Nuclear-V2').strip('v')):
-        log.warning(f"{langs.unstable_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear-V2/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+        log.warning(lang.text('unstable_version'))
         check_loop = False
 except Exception:
+    # Avoid crashes if the version is 'v1.1.1'.
     pass
 
 # Prevent from starting the selfbot with another discord library
 if discord.__title__ != "discord.py-self":
-    log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+    log.critical(lang.text('error_discord_version'))
     exit()
 
 # Prevent from starting the selfbot with the broken pip version
 if discord.__version__.startswith("2.0.0"):
-    log.critical(f"{langs.error_discord_version[config_selfbot.lang]} https://github.com/Sitois/Nuclear-V2/releases/tag/{check_latest_version('Sitois', 'Nuclear-V2')}")
+    log.critical(lang.text('error_discord_version'))
     exit()
 
 
@@ -145,8 +153,8 @@ def call_check_repo():
         latest_version = check_latest_version(repo_owner, repo_name)
         if latest_version:
             if not latest_version == f"v{__version__}":
-                log.info(f"""{langs.error_check_version_one[config_selfbot.lang]} ({latest_version}) {langs.error_check_version_two[config_selfbot.lang]} https://github.com/{repo_owner}/{repo_name}/releases/tag/{latest_version}
-{langs.error_check_version_three[config_selfbot.lang]} v{__version__}""")
+                log.info(f"""{lang.text('error_check_version_one')} ({latest_version}) {lang.text('error_check_version_two')} https://github.com/{repo_owner}/{repo_name}/releases/tag/{latest_version}
+{lang.text('error_check_version_three')} v{__version__}""")
             time.sleep(3600)
 
 def run_in_background():
@@ -159,7 +167,7 @@ if check_loop:
     except Exception as e:
         log.warning(f"Error while trying to check the last Nuclear version: {e}")
 
-log.start(langs.start_text[config_selfbot.lang])
+log.start(lang.text('start_text'))
 
 
 
@@ -182,7 +190,10 @@ async def handle_captcha(exc: discord.CaptchaRequired, bot: commands.Bot) -> str
 """
 
 # Define the bot instance
-bot = commands.Bot(command_prefix=config_selfbot.prefix, self_bot=True, help_command=None)#, captcha_handler=handle_captcha)
+bot = commands.Bot(command_prefix=config_selfbot.prefix,
+                   self_bot=True,
+                   #captcha_handler=handle_captcha),
+                   help_command=None)
 
 # Get the start timestamp to put the time it took to start at on_ready()
 start_time = time.time()
@@ -197,57 +208,57 @@ async def on_ready():
     # Load commands from cogs
     try:
         await bot.add_cog(HelpCommands(bot))
-        log.success(f"HelpCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"HelpCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"HelpCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"HelpCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(FunCommands(bot))
-        log.success(f"FunCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"FunCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"FunCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"FunCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(UtilsCommands(bot))
-        log.success(f"UtilsCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"UtilsCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"UtilsCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"UtilsCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(VoiceCommands(bot))
-        log.success(f"VoiceCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"VoiceCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"VoiceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"VoiceCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(ConfigCommands(bot))
-        log.success(f"ConfigCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"ConfigCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"ConfigCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"ConfigCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(RaidCommands(bot))
-        log.success(f"RaidCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"RaidCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"RaidCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"RaidCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(ToolsCommands(bot))
-        log.success(f"ToolsCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"ToolsCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"ToolsCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"ToolsCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(TemplatesCommands(bot))
-        log.success(f"TemplatesCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"TemplatesCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"TemplatesCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"TemplatesCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(RichPresenceCommands(bot))
-        log.success(f"RichPresenceCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"RichPresenceCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"RichPresenceCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"RichPresenceCommands: {lang.text('cog_fail')} {e}")
     try:
         await bot.add_cog(BackupCommands(bot))
-        log.success(f"BackupCommands: {langs.cog_success[config_selfbot.lang]}")
+        log.success(f"BackupCommands: {lang.text('cog_success')}")
     except Exception as e:
-        log.fail(f"BackupCommands: {langs.cog_fail[config_selfbot.lang]} {e}")
+        log.fail(f"BackupCommands: {lang.text('cog_fail')} {e}")
 
     # Print when the bot is ready to receive and answer to commands
-    log.alert(f"{langs.ready_text[config_selfbot.lang]} @{bot.user.name} ({bot.user.id}), {langs.ready_text_two[config_selfbot.lang]} {round(time.time()) - round(start_time)} {langs.ready_text_three[config_selfbot.lang]}")
+    log.alert(f"{lang.text('ready_text')} @{bot.user.name} ({bot.user.id}), {lang.text('ready_text_two')} {round(time.time()) - round(start_time)} {lang.text('ready_text_three')}")
 
     log.separate_magenta()
 
@@ -271,14 +282,14 @@ async def on_ready():
                                   afk=True,
                                   idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
     except Exception as e:
-        log.alert(f"{langs.no_notification_rpc_one[config_selfbot.lang]}\n{e}\n{langs.no_notification_rpc_two[config_selfbot.lang]}")
+        log.alert(f"{lang.text('no_notification_rpc_one')}\n{e}\n{lang.text('no_notification_rpc_two')}")
         try:
             await bot.change_presence(status=discord.Status.idle,
                                       activity=activity,
                                       edit_settings=False)
-            log.success(langs.no_notification_rpc_success[config_selfbot.lang])
+            log.success(lang.text('no_notification_rpc_success'))
         except Exception as e:
-            log.alert(f"{langs.error_rpc_one[config_selfbot.lang]}\n{e}\n{langs.error_rpc_two[config_selfbot.lang]}")
+            log.alert(f"{lang.text('error_rpc_one')}\n{e}\n{lang.text('error_rpc_two')}")
 
     if rpc.read_variable_json("create_panel"):
         with open('nuclear_icon.png', 'rb') as image:
@@ -287,7 +298,7 @@ async def on_ready():
         await asyncio.sleep(0.7)
         await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
         await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
-        msg = await panel.send(langs.panel_message[config_selfbot.lang])
+        msg = await panel.send(lang.text('panel_message'))
         await msg.unack()
         rpc.edit_variable_json("create_panel", False)
         log.alert("NuclearPanel successfully created (check DMs!).\nIf not, please check the 'Issues' category into the GitHub's README for further help.")
@@ -299,14 +310,14 @@ def restart_selfbot():
 
 @bot.command()
 async def restart(ctx: commands.Context):
-    await ctx.message.edit(langs.restart_command[config_selfbot.lang])
+    await ctx.message.edit(lang.text('restart_command'))
     time.sleep(2)
     await ctx.message.delete()
     restart_selfbot()
 
 @bot.command()
 async def stop(ctx: commands.Context):
-    await ctx.message.edit(langs.stop_command[config_selfbot.lang])
+    await ctx.message.edit(lang.text('stop_command'))
     time.sleep(2)
     await ctx.message.delete()
     await bot.close()
@@ -339,7 +350,7 @@ def fix_aiohttp():
         time.sleep(3)
         subprocess.check_call([sys.executable, "-m", "pip3", "install", "-U", "aiohttp"])
 
-    log.info(langs.aihottp_success[config_selfbot.lang])
+    log.info(lang.text('aihottp_success'))
     
     time.sleep(3)
 
@@ -357,16 +368,16 @@ try:
         bot.run(config_selfbot.token, log_handler=None)
 except discord.LoginFailure:
     # Log if the passed token is incorrect
-    log.critical(langs.token_error[config_selfbot.lang])
+    log.critical(lang.text('token_error'))
 except Exception as e:
     # Check what the error is from, and react
     if "400, message='Can not decode content-encoding: br'" in str(e):
         # If the Exception is about the old aiohttp error, it try to fix itself with fix_aiohttp()
-        log.warning(langs.aihottp_error[config_selfbot.lang])
+        log.warning(lang.text('aihottp_error'))
         fix_aiohttp()
     elif "4004" in str(e):
         # If the session has closed with 4004 (token has changed), log the error.
-        log.critical(langs.expired_token[config_selfbot.lang])
+        log.critical(lang.text('expired_token'))
     else:
         # Else, print the Exception.
-        log.critical(f"{langs.weird_error[config_selfbot.lang]} {e}")
+        log.critical(f"{lang.text('weird_error')} {e}")

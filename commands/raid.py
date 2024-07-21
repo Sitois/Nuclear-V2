@@ -1,11 +1,11 @@
-import discord
 from discord.ext import commands
 import asyncio
 
-from utils import log, generate_random_string, random_cooldown
+from utils import log, Lang, generate_random_string, random_cooldown
 import config_selfbot
-import langs
 
+lang = Lang(path=r".\translations",
+            default_language='en_US')
 
 class RaidCommands(commands.Cog):
     def __init__(self, bot):
@@ -17,7 +17,7 @@ class RaidCommands(commands.Cog):
         if ctx.author.guild_permissions.kick_members:
             members = ctx.guild.members
             
-            await ctx.message.edit(langs.raid_in_process[config_selfbot.lang])
+            await ctx.message.edit(lang.text('raid_in_process'))
 
             log.separate_text("KICK ALL")
 
@@ -25,20 +25,20 @@ class RaidCommands(commands.Cog):
                 if ctx.guild.me.top_role > member.top_role:
                     await member.kick(reason=f"{config_selfbot.kick_reason} {generate_random_string(6)}")
                     log.success(f"@{member.name}({member.id}")
-                    await asyncio.sleep(random_cooldown(0.5, 2))
+                    await asyncio.sleep(random_cooldown(0.5, 1.3))
 
             log.separate("KICK ALL")
 
-            await ctx.message.edit(langs.raid_kick_all_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('raid_kick_all_success'), delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('raid_error_permisssion'), delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def banall(self, ctx: commands.Context):
         if ctx.author.guild_permissions.ban_members:
             members = ctx.guild.members
 
-            await ctx.message.edit(langs.raid_in_process[config_selfbot.lang])
+            await ctx.message.edit(lang.text('raid_in_process'))
 
             log.separate_text("BAN ALL")
 
@@ -46,13 +46,13 @@ class RaidCommands(commands.Cog):
                 if ctx.guild.me.top_role > member.top_role:
                     await member.ban(reason=f"{config_selfbot.ban_reason}. {generate_random_string(6)}")
                     log.success(f"@{member.name}({member.id}")
-                    await asyncio.sleep(random_cooldown(0.5, 1.9))
+                    await asyncio.sleep(random_cooldown(0.5, 1.2))
 
             log.separate("BAN ALL")
 
-            await ctx.message.edit(langs.raid_ban_all_success[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('raid_ban_all_success'), delete_after=config_selfbot.deltime)
         else:
-            await ctx.message.edit(langs.raid_error_permisssion[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('raid_error_permisssion'), delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def spam(self, ctx: commands.Context):
@@ -62,17 +62,17 @@ class RaidCommands(commands.Cog):
         try:
             count = int(message_split[1]) - 1
         except Exception:
-            await ctx.message.edit(f"{langs.spam_invalid[config_selfbot.lang]}!", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"{lang.text('spam_invalid')}!", delete_after=config_selfbot.deltime)
             return
         
         if count >= 100:
-            await ctx.message.edit(langs.spam_too_much[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('spam_too_much'), delete_after=config_selfbot.deltime)
             return
 
         try:
             message_split[2]
         except Exception:
-            await ctx.message.edit(langs.raid_dm_all_fail[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('raid_dm_all_fail'), delete_after=config_selfbot.deltime)
             return
 
         if not self.is_spamming:
@@ -82,70 +82,14 @@ class RaidCommands(commands.Cog):
 
             for i in range(count):
                 await ctx.channel.send(content)
-                await asyncio.sleep(random_cooldown(0.5, 2))
+                await asyncio.sleep(random_cooldown(0.5, 1.3))
             self.is_spamming = False
         else:
-            await ctx.message.edit(langs.spam_cooldown[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('spam_cooldown'), delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def flood(self, ctx: commands.Context):
-        flood_spam = """_ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _
-        _ _"""
+        flood_spam = '_ _\n' * 52
         await ctx.message.edit(flood_spam)
         for i in range(2):
             await ctx.channel.send(flood_spam)

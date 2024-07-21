@@ -1,5 +1,6 @@
-import json
 import requests
+
+import json
 
 file_path = r"./utils/rpc.json"
 

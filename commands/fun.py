@@ -1,14 +1,14 @@
 import discord
 from discord.ext import commands
-import asyncio
-import random
 import requests
-import json
-import base64
+
+import asyncio, random, json, base64
 
 import config_selfbot
-import langs
+from utils import Lang
 
+lang = Lang(path=r".\translations",
+            default_language='en_US')
 
 class FunCommands(commands.Cog):
     def __init__(self, bot):
@@ -26,7 +26,7 @@ class FunCommands(commands.Cog):
     @commands.command()
     async def call(self, ctx: commands.Context):
         if not isinstance(ctx.channel, discord.DMChannel):
-            await ctx.message.edit(langs.only_dm_fun[config_selfbot.lang], delete_after=config_selfbot.deltime)
+            await ctx.message.edit(lang.text('only_dm_fun'), delete_after=config_selfbot.deltime)
             return
 
         try:
@@ -37,16 +37,16 @@ class FunCommands(commands.Cog):
                 await voice_client.disconnect()
                 await asyncio.sleep(1.3)
         except Exception as e:
-            print(f"{langs.voice_join_error[config_selfbot.lang]}: {e}")
+            print(f"{lang.text('voice_join_error')}: {e}")
 
     @commands.command()
     async def good(self, ctx: commands.Context):
         if self.good_person:
             self.good_person = False
-            await ctx.message.edit(f"🔥 Good Person {langs.disable[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"🔥 Good Person {lang.text('disable')}", delete_after=config_selfbot.deltime)
         else:
             self.good_person = True
-            await ctx.message.edit(f"🌈 Good Person {langs.enable[config_selfbot.lang]}", delete_after=config_selfbot.deltime)
+            await ctx.message.edit(f"🌈 Good Person {lang.text('enable')}", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def hug(self, ctx: commands.Context):
@@ -82,15 +82,15 @@ class FunCommands(commands.Cog):
             except Exception:
                 user = ctx.author
         
-        await ctx.message.edit(f"---{langs.fun_hack_step_one[config_selfbot.lang]} <@{user.id}>---")
+        await ctx.message.edit(f"---{lang.text('fun_hack_step_one')} <@{user.id}>---")
         await asyncio.sleep(2)
-        await ctx.message.edit(f"{langs.fun_hack_step_two[config_selfbot.lang]}...")
+        await ctx.message.edit(f"{lang.text('fun_hack_step_two')}...")
         await asyncio.sleep(2)
-        await ctx.message.edit(f"{langs.fun_hack_step_three[config_selfbot.lang]} {user.name}@gmail.com")
+        await ctx.message.edit(f"{lang.text('fun_hack_step_three')} {user.name}@gmail.com")
         await asyncio.sleep(2)
-        await ctx.message.edit(langs.fun_hack_step_four[config_selfbot.lang])
+        await ctx.message.edit(lang.text('fun_hack_step_four'))
         await asyncio.sleep(2)
-        await ctx.message.edit(f"{langs.fun_hack_step_five[config_selfbot.lang]} <@{user.id}>")
+        await ctx.message.edit(f"{lang.text('fun_hack_step_five')} <@{user.id}>")
 
     @commands.command()
     async def cat(self, ctx: commands.Context):
@@ -108,7 +108,6 @@ class FunCommands(commands.Cog):
             gift_type = ctx.message.content.split()[1]
         except Exception:
             gift_type = "random"
-        
 
         if gift_type == "poor":
             await ctx.message.edit("discord.gift/vhnuzE2YkNCZ7sfYHHKebKXB")
@@ -135,11 +134,11 @@ class FunCommands(commands.Cog):
         rng = random.randint(1, 100)
 
         if rng >= 85:
-            await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bQmRX.gif) 💅!")
+            await ctx.message.edit(f"<@{user.id}> {lang.text('is')} **{rng}%** [femboy](https://tenor.com/bQmRX.gif) 💅!")
         elif rng >= 75:
-            await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** [femboy](https://tenor.com/bUyzv.gif) 😈!")
+            await ctx.message.edit(f"<@{user.id}> {lang.text('is')} **{rng}%** [femboy](https://tenor.com/bUyzv.gif) 😈!")
         else:
-            await ctx.message.edit(f"<@{user.id}> {langs.is_[config_selfbot.lang]} **{rng}%** femboy!")
+            await ctx.message.edit(f"<@{user.id}> {lang.text('is')} **{rng}%** femboy!")
 
     @commands.command()
     async def token(self, ctx: commands.Context):
@@ -153,11 +152,12 @@ class FunCommands(commands.Cog):
 
         encode_text = base64.b64encode(str(user_id).encode('utf-8'))
         start_token = str(encode_text).strip("b'").strip()
-        await ctx.message.edit(f"🌠 {langs.fun_token[config_selfbot.lang]} <@{user_id}> token: `{start_token}.`", delete_after=config_selfbot.deltime)
+        await ctx.message.edit(f"🌠 {lang.text('fun_token')} <@{user_id}> token: `{start_token}.`", delete_after=config_selfbot.deltime)
 
     """
     TODO: Fix copyuser: discord.errors.CaptchaRequired: 400 Bad Request (error code: -1): Captcha required, at await self.bot.user.edit().
           Improve: Copy user's Rich Presence.
+          Imprive: Use dict to save user's profile
 
 
     @commands.command()
