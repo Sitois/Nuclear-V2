@@ -3,7 +3,7 @@
 # Don't forget to complete translation into  `commands/help.py`(even only one sentence works)
 
 lang_name=日本語
-lang_code=ja
+lang_code=jp
 credits=ANÐOR
 
 
