@@ -1,0 +1,282 @@
+# French translation made by ANÐOR, feel free to open a pull request for any errors!
+# https://github.com/Sitois/Nuclear-V2/pulls
+# Don't forget to complete translation into  `commands/help.py`(even only one sentence works)
+
+lang_name=Español
+lang_code=es
+credits=ANÐOR
+
+
+# == Start ==
+
+start_text=Inicio del selfbot en curso...
+unstable_version=Está utilizando una versión INESTABLE:\n- Si encuentra un problema, por favor, informe al Soporte.\n- Si corrige/agrega algo, por favor, abra una solicitud de extracción en GitHub para agregarlo al proyecto principal.\n- UpdateChecker está desactivado.\n- Si no es un desarrollador, le recomiendo usar la versión estable actual:
+ready_text=Conectado como
+ready_text_two= iniciado en
+ready_text_three= segundos.
+error_check_version=Una nueva versión
+error_check_version_two= está disponible:
+error_check_version_three=Actualmente está utilizando la versión 
+cog_success=¡Categoría cargada con éxito!
+cog_fail=Error al cargar esta categoría: 
+panel_message=# __No utilice los comandos en servidores, puede ser reportado__ #\n> ## [Soporte](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support) ##\n\n¡Comience con `%prefix%help`!\nPuede utilizar todos los comandos, sin problemas, en este panel.
+token_error=Token incorrecto. Por favor, ingrese un token válido en config_selfbot.py
+error_discord_version=Su librería discord no funciona con este selfbot. Instale la versión funcional aquí: https://github.com/Sitois/Nuclear-V2/releases/latest
+aiohttp_error=Versión antigua de aiohttp. Esta versión se usa únicamente en discord.py==1.7.3. Intentando reparar el problema...\n(si no funciona: `pip uninstall aiohttp` y `pip install aiohttp`)...\nPresione Enter.
+aiohttp_success=Reiniciando en curso...
+weird_error=Tal vez un error de configuración. Asegúrese de que toda la información en config_selfbot.py sea correcta.\nError:
+expired_token=El token de la cuenta ha cambiado. Por favor, ingrese el nuevo en config_selfbot.py
+
+
+
+# == Main ==
+
+enable=¡activado!
+disable=¡desactivado!
+empty=Ninguno
+author=Autor
+incorrect=Elección incorrecta.
+is=es
+to=para
+
+
+
+# == Help ==
+
+optional=Opcional
+help_utils=Varios
+help_config=Configuración
+help_raid=Raid
+help_backup=Copia de seguridad de servidores
+help_rich_presence=Presencia personalizada
+help_templates=Plantillas
+help_fun=Diversión
+help_tools=Herramientas
+help_voice=Voz
+
+
+# -- Help: General / Utils --
+help_general_hype=Define tu insignia HypeSquad (bravery, brilliance, balance).
+help_general_ping=Muestra la latencia del selfbot.
+help_general_bio=Cambia la bio de la cuenta.
+help_general_snipe=Recupera el último mensaje eliminado.
+help_general_clear=Elimina la cantidad de mensajes especificada.
+help_general_user_info=Devuelve información sobre el usuario.
+
+
+# -- Help: Config --
+help_config_restart=Reinicia el selfbot.
+help_config_stop=Detiene el selfbot.
+help_general_sniper=Activa / desactiva el NitroSniper.
+
+
+# -- Help: Voice --
+help_voice_vc=Únete al canal de voz.
+help_voice_cam=Únete al canal de voz con una cámara falsa.
+help_voice_leave=Sal del canal de voz.
+
+# -- Help: Fun --
+help_fun_cat=Gato lindo 🐈.
+help_fun_good=¡Te convierte en una Buena Persona! (*censura las groserías*).
+help_fun_token=Devuelve el inicio del token de la persona mencionada.
+help_fun_hug=GIF de abrazo (¡muy lindo!).
+help_fun_call=Spam de llamadas (¡solo en DM!).
+help_fun_gift=Envía un enlace falso de Nitro.
+help_fun_hack=Hackea a alguien (😈).
+help_fun_femboy=Indica el porcentaje de feminidad.
+help_fun_slap=¡Envía una gran bofetada!
+
+
+# -- Help: Raid --
+help_raid_banall=Prohíbe a todos los miembros del servidor.
+help_raid_kick=Expulsa a todos los miembros del servidor.
+
+
+# -- Help: Tools --
+help_tools_dmall=Envía un mensaje privado a toda tu lista de amigos.
+help_tools_close_dm=Cierra todos tus mensajes privados.
+help_tools_close_dm_bots=Cierra todos tus mensajes privados con bots.
+help_tools_bump=Bump automáticamente con Disboard.
+
+
+# -- Help: Backup --
+help_backup_backups=Muestra la lista de copias de seguridad de servidores guardadas.
+help_backup_save=Guarda el servidor.
+help_backup_load=Carga una copia de seguridad.
+help_backup_tip=¡Puedes especificar otro servidor con su ID!
+help_backup_note=Las copias de seguridad tardan mucho en cargarse, ¡sé paciente!
+help_backup_delete=Elimina una copia de seguridad con su ID.
+
+
+# -- Help: Rich Presence --
+rpc_name_translate=Define el nombre del RPC.
+rpc_details_translate=Define los detalles del RPC.
+rpc_state_translate=Define el estado del RPC.
+rpc_url_translate=Define la URL de streaming del RPC ``(https://twitch.tv/nombre)``.
+rpc_type_translate=Define el tipo de tu RPC (game / watch / listen / stream).
+rpc_large_image_translate=Define la imagen grande del RPC.
+rpc_large_text_translate=Define el texto de la imagen grande del RPC.
+rpc_small_image_translate=Define la imagen pequeña del RPC.
+rpc_small_text_translate=Define el texto del primer botón del RPC.
+# Unused, waiting for discord.py-self to add rich presence buttons
+rpc_button_text_one_translate=Define el texto del primer botón del RPC.
+rpc_button_link_one_translate=Define el enlace del primer botón del RPC.
+rpc_button_text_two_translate=Define el texto del segundo botón.
+rpc_button_link_two_translate=Define el enlace del segundo botón.
+# ~~ Rich Presence: Tutorial ~~
+tutorial_rpc= Para obtener una imagen personalizada:\n  1. Envía una imagen (gif, png...) en Discord. (en cualquier canal)\n  2. Haz clic derecho y "Copiar la dirección de la imagen".\n  3. Ejecuta `%prefix%rpc_image mp:attachments/67484738743874387438/657438923487543/ejemplo.png`.\n  4. ¡Listo!
+
+# -- Help: Templates --
+template_help_reset=Restablece tu RPC.
+template_help_clear=Elimina tu RPC.
+template_help_default=Modifica tu RPC por el que está en (`config_selfbot.py`).
+template_help_cod=Utiliza la plantilla "Call Of Duty".
+template_help_dark=Utiliza la plantilla "dark".
+template_help_python=Utiliza la plantilla "Python".
+template_help_js=Utiliza la plantilla "JavaScript".
+template_help_omori=Utiliza la plantilla "Omori".
+template_help_car=Utiliza la plantilla "Car".
+template_help_self=Utiliza la plantilla "Nuclear".
+template_help_webdeck=Utiliza la plantilla "WebDeck".
+template_help_hi=Utiliza la plantilla "Hi !".
+template_help_youtube=Utiliza la plantilla "YouTube".
+template_help_gta=Utiliza la plantilla "GTA VI".
+template_help_tiktok=Utiliza la plantilla "TikTok".
+template_help_reload=¡Puedes actualizar las imágenes con el comando `%prefix%reload`!
+
+
+# == Commands ==
+
+# -- Commands: Config --
+restart_command=✅ El selfbot se ha reiniciado con éxito (por favor, espera unos segundos...)!
+stop_command=⭕ El selfbot se ha detenido correctamente.
+nitro_sniper_claimed=ya ha sido reclamado por otra persona!
+nitro_sniper_valid=ha sido reclamado en la cuenta!
+nitro_sniper_invalid_code=es inválido!
+config_lang_invalid=❌ ¡Por favor, indica un idioma válido!
+
+
+# -- Commands: Voice --
+leave_voice=Desconexión del canal de voz
+leave_voice_error=Error al desconectarse del canal de voz
+leave_voice_error_not_found=❌ ¡Debes estar conectado a un canal de voz para usar este comando!
+voice_channel_error=❌ ¡Por favor, indica un ID de canal de voz válido!
+voice_channel_error_not_found=❌ No se pudo encontrar el canal de voz.
+voice_join=Conectado al canal de voz
+voice_join_error=Error al conectarse al canal de voz
+voice_join_cam=Conectado al canal de voz
+voice_join_cam_two=con la cámara activada.
+
+
+# -- Commands: Utils --
+hype_command=cambiado a
+hype_fail=❌ HypeSquad especificado incorrectamente. (brilliance, balance, bravery).
+bio_command=cambiado a
+time_snipe=Eliminado hace
+error_no_message_snipe=❌ ¡No hay mensajes eliminados recientemente en este canal!
+info_title=Información sobre
+info_global=Nombre de visualización
+info_banner=Banner
+info_created_at=Creado el
+info_avatar=Foto de perfil
+info_avatar_link=Enlace a la foto
+info_banner_link=Enlace al banner
+info_roles=Roles
+info_username=Nombre de usuario
+
+
+
+# -- Commands: Raid --
+spam_cooldown=❌ ¡Un spam ya está en curso! Para detenerlo, haz `%prefix%restart`.
+spam_invalid=❌ ¡Por favor, indica un número válido!
+spam_too_much=❌ ¡Por favor, indica un valor por debajo de 100!
+raid_in_process=☣️ Raid en curso...
+raid_error_permission=‼️ ¡Permisos insuficientes!
+raid_kick_all_success=✅ Todos los miembros han sido expulsados del servidor con éxito.
+raid_ban_all_success=✅ Todos los miembros han sido prohibidos del servidor con éxito.
+raid_dm_all=☣️ Enviando el mensaje privado a toda la lista de amigos...
+raid_dm_all_fail=❌ ¡Debes proporcionar un mensaje!
+raid_dm_all_captcha=❌ Demasiados amigos. ¡Captcha requerido!
+raid_dm_all_success=✅ ¡Mensaje enviado con éxito a la lista de amigos!
+
+
+# -- Commands: Fun --
+only_dm_fun=❌ ¡Este comando solo está disponible en DM!
+fun_hack_step_one=Rastreo de
+fun_hack_step_two=recuperación de la dirección de correo
+fun_hack_step_three=dirección de correo encontrada
+fun_hack_step_four=spam a todos sus contactos...
+fun_hack_step_five=se ha adquirido
+fun_token=Inicio del token de
+
+
+# -- Commands: Tools --
+tool_close_dms=🔧 Cerrando todos tus mensajes privados...
+tool_bump=🔁 El servidor será bump en este canal
+tool_bump_two=veces.
+tool_bump_not_found=❌ No se encontró el bot de Disboard en este servidor.
+tool_close_dms_success=✅ ¡Todos tus mensajes privados han sido cerrados con éxito!
+tool_close_dms_bots=🔧 Cerrando todos tus mensajes privados con bots...
+tool_close_dms_bots_success=✅ ¡Todos tus mensajes privados con bots han sido cerrados con éxito!
+tool_auto_bump=Servidor bumpado
+tool_auto_bump_two=para la
+tool_auto_bump_three=vez
+tool_auto_bump_four=Aún necesitas hacer bump
+tool_auto_bump_five=veces más en
+
+
+# -- Commands: Backup --
+backup_saving=🔁 Creación de la copia de seguridad en curso...
+backup_loading=🔁 Carga de la copia de seguridad en curso...
+backup_not_find_folder=❌ ¡No se pudo encontrar la carpeta 'backups'!
+backup_success_save=✅ Copia de seguridad exitosa para el servidor
+backup_save_already_exist=❌ Ya existe una copia de seguridad para
+backup_save_already_exist_two=el servidor. Usa `%prefix%delete <server_id>` para eliminarla.
+no_backup_error=❌ No hay ninguna copia de seguridad disponible.
+backup_list=Copias de seguridad disponibles:\n
+backup_invalid=❌ No hay ninguna copia de seguridad disponible para este ID. Usa `%prefix%backups` para ver las copias de seguridad disponibles.
+backup_id_required=❌ ¡Debes proporcionar un ID de servidor!
+backup_done=✅ ¡Copia de seguridad realizada con éxito!
+backup_delete_done=✅ ¡Copia de seguridad eliminada con éxito!
+backup_no_permissions=❌ No tienes el permiso 'Administrador' para cargar las copias de seguridad.
+# ~~ Backup: Logs ~~~
+creating_backup=CREACIÓN DE LA COPIA DE SEGURIDAD
+save_everyone_success=Rol @everyone guardado con éxito
+save_role_success=Rol guardado con éxito:
+save_guild_success=Servidor guardado con éxito:
+save_channel_success=Canal creado con éxito:
+save_category_success=Categoría creada con éxito:
+save_role_permission_success=Permisos del rol guardados con éxito para
+save_folder_not_found=¡Carpeta 'backups' inexistente!
+from=desde
+loading_backup=CARGA DE LA COPIA DE SEGURIDAD
+for=para
+load_delete_channel_success=Canal eliminado con éxito:
+load_delete_channel_fail=Error al eliminar el canal:
+load_delete_role_success=Rol eliminado con éxito:
+load_delete_role_fail=Error al eliminar el rol:
+load_delete_category_success=Categoría eliminada con éxito
+load_delete_category_fail=Error al eliminar la categoría
+load_create_role_success=Rol creado con éxito:
+load_role_position_success=Posición del rol ajustada con éxito:
+load_create_category_success=Categoría creada con éxito:
+load_create_channel_success=Canal creado con éxito:
+load_everyone_permissions=Permisos de @everyone configurados con éxito en:
+load_backup_success=Copia de seguridad cargada con éxito:
+
+
+# == Rich Presence ==
+
+# -- Rich Presence: Error
+no_notification_rpc=Error al configurar la Rich Presence:
+no_notification_rpc_two=Configurando la Rich Presence sin mantener las notificaciones...
+no_notification_rpc_success=Rich Presence configurada con éxito (sin mantener las notificaciones).
+error_rpc=Imposible configurar la Rich Presence. Error:
+error_rpc_two=Por favor, dirígete a la categoría 'Problemas' en el README-fr en GitHub para más ayuda.
+
+
+# -- Rich Presence: Templates --
+# ~~ Templates: Commands ~~
+template_reload=✅ ¡Imágenes de las plantillas actualizadas!
+rpc_cod_details=En espera de misión...
+rpc_cod_state=Menú principal
