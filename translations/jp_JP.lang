@@ -1,0 +1,271 @@
+# Jp translation made by ANÐOR, feel free to open a pull request for any errors!
+# https://github.com/Sitois/Nuclear-V2/pulls
+# Don't forget to complete translation into  `commands/help.py`(even only one sentence works)
+
+lang_name=日本語
+lang_code=jp
+credits=ANÐOR
+
+
+
+# == Start ==
+
+start_text=セルフボットの起動中...
+unstable_version=不安定なバージョンを使用しています:\n- 問題が発生した場合は、サポートに通知してください。\n- 修正/追加した場合は、GitHubでプルリクエストを作成してプロジェクトに追加してください。\n- UpdateCheckerは無効になっています。\n- 開発者でない場合は、現在の安定版の使用をお勧めします:
+ready_text=として接続中
+ready_text_two=起動しました
+ready_text_three=秒です。
+error_check_version=新しいバージョン
+error_check_version_two=が利用可能です:
+error_check_version_three=現在使用しているバージョンは
+cog_success=カテゴリが正常に読み込まれました！
+cog_fail=このカテゴリの読み込み中にエラーが発生しました:
+panel_message=# __コマンドをサーバーで使用しないでください。報告される可能性があります__ #\n> ## [サポート](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#support) ##\n\n`%prefix%help`で開始してください！\nこのパネル内でのコマンドの使用には問題ありません。
+token_error=無効なトークンです。config_selfbot.pyに有効なトークンを入力してください。
+error_discord_version=あなたのDiscordライブラリはこのセルフボットと互換性がありません。こちらから動作するバージョンをインストールしてください: https://github.com/Sitois/Nuclear-V2/releases/latest
+aiohttp_error=古いバージョンのaiohttpです。このバージョンはdiscord.py==1.7.3でのみ使用されています。問題を修正しようとしています...\n（機能しない場合: `pip uninstall aiohttp` と `pip install aiohttp`）\nEnterキーを押してください。
+aiohttp_success=再起動中...
+weird_error=設定のエラーかもしれません。config_selfbot.py内のすべての情報が正しいことを確認してください。\nエラー:
+expired_token=アカウントのトークンが変更されました。config_selfbot.pyに新しいトークンを入力してください。
+
+
+# == Main ==
+
+enable=有効！
+disable=無効！
+empty=なし
+author=著者
+incorrect=無効な選択です。
+is=は
+to=ため
+
+
+# == Help ==
+
+optional=オプション
+help_utils=その他
+help_config=設定
+help_raid=Raid
+help_backup=サーバーのバックアップ
+help_rich_presence=カスタムプレゼンス
+help_templates=テンプレート
+help_fun=楽しみ
+help_tools=ツール
+help_voice=ボイス
+
+# -- Help: General / Utils --
+help_general_hype=HypeSquadのバッジを設定します（bravery、brilliance、balance）。
+help_general_ping=セルフボットのレイテンシーを表示します。
+help_general_bio=アカウントのバイオを変更します。
+help_general_snipe=最後に削除されたメッセージをスナイプします。
+help_general_clear=指定された数のメッセージを削除します。
+help_general_user_info=ユーザーに関する情報を返します。
+
+# -- Help: Config --
+help_config_restart=セルフボットを再起動します。
+help_config_stop=セルフボットを停止します。
+help_general_sniper=NitroSniperを有効化/無効化します。
+
+# -- Help: Voice --
+help_voice_vc=ボイスチャンネルに参加します。
+help_voice_cam=カメラを使用してボイスチャンネルに参加します。
+help_voice_leave=ボイスチャンネルから退出します。
+
+# -- Help: Fun --
+help_fun_cat=かわいい猫 🐈
+help_fun_good=良い人に変身します！ (*侮辱を検閲します*)
+help_fun_token=言及された人のトークンの開始部分を返します。
+help_fun_hug=抱きしめるGIF（とてもかわいい!!）。
+help_fun_call=呼び出しのスパム（DMのみ！）。
+help_fun_gift=偽のNitroリンクを送信します。
+help_fun_hack=誰かをハックします（😈）。
+help_fun_femboy=フェムボーイ度を表示します。
+help_fun_slap=大きな平手打ちを送信します！！
+
+# -- Help: Raid --
+help_raid_banall=サーバーのすべてのメンバーをバンします。
+help_raid_kick=サーバーのすべてのメンバーをキックします。
+
+# -- Help: Tools --
+help_tools_dmall=すべての友達リストにプライベートメッセージを送信します。
+help_tools_close_dm=すべてのDMを閉じます。
+help_tools_close_dm_bots=すべてのボットとのDMを閉じます。
+help_tools_bump=Disboardで自動的にバンプします。
+
+# -- Help: Backup --
+help_backup_backups=保存されたサーバーのバックアップリストを表示します。
+help_backup_save=サーバーをバックアップします。
+help_backup_load=バックアップを読み込みます。
+help_backup_tip=サーバーのIDを指定して別のサーバーを指定できます！
+help_backup_note=バックアップの読み込みには非常に時間がかかることがありますので、しばらくお待ちください。
+help_backup_delete=バックアップをIDで削除します。
+
+
+# -- Help: Rich Presence --
+rpc_name_translate=RPCの名前を設定します。
+rpc_details_translate=RPCの詳細を設定します。
+rpc_state_translate=RPCのステートを設定します。
+rpc_url_translate=RPCのストリーミングURLを設定します（例: https://twitch.tv/名前）。
+rpc_type_translate=RPCのタイプを設定します（game / watch / listen / stream）。
+rpc_large_image_translate=RPCの大きな画像を設定します。
+rpc_large_text_translate=RPCの大きな画像のテキストを設定します。
+rpc_small_image_translate=RPCの小さな画像を設定します。
+rpc_small_text_translate=RPCの小さな画像のテキストを設定します。
+rpc_button_text_one_translate=RPCの最初のボタンのテキストを設定します。
+rpc_button_link_one_translate=RPCの最初のボタンのリンクを設定します。
+rpc_button_text_two_translate=RPCの第二のボタンのテキストを設定します。
+rpc_button_link_two_translate=RPCの第二のボタンのリンクを設定します。
+
+# ~~ Rich Presence: Tutorial ~~
+tutorial_rpc=カスタム画像を取得するには:\n  1. Discordで画像（gif、pngなど）を送信します。（どのチャンネルでも大丈夫です）\n  2. 画像を右クリックして「画像のURLをコピー」を選択します。\n  3. `%prefix%rpc_image mp:attachments/67484738743874387438/657438923487543/example.png` と入力します。\n  4. 完了です！
+
+# -- Help: Templates --
+template_help_reset=RPCをリセットします。
+template_help_clear=RPCを削除します。
+template_help_default=RPCを `config_selfbot.py` にあるデフォルトのものに変更します。
+template_help_cod=「Call Of Duty」テンプレートを使用します。
+template_help_dark=「dark」テンプレートを使用します。
+template_help_python=「Python」テンプレートを使用します。
+template_help_js=「JavaScript」テンプレートを使用します。
+template_help_omori=「Omori」テンプレートを使用します。
+template_help_car=「Car」テンプレートを使用します。
+template_help_self=「Nuclear」テンプレートを使用します。
+template_help_webdeck=「WebDeck」テンプレートを使用します。
+template_help_hi=「Hi !」テンプレートを使用します。
+template_help_youtube=「YouTube」テンプレートを使用します。
+template_help_gta=「GTA VI」テンプレートを使用します。
+template_help_tiktok=「TikTok」テンプレートを使用します。
+template_help_reload=`%prefix%reload` コマンドで画像を更新できます！
+
+
+
+# == Commands ==
+
+# -- Commands: Config --
+restart_command=✅ Selfbotが正常に再起動しました（数秒お待ちください）！
+stop_command=⭕ Selfbotが正常に停止しました。
+nitro_sniper_claimed=すでに他の人によって要求されています！
+nitro_sniper_valid=アカウントで正常に要求されました！
+nitro_sniper_invalid_code=無効です！
+config_lang_invalid=❌ 有効な言語を指定してください！
+
+
+# -- Commands: Voice --
+leave_voice=ボイスチャンネルからの切断
+leave_voice_error=ボイスチャンネルからの切断中にエラーが発生しました
+leave_voice_error_not_found=❌ このコマンドを使用するには、ボイスチャンネルに接続している必要があります！
+voice_channel_error=❌ 有効なボイスチャンネルIDを指定してください！
+voice_channel_error_not_found=❌ ボイスチャンネルが見つかりません。
+voice_join=ボイスチャンネルに接続しました
+voice_join_error=ボイスチャンネルへの接続中にエラーが発生しました
+voice_join_cam=ボイスチャンネルに接続しました
+voice_join_cam_two=カメラをオンにしています。
+
+
+# -- Commands: Utils --
+hype_command=に変更されました
+hype_fail=❌ HypeSquadが不正確です。（brilliance、balance、bravery）。
+bio_command=に変更されました
+time_snipe=削除された時間
+error_no_message_snipe=❌ このチャンネルで最近削除されたメッセージはありません！
+info_title=情報
+info_global=表示名
+info_banner=バナー
+info_created_at=作成日
+info_avatar=プロフィール写真
+info_avatar_link=写真へのリンク
+info_banner_link=バナーへのリンク
+info_roles=ロール
+info_username=ユーザー名
+
+
+
+# -- Commands: Raid --
+spam_cooldown=❌ スパムがすでに実行中です！停止するには、`%prefix%restart`を実行してください。
+spam_invalid=❌ 有効な数値を指定してください！
+spam_too_much=❌ 100未満の値を指定してください！
+raid_in_process=☣️ Raid実行中...
+raid_error_permisssion=‼️ 権限が不足しています！
+raid_kick_all_success=✅ サーバーのすべてのメンバーが正常にキックされました。
+raid_ban_all_success=✅ サーバーのすべてのメンバーが正常にバンされました。
+raid_dm_all=☣️ すべての友達リストにプライベートメッセージを送信しています...
+raid_dm_all_fail=❌ メッセージを指定する必要があります！
+raid_dm_all_captcha=❌ 友達が多すぎます。Captchaが必要です！
+
+# -- Commands: Fun --
+only_dm_fun=❌ このコマンドはDMでのみ使用できます！
+fun_hack_step_one=追跡中
+fun_hack_step_two=メールアドレスの取得
+fun_hack_step_three=メールアドレスが見つかりました
+fun_hack_step_four=すべての連絡先にスパム中...
+fun_hack_step_five=取得しました
+fun_token=トークンの開始部分
+
+# -- Commands: Tools --
+tool_close_dms=🔧 すべてのDMを閉じています...
+tool_bump=🔁 このチャンネルでサーバーをバンプします
+tool_bump_two=回
+tool_bump_not_found=❌ このサーバーでDisboardボットが見つかりませんでした。
+tool_close_dms_success=✅ すべてのDMが正常に閉じられました！
+tool_close_dms_bots=🔧 すべてのボットとのDMを閉じています...
+tool_close_dms_bots_success=✅ すべてのボットとのDMが正常に閉じられました！
+tool_auto_bump=サーバーがバンプされました
+tool_auto_bump_two=回
+tool_auto_bump_three=回目
+tool_auto_bump_four=さらにバンプする必要があります
+tool_auto_bump_five=回、内
+
+# -- Commands: Backup --
+backup_saving=🔁 バックアップの作成中...
+backup_loading=🔁 バックアップの読み込み中...
+backup_not_find_folder=❌ 'backups' フォルダーが見つかりません！
+backup_success_save=✅ サーバーのバックアップが成功しました
+backup_save_already_exist=❌ すでにバックアップが存在します
+backup_save_already_exist_two=。 `%prefix%delete <server_id>` を使用して削除してください。
+no_backup_error=❌ 利用可能なバックアップがありません。
+backup_list=利用可能なバックアップ:\n
+backup_invalid=❌ このIDのバックアップはありません。利用可能なバックアップを表示するには `%prefix%backups` を使用してください！
+backup_id_required=❌ サーバーIDを指定する必要があります！
+backup_done=✅ バックアップが成功しました！
+backup_delete_done=✅ バックアップが正常に削除されました！
+backup_no_permissions=❌ バックアップをロードするための '管理者' 権限がありません。
+# ~~ Backup: Logs ~~~
+creating_backup=バックアップ作成中
+save_everyone_success=@everyone ロールが正常に保存されました
+save_role_success=ロールが正常に保存されました:
+save_guild_success=サーバーが正常に保存されました:
+save_channel_success=チャンネルが正常に作成されました:
+save_category_success=カテゴリが正常に作成されました:
+save_role_permission_success=ロールの権限が正常に保存されました:
+save_folder_not_found='backups' フォルダーが存在しません！
+from=から
+loading_backup=バックアップ読み込み中
+for=の
+load_delete_channel_success=チャンネルが正常に削除されました:
+load_delete_channel_fail=チャンネル削除中にエラーが発生しました:
+load_delete_role_success=ロールが正常に削除されました:
+load_delete_role_fail=ロール削除中にエラーが発生しました:
+load_delete_category_success=カテゴリが正常に削除されました
+load_delete_category_fail=カテゴリ削除中にエラーが発生しました
+load_create_role_success=ロールが正常に作成されました:
+load_role_position_success=ロールの位置が正常に調整されました:
+load_create_category_success=カテゴリが正常に作成されました:
+load_create_channel_success=チャンネルが正常に作成されました:
+load_everyone_permissions=@everyone の権限が正常に設定されました:
+load_backup_success=バックアップが正常に読み込まれました:
+
+
+# == Rich Presence ==
+
+# -- Rich Presence: Error
+no_notification_rpc=Rich Presenceの設定中にエラーが発生しました:
+no_notification_rpc_two=通知を保持せずにRich Presenceを設定しています...
+no_notification_rpc_success=Rich Presenceが正常に設定されました（通知は保持されません）。
+error_rpc=Rich Presenceを設定できませんでした。エラー:
+error_rpc_two=さらなるサポートが必要な場合は、GitHubのREADME内の「問題」カテゴリにアクセスしてください。
+
+# -- Rich Presence: Templates --
+# ~~ Templates: Commands ~~
+template_reload=✅ テンプレートの画像が更新されました！
+rpc_cod_details=ミッション待機中...
+rpc_cod_state=メインメニュー
