@@ -23,12 +23,13 @@ async def save_guild(guild: discord.Guild,
 
     Save the given guild into ./backups/guild_id.json
     
-    Parameters:
-    -----------
+    Parameters
+    ----------
     guild: :class:`discord.Guild`
         The guild object to save.
     channels: Sequence[:class:`discord.abc.GuildChannel`]
-        Commonly given from `discord.Guild.channels`."""
+        Commonly given from `discord.Guild.channels`.
+    """
 
     log.separate_text(lang.text('creating_backup'))
     guild_info = {
@@ -70,6 +71,9 @@ async def save_guild(guild: discord.Guild,
 
     # Save guild's channels
     for channel in channels:
+        if isinstance(channel, discord.Thread):
+            continue  # Skip threads
+
         channel_info = {
             "id": channel.id,
             "name": channel.name,
@@ -96,8 +100,8 @@ async def save_guild(guild: discord.Guild,
 
     # Check if 'backups' folder exists
     if not os.path.exists("backups"):
-        log.alert(lang.text('save_folder_not_found'))
-        return
+        os.makedirs("backups")
+        log.alert(lang.text('save_folder_created'))
 
     # Save guild's infos in a json file
     with open(f"./backups/{guild.id}.json", "w") as f:
@@ -116,8 +120,8 @@ async def load_guild(guild: discord.Guild,
 
     Load the given guild into the chosen guild.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     guild: :class:`discord.Guild`
         The guild to load.
     channels: Sequence[:class:`discord.abc.GuildChannel`]
@@ -204,7 +208,8 @@ async def load_guild(guild: discord.Guild,
                 )
 
         category = guild.get_channel(category_map[channel_info["category"]]) if channel_info["category"] else None
-        channel_type = discord.ChannelType.text if channel_info["type"] == "text" else discord.ChannelType.voice
+        channel_type = discord.ChannelType[channel_info["type"]]
+
         if channel_type == discord.ChannelType.text:
             await guild.create_text_channel(
                 name=channel_info["name"],
@@ -212,19 +217,26 @@ async def load_guild(guild: discord.Guild,
                 overwrites=overwrites,
                 category=category
             )
-        else:
+        elif channel_type == discord.ChannelType.voice:
             await guild.create_voice_channel(
                 name=channel_info["name"],
                 position=channel_info["position"],
                 overwrites=overwrites,
                 category=category
             )
-        log.success(f"{lang.text('load_create_channel_success')} {channel_info['name']}({channel_info['id']}) {lang.text('for')} {guild.name}({guild.id}).")
-        await asyncio.sleep(random_cooldown(minimal_cooldown, maximum_cooldown))  # Wait to avoid rate limit
-
-    # Set backup's @everyone permissions
-    await guild.default_role.edit(permissions=discord.Permissions(backup["default_role"]["permissions"]))
-    log.success(f"{lang.text('load_everyone_permissions')} {backup['default_role']['permissions']} {lang.text('for')} {guild.name}({guild.id}).")
-
-    log.success(f"{lang.text('load_backup_success')} {backup['name']}({backup['id']}) {lang.text('to')} {guild.name}({guild.id}).")
-    log.separate(lang.text('loading_backup'))
+        elif channel_type == discord.ChannelType.stage_voice:
+            await guild.create_stage_channel(
+                name=channel_info["name"],
+                position=channel_info["position"],
+                overwrites=overwrites,
+                category=category
+            )
+        elif channel_type == discord.ChannelType.forum:
+            await guild.create_forum(
+                name=channel_info["name"],
+                position=channel_info["position"],
+                overwrites=overwrites,
+                category=category
+            )
+        else:
+            pass
