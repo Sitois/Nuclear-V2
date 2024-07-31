@@ -153,7 +153,7 @@ def call_check_repo():
         latest_version = check_latest_version(repo_owner, repo_name)
         if latest_version:
             if not latest_version == f"v{__version__}":
-                log.info(f"""{lang.text('error_check_version_one')} ({latest_version}) {lang.text('error_check_version_two')} https://github.com/{repo_owner}/{repo_name}/releases/tag/{latest_version}
+                log.info(f"""{lang.text('error_check_version')} ({latest_version}) {lang.text('error_check_version_two')} https://github.com/{repo_owner}/{repo_name}/releases/tag/{latest_version}
 {lang.text('error_check_version_three')} v{__version__}""")
             time.sleep(3600)
 
@@ -282,14 +282,14 @@ async def on_ready():
                                   afk=True,
                                   idle_since=datetime.datetime(today_date.year, today_date.month, today_date.day))
     except Exception as e:
-        log.alert(f"{lang.text('no_notification_rpc_one')}\n{e}\n{lang.text('no_notification_rpc_two')}")
+        log.alert(f"{lang.text('no_notification_rpc')}\n{e}\n{lang.text('no_notification_rpc_two')}")
         try:
             await bot.change_presence(status=discord.Status.idle,
                                       activity=activity,
                                       edit_settings=False)
             log.success(lang.text('no_notification_rpc_success'))
         except Exception as e:
-            log.alert(f"{lang.text('error_rpc_one')}\n{e}\n{lang.text('error_rpc_two')}")
+            log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
 
     if rpc.read_variable_json("create_panel"):
         with open('nuclear_icon.png', 'rb') as image:
