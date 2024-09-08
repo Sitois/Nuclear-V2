@@ -25,7 +25,7 @@ lang = "en" # fr / en / es /jp
 # en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).
 discord_log = True
 
-# fr: Default Nitro Sniper mode. (True=On, False=Off)
+# en: Default Nitro Sniper mode. (True=On, False=Off)
 # fr: Mode du Nitro Sniper par défaut. (True=On, False=Off)
 nitro_sniper = False
 
