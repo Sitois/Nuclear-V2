@@ -129,10 +129,10 @@ check_loop = True
 # Check if it's a developement version, if it is, disable UpdateChecker
 try:
     if float(__version__) > float(check_latest_version('Sitois', 'Nuclear-V2').strip('v')):
-        log.warning(lang.text('unstable_version'))
+        log.warning(f"{lang.text('unstable_version')} https://github.com/Sitois/Nuclear-V2/releases/latest")
         check_loop = False
 except Exception:
-    # Avoid crashes if the version is 'v1.1.1'.
+    # Avoid crashes if the version is i.g.: 'v1.1.1'.
     pass
 
 # Prevent from starting the selfbot with another discord library
@@ -192,7 +192,7 @@ async def handle_captcha(exc: discord.CaptchaRequired, bot: commands.Bot) -> str
 # Define the bot instance
 bot = commands.Bot(command_prefix=config_selfbot.prefix,
                    self_bot=True,
-                   #captcha_handler=handle_captcha),
+                   #captcha_handler=handle_captcha,
                    help_command=None)
 
 # Get the start timestamp to put the time it took to start at on_ready()
@@ -300,6 +300,7 @@ async def on_ready():
         await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         msg = await panel.send(lang.text('panel_message'))
         await msg.unack()
+        # Remove embed
         rpc.edit_variable_json("create_panel", False)
         log.alert("NuclearPanel successfully created (check DMs!).\nIf not, please check the 'Issues' category into the GitHub's README for further help.")
 

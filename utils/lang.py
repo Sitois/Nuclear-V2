@@ -41,15 +41,19 @@ class Lang():
         The default language to use (if the text wasn't found on the specified language).
 
         Default to "en_US".
+
+    Raises
+    ------
+    KeyError
+        No path were given or given path doesn't exists.
     """
     def __init__(self,
                  path: str = r".\translations",
                  default_language: str = "en_US"):
-        self.path: str = path
-        if not os.path.exists(self.path):
-            raise NameError("No path were given or given path doesn't exists.")
+        self.path: str = path if os.path.exists(r".\translations") else r"..\translations"
         self.lang_files: dict = {}
         self.default_language: str = default_language
+        # Load all lang files at class init.
         self.load_all_lang_files()
 
     def load_lang_file(self, lang: str) -> dict:
@@ -93,8 +97,7 @@ class Lang():
                         raise TypeError(f'\nLANG FILE ERROR:\nLine: {line}\nError: {e}\n')
         return lang_dictionary
 
-    def load_all_lang_files(self,
-                            path: str = None) -> dict:
+    def load_all_lang_files(self, path: str = None) -> dict:
         """Loads all .lang files.
 
         Parameters
@@ -120,12 +123,12 @@ class Lang():
                     self.lang_files[lang] = self.load_lang_file(lang)
         return self.lang_files
 
-    def reload_all_lang_files(self):
+    def reload_all_lang_files(self) -> None:
         """Reloads all .lang files."""
         self.lang_files = self.load_all_lang_files(self.path)
 
     def language_exists(self, lang: str = None) -> bool:
-        """Check if the given language exists in the translations folder.
+        """Check whatever a language exists in the translations folder.
 
         Parameters
         ----------
@@ -145,13 +148,12 @@ class Lang():
         """Retrieve available languages.
 
         Returns
-        --------
+        -------
         languages: :class:`list[dict]`
             A :class:`list` containing :class:`dict` with lang informations.
         """
 
         languages_info = []
-
         for lang in self.lang_files:
             languages_info.append({
                 'name': lang,
@@ -174,10 +176,15 @@ class Lang():
         lang: :class:`str`
             The language to get the text into.
 
-            Default to `config_selfbot.lang`.
+            Default to the default language.
+
+        Raises
+        ------
+        KeyError
+            Given text wasn't found on both default language and given language.
 
         Returns
-        --------
+        -------
         :class:`str`
             The translated text.
         """
@@ -186,13 +193,14 @@ class Lang():
             return ""
 
         if lang is None:
-            lang = config_selfbot.lang
+            lang = self.default_language
 
         lang = next((l for l in self.lang_files if l.lower().startswith(lang.lower())), self.default_language)
 
         if not lang in self.lang_files:
             lang = self.default_language
 
+        # TODO: Should improve here.
         if not text in self.lang_files[lang]:
             try:
                 return self.lang_files[lang][text].replace(
@@ -200,9 +208,38 @@ class Lang():
             '\\r', '\r').replace(
                 '%prefix%', config_selfbot.prefix)
             except KeyError:
-                raise NameError("Given text wasn't found on both default language and given language.")
+                raise KeyError("Given text wasn't found on both default language and given language.")
 
         return self.lang_files[lang][text].replace(
             '\\n', '\n').replace(
             '\\r', '\r').replace(
                 '%prefix%', config_selfbot.prefix)
+
+    def t(self,
+          text: str = None,
+          lang: str = None) -> str:
+        """Returns the given text in the given language.
+
+        Shortcut for Lang().text()
+
+        Parameters
+        ----------
+        text: :class:`str`
+            The text to get in the given language.
+        lang: :class:`str`
+            The language to get the text into.
+
+            Default to the default language.
+
+        Raises
+        ------
+        KeyError
+            Given text wasn't found on both default language and given language.
+
+        Returns
+        -------
+        :class:`str`
+            The translated text.
+        """
+
+        return self.text(text, lang)

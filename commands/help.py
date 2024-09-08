@@ -62,7 +62,6 @@ poetry = {"fr": [
             "Las montañas más altas tienen las pendientes más empinadas.",
             "Los destellos de luz atraviesan la oscuridad más profunda.",
             ],
-
             "jp": [
             "あなたの態度があなたの方向を決めます。",
             "完璧さではなく、進歩。",
@@ -92,8 +91,7 @@ poetry = {"fr": [
             "すべての努力が大切です。",
             "最も高い山は最も急な斜面を持っています。",
             "光の閃光は最も深い暗闇を貫きます。",
-            ]
-
+            ],
 }
 
 from discord.ext import commands
@@ -144,7 +142,7 @@ class HelpCommands(commands.Cog):
 🔧| __**{lang.text('help_tools')}:**__
  `{config_selfbot.prefix}closealldm`: {lang.text('help_tools_close_dm')}
  `{config_selfbot.prefix}botclosedm`: {lang.text('help_tools_close_dm_bots')}
- `{config_selfbot.prefix}dmall`: {lang.text('help_raid_dmall')}
+ `{config_selfbot.prefix}dmall`: {lang.text('help_tools_dmall')}
  `{config_selfbot.prefix}bump <amount>`: {lang.text('help_tools_bump')}""", delete_after=config_selfbot.deltime)
 
     @commands.command()

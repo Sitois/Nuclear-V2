@@ -25,7 +25,7 @@ class RaidCommands(commands.Cog):
                 if ctx.guild.me.top_role > member.top_role:
                     await member.kick(reason=f"{config_selfbot.kick_reason} {generate_random_string(6)}")
                     log.success(f"@{member.name}({member.id}")
-                    await asyncio.sleep(random_cooldown(0.5, 1.3))
+                    await asyncio.sleep(random_cooldown(0.4, 1.1))
 
             log.separate("KICK ALL")
 
@@ -46,7 +46,7 @@ class RaidCommands(commands.Cog):
                 if ctx.guild.me.top_role > member.top_role:
                     await member.ban(reason=f"{config_selfbot.ban_reason}. {generate_random_string(6)}")
                     log.success(f"@{member.name}({member.id}")
-                    await asyncio.sleep(random_cooldown(0.5, 1.2))
+                    await asyncio.sleep(random_cooldown(0.4, 1.1))
 
             log.separate("BAN ALL")
 
@@ -82,14 +82,14 @@ class RaidCommands(commands.Cog):
 
             for i in range(count):
                 await ctx.channel.send(content)
-                await asyncio.sleep(random_cooldown(0.5, 1.3))
+                await asyncio.sleep(random_cooldown(0.4, 1.2))
             self.is_spamming = False
         else:
             await ctx.message.edit(lang.text('spam_cooldown'), delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def flood(self, ctx: commands.Context):
-        flood_spam = '_ _\n' * 52
+        flood_spam = '_ _\n' * 44
         await ctx.message.edit(flood_spam)
         for i in range(2):
             await ctx.channel.send(flood_spam)

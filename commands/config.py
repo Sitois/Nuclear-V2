@@ -68,19 +68,10 @@ class ConfigCommands(commands.Cog):
             await ctx.message.edit(message, delete_after=config_selfbot.deltime)
             return
 
-        #  Update that to automatically sync with available languages.
-        if choice == "fr_FR":
-            config_selfbot.lang = "fr"
-            await ctx.message.edit("🟢 Langue changée en **Français**.", delete_after=config_selfbot.deltime)
-        elif choice == "en_US":
-            config_selfbot.lang = "en"
-            await ctx.message.edit("🟢 Language set to **English**.", delete_after=config_selfbot.deltime)
-        elif choice == "es_ES":
-            config_selfbot.lang = "es" # TODO: ANDOR PLEASE TRANSLATE
-            await ctx.message.edit("🟢 Language set to **English**.", delete_after=config_selfbot.deltime)
-        elif choice == "jp_JP":
-            config_selfbot.lang = "jp" # TODO: ANDOR PLEASE TRANSLATE
-            await ctx.message.edit("🟢 Language set to **English**.", delete_after=config_selfbot.deltime)
+        available_languages = [f"{list(item.values())[0]}" for item in lang.languages()]
+        if choice in available_languages:
+            config_selfbot.lang = choice
+            await ctx.message.edit(f"🟢 **{choice}**.", delete_after=config_selfbot.deltime)
         else:
             message = lang.text('config_lang_invalid')
             message += '\n'.join([f"{list(item.values())[0]}: {list(item.values())[2]}" for item in lang.languages()])

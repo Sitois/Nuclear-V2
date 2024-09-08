@@ -19,7 +19,7 @@ prefix = "&"
 
 # fr: Langue.
 # en: Language.
-lang = "en" # fr / en
+lang = "en" # fr / en / es /jp
 
 # fr: Activer/Désactiver les logs de discord (ex: Connected to gateway , Rate Limited etc..).
 # en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).

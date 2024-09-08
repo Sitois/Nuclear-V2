@@ -77,7 +77,7 @@ class ToolsCommands(commands.Cog):
             except discord.Forbidden:
                 log.fail(f"@{friend.user.name}({friend.user.id})")
             except discord.CaptchaRequired:
-                log.important("Captcha Required!")
+                log.alert("Captcha Required!")
                 log.separate("DM ALL")
                 await ctx.message.edit(lang.text('raid_dm_all_captcha'), delete_after=config_selfbot.deltime)
                 return
