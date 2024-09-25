@@ -1,11 +1,9 @@
 from discord.ext import commands
 import os, json, asyncio
 
-from utils import log, Lang, save_guild, load_guild, random_cooldown
+from utils import log, lang, save_guild, load_guild, random_cooldown
 import config_selfbot
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class BackupCommands(commands.Cog):
     def __init__(self, bot):

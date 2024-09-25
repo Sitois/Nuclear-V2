@@ -2,11 +2,9 @@ import discord
 from discord.ext import commands
 from colorama import Fore, Style, Back
 
-from utils import log, Lang
+from utils import log, lang
 import config_selfbot
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class ConfigCommands(commands.Cog):
     def __init__(self, bot):

@@ -4,10 +4,8 @@ from discord.ext import commands
 import asyncio, time
 
 import config_selfbot
-from utils import Lang, random_cooldown
+from utils import lang, random_cooldown
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class UtilsCommands(commands.Cog):
     def __init__(self, bot):

@@ -5,10 +5,8 @@ from colorama import Fore, Style, Back
 import asyncio
 
 import config_selfbot
-from utils import log, Lang, random_cooldown
+from utils import log, lang, random_cooldown
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class ToolsCommands(commands.Cog):
     def __init__(self, bot):

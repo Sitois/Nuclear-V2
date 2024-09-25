@@ -5,10 +5,8 @@ import requests
 import asyncio, random, json, base64
 
 import config_selfbot
-from utils import Lang
+from utils import lang
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class FunCommands(commands.Cog):
     def __init__(self, bot):

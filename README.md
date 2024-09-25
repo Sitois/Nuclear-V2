@@ -153,7 +153,7 @@ Or you can just help me with my "need help" list:
     </td>
 <table>
 
-A big thank to [Lenoch](https://github.com/Lenochxd) for the README and for learning me Python ;-; ! Check her current [project](https://github.com/Lenochxd/WebDeck)!
+A big thank to [Lenoch](https://github.com/Lenochxd) for the README and for learning me Python ;-; (and also for the lang system) ! Check her current [project](https://github.com/Lenochxd/WebDeck)!
 
 And a big thank to [Shell1010](https://github.com/Shell1010) for helping me during the developement of the first version!
 

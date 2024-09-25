@@ -12,7 +12,7 @@ try:
     import asyncio
     import config_selfbot
     print("25%, Loaded required python-integrated libraries.")
-    from utils import rpc, log, __version__, Lang
+    from utils import rpc, log, __version__, lang
     print("35%, Loading commands...")
     from commands import *
     from colorama import Fore, Style, Back
@@ -39,7 +39,7 @@ except ImportError:
     import asyncio
     import config_selfbot
     print("25%, Loading required python-integrated libraries...")
-    from utils import rpc, log, __version__, Lang
+    from utils import rpc, log, __version__, lang
     print("35%, Loading commands...")
     from commands import *
     from colorama import Fore, Style, Back
@@ -66,8 +66,6 @@ $$ |\$$$ |$$ |  $$ |$$ |      $$ |$$   ____|$$  __$$ |$$ |
 $$ | \$$ |\$$$$$$  |\$$$$$$$\ $$ |\$$$$$$$\ \$$$$$$$ |$$ |      
 \__|  \__| \______/  \_______|\__| \_______| \_______|\__|  v{__version__}{Style.RESET_ALL}""")
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 # Change terminal title
 def set_terminal_title(title: str):

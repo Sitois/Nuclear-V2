@@ -1,11 +1,9 @@
 from discord.ext import commands
 import asyncio
 
-from utils import log, Lang, generate_random_string, random_cooldown
+from utils import log, lang, generate_random_string, random_cooldown
 import config_selfbot
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class RaidCommands(commands.Cog):
     def __init__(self, bot):

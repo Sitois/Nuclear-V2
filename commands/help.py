@@ -95,14 +95,11 @@ poetry = {"fr": [
 }
 
 from discord.ext import commands
-
 import random
 
 import config_selfbot
-from utils import Lang
+from utils import lang
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class HelpCommands(commands.Cog):
     def __init__(self, bot):

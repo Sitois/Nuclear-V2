@@ -152,7 +152,7 @@ Ou vous pouvez juste m'aider avec ma liste "besoin d'aide":
     </td>
 <table>
 
-Un grand merci à [Lenoch](https://github.com/Lenochxd) pour le README et pour m'avoir appris Python ;-; ! Jettez un oeuil à son [projet](https://github.com/Lenochxd/Webdeck) !
+Un grand merci à [Lenoch](https://github.com/Lenochxd) pour le README et pour m'avoir appris Python ;-; (et aussi pour le système de langues) ! Jettez un oeuil à son [projet](https://github.com/Lenochxd/Webdeck) !
 
 Un grand merci à [Shell1010](https://github.com/Shell1010) pour m'avoir aidé durant le développement de la première version !
 

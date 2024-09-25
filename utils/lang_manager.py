@@ -22,6 +22,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
+# NOTE: Language system made by Lenochxd, check her github(https://github.com/Lenochxd) !
+
 import os
 
 import config_selfbot
@@ -50,7 +52,9 @@ class Lang():
     def __init__(self,
                  path: str = r".\translations",
                  default_language: str = "en_US"):
-        self.path: str = path if os.path.exists(r".\translations") else r"..\translations"
+        self.path: str = path
+        if not os.path.exists(self.path):
+            raise KeyError("No path were given or given path doesn't exists.")
         self.lang_files: dict = {}
         self.default_language: str = default_language
         # Load all lang files at class init.
@@ -243,3 +247,6 @@ class Lang():
         """
 
         return self.text(text, lang)
+
+lang = Lang(default_language="en_US",
+            path=r".\translations" if os.path.exists(r".\translations") else r"..\translations")

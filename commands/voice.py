@@ -3,10 +3,8 @@ from discord.ext import commands
 import asyncio
 
 import config_selfbot
-from utils import Lang
+from utils import lang
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class VoiceCommands(commands.Cog):
     def __init__(self, bot):

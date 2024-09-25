@@ -3,7 +3,7 @@ import random, string, os, json, asyncio
 import discord
 
 from .logger import log
-from .lang import Lang
+from .lang_manager import lang
 
 lang = Lang(path=r".\translations",
             default_language='en_US')

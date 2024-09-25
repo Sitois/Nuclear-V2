@@ -4,10 +4,8 @@ from discord.ext import commands
 import datetime, time
 
 import config_selfbot
-from utils import rpc, Lang, log
+from utils import rpc, lang, log
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
 
 class RichPresenceCommands(commands.Cog):
     def __init__(self, bot):

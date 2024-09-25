@@ -10,4 +10,4 @@ __version__ = "1.8"
 from . import rpc
 from .logger import log
 from .misc import *
-from .lang import Lang
+from .lang_manager import lang
