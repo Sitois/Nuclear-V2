@@ -5,9 +5,6 @@ import discord
 from .logger import log
 from .lang_manager import lang
 
-lang = Lang(path=r".\translations",
-            default_language='en_US')
-
 def generate_random_string(length):
     letters = string.ascii_letters
     return ''.join(random.choice(letters) for _ in range(length))
