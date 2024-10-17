@@ -7,15 +7,15 @@ from utils import rpc
 
 # en: SelfBot name
 # fr: Nom du SelfBot
-selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod
+selfbot_name = "Dragon bot" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod
 
 # en: Account Token.
 # fr: Token du compte.
-token = ""
+token = "MTI3Nzc5OTU3NzAzMzkwMDA2Ng.GPOCkO.hEOb7ktSYrhmT60uABfFLZACc9u9bQSQFbFl0I"
 
 # en: Commands prefix.
 # fr: Prefix des commandes.
-prefix = "&"
+prefix = "+"
 
 # fr: Langue.
 # en: Language.
@@ -27,7 +27,7 @@ discord_log = True
 
 # en: Default Nitro Sniper mode. (True=On, False=Off)
 # fr: Mode du Nitro Sniper par défaut. (True=On, False=Off)
-nitro_sniper = False
+nitro_sniper = True
 
 # en: Commands delay of delete.
 # fr: Délai de supression des commandes.
