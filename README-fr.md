@@ -19,7 +19,7 @@
 
 <div align="center">
 
-  [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
+  [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/ByJcTyrSAn)](https://discord.gg/ByJcTyrSAn)
 
   ## ⛔ Avertissement
   **Les SelfBots ne sont pas autorisés par les CGU (ou TOS) de Discord et peuvent facilement entraîner le banissement de votre compte. Veuillez utiliser ce script uniquement à des fins éducatives. Ce projet est seulement une preuve de concept.**
@@ -158,7 +158,7 @@ Un grand merci à [Shell1010](https://github.com/Shell1010) pour m'avoir aidé d
 
 # Support
 - Serveur Guilded: [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
-- Serveur Discord: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
+- Serveur Discord: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
 - Telegram news: [https://t.me/nuclear_support](https://t.me/nuclear_support)
 - Telegram discussions / support: [https://t.me/+9t1ED-hddqhjOTRk](https://t.me/+9t1ED-hddqhjOTRk)
 

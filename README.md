@@ -1,6 +1,6 @@
 [![Version française](https://img.shields.io/badge/Lire%20en-Fran%C3%A7ais-blue?style=for-the-badge&logo=appveyor)](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md)
 
-
+help me fixing linux issue :pray::sob:
 
 # 🌌 Nuclear-V2
 ### A powerful Discord Selfbot written in Python using [discord.py-self](https://github.com/dolfies/discord.py-self)!
@@ -20,7 +20,7 @@
 
 <div align="center">
 
-  [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/2XRbQQQR8D)](https://discord.gg/2XRbQQQR8D)
+  [![Discord Support](https://dcbadge.limes.pink/api/server/https://discord.gg/ByJcTyrSAn)](https://discord.gg/ByJcTyrSAn)
 
   ## ⛔ Disclaimer
   **Discord SelfBots are not allowed by Discord TOS and can easily ban your account. Please use for educational purposes only. This project is just a proof of concept.**
@@ -159,7 +159,7 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 
 # Support
 - Guilded server: [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
-- Discord server: [https://discord.gg/2XRbQQQR8D](https://discord.gg/2XRbQQQR8D)
+- Discord server: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
 - Telegram news: [https://t.me/nuclear_support](https://t.me/nuclear_support)
 - Telegram discussions / support: [https://t.me/+9t1ED-hddqhjOTRk](https://t.me/+9t1ED-hddqhjOTRk)
 
