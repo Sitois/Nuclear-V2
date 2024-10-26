@@ -197,7 +197,7 @@ class Lang():
             return ""
 
         if lang is None:
-            lang = self.default_language
+            lang = config_selfbot.lang
 
         lang = next((l for l in self.lang_files if l.lower().startswith(lang.lower())), self.default_language)
 
@@ -248,5 +248,9 @@ class Lang():
 
         return self.text(text, lang)
 
-lang = Lang(default_language="en_US",
-            path=r".\translations" if os.path.exists(r".\translations") else r"..\translations")
+try:
+    lang = Lang(default_language="en_US",
+           path=r".\translations")
+except Exception:
+    lang = Lang(default_language="en_US",
+           path=r"..\translations")

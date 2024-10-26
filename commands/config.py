@@ -59,18 +59,20 @@ class ConfigCommands(commands.Cog):
     @commands.command()
     async def lang(self, ctx: commands.Context):
         try:
-            choice = ctx.message.content.split()[1].lower()
+            choice = ctx.message.content.split()[1]
         except Exception:
-            message = lang.text('config_lang_invalid')
+            message = f"**{lang.text('config_lang_invalid')}**\n"
             message += '\n'.join([f"{list(item.values())[0]}: {list(item.values())[2]}" for item in lang.languages()])
             await ctx.message.edit(message, delete_after=config_selfbot.deltime)
             return
 
         available_languages = [f"{list(item.values())[0]}" for item in lang.languages()]
         if choice in available_languages:
-            config_selfbot.lang = choice
+            config_selfbot.lang = choice[:2]
+            lang.reload_all_lang_files()
+            # Reload lang manager with the new language
             await ctx.message.edit(f"🟢 **{choice}**.", delete_after=config_selfbot.deltime)
         else:
-            message = lang.text('config_lang_invalid')
+            message = f"**{lang.text('config_lang_invalid')}**\n"
             message += '\n'.join([f"{list(item.values())[0]}: {list(item.values())[2]}" for item in lang.languages()])
             await ctx.message.edit(message)
