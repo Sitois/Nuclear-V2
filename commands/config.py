@@ -75,4 +75,4 @@ class ConfigCommands(commands.Cog):
         else:
             message = f"**{lang.text('config_lang_invalid')}**\n"
             message += '\n'.join([f"{list(item.values())[0]}: {list(item.values())[2]}" for item in lang.languages()])
-            await ctx.message.edit(message)
+            await ctx.message.edit(message, delete_after=config_selfbot.deltime)
