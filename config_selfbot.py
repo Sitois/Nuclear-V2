@@ -1,55 +1,46 @@
 from utils import rpc
 #######################
 #  selfbot            #
-#        basic        #
-#         config ^^   #
+#        config       #
 #######################
 
-# en: SelfBot name
 # fr: Nom du SelfBot
-selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod
+# Astuce : Évitez d'utiliser le mot "Selfbot" dans le nom, car certains serveurs le blacklistent avec AutoMod.
+selfbot_name = "Nuclear" 
 
-# en: Account Token.
-# fr: Token du compte.
-token = ""
+# fr: Token du compte pour se connecter ; gardez-le sécurisé et ne le partagez pas.
+token = ""  
 
-# en: Commands prefix.
-# fr: Prefix des commandes.
-prefix = "&"
+# fr: Préfixe pour déclencher les commandes.
+prefix = "&"  
 
-# fr: Langue.
-# en: Language.
-lang = "en" # fr / en / es /jp
+# fr: Langue de l'interface ; options disponibles : 'fr' (Français), 'en' (Anglais), 'es' (Espagnol), 'jp' (Japonais).
+lang = "en"  
 
-# fr: Activer/Désactiver les logs de discord (ex: Connected to gateway , Rate Limited etc..).
-# en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).
-discord_log = True
+# fr: Activer/Désactiver les logs Discord (ex : Connexion au gateway, Limite de débit).
+discord_log = True  
 
-# en: Default Nitro Sniper mode. (True=On, False=Off)
-# fr: Mode du Nitro Sniper par défaut. (True=On, False=Off)
-nitro_sniper = False
+# fr: Mode par défaut du Nitro Sniper (True=Activé, False=Désactivé)
+nitro_sniper = False  
 
-# en: Commands delay of delete.
-# fr: Délai de supression des commandes.
-deltime = 20
+# fr: Délai de suppression des messages de commande en secondes.
+deltime = 20  
+
 ########################
 
 
 #######################
-#  good               #
-#        person       #
+#  personne           #
+#         gentille    #
 #######################
 
-# en: Default paramter for Good Person.
-# fr: Paramètre par défaut de Good Person.
-good_person = False
+# fr: Paramètre par défaut pour l'option "Gentille Personne".
+good_person = False  
 
-# en: Good Person badwords.
-# fr: Mot interdit pour Good Person.
+# fr: Liste de mots interdits pour "Gentille Personne".
 badwords = ["fuck", "shit", "pute", "connard", "connasse", "conasse", "nigg", "bitch", "kys", "fdp", "ntm", "tg"]
 
-# en: Good Person "good words".
-# fr: Mot "bon" pour Good Person.
+# fr: Liste de mots "gentils" pour l'option "Gentille Personne".
 good_person_list = [
         "GeForce RTX 4000",
         "🍗",
@@ -64,42 +55,54 @@ good_person_list = [
         "u r beautiful",
         "you are all very intelligent",
         "excuse me"
-        ]
-########################
+]
 ########################
 
+
 #######################
-#  raid               #
-#        config       #
+#  configuration      #
+#         de raid     #
 #######################
-# en: Ban reason (for &banall).
-# fr: Raison du banissement (pour &banall).
+
+# fr: Raison du bannissement (pour &banall).
 ban_reason = "ezzed by Nuclear lol."
+
+# fr: Raison de l'expulsion.
 kick_reason = "ezzed by Nuclear lol."
 
+
 #######################
-# fr: RPC par défaut  #
-# en: Default RPC     #
+#   RPC par défaut    #
 #######################
 
-activity_name = "☄"
+# fr: Nom de l'activité affichée dans le profil.
+activity_name = "☄"  
+
+# fr: Détails affichés dans l'activité.
 activity_details = " "
+
+# fr: État affiché dans l'activité.
 activity_state = " "
-application_id = 1193291951290712154
 
+# fr: ID de l'application RPC.
+application_id = 1193291951290712154  
+
+# fr: URL de streaming pour l'activité.
 streaming_url = "https://twitch.tv/twitch"
+
+# fr: Boutons d'activité (actuellement inactifs).
 activity_button_one = "Nuclear !"
-activity_button_one_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
+activity_button_one_answer = "https://github.com/Sitois/Nuclear" 
+
 activity_button_two = "Star it!"
-activity_button_two_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
+activity_button_two_answer = "https://github.com/Sitois/Nuclear" 
 
-# see &tuto
+# fr: Voir &tuto pour les instructions d'icônes.
 icon = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
-assets = {"large_image": icon["dark"]["large_image"],
-          "large_text": "☄",
-          "small_image": icon["dark"]["small_image"],
-          "small_text": None
-          }
-
-
-#################
+assets = {
+    "large_image": icon["dark"]["large_image"],
+    "large_text": "☄",
+    "small_image": icon["dark"]["small_image"],
+    "small_text": None
+}
+##############################################
