@@ -45,7 +45,7 @@ poetry = {"fr": [
             "La única manera de hacer un gran trabajo es amar lo que haces.",
             "Cree que puedes, y ya estás a mitad de camino.",
             "No mires el reloj; haz lo que hace. Sigue adelante.",
-            "Un mejor día solo existe con dolor.",
+            "Un meilleur día solo existe con dolor.",
             "La única persona que estás destinado a convertirte es la persona que decides ser.",
             "El futuro pertenece a aquellos que creen en la belleza de sus sueños.",
             "El fracaso es la base del éxito.",
@@ -107,6 +107,7 @@ class HelpCommands(commands.Cog):
 
     @commands.command(name="help")
     async def help_command(self, ctx: commands.Context):
+        # Command pour afficher l'aide avec une citation aléatoire
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name}:**__ ☄
   ☄ "{random.choice(poetry[config_selfbot.lang])}" ☄
 
@@ -122,6 +123,7 @@ class HelpCommands(commands.Cog):
 
     @commands.command()
     async def backup(self, ctx: commands.Context):
+        # Commande pour afficher les options de sauvegarde
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🗃️| __**{lang.text('help_backup')}:**__
@@ -134,6 +136,7 @@ class HelpCommands(commands.Cog):
 
     @commands.command()
     async def tools(self, ctx: commands.Context):
+        # Commande pour afficher les outils disponibles
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🔧| __**{lang.text('help_tools')}:**__
@@ -144,106 +147,47 @@ class HelpCommands(commands.Cog):
 
     @commands.command()
     async def fun(self, ctx: commands.Context):
+        # Commande pour afficher les commandes amusantes
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🎲| __**{lang.text('help_fun')}:**__
- `{config_selfbot.prefix}cat`: {lang.text('help_fun_cat')}
- `{config_selfbot.prefix}good`: {lang.text('help_fun_good')}
- `{config_selfbot.prefix}call`: {lang.text('help_fun_call')}
- `{config_selfbot.prefix}gift <random/nerd/poor/hit>`: {lang.text('help_fun_gift')}
- `{config_selfbot.prefix}hack`: {lang.text('help_fun_hack')}
- `{config_selfbot.prefix}howfemboy`: {lang.text('help_fun_femboy')}
- `{config_selfbot.prefix}token`: {lang.text('help_fun_token')}
- `{config_selfbot.prefix}hug`: {lang.text('help_fun_hug')}
- `{config_selfbot.prefix}slap`: {lang.text('help_fun_slap')}""", delete_after=config_selfbot.deltime)
- 
-    @commands.command()
-    async def config(self, ctx: commands.Context):
-        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-
-⚙️| __**{lang.text('help_config')}:**__
- `{config_selfbot.prefix}nitrosniper`: {lang.text('help_general_sniper')}
- `{config_selfbot.prefix}restart`: {lang.text('help_config_restart')}
- `{config_selfbot.prefix}stop`: {lang.text('help_config_stop')}
- `{config_selfbot.prefix}lang`""", delete_after=config_selfbot.deltime)
-
-    @commands.command()
-    async def raid(self, ctx: commands.Context):
-        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-
-🏯| __**{lang.text('help_raid')}:**__
- `{config_selfbot.prefix}spam`: Spam. (`{config_selfbot.prefix}spam` 2 hello).
- `{config_selfbot.prefix}flood`: Flood.
- `{config_selfbot.prefix}kickall`: {lang.text('help_raid_kick')}
- `{config_selfbot.prefix}banall`: {lang.text('help_raid_banall')}""", delete_after=config_selfbot.deltime)
-
-    @commands.command()
-    async def utils(self, ctx: commands.Context):
-        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-
-📂| __**{lang.text('help_utils')}:**__
- `{config_selfbot.prefix}ping`: {lang.text('help_general_ping')}
- `{config_selfbot.prefix}snipe`: {lang.text('help_general_snipe')}
- `{config_selfbot.prefix}clear`: {lang.text('help_general_clear')}
- `{config_selfbot.prefix}hype`: {lang.text('help_general_hype')}
- `{config_selfbot.prefix}bio`: {lang.text('help_general_bio')}
- `{config_selfbot.prefix}userinfo`: {lang.text('help_general_user_info')}""", delete_after=config_selfbot.deltime)
-
-    @commands.command()
-    async def voice(self, ctx: commands.Context):
-        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-
-🎤| __**{lang.text('help_voice')}:**__
- `{config_selfbot.prefix}joinvc <voice_channel_id>`: {lang.text('help_voice_vc')}
- `{config_selfbot.prefix}joincam <voice_channel_id>`: {lang.text('help_voice_cam')}
- `{config_selfbot.prefix}leavevc`: {lang.text('help_voice_leave')}""", delete_after=config_selfbot.deltime)
-
-    @commands.command()
-    async def tuto(self, ctx: commands.Context):
-        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-
-🎮| __**Rich Presence Image Tutorial:**__
-{lang.text('tutorial_rpc')}""", delete_after=config_selfbot.deltime)
-
-    @commands.command()
-    async def templates(self, ctx: commands.Context):
-        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
-
-📖| __**{lang.text('help_templates')}:**__
- `{config_selfbot.prefix}use default`: {lang.text('template_help_default')}
- `{config_selfbot.prefix}use reset`: {lang.text('template_help_reset')}
- `{config_selfbot.prefix}use clear`: {lang.text('template_help_clear')}
- `{config_selfbot.prefix}use hi`: {lang.text('template_help_hi')}
- `{config_selfbot.prefix}use webdeck`: {lang.text('template_help_webdeck')}
- `{config_selfbot.prefix}use omori`: {lang.text('template_help_omori')}
- `{config_selfbot.prefix}use youtube`: {lang.text('template_help_youtube')}
- `{config_selfbot.prefix}use car`: {lang.text('template_help_car')}
- `{config_selfbot.prefix}use nuclear`: {lang.text('template_help_self')}
- `{config_selfbot.prefix}use dark`: {lang.text('template_help_dark')}
- `{config_selfbot.prefix}use python`: {lang.text('template_help_python')}
- `{config_selfbot.prefix}use js`: {lang.text('template_help_js')}
- `{config_selfbot.prefix}use cod`: {lang.text('template_help_cod')}
- `{config_selfbot.prefix}use gta`: {lang.text('template_help_gta')}
- `{config_selfbot.prefix}use tiktok`: {lang.text('template_help_tiktok')}
- 💡 {lang.text('template_help_reload')}""", delete_after=config_selfbot.deltime)
+ `{config_selfbot.prefix}joke`: {lang.text('help_fun_joke')}
+ `{config_selfbot.prefix}fact`: {lang.text('help_fun_fact')}
+ `{config_selfbot.prefix}quote`: {lang.text('help_fun_quote')}""", delete_after=config_selfbot.deltime)
 
     @commands.command()
     async def presence(self, ctx: commands.Context):
-        """Waiting for discord.pyself to add buttons links.
-    `{config_selfbot.prefix}rpc_button_link_one`: {lang.text('rpc_button_link_one_translate')}.
-    `{config_selfbot.prefix}rpc_button_link_two`: {lang.text('rpc_button_link_two_translate')}.
-        """
+        # Commande pour afficher les options de présence
         await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
 
 🕹️| __**{lang.text('help_rich_presence')}:**__
- `{config_selfbot.prefix}rpc_name`: {lang.text('rpc_name_translate')}
- `{config_selfbot.prefix}rpc_details`: {lang.text('rpc_details_translate')}
- `{config_selfbot.prefix}rpc_state`: {lang.text('rpc_state_translate')}
- `{config_selfbot.prefix}rpc_url`: {lang.text('rpc_url_translate')}
- `{config_selfbot.prefix}rpc_type <play / watch / listen / stream / competing / xbox>`: {lang.text('rpc_type_translate')}
- `{config_selfbot.prefix}rpc_large_image`: {lang.text('rpc_large_image_translate')} (`{config_selfbot.prefix}tuto`!)
- `{config_selfbot.prefix}rpc_large_text`: {lang.text('rpc_large_text_translate')}
- `{config_selfbot.prefix}rpc_small_image`: {lang.text('rpc_small_image_translate')} (`{config_selfbot.prefix}tuto`!)
- `{config_selfbot.prefix}rpc_small_text`: {lang.text('rpc_small_text_translate')}
- `{config_selfbot.prefix}rpc_button_text_one`: {lang.text('rpc_button_text_one_translate')}
- `{config_selfbot.prefix}rpc_button_text_two`: {lang.text('rpc_button_text_two_translate')}""", delete_after=config_selfbot.deltime)
+ `{config_selfbot.prefix}richpresence`: {lang.text('help_rich_presence_update')}
+ `{config_selfbot.prefix}setactivity`: {lang.text('help_rich_presence_set')}
+ `{config_selfbot.prefix}setstatus`: {lang.text('help_rich_presence_status')}""", delete_after=config_selfbot.deltime)
+
+    @commands.command()
+    async def templates(self, ctx: commands.Context):
+        # Commande pour afficher les modèles disponibles
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+📖| __**{lang.text('help_templates')}:**__
+ `{config_selfbot.prefix}addtemplate <name>`: {lang.text('help_templates_add')}
+ `{config_selfbot.prefix}removetemplate <name>`: {lang.text('help_templates_remove')}
+ `{config_selfbot.prefix}templatelist`: {lang.text('help_templates_list')}
+ `{config_selfbot.prefix}edittemplate <name>`: {lang.text('help_templates_edit')}
+ `{config_selfbot.prefix}showtemplate <name>`: {lang.text('help_templates_show')}
+ `{config_selfbot.prefix}use <name>`: {lang.text('help_templates_use')}""", delete_after=config_selfbot.deltime)
+
+    @commands.command()
+    async def voice(self, ctx: commands.Context):
+        # Commande pour afficher les options de voix
+        await ctx.message.edit(f"""☄ __**{config_selfbot.selfbot_name} :**__ ☄
+
+🎤| __**{lang.text('help_voice')}:**__
+ `{config_selfbot.prefix}join`: {lang.text('help_voice_join')}
+ `{config_selfbot.prefix}leave`: {lang.text('help_voice_leave')}
+ `{config_selfbot.prefix}play <url>`: {lang.text('help_voice_play')}
+ `{config_selfbot.prefix}pause`: {lang.text('help_voice_pause')}
+ `{config_selfbot.prefix}resume`: {lang.text('help_voice_resume')}
+ `{config_selfbot.prefix}stop`: {lang.text('help_voice_stop')}
+ `{config_selfbot.prefix}skip`: {lang.text('help_voice_skip')}""", delete_after=config_selfbot.deltime)
