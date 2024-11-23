@@ -2,10 +2,11 @@
 # https://github.com/Sitois/Nuclear-V2/pulls
 # Don't forget to complete translation into  `commands/help.py`(even only one sentence works)
 
-lang_name=日本語
+native_name=Japanaese
+english_name=日本語
 lang_code=jp
-credits=ANÐOR
-
+author_name=ANÐOR
+author_github_username=Andor-py
 
 
 # == Start ==

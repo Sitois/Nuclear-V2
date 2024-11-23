@@ -2,9 +2,11 @@
 # https://github.com/Sitois/Nuclear-V2/pulls
 # Don't forget to complete translation into  `commands/help.py`(even only one sentence works)
 
-lang_name=Español
+native_name=Español
+english_name=Spanish
 lang_code=es
-credits=ANÐOR
+author_name=ANÐOR
+author_github_username=Andor-py
 
 
 # == Start ==
@@ -26,7 +28,6 @@ aiohttp_error=Versión antigua de aiohttp. Esta versión se usa únicamente en d
 aiohttp_success=Reiniciando en curso...
 weird_error=Tal vez un error de configuración. Asegúrese de que toda la información en config_selfbot.py sea correcta.\nError:
 expired_token=El token de la cuenta ha cambiado. Por favor, ingrese el nuevo en config_selfbot.py
-
 
 
 # == Main ==

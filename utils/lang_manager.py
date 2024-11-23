@@ -24,153 +24,116 @@ DEALINGS IN THE SOFTWARE.
 
 # NOTE: Language system made by Lenochxd, check her github(https://github.com/Lenochxd) !
 
-import os
-
 import config_selfbot
 
+import os
+
 class Lang():
-    """Constructor.
-
-    Parameters
-    ----------
-    path: :class:`str`
-        The path of the folder containing .lang translations.
-        'r string' are recommended (i.g.: r'.\langs').
-
-        Default to r"./translations".
-
-    default_language: :class:`str`
-        The default language to use (if the text wasn't found on the specified language).
-
-        Default to "en_US".
-
-    Raises
-    ------
-    KeyError
-        No path were given or given path doesn't exists.
-    """
     def __init__(self,
-                 path: str = r".\translations",
+                 path: str = r"./translations",
+                 misc_lang_files_dir: str = r"./translations/misc",
                  default_language: str = "en_US"):
         self.path: str = path
+        self.misc_lang_files_dir: str = misc_lang_files_dir
         if not os.path.exists(self.path):
-            raise KeyError("No path were given or given path doesn't exists.")
-        self.lang_files: dict = {}
+            raise KeyError("No LANG path were given or given path doesn't exists.")
+        self.misc_lang_files_dir: str = misc_lang_files_dir
+        if not os.path.exists(self.misc_lang_files_dir):
+            print("WARNING: No MISC path were given or given path doesn't exists.")
         self.default_language: str = default_language
-        # Load all lang files at class init.
         self.load_all_lang_files()
+        self.lang_files: dict = {}
+        self.languages_info: list = self.get_languages_info(self.lang_files)
+        self.set_default_language(self.default_language)
+        self.reload_all_lang_files()
 
-    def load_lang_file(self, lang: str) -> dict:
-        """Loads .lang file.
-
-        Parameters
-        ----------
-        lang: :class:`str`
-            The lang name (i.g.: en_US, fr_FR...).
-
-        Raises
-        ------
-        TypeError
-            Lang file error.
-
-        Returns
-        -------
-        lang_dictionary: :class:`dict`
-            A dict version of the the loaded .lang file.
-        """
-
+    def load_lang_file(self, lang) -> dict:
         lang_dictionary = {}
         lang_path = f"{self.path}/{lang}.lang"
-        if not os.path.isfile(f"{self.path}/{lang}.lang"):
+
+        if not os.path.isfile(lang_path):
+            lang_path = f"{self.misc_lang_files_dir}/{lang}.lang"
+
+        if not os.path.isfile(lang_path):
             for root, dirs, files in os.walk(self.path):
                 for file in files:
                     if file.endswith(".lang") and file.startswith(lang):
-                        lang_path = f"./{self.path}/{file}"
+                        lang_path = os.path.join(self.path, file)
+                        break
+                if lang_path != os.path.join(self.path, f"{lang}.lang"):
+                    break
 
         with open(lang_path, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            for line in lines:
-                if (line.replace(" ", "").replace("\n", "") != ""
-                    and not line.startswith("//")
-                    and not line.startswith("#")):
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith(("//", "#")):
                     try:
-                        key, value = line.strip().replace("\n", "").split("=", 1)
-                        lang_dictionary[key] = value.strip()
-                    except Exception as e:
-                        line = line.replace("\n", "")
-                        raise TypeError(f'\nLANG FILE ERROR:\nLine: {line}\nError: {e}\n')
+                        key, value = line.split("=", 1)
+                        lang_dictionary[key.strip()] = value.strip()
+                    except ValueError as e:
+                        raise ValueError(f'Invalid line format: {line}') from e
+
         return lang_dictionary
 
-    def load_all_lang_files(self, path: str = None) -> dict:
-        """Loads all .lang files.
 
-        Parameters
-        ----------
-        path: :class:`str`
-            The path of the folder containing .lang translations.
+    def get_language(self, lang=None) -> str:
+        if lang is None:
+            lang = self.default_language
 
-            Default to the contructor path.
+        for available_lang in self.lang_files:
+            if available_lang.lower().startswith(lang.lower()):
+                return available_lang
+        
+        return self.default_language
 
-        Returns
-        -------
-        lang_files: :class:`dict`
-            A dict version of the the loaded .lang files.
-        """
+    def language_exists(self, lang=None) -> bool:
+        return self.get_language(lang) in self.lang_files
 
-        if path is None:
-            path = self.path
+    def set_default_language(self, lang: str) -> None:
+        if self.language_exists(lang):
+            self.default_language = lang
+        else:
+            raise ValueError(f"Language '{lang}' does not exist. Default language remains '{self.default_language}'.")
 
-        for root, dirs, files in os.walk(self.path):
-            for file in files:
+    def load_all_lang_files(self) -> dict:
+        self.lang_files = {}
+        for file in os.listdir(self.path):
+            if file.endswith(".lang"):
+                lang = file.split(".")[0]
+                self.lang_files[lang] = self.load_lang_file(lang)
+                self.lang_files[lang]['misc'] = False
+
+        if self.misc_lang_files_dir and os.path.isdir(self.misc_lang_files_dir):
+            for file in os.listdir(self.misc_lang_files_dir):
                 if file.endswith(".lang"):
                     lang = file.split(".")[0]
-                    self.lang_files[lang] = self.load_lang_file(lang)
+                    if lang not in self.lang_files:
+                        self.lang_files[lang] = self.load_lang_file(lang)
+                    self.lang_files[lang]['misc'] = True
         return self.lang_files
 
     def reload_all_lang_files(self) -> None:
-        """Reloads all .lang files."""
-        self.lang_files = self.load_all_lang_files(self.path)
-
-    def language_exists(self, lang: str = None) -> bool:
-        """Check whatever a language exists in the translations folder.
-
-        Parameters
-        ----------
-        lang: :class:`str`
-            The language to check.
-
-        Returns
-        --------
-        :class:`bool`
-            Whatever if the given language exists.
-        """
-
-        lang = next((l for l in self.lang_files if l.lower().startswith(lang.lower())), '')
-        return lang in self.lang_files
-
-    def languages(self) -> list[dict]:
-        """Retrieve available languages.
-
-        Returns
-        -------
-        languages: :class:`list[dict]`
-            A :class:`list` containing :class:`dict` with lang informations.
-        """
-
+        self.lang_files = self.load_all_lang_files()
+        
+    def get_languages_info(self, lang_files) -> list:
+        if not self.lang_files:
+            self.lang_files = self.load_all_lang_files()
+        
         languages_info = []
-        for lang in self.lang_files:
+        for lang, lang_data in self.lang_files.items():
             languages_info.append({
-                'name': lang,
-                'code': self.lang_files[lang]['lang_code'],
-                'native_name': self.lang_files[lang]['lang_name'],
-                'credits': self.lang_files[lang]['credits'],
+                'code': lang,
+                'code_short': lang_data['lang_code'],
+                'native_name': lang_data['native_name'],
+                'english_name': lang_data['english_name'],
+                'author_name': lang_data['author_name'],
+                'author_github_username': lang_data['author_github_username'],
+                'misc': lang_data.get('misc', False),
             })
-
+        
         return languages_info
 
-    def text(self,
-             text: str = None,
-             lang: str = None) -> str:
+    def text(self, text: str = None, lang: str = None) -> str:
         """Returns the given text in the given language.
 
         Parameters
@@ -192,36 +155,20 @@ class Lang():
         :class:`str`
             The translated text.
         """
+        lang = self.get_language(lang or self.default_language)
 
         if text is None:
             return ""
 
-        if lang is None:
-            lang = config_selfbot.lang
+        if lang not in self.lang_files:
+            raise KeyError("Given text wasn't found on both default language and given language.")
 
-        lang = next((l for l in self.lang_files if l.lower().startswith(lang.lower())), self.default_language)
-
-        if not lang in self.lang_files:
-            lang = self.default_language
-
-        # TODO: Should improve here.
-        if not text in self.lang_files[lang]:
-            try:
-                return self.lang_files[lang][text].replace(
-            '\\n', '\n').replace(
-            '\\r', '\r').replace(
-                '%prefix%', config_selfbot.prefix)
-            except KeyError:
-                raise KeyError("Given text wasn't found on both default language and given language.")
-
-        return self.lang_files[lang][text].replace(
+        return self.lang_files[lang].get(text, text).replace(
             '\\n', '\n').replace(
             '\\r', '\r').replace(
                 '%prefix%', config_selfbot.prefix)
 
-    def t(self,
-          text: str = None,
-          lang: str = None) -> str:
+    def t(self, text: str = None, lang: str = None) -> str:
         """Returns the given text in the given language.
 
         Shortcut for Lang().text()

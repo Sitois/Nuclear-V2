@@ -2,15 +2,16 @@
 # https://github.com/Sitois/Nuclear-V2/pulls
 # Don't forget to complete translation into  `commands/help.py`(even only one sentence works)
 
-lang_name=Français
+native_name=Français
+english_name=French
 lang_code=fr
-credits=Sitois
-
+author_name=Sitois
+author_github_username=Sitois
 
 # == Start ==
 
 start_text=Démarrage du selfbot en cours...
-unstable_version=Vous utilisez une version INSTABLE:\n- Si vous faites faces à un problème, merci d'en avertir le Support.\n Si vous corrigez/ajoutez quelque chose, merci d'ouvrir une pull request sur GitHub pour l'ajouter dans le projet principal.\n- UpdateChecker est désactivé.\n- Si vous n'êtes pas un développeur, je vous recommande d'utiliser la version stable actuelle:
+unstable_version=Vous utilisez une version INSTABLE:\n- Si vous faites faces à un problème, merci d'en avertir le Support.\n- Si vous corrigez/ajoutez quelque chose, merci d'ouvrir une pull request sur GitHub pour l'ajouter dans le projet principal.\n- UpdateChecker est désactivé.\n- Si vous n'êtes pas un développeur, je vous recommande d'utiliser la version stable actuelle:
 ready_text=Connecté en tant que
 ready_text_two=démarré en
 ready_text_three=secondes.
