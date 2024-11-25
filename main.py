@@ -298,6 +298,7 @@ async def on_ready():
         await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         msg = await panel.send(lang.text('panel_message'))
         await msg.unack()
+        await asyncio.sleep(0.7)
         # Remove embed
         rpc.edit_variable_json("create_panel", False)
         log.alert("NuclearPanel successfully created (check DMs!).\nIf not, please check the 'Issues' category into the GitHub's README for further help.")
