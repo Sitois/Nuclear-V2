@@ -36,9 +36,9 @@ class Lang():
     ----------
     path: :class:`str`
         The path of the folder containing .lang translations.
-        'r string' are recommended (i.g.: r'.\langs').
+        'r string' are recommended (i.g.: r'./langs').
 
-        Default to r"./translations".
+        Default to ./translations.
 
     default_language: :class:`str`
         The default language to use (if the text wasn't found on the specified language).

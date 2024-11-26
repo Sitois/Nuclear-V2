@@ -2,11 +2,9 @@
 # https://github.com/Sitois/Nuclear-V2/pulls
 # Don't forget to complete translation into  `commands/help.py`(even only one poetry sentence works)
 
-native_name=English
-english_name=English
+lang_name=English
 lang_code=en
-author_name=Sitois
-author_github_username=Sitois
+credits=Sitois
 
 
 # == Start ==

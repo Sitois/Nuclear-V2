@@ -22,6 +22,7 @@ try:
     import discord
     from discord.ext import commands
     import nacl
+    print("75%, Imported requried modules!")
 except ImportError:
     import sys, os
     print("++++++++++++++++++++++++")
@@ -297,8 +298,8 @@ async def on_ready():
         await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
         await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
         msg = await panel.send(lang.text('panel_message'))
-        await msg.unack()
         await asyncio.sleep(0.7)
+        await msg.unack()
         # Remove embed
         rpc.edit_variable_json("create_panel", False)
         log.alert("NuclearPanel successfully created (check DMs!).\nIf not, please check the 'Issues' category into the GitHub's README for further help.")
