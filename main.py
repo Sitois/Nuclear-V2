@@ -3,11 +3,11 @@
 print("========================")
 print("LAUNCHING NUCLEAR-V2")
 import subprocess
-# load icons(fixed error when iconloader dll crashes the program)
-os.system("nuclear_icon.png")
 print("10%, Importing required modules...")
 try:
     import sys, os, platform
+    # load icons(fixed error when iconloader dll crashes the program)
+    os.system("nuclear_icon.png")
     import ctypes
     import datetime, time
     import threading
