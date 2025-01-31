@@ -261,6 +261,15 @@ async def on_ready():
 
     log.separate_magenta()
 
+    if custom_status:
+        for activity in bot.activities:
+            if isinstance(activity, discord.CustomActivity):
+                custom_status = activity
+                break
+        await bot.settings.edit(custom_activity=discord.CustomActivity(name=custom_status.name, emoji=custom_status.emoji))
+    else:
+        pass
+
     assets = {"large_image": config_selfbot.assets["large_image"] if rpc.read_variable_json("large_image") == "VOID" else rpc.read_variable_json("large_image"),
               "large_text": config_selfbot.assets["large_text"] if rpc.read_variable_json("large_text") == "VOID" else rpc.read_variable_json("large_text"),
               "small_image": config_selfbot.assets["small_image"] if rpc.read_variable_json("small_image") == "VOID" else rpc.read_variable_json("small_image"),
