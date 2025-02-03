@@ -261,6 +261,9 @@ async def on_ready():
 
     log.separate_magenta()
 
+    # No status-reset
+    custom_status = None
+
     if custom_status:
         for activity in bot.activities:
             if isinstance(activity, discord.CustomActivity):
