@@ -373,12 +373,17 @@ def fix_aiohttp():
 # Launch the selfbot
 # By the way, this is the first and the only moment where we use the token in the selfbot.
 try:
-    if config_selfbot.discord_log:
-        # If `discord_log` in `config_selfbot` is True, enable discord.py-self's logs
-        bot.run(config_selfbot.token)
+    if config_selfbot.anonymous_token:
+        # If anonymous token is set to True, log in with the anonymous_token.txt file.
+        with open("./anonymous_token.txt", 'r') as f:
+            anonymous_token = f.read().strip()
+        bot.run(anonymous_token)
+        with open("./anonymous_token.txt", 'w') as f:
+            f.write('')
     else:
+        # If `discord_log` in `config_selfbot` is True, enable discord.py-self's logs
         # Else, disable discord.py-self's logs
-        bot.run(config_selfbot.token, log_handler=None)
+        bot.run(config_selfbot.token) if config_selfbot.discord_log else bot.run(config_selfbot.token, log_handler=None)
 except discord.LoginFailure:
     # Log if the passed token is incorrect
     log.critical(lang.text('token_error'))

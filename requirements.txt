@@ -1,4 +1,4 @@
 colorama
 requests
 pynacl
-git+https://github.com/dolfies/discord.py-self.git
+discord.py-self

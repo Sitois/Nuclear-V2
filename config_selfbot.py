@@ -11,6 +11,10 @@ selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot n
 
 # en: Account Token.
 # fr: Token du compte.
+# Use the anonymous token system. Learn more at https://github.com/Sitois/Nuclear-V2/fhugfftygh
+anonymous_token = False
+# en: How to get your account token: https://github.com/Sitois/Nuclear-V2#-how-to-get-a-user-token
+# fr: Tuto pour obtenir son token: https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token
 token = ""
 
 # en: Commands prefix.
@@ -19,7 +23,7 @@ prefix = "&"
 
 # fr: Langue.
 # en: Language.
-lang = "en" # fr / en / es /jp
+lang = "en" # fr / en / es / jp
 
 # fr: Activer/Désactiver les logs de discord (ex: Connected to gateway , Rate Limited etc..).
 # en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).
