@@ -11,7 +11,7 @@ selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot n
 
 # en: Account Token.
 # fr: Token du compte.
-# Use the anonymous token system. Learn more at https://github.com/Sitois/Nuclear-V2/fhugfftygh
+# Use the anonymous token system. Enter your token into `anonymous_token.txt`, Nuclear will launch with it then clear the file.
 anonymous_token = False
 # en: How to get your account token: https://github.com/Sitois/Nuclear-V2#-how-to-get-a-user-token
 # fr: Tuto pour obtenir son token: https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token

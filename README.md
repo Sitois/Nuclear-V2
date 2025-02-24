@@ -1,5 +1,11 @@
 [![Version française](https://img.shields.io/badge/Lire%20en-Fran%C3%A7ais-blue?style=for-the-badge&logo=appveyor)](https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md)
 
+## ``discord.py-self``'s now available on pip! No more needs of Git, just use:
+<div align="center">
+ pip install discord.py-self
+</div>
+
+<br>
 
 # 🌌 Nuclear-V2
 ### A powerful Discord Selfbot written in Python using [discord.py-self](https://github.com/dolfies/discord.py-self)!
