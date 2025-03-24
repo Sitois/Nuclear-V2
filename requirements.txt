@@ -1,10 +1,7 @@
 colorama
 requests
 pynacl
-# Remplacer discord.py-self par la version spécifique
-# discord.py-self
-git+https://github.com/dolfies/discord.py-self.git@2.0.0
-# Supprimer discord.py car il peut entrer en conflit avec discord.py-self
-# discord.py
+# Utiliser la version master de discord.py-self
+git+https://github.com/dolfies/discord.py-self.git
 python-dotenv
 aiohttp
