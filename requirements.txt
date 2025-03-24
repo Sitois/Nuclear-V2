@@ -1,3 +1,6 @@
+aiohttp
+tzlocal
+discord_protos
 colorama
 requests
 pynacl
