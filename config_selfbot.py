@@ -1,9 +1,14 @@
 from utils import rpc
+import os
+from dotenv import load_dotenv
 #######################
 #  selfbot            #
 #        basic        #
 #         config ^^   #
 #######################
+
+# Chargement des variables d'environnement depuis le fichier .env
+load_dotenv()
 
 # en: SelfBot name
 # fr: Nom du SelfBot
@@ -15,7 +20,7 @@ selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot n
 anonymous_token = False
 # en: How to get your account token: https://github.com/Sitois/Nuclear-V2#-how-to-get-a-user-token
 # fr: Tuto pour obtenir son token: https://github.com/Sitois/Nuclear-V2/blob/main/README-fr.md#-comment-obtenir-son-token
-token = ""
+token = os.getenv("TOKEN", "")  # Récupère le token depuis le fichier .env
 
 # en: Commands prefix.
 # fr: Prefix des commandes.
@@ -23,7 +28,7 @@ prefix = "&"
 
 # fr: Langue.
 # en: Language.
-lang = "en" # fr / en / es / jp
+lang = "fr" # fr / en / es / jp
 
 # fr: Activer/Désactiver les logs de discord (ex: Connected to gateway , Rate Limited etc..).
 # en: Toggle discord logs (like: Connected to gateway, Rate Limited etc...).
@@ -89,7 +94,7 @@ kick_reason = "ezzed by Nuclear lol."
 activity_name = "☄"
 activity_details = " "
 activity_state = " "
-application_id = 1193291951290712154
+application_id = 1295503802937511966
 
 streaming_url = "https://twitch.tv/twitch"
 activity_button_one = "Nuclear !"
