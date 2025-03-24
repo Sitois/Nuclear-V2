@@ -6,3 +6,10 @@ requests
 pynacl
 discord.py-self
 python-dotenv
+colorama
+requests
+pynacl
+discord.py-self
+discord.py
+python-dotenv
+aiohttp
