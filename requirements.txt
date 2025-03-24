@@ -2,3 +2,4 @@ colorama
 requests
 pynacl
 discord.py-self
+python-dotenv
