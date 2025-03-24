@@ -5,3 +5,5 @@ pynacl
 git+https://github.com/dolfies/discord.py-self.git
 python-dotenv
 aiohttp
+tzlocal
+discord_protos
