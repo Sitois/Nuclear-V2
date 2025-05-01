@@ -5,6 +5,8 @@
  pip install discord.py-self
 </div>
 
+#### note: using this way is easier but some commands that use beta of dpy-self are not available
+
 <br>
 
 # 🌌 Nuclear-V2
@@ -163,7 +165,7 @@ A big thank to [Lenoch](https://github.com/Lenochxd) for the README and for lear
 And a big thank to [Shell1010](https://github.com/Shell1010) for helping me during the developement of the first version!
 
 # Support
-- Guilded server: [https://guilded.gg/nuclear](https://guilded.gg/nuclear)
+- ~~Guilded server: [https://guilded.gg/](https://guilded.gg/)~~ Discontinued
 - Discord server: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
 - Telegram news: [https://t.me/nuclear_support](https://t.me/nuclear_support)
 - Telegram discussions / support: [https://t.me/+9t1ED-hddqhjOTRk](https://t.me/+9t1ED-hddqhjOTRk)
