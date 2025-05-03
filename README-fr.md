@@ -159,8 +159,8 @@ Un grand merci à [Shell1010](https://github.com/Shell1010) pour m'avoir aidé d
 # Support
 - ~~Serveur Guilded: [https://guilded.gg/](https://guilded.gg/)~~ obsolète
 - Serveur Discord: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
-- Telegram news: [https://t.me/nuclear_support](https://t.me/nuclear_support)
-- Telegram discussions / support: [https://t.me/+9t1ED-hddqhjOTRk](https://t.me/+9t1ED-hddqhjOTRk)
+- ~~Telegram news:~~ [https://t.me/](https://t.me/)~~ obsolète
+- ~~Telegram discussions / support:~~ [https://t.me/](https://t.me/)~~ obsolète
 
 <br>
 

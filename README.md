@@ -167,8 +167,8 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 # Support
 - ~~Guilded server: [https://guilded.gg/](https://guilded.gg/)~~ Discontinued
 - Discord server: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
-- Telegram news: [https://t.me/nuclear_support](https://t.me/nuclear_support)
-- Telegram discussions / support: [https://t.me/+9t1ED-hddqhjOTRk](https://t.me/+9t1ED-hddqhjOTRk)
+- ~~Telegram news:~~ [https://t.me/](https://t.me/)~~ Discontinued
+- ~~Telegram discussions / support:~~ [https://t.me/](https://t.me/)~~ Discontinued
 
 <br>
 
