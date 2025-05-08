@@ -157,8 +157,10 @@ Un grand merci à [Lenoch](https://github.com/Lenochxd) pour le README et pour m
 Un grand merci à [Shell1010](https://github.com/Shell1010) pour m'avoir aidé durant le développement de la première version !
 
 # Support
-- ~~Serveur Guilded: [https://guilded.gg/](https://guilded.gg/)~~ obsolète
 - Serveur Discord: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
+- Element news: [https://matrix.to/#/!dtjiVLvwnodHnBNiEX:matrix.org?via=matrix.org](https://matrix.to/#/!dtjiVLvwnodHnBNiEX:matrix.org?via=matrix.org)
+- Element discussions / support: [https://matrix.to/#/!nBdTegXyoPUBpktQLq:matrix.org?via=matrix.org](https://matrix.to/#/!nBdTegXyoPUBpktQLq:matrix.org?via=matrix.org)
+- ~~Serveur Guilded: [https://guilded.gg/](https://guilded.gg/)~~ obsolète
 - ~~Telegram news:~~ [https://t.me/](https://t.me/)~~ obsolète
 - ~~Telegram discussions / support:~~ [https://t.me/](https://t.me/)~~ obsolète
 
