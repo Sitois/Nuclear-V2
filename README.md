@@ -21,8 +21,6 @@
   [![GitHub watchers](https://img.shields.io/github/watchers/Sitois/Nuclear.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/watchers)
   [![CodeFactor](https://www.codefactor.io/repository/github/Sitois/Nuclear-V2/badge?style=flat)](https://www.codefactor.io/repository/github/Sitois/Nuclear-V2)
   [![GitHub issues](https://img.shields.io/github/issues/Sitois/Nuclear-V2.svg?style=flat)](https://github.com/Sitois/Nuclear-V2/issues)
-  [![Support](https://shields.yoki-labs.xyz/shields/i/kQj8PmAp?style=flat)](https://www.guilded.gg/i/kQj8PmAp?cid=c7d78c47-5231-47fa-b388-e11d41360e2a&intent=chat)
-  [![Telegram Support](https://img.shields.io/endpoint?url=https%3A%2F%2Frunkit.io%2Fdamiankrawczyk%2Ftelegram-badge%2Fbranches%2Fmaster%3Furl%3Dhttps%3A%2F%2Ft.me%2Fnuclear_support)](https://t.me/nuclear_support)
 </div>
 
 <div align="center">
@@ -169,14 +167,14 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 - Element news: [https://matrix.to/#/!dtjiVLvwnodHnBNiEX:matrix.org?via=matrix.org](https://matrix.to/#/!dtjiVLvwnodHnBNiEX:matrix.org?via=matrix.org)
 - Element discussions / support: [https://matrix.to/#/!nBdTegXyoPUBpktQLq:matrix.org?via=matrix.org](https://matrix.to/#/!nBdTegXyoPUBpktQLq:matrix.org?via=matrix.org)
 - ~~Guilded server: [https://guilded.gg/](https://guilded.gg/)~~ Discontinued
-- ~~Telegram news:~~ [https://t.me/](https://t.me/)~~ Discontinued
-- ~~Telegram discussions / support:~~ [https://t.me/](https://t.me/)~~ Discontinued
+- ~~Telegram news: [https://t.me/](https://t.me/)~~ Discontinued
+- ~~Telegram discussions / support: [https://t.me/](https://t.me/)~~ Discontinued
 
 <br>
 
 ---
 
-[![](https://visitcount.itsvg.in/api?id=Nuclear&label=Repo%20Views&color=2&icon=5&pretty=false)](https://visitcount.itsvg.in)
+[![](https://visitcountpro.netlify.app/api?id=Nuclear&label=Repo%20Views&color=2&icon=5&pretty=false)](https://visitcountpro.netlify.app)
 
 ---
 Nuclear-V1: [![wakatime](https://wakatime.com/badge/user/018af69f-9d50-4699-932d-026a9efb0401/project/018d13ec-4c15-459c-b9a8-e02089e7681b.svg)](https://wakatime.com/badge/user/018af69f-9d50-4699-932d-026a9efb0401/project/018d13ec-4c15-459c-b9a8-e02089e7681b)
