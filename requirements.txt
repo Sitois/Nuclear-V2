@@ -1,4 +1,9 @@
 colorama
 requests
 pynacl
-discord.py-self
+# Utiliser la version master de discord.py-self
+git+https://github.com/dolfies/discord.py-self.git
+python-dotenv
+aiohttp
+tzlocal
+discord_protos

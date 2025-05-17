@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nuclear-selfbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash start.sh
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: PORT
+        value: 8080 
