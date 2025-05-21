@@ -7,7 +7,7 @@
 
 #### note: using this way is easier but some commands that use beta of dpy-self are not available
 
-## [🚀CHEAP HOST !🚀](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-hosting)
+## [🚀CHEAP HOST !🚀](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-cheap-host)
 <br>
 
 # 🌌 Nuclear-V2
