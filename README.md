@@ -7,6 +7,7 @@
 
 #### note: using this way is easier but some commands that use beta of dpy-self are not available
 
+## [🚀CHEAP HOST !🚀](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-hosting)
 <br>
 
 # 🌌 Nuclear-V2
@@ -138,6 +139,9 @@ Just clone it with the green "Code" button above the README.
 Or you can just help me with my "need help" list:
   - Captcha: Check comments on `main.py`
   - Every "TODO:" in the code
+
+## 🚀 CHEAP HOST!
+Join this [discord](https://discord.gg/7sqnH9MjnZ) to get a very cheap host(start at 1.50€) !
 
 ## ⭐ Contributors
 <table align="center">
