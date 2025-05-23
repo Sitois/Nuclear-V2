@@ -399,3 +399,22 @@ except Exception as e:
     else:
         # Else, print the Exception.
         log.critical(f"{lang.text('weird_error')} {e}")
+
+# Ajouter au début du fichier main.py
+import threading
+import http.server
+import socketserver
+import os
+
+def run_web_server():
+    PORT = int(os.getenv('PORT', 8080))
+    Handler = http.server.SimpleHTTPRequestHandler
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+        print(f"Serving at port {PORT}")
+        httpd.serve_forever()
+
+# Démarrer le serveur web dans un thread séparé
+if os.getenv('RENDER'):  # Seulement sur Render
+    threading.Thread(target=run_web_server, daemon=True).start()
+
+# Continuer avec le code existant...
