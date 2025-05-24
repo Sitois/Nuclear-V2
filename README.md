@@ -168,11 +168,12 @@ And a big thank to [Shell1010](https://github.com/Shell1010) for helping me duri
 
 # Support
 - Discord server: [https://discord.gg/ByJcTyrSAn](https://discord.gg/ByJcTyrSAn)
-- Element news: [https://matrix.to/#/!dtjiVLvwnodHnBNiEX:matrix.org?via=matrix.org](https://matrix.to/#/!dtjiVLvwnodHnBNiEX:matrix.org?via=matrix.org)
-- Element discussions / support: [https://matrix.to/#/!nBdTegXyoPUBpktQLq:matrix.org?via=matrix.org](https://matrix.to/#/!nBdTegXyoPUBpktQLq:matrix.org?via=matrix.org)
+- Telegram news: [https://t.me/+1FBO3QUbJWo5ODk0](https://t.me/+1FBO3QUbJWo5ODk0)
+- Telegram discussions / support: [https://t.me/+5rUjHsecA1AxYWM0](https://t.me/+5rUjHsecA1AxYWM0)
 - ~~Guilded server: [https://guilded.gg/](https://guilded.gg/)~~ Discontinued
-- ~~Telegram news: [https://t.me/](https://t.me/)~~ Discontinued
-- ~~Telegram discussions / support: [https://t.me/](https://t.me/)~~ Discontinued
+- ~~Element discussions / support: [https://matrix.to/](https://matrix.to/)~~ Discontinued
+- ~~Element news: [https://matrix.to/](https://matrix.to/)~~ Discontinued
+
 
 <br>
 
