@@ -396,6 +396,10 @@ except Exception as e:
     elif "4004" in str(e):
         # If the session has closed with 4004 (token has changed), log the error.
         log.critical(lang.text('expired_token'))
+    elif "curl: (55) Send failure: Broken pipe." in str(e):
+        print("Broken pipe. Restarting...")
+        bot.close()
+        restart_selfbot()
     else:
         # Else, print the Exception.
         log.critical(f"{lang.text('weird_error')} {e}")
