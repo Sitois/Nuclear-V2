@@ -6,9 +6,8 @@
 </div>
 
 #### note: using this way is easier but some commands that use beta of dpy-self are not available
+##  NOTE: RPC FIXED ?? Check the [🛠️ Developement version](https://github.com/Sitois/Nuclear-V2#%EF%B8%8F-developement-version) (added ps5 ps4 metaquest and even android rpc(also optimized xbox))
 
-## [🚀CHEAP HOST !🚀](https://github.com/Sitois/Nuclear-V2?tab=readme-ov-file#-cheap-host)
-<br>
 
 # 🌌 Nuclear-V2
 ### A powerful Discord Selfbot written in Python using [discord.py-self](https://github.com/dolfies/discord.py-self)!
@@ -69,6 +68,7 @@ Open `config_selfbot.py` with any text editor  and enter a [user token](https://
 * And others, check the `Help` command!
 
 ## 📜 How to get a user token
+### NOTE: ig it's fixed, search for another way on google.
 1. Go to [Discord Web](https://discord.com/app)
 2. Do ``CTRL + MAJ + I`` and go to `Console`
 3. Paste this code:

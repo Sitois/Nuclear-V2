@@ -7,7 +7,7 @@ from utils import rpc
 
 # en: SelfBot name
 # fr: Nom du SelfBot
-selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod
+selfbot_name = "Nuclear" # Tip: Don't use the "Selfbot" word into your selfbot name, most of servers blacklist this word with AutoMod.
 
 # en: Account Token.
 # fr: Token du compte.
@@ -67,7 +67,8 @@ good_person_list = [
         "🌠",
         "u r beautiful",
         "you are all very intelligent",
-        "excuse me"
+        "excuse me",
+        "i'm 67 brainroted"
         ]
 ########################
 ########################
@@ -93,9 +94,9 @@ application_id = 1193291951290712154
 
 streaming_url = "https://twitch.tv/twitch"
 activity_button_one = "Nuclear !"
-activity_button_one_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
+activity_button_one_link = "https://github.com/Sitois/Nuclear"
 activity_button_two = "Star it!"
-activity_button_two_answer = "https://github.com/Sitois/Nuclear" # doesn't work for the moment
+activity_button_two_link = "https://github.com/Sitois/Nuclear"
 
 # see &tuto
 icon = rpc.get_raw_json("Sitois", "Nuclear-V2", "assets.json")
