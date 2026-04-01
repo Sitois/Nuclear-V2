@@ -68,7 +68,7 @@ Open `config_selfbot.py` with any text editor  and enter a [user token](https://
 * And others, check the `Help` command!
 
 ## 📜 How to get a user token
-### NOTE: ig it's fixed, search for another way on google.
+### NOTE: ig it's fixed, search for another way on google. [or use this extension](https://chromewebstore.google.com/detail/accgjfooejbpdchkfpngkjjdekkcbnfd)
 1. Go to [Discord Web](https://discord.com/app)
 2. Do ``CTRL + MAJ + I`` and go to `Console`
 3. Paste this code:
