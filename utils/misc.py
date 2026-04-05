@@ -10,9 +10,7 @@ def generate_random_string(length):
     return ''.join(random.choice(letters) for _ in range(length))
 
 def random_cooldown(minimum: float, maximum: float) -> float:
-    min_ms = int(minimum * 1000)
-    max_ms = int(maximum * 1000)
-    return random.randint(min_ms, max_ms) / 1000
+    return random.uniform(minimum, maximum)
 
 
 async def save_guild(guild: discord.Guild,
